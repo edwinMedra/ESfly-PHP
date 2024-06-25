@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../imagen/header/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="../css/comoPuedoBuscarVuelosDisponibles.css">
+    <link rel="stylesheet" href="../css/headerr.css">
+    <link rel="stylesheet" href="../css/pie.css">
+    <!--Comentario sobre el link para importar la tipografia-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bayon&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+    <!--Fin tipografia-->
+    <!--git hub si sirve-->
+    <title>ESFLY</title>
+</head>
+<body>
+<?php 
+include("header-log.php");
+?> 
+ 
+  
+      <!--Cuerpo principal de la pagina web-->
+      <div class="back">
+        <img src="../imagen/comoPuedoBuscarVuelosDisponibles/mujer-mayor-observando-avion-desde-ventana.jpg" alt="">
+        <div class="titulo">
+            <p>¿Cómo puedo buscar vuelos disponibles?</p>
+        </div>
+    </div>
+<div class="container-fluid my-5 bg-white border border-black rounded-4 p-3" id="menu">
+    <div class="row mx-auto">
+        <div class="col-12 col-lg-9 text-right my-auto">Para buscar vuelos disponibles sigue estos pasos:</div>
+        <div class="col-12 col-lg-3 text-center"><img src="../imagen/comoPuedoBuscarVuelosDisponibles/logito.png" alt="" class="w-25 float-end"></div>
+    </div>
+    <p class="my-3 text-center"><b>paso 1.</b> Dirigete a la página de inicio y selecciona vuelos y ofertas de vuelos</p>
+    <img src="../imagen/comoPuedoBuscarVuelosDisponibles/image 83.png" alt="" class="w-100">
+    <!---->
+    <p class="my-3 text-center"><b>paso 2.</b>Te mostrará una gran cantidad de vuelos y ofertas disponibles</p>
+    <img src="../imagen/comoPuedoBuscarVuelosDisponibles/image 84.png" alt="" class="w-100">
+    <!---->
+    <p class="my-3 text-center"><b>paso 3.</b>Como PLUS te mostrará un apartado de lugares turisticos de América</p>
+    <img src="../imagen/comoPuedoBuscarVuelosDisponibles/image 85.png" alt="" class="w-100">
+    <!---->
+</div>
+   <!--Inicio de footer-->
+    <footer class="mt-3 pt-3">
+        <div class="container-fluid pt-2 ps-5"><img src="../imagen/logo.png" alt="" class="logo">
+        </div>
+        <div class="container-fluid text-white">
+        <div class="row">
+            <div class="col-6 col-sm-4 col-md-2" >
+                <ul class="">
+                    <hr>
+                    <li><h6><b>AYUDA</b></h6></li>
+                    <li>Contáctanos</li>
+                    <li>Métodos de pago</li>
+                    <li>Cambios y devoluciones</li>
+                    <li>Preguntas frecuentes</li>
+                    <li>Promociones</li>
+                </ul>
+            </div>
+            <div class="col-6 col-sm-4 col-md-2">
+                <ul class="">
+                    <hr>
+                    <li><h6><b>ACERCA</b></h6></li>
+                    <li>Ubicación</li>
+                    <li>Redes</li>
+            </div>
+            <div class="col-6 col-sm-4 col-md-2">
+                <ul class="">
+                    <hr>
+                    <li><h6><b>ACERCA</b></h6></li>
+                    <li>Ubicación</li>
+                    <li>Redes</li>
+            </div>
+            <div class="col-6 col-sm-4 col-md-2">
+                <ul class="">
+                    <hr>
+                    <li><h6><b>NOSOTROS</b></h6></li>
+                    <li>Somos ESfly</li>
+                    <li>Alianzas y Beneficios</li>
+                    <li>Accecibilidad</li>
+            </div>
+            <div class="col-6 col-sm-4 col-md-2">
+                <ul class="">
+                    <hr>
+                    <li><h6><b>NOSOTROS</b></h6></li>
+                    <li>Somos ESfly</li>
+                    <li>Alianzas y Beneficios</li>
+                    <li>Accecibilidad</li>
+            </div>
+            <div class="col-6 col-sm-4 col-md-2">
+                <ul class="">
+                    <hr>
+                    <li><h6><b>SIGUENOS</b></h6></li>
+                    <i class="bi bi-whatsapp"> 7720-9970</i><br>
+                    <i class="bi bi-instagram"> ESfly_official</i><br>
+                    <i class="bi bi-facebook"> ESfly_official</i><br>
+                    <i class="bi bi-youtube"> ESfly-official</i><br>
+            </div>
+        </div>    
+        </div>
+    </footer>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</html>

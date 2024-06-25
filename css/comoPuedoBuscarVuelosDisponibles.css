@@ -1,0 +1,34 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+body {
+  background-color: #ecebeb;
+  font-family: "red hat display";
+}
+.back img {
+  width: 100%;
+  filter: brightness(50%);
+  max-height: 800px;
+}
+.back .titulo {
+  position: absolute;
+  top: 50%;
+  color: white;
+  width: 100%;
+  text-align: center;
+  font-family: "Be vietnam pro";
+  font-size: 65px;
+}
+#menu {
+    width: 90%;
+}
+@media screen and (max-width: 768px) {
+  .back .titulo {
+    top: 20%;
+    font-size: 30px;
+  }
+  .col-12 img {
+    display: none;
+  }
+}

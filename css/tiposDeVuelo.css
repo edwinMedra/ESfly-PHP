@@ -1,0 +1,21 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+body {
+  background-color: #ecebeb;
+  font-family: "red hat display";
+}
+
+#normal {
+  background-color: #0049b6;
+}
+.col-12 p {
+  text-align: justify;
+}
+@media screen and (max-width: 768px) {
+  #normal {
+    width: 75% !important;
+    padding: 10px !important;
+  }
+}

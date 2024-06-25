@@ -1,0 +1,154 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+
+body{
+  background-color: #ECEBEB;
+  font-family: "bayon";
+}
+
+.contenedor img{
+  width: 100%;
+  height: 620px;
+  filter: brightness(55%);
+  object-fit: cover;
+
+}
+  
+.texto-superpuesto {
+  font-family: "Be Vietnam Pro";
+  color: white;
+  text-align: center;
+  font-size: 40px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 10px;
+  border-radius: 5px;
+}
+
+#carouselExampleInterval img {
+  max-height: 600px;
+}
+
+
+/*empieza galeria de viajes CON HOVER DE PRUEBA*/
+
+.image-container {
+  position: relative;
+  width: 100%;
+  height: 300px;
+}
+
+.image-container img {
+  width: 100%;
+  height: auto;
+  height: 300px;
+  border: 40px;
+  object-fit: cover;
+  border-radius: 30px;
+
+
+}
+
+.overlay {
+  border-radius: 30px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  font-family: "Be Vietnam Pro";
+}
+
+.image-container:hover .overlay {
+  opacity: 1;
+}
+
+.overlay-content {
+  text-align: center;
+}
+
+/*fin galeria de viajes*/
+
+.texto-titulo{
+  font-family: "Be Vietnam Pro";
+}
+.card-text{
+  font-family: "Be Vietnam Pro";
+}
+
+#info {
+  background-color: #273758;
+}
+
+#informa {
+  background-color: white;
+}
+
+.preparate{
+  display: flex;
+  justify-content: center;
+}
+
+.preparate .texto{
+width:100%;
+height: max-content;
+}
+
+.preparate .logito{
+  width: max-content;
+  height: max-content;
+  margin-top: 30px;
+  margin-left: 30px;
+}
+
+.preparate .logito img{
+  width: 60px;
+}
+
+.preparate .son{
+  display: flex;
+  background-color: white;
+  border-radius: 20px;
+  width: 290px;
+  margin: 20px 30px;
+  box-shadow: 10px -7px #273758;
+  text-align: center;
+  padding: 20px;
+}
+
+.preparate h3{
+  font-size: 25px;
+}
+
+/* responsive pagina web*/
+@media screen and (max-width:768px) {
+  .viaje-titulo #rectangulo img{
+    margin: 0 4px;
+  }
+  .texto-superpuesto {
+    font-size: 30px;
+    font-weight: bold;
+  }
+  .col-4 img {
+    width: 3000px;
+  }
+
+.preparate{
+  display: inline;
+}
+.preparate .son{
+  margin: 20px auto;
+}
+}
+

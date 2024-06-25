@@ -1,0 +1,81 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+.row{
+    font-family: "Be Vietnam Pro";
+
+}
+
+.img-fluid{
+    align-items: center;
+    width: 35px;
+    height: auto;
+}
+
+
+.container{
+    height: 400px;
+    width: auto;
+    font-family: "Be Vietnam Pro";
+}
+
+.img{
+    width: 28px;
+    object-fit: cover;
+}
+
+.form-label{
+    font-weight: bold;
+}
+
+
+
+.bx {
+    font-size: 20px;
+    transform: translateX(-35px);
+    cursor: pointer;
+}
+
+
+.carousel-inner img {
+    height: 100vh;
+    object-fit: cover;
+
+}
+
+.img-1{
+    background-size: cover;
+    background-position: center;
+    object-fit: cover;
+    
+}
+
+.img-2{
+    background-size: cover;
+    background-position: center;
+    object-fit: cover;
+
+}
+
+.img-3{
+    background-size: cover;
+    background-position: center;
+    object-fit: cover;
+
+}
+
+
+/* CSS DEL OJO PRUEBA 3*/
+.ojo{
+    margin-left: 46px;
+    position: absolute;
+}
+
+.bx-hide{
+    content: "\f080"; 
+}
+  .bx-show-alt {
+    content: "\f081";
+}
