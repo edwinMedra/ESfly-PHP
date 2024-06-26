@@ -1,0 +1,25 @@
+#logo {
+    width: 100px;
+}
+nav a {
+    color: #273758 !important;
+    font-family: "Be Vietnam Pro" !important;
+}
+.btn-registro {
+    background-color: #007bff;
+    color: white !important;
+}
+.btn-registro:hover {
+    background-color: #0056b3;
+    color: white !important;
+}
+.btn{
+    font-size: 15px;
+    border-radius: 30px;
+
+}
+.back img {
+    width: 100%;
+    filter: brightness(50%);
+    z-index: -1;
+}
