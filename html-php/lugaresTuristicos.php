@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="shortcut icon" href="../imagen/header/favicon.png" type="image/x-icon">
     <link rel="stylesheet" href="..//css/lugaresTuristicos.css">
-    <link rel="stylesheet" href="../css/header.css">
+    <link rel="stylesheet" href="../css/headerr.css">
     <link rel="stylesheet" href="../css/pie.css">
     <title>Lugares turisticos</title>
 </head>

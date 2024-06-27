@@ -161,7 +161,7 @@ include("header-log.php");
                 <div class="card-body">
                   <h5 class="card-title">Equipaje</h5>
                   <p class="card-text">Entérate de las condiciones que debes tener en cuenta al momento de preparar tu equipaje.</p>
-                  <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+                  <p class="card-text"><small class="text-body-secondary">Last updated 3 mins   ago</small></p>
                 </div>
             </div>
         </div>
