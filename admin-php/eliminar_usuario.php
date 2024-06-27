@@ -35,7 +35,7 @@
     <div class="col-lg-12 col-12 border border-black text-center mx-auto" id="usuT" >
                 <h5>USUARIOS</h5>
     </div>
-    <div class="container-fluid" id="tabla" >
+    <div class="container-fluid " id="tabla" >
         <div class="row">
         <div class="col-lg-2  col-12 border border-black text-center"><b>Nombre</b></div>
             <div class="col-lg-2  col-12 border border-black text-center"><b>Apellido</b></div>
