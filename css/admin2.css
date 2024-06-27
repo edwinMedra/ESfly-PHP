@@ -28,4 +28,15 @@ h5 {
 }
 #tabla {
     width: 90%;
+    }
+#tabla .col-12 {
+    font-size: 12px ;
+}
+#tabla img{
+    max-height: 40px;
+    max-width: 40px;
+    object-fit: fill;
+}
+#link {
+    padding: 0px 5px;;
 }

@@ -123,6 +123,15 @@ create table asientos (
     A6 varchar(500),
     primary key (idVuelo)
 );
+
+create table administradores(
+	idAdmin int auto_increment, -- llave primaria
+    nomAdmin varchar(200),
+    apeAdmin varchar(200),
+    pass varchar(500),
+    email varchar(500),
+    primary key (idAdmin)
+);
 -- TABLAS INTERMEDIAS:
 -- Tabla aerolineaAsistente
 create table aerolineaAsistente(
@@ -358,4 +367,5 @@ select * from asistente;
 select * from alianza;
 select * from avion;
 select * from vuelo;
-select * from usuario;
+select * from administradores;
+use aerolinea;

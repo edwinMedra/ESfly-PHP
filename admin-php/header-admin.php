@@ -1,7 +1,7 @@
 <link rel="stylesheet" href="../css/header-admin.css">
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#"><img src="../imagen/admin/Logo.png" alt="" id="logo"></a>
+            <a class="navbar-brand" href="index_admin.php"><img src="../imagen/admin/Logo.png" alt="" id="logo"></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                 aria-label="Toggle navigation">
