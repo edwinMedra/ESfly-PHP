@@ -24,7 +24,6 @@
 
 <body>
 <!--INICIA REGISTRO 3-->
-
 <section>
 
   <div class="row g-0">

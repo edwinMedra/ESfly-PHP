@@ -130,6 +130,10 @@ create table administradores(
     apeAdmin varchar(200),
     pass varchar(500),
     email varchar(500),
+    pasaporte varchar(500),
+    dui varchar(500),
+    cargo varchar(500),
+    foto longblob,
     primary key (idAdmin)
 );
 -- TABLAS INTERMEDIAS:
@@ -357,7 +361,6 @@ insert into aerolineaAlianza values
 (3, 3),
 (4, 2),
 (5, 1);
-
 -- select 
 select * from usuario;
 select * from empleado;
