@@ -8,16 +8,47 @@
     font-family: "Be Vietnam Pro";
   }
 
-  .card-formu {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    max-width: 900px;
-    min-height: 60vh;
-    width: 560rem;
+.card-formu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 900px;
+  min-height: 60vh;
+  width: 560rem;
     
-  }   
+}   
 
-  .custom-card {
-      width: 1000px; /* Ajusta el ancho de la tarjeta aquí */
-  }
+.custom-card {
+  width: 1000px; 
+}
+
+.mascotas-table{
+  border: 1px solid #ddd;
+}
+
+.mascotas-table tr, td,th {
+  border: 1px solid #ddd;
+}
+
+.check{
+  width: 20px;
+  height: 20px;
+  border: transparent;
+
+}
+
+.maleta{
+  width: 25px;
+}
+
+.tipoMas{
+  width: 250px;
+}
+
+#cantidadMascotas{
+  width: 50px;
+}
+
+#cantidadMaleta{
+  width: 50px;
+}
