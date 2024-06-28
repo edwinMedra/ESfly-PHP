@@ -26,10 +26,10 @@ include ("header-admin.php");
     <!--Estructura principal de pagina web-->
     <div class="container-fluid">
         <div class="row text-center w-25 mx-auto my-5">
-            <DIV class="col-lg-8 col-12 my-auto">
-                <p class="fs-4">EDITAR ADMINISTRADOR</p>
+            <DIV class="col-lg-9 col-12 my-auto">
+                <p class="fs-4">AGREGAR ADMINISTRADOR</p>
             </DIV>
-            <DIV class="col-lg-4 col-12"><img src="../imagen/datosCuenta/logito.png" alt="" class="w-50"></DIV>
+            <DIV class="col-lg-3 col-12"><img src="../imagen/datosCuenta/logito.png" alt="" class="w-75"></DIV>
         </div>
     </div>
     <!--Div padre de toda la tabla-->
@@ -77,7 +77,7 @@ include ("header-admin.php");
                         <label for="exampleImputEmail" class="form-label font-weight-bold">
                             <img src="../imagen/login/dui.png" class="img"> DUI</label>
                         <input type="text" class="form-control mb-2 rounded-5 border border-1 w-75"
-                            placeholder="Ingresar apellido" id="correo" name="email">
+                            placeholder="Ingresar apellido" id="correo" name="dui">
                     </div>
 
                 </div>
@@ -100,7 +100,7 @@ include ("header-admin.php");
                             <img src="../imagen/login/pasaporte.png" class="img"> Descripcion</label>
                         <div class="form-floating">
                             <textarea class="form-control w-75" id="floatingTextarea"
-                                style="height: 200px;"></textarea>
+                                style="height: 200px;" name="descri"></textarea>
                         </div>
                     </div>
                     <div class="mb-4 w-75 text-center">
@@ -121,20 +121,78 @@ include ("header-admin.php");
 <?php
 include ("conex.php");
 if (isset($_POST['crear'])){
-    $nombre = trim($_POST['name']);
-    //banderas para usar en las funciones 
-    // se establece funcion para poder reducir linea de codigo
-    function validar($variable){
-        if (strlen($variable) > 2) {
-            echo "hola mundo sapo";
+    // se establecen banderas para poder hacer la validacion de forma efectiva 
+    $banName = false;
+    $banLastname = false;
+    $banPass = false;
+    $banEmail = false;
+    $banPasporte = false;
+    $banDui = false;
+    $banCargo = false;
+    $banDescri = false;
 
-        }
+    // variables tomadas de el formulario
+    $name =  trim($_POST['name']);
+    $lastname =  trim($_POST['lastname']);
+    $pass =  trim($_POST['pass']);
+    $email =  trim($_POST['email']);
+    $pasporte =  trim($_POST['pasporte']);
+    $dui =  trim($_POST['dui']);
+    $cargo =  trim($_POST['cargo']);
+    $descri =  trim($_POST['descri']);
+
+    // establecer funcion para resumir codigo
+    
+    if (strlen($name) > 1) {
+        $banName = true;
     }
     //
-    validar($nombre);
-   /* if (strlen($nombre)  ) {
-        echo '<script>alert("es mas de 5 pa")</script>';
-    }*/
+
+    if (strlen($lastname) > 1) {
+        $banLastname = true;
+    }   
+    //
+
+    if (strlen($pass) > 1) {
+        $banPass = true;
+    }
+    //
+
+    if (strlen($email) > 1) {
+        $banEmail = true;
+    }
+    //
+    if (strlen($pasporte) > 1) {
+        $banPasporte = true;
+    }
+    //
+    if (strlen($dui) > 1) {
+        $banDui = true;
+    }
+    //
+    if (strlen($cargo) > 1) {
+        $banCargo = true;
+    }
+    if (strlen($descri) > 1) {
+        $banDescri = true;
+    }
+    $total_ban= $banName && $banLastname && $banPass && $banEmail && $banPasporte && $banDui && $banCargo && $banDescri;
+    if ($total_ban) {
+        include ("conex.php");
+        $sql = "INSERT INTO administradores(nomAdmin,apeAdmin,pass,email,pasaporte,dui,cargo,descri) VALUES('$name','$lastname','$pass','$email','$pasporte','$dui','$cargo','$descri')";
+        $resul = $conexion->query($sql);
+        if ($resul) {
+            echo '<script>alert("Si funciona")</script>';
+        }else{
+            echo '<script>alert("que paso")</script>';
+
+        }
+    }else{
+        echo '<script>alert("sapo")</script>';
+
+    }
+    
+
 }
 
 ?>
