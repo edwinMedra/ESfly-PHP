@@ -134,6 +134,7 @@ create table administradores(
     dui varchar(500),
     cargo varchar(500),
     foto longblob,
+    descri varchar(1000),
     primary key (idAdmin)
 );
 -- TABLAS INTERMEDIAS:
