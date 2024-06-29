@@ -21,7 +21,7 @@
     <?php include("header-admin.php"); ?>
     <div class="back">
         <div><img src="../imagen/admin/back.png" alt=""></div>
-        <div class="titulo text-white text-center">Editar usuarios</div>
+        <div class="titulo text-white text-center">Editar Administradores</div>
     </div>
     <div class="container-fluid my-5">
         <h2 class="text-center">Cuentas Registradas</h2>
@@ -32,9 +32,9 @@
     <div class="container-fluid" id="tabla" >
         <div class="row">
             <div class="col-lg-2  col-12 border border-black text-center"><b>Nombre</b></div>
-            <div class="col-lg-2  col-12 border border-black text-center"><b>Apellido</b></div>
+            <div class="col-lg-1  col-12 border border-black text-center"><b>Apellido</b></div>
             <div class="col-lg-1  col-12 border border-black text-center"><b>Contraseña</b></div>
-            <div class="col-lg-1  col-12 border border-black text-center"><b>Correo</b></div>
+            <div class="col-lg-2  col-12 border border-black text-center"><b>Correo</b></div>
             <div class="col-lg-1  col-12 border border-black text-center"><b>Pasaporte</b></div>
             <div class="col-lg-1  col-12 border border-black text-center"><b>Dui</b></div>
             <div class="col-lg-1  col-12 border border-black text-center"><b>Cargo</b></div>
@@ -65,9 +65,9 @@
         <div class="row">
             <!--Tabla de datos de los usuarios-->
             <div class="col-lg-2  col-12 border border-black text-center"><?php echo $nombre?></div>
-            <div class="col-lg-2  col-12 border border-black text-center"><?php echo $apellido?></div>
+            <div class="col-lg-1  col-12 border border-black text-center"><?php echo $apellido?></div>
             <div class="col-lg-1  col-12 border border-black text-center"><?php echo $pass?></div>
-            <div class="col-lg-1  col-12 border border-black text-center"><?php echo $correo?></div>
+            <div class="col-lg-2  col-12 border border-black text-center"><?php echo $correo?></div>
             <div class="col-lg-1  col-12 border border-black text-center"><?php echo $pasaporte?></div>
             <div class="col-lg-1  col-12 border border-black text-center"><?php echo $dui?></div>
             <div class="col-lg-1  col-12 border border-black text-center"><?php echo $cargo?></div>

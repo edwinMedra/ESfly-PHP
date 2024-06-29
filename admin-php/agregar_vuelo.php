@@ -111,10 +111,17 @@
                         </select>
                     </div>
                     <!--AHI EL BOTON DE ABAJO TIENE Q DIRIGIT A DONDE DECIDA EL USUARIO (PAIS) -->
-                    <a href="../html/index.html"  class=" mt-5  d-flex flex-column align-items-center btn btn-primary">Buscar Vuelo</a>
+                    <button role="submit" class=" mt-5  d-flex flex-column align-items-center btn btn-primary" name="agregar">Agregar vuelo</button>
                 </form>
             </div>
         </div>
     </div>
 </body>
 </html>
+<?php
+if (isset($_POST['agregar'])) {
+    echo '<>'
+}
+
+
+?>

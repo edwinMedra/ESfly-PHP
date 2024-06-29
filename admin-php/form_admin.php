@@ -120,7 +120,7 @@ if ($conexion){
                         <label for="exampleImputEmail" class="form-label font-weight-bold">
                             <img src="../imagen/login/pasaporte.png" class="img"> Pasaporte</label>
                         <input type="text" class="form-control mb-2 rounded-5  w-75" placeholder="Ingresar apellido"
-                            id="correo" name="pasporte" value="<?php echo $pasaporte ?>">
+                            id="correo" name="pasaporte" value="<?php echo $pasaporte ?>">
                     </div>
 
                     <div class="mb-4">
@@ -158,7 +158,7 @@ if ($conexion){
                             <a  class="btn btn-primary">Subir foto de perfil</a>
                         </label>
                         <input type="file" name="" id="fotito" class="d-none" name="foto"><br>
-                        <input class="btn btn-primary my-3" type="submit" value="Crear Administrador" name="crear">
+                        <input class="btn btn-primary my-3" type="submit" value="Actualizar Administrador" name="crear">
                     </div>
 
                 </div>
@@ -177,7 +177,7 @@ if (isset($_POST['crear'])){
     $banLastname = false;
     $banPass = false;
     $banEmail = false;
-    $banPasporte = false;
+    $banPasaporte = false;
     $banDui = false;
     $banCargo = false;
     $banDescri = false;
@@ -187,7 +187,7 @@ if (isset($_POST['crear'])){
     $lastname =  trim($_POST['lastname']);
     $pass =  trim($_POST['pass']);
     $email =  trim($_POST['email']);
-    $pasporte =  trim($_POST['pasporte']);
+    $pasaporte =  trim($_POST['pasaporte']);
     $dui =  trim($_POST['dui']);
     $cargo =  trim($_POST['cargo']);
     $descri =  trim($_POST['descri']);
@@ -213,8 +213,8 @@ if (isset($_POST['crear'])){
         $banEmail = true;
     }
     //
-    if (strlen($pasporte) > 1) {
-        $banPasporte = true;
+    if (strlen($pasaporte) > 1) {
+        $banPasaporte = true;
     }
     //
     if (strlen($dui) > 1) {
@@ -227,7 +227,7 @@ if (isset($_POST['crear'])){
     if (strlen($descri) > 1) {
         $banDescri = true;
     }
-    $total_ban= $banName && $banLastname && $banPass && $banEmail && $banPasporte && $banDui && $banCargo && $banDescri;
+    $total_ban= $banName && $banLastname && $banPass && $banEmail && $banPasaporte && $banDui && $banCargo && $banDescri;
    // parte para poder actualizar los datos de la base de datos
     if ($total_ban) {
         include ("conex.php");

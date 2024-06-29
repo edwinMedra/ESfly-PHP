@@ -60,7 +60,7 @@
     <div class="col-lg-5 col-md-12 col-sm-12 cod-flex flex-column align-items-end min-vh-100">
       
       <div class="px-lg-5 py-lg-4 p-4 w-100 align-self-center">
-        <h2 class="font-weight-bold align-self-center text-center "> <img src="../imagen/header/favicon.png" class="img-fluid me-3"><b>Editar usuario</b></h2>
+        <h2 class="font-weight-bold align-self-center text-center "> <img src="../imagen/header/favicon.png" class="img-fluid me-3"><b>Agregar usuario</b></h2>
 
         <form class="mb-2 g-0" method="post">
           <div class="mb-2 g-0">

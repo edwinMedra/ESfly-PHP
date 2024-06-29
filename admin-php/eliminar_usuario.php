@@ -18,12 +18,6 @@
 
 </style>
 <body>
-    <form action="" method="post">
-
-
-
-    
-    </form>
     <?php include("header-admin.php"); ?>
     <div class="back">
         <div><img src="../imagen/admin/back.png" alt=""></div>
