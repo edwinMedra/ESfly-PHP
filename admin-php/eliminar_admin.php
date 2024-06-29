@@ -27,7 +27,7 @@
     <?php include("header-admin.php"); ?>
     <div class="back">
         <div><img src="../imagen/admin/back.png" alt=""></div>
-        <div class="titulo text-white text-center">Eliminar usuarios</div>
+        <div class="titulo text-white text-center">Eliminar Administradores</div>
     </div>
     <div class="container-fluid my-5">
         <h2 class="text-center">Cuentas Registradas</h2>
@@ -76,11 +76,6 @@
             <div class="col-lg-1  col-12 border border-black text-center"><img src="data:image/jpg;base64,<?php echo base64_encode($foto)?>" alt="" class="w-75 rounded-circle"></div>
             <div class="col-lg-1  col-12 border border-black text-center"><?php echo $idCliente?></div>
             <div class="col-lg-1  col-12 border border-black text-center p-1"><a type="submit" role="button" class="btn btn-danger" id="link" href="eliminar-usu.php?idCliente=<?php echo $idCliente ?>">Eliminar</a></div>
-            <?php
-            if (isset($_POST['delete'])) {
-                echo '<script>alert("Si funciona")</script>';
-            }
-            ?>
             <!---->
         </div>
     </div>

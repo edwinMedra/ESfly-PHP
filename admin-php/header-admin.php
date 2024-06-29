@@ -18,7 +18,7 @@
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="agregar_admin.php">Agregar</a></li>
                             <li><a class="dropdown-item" href="editar_admin.php">Editar</a></li>
-                            <li><a class="dropdown-item" href="elimnar_admin.php">Eliminar</a></li>
+                            <li><a class="dropdown-item" href="eliminar_admin.php">Eliminar</a></li>
                         </ul>
                     </li>
                     <!---->
@@ -31,7 +31,7 @@
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="agregar_empleado.php">Agregar</a></li>
                             <li><a class="dropdown-item" href="editar_empleado.php">Editar</a></li>
-                            <li><a class="dropdown-item" href="elimnar_empleado.php">Eliminar</a></li>
+                            <li><a class="dropdown-item" href="eliminar_empleado.php">Eliminar</a></li>
                         </ul>
                     </li>
                     <!---->
@@ -48,6 +48,17 @@
                         </ul>
                     </li>
                     <!---->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Vuelos
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="agregar_vuelo.php">Agregar</a></li>
+                            <li><a class="dropdown-item" href="editar_vuelo.php">Editar</a></li>
+                            <li><a class="dropdown-item" href="eliminar_vuelo.php">Eliminar</a></li>
+                        </ul>
+                    </li>
 
                 </ul>
                 <a class="btn btn-registro ms-1 " href="../html/registro.php" type="submit">Cerrar Sesión</a>

@@ -12,7 +12,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Bayon&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../css/admin2.css">
+    <link rel="stylesheet" href="../css/admin3.css">
 </head>
 <style>
 
@@ -73,7 +73,7 @@
             <div class="col-lg-1  col-12 border border-black text-center"><?php echo $cargo?></div>
             <div class="col-lg-1  col-12 border border-black text-center"><?php echo $idAdmin?></div>
             <div class="col-lg-1  col-12 border border-black text-center"><img src="data:image/jpg;base64,<?php echo base64_encode($foto)?>" alt="" class="w-75 rounded-circle"></div>
-            <div class="col-lg-1  col-12 border border-black text-center p-1"><a class="btn btn-primary" href="form-usuario.php?idAdmin=<?php echo $idAdmin?> " role="button" id="link">Editar</a></div>            
+            <div class="col-lg-1  col-12 border border-black text-center p-1"><a class="btn btn-primary" href="form_admin.php?idAdmin=<?php echo $idAdmin?> " role="button" id="link">Editar</a></div>            
             <!---->
         </div>
     </div>

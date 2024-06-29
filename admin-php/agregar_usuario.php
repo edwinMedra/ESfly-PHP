@@ -123,7 +123,7 @@
     $insert = "INSERT INTO usuario(nomCliente,apeCliente,pass,correo,pasaporte,dui) VALUES ('$nombre','$apellido','$pass','$email','$pasaporte','$dui')";
     $resul = $conexion->query($insert);
      if ($resul) {
-      echo '<script>alert("Usuario Agregado con exito");</script>';
+      echo '<script>alert("Usuario '. $nombre .' Agregado con exito");</script>';
      }
   }
 ?>

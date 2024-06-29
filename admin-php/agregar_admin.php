@@ -91,7 +91,7 @@ include ("header-admin.php");
                             <option value="Administrador de Operaciones">Administrador de Operaciones</option>
                             <option value="Administrador de gestión">Administrador de gestión</option>
                             <option value="Administrador de Proyectos">Administrador de Proyectos</option>
-                            <option value="">Administrador de Ventas y Marketing</option>
+                            <option value="Administrador de Ventas y Marketing">Administrador de Ventas y Marketing</option>
                         </select>
                     </div>
 
@@ -117,6 +117,7 @@ include ("header-admin.php");
         </form>
     </div>
 </body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </html>
 <?php
 include ("conex.php");
@@ -182,7 +183,7 @@ if (isset($_POST['crear'])){
         $sql = "INSERT INTO administradores(nomAdmin,apeAdmin,pass,email,pasaporte,dui,cargo,descri) VALUES('$name','$lastname','$pass','$email','$pasporte','$dui','$cargo','$descri')";
         $resul = $conexion->query($sql);
         if ($resul) {
-            echo '<script>alert("Si funciona")</script>';
+            echo '<script>alert("Administrador '. $name . ' Agregado con exito")</script>';
         }else{
             echo '<script>alert("Error al ingresar datos del administrador")</script>';
 

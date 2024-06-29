@@ -23,11 +23,61 @@
 <?php 
 include ("header-admin.php");
 ?>
+<?php
+$idAdmin1 = $_GET['idAdmin'];
+include("conex.php");
+if ($conexion){
+  $select = "SELECT * FROM administradores WHERE idAdmin='$idAdmin1'";
+  $resul = $conexion->query($select);
+  if ($resul){
+    while ($row = $resul->fetch_array()){
+      $name = $row['nomAdmin'];
+      $lastname = $row['apeAdmin'];
+      $pass = $row['pass'];
+      $email = $row['email'];
+      $pasaporte = $row['pasaporte'];
+      $dui = $row['dui'];
+      $cargo = $row['cargo'];
+      $descri = $row['descri'];
+      $idAdmin = $row['idAdmin'];
+      // condicional para verificar que el input de select tenga el dato correcto
+      // para primer rol
+      // segunda funcion
+
+      function select1($dato){
+        if ($dato == "Administrador de Operaciones")  {
+            echo "selected";
+        }
+      }
+
+      function select2($dato){
+        if ($dato == "Administrador de gestión")  {
+            echo "selected";
+        }
+      }
+
+      function select3($dato){
+        if ($dato == "Administrador de Proyectos")  {
+            echo "selected";
+        }
+      }
+
+      function select4($dato){
+        if ($dato == "Administrador de Ventas y Marketing")  {
+            echo "selected";
+        }
+      }
+
+
+    }
+  }
+}
+?>
     <!--Estructura principal de pagina web-->
     <div class="container-fluid">
         <div class="row text-center w-25 mx-auto my-5">
             <DIV class="col-lg-9 col-12 my-auto">
-                <p class="fs-4">AGREGAR ADMINISTRADOR</p>
+                <p class="fs-4">EDITAR ADMINISTRADOR</p>
             </DIV>
             <DIV class="col-lg-3 col-12"><img src="../imagen/datosCuenta/logito.png" alt="" class="w-75"></DIV>
         </div>
@@ -42,42 +92,42 @@ include ("header-admin.php");
                         <label for="exampleImputEmail" class="form-label font-weight-bold">
                             <img src="../imagen/login/nombre.png" class="img"> Nombre</label>
                         <input type="text" class="form-control mb-2 rounded-5  w-75" placeholder="Ingresar nombre"
-                            id="correo" name="name">
+                            id="correo" name="name" value="<?php echo $name ?>">
                     </div>
 
                     <div class="mb-4">
                         <label for="exampleImputEmail" class="form-label font-weight-bold">
                             <img src="../imagen/login/apellido.png" class="img"> Apellido</label>
                         <input type="text" class="form-control mb-2 rounded-5  w-75" placeholder="Ingresar apellido"
-                            id="correo" name="lastname">
+                            id="correo" name="lastname" value="<?php echo $lastname ?>">
                     </div>
 
                     <div class="mb-4">
                         <label for="exampleImputEmail" class="form-label font-weight-bold">
                             <img src="../imagen/login/contraseña.png" class="img"> Contraseña</label>
-                        <input type="password" class="form-control mb-2 rounded-5  w-75" placeholder="Ingresar apellido"
-                            id="correo" name="pass">
+                        <input type="text" class="form-control mb-2 rounded-5  w-75" placeholder="Ingresar apellido"
+                            id="correo" name="pass" value="<?php echo $pass ?>">
                     </div>
 
                     <div class="mb-4">
                         <label for="exampleImputEmail" class="form-label font-weight-bold">
                             <img src="../imagen/login/correo.png" class="img"> Correo</label>
                         <input type="email" class="form-control mb-2 rounded-5  w-75" placeholder="Ingresar apellido"
-                            id="correo" name="email">
+                            id="correo" name="email" value="<?php echo $email ?>">
                     </div>
 
                     <div class="mb-4">
                         <label for="exampleImputEmail" class="form-label font-weight-bold">
                             <img src="../imagen/login/pasaporte.png" class="img"> Pasaporte</label>
                         <input type="text" class="form-control mb-2 rounded-5  w-75" placeholder="Ingresar apellido"
-                            id="correo" name="pasporte">
+                            id="correo" name="pasporte" value="<?php echo $pasaporte ?>">
                     </div>
 
                     <div class="mb-4">
                         <label for="exampleImputEmail" class="form-label font-weight-bold">
                             <img src="../imagen/login/dui.png" class="img"> DUI</label>
                         <input type="text" class="form-control mb-2 rounded-5 border border-1 w-75"
-                            placeholder="Ingresar apellido" id="correo" name="dui">
+                            placeholder="Ingresar apellido" id="correo" name="dui" value="<?php echo $dui ?>">
                     </div>
 
                 </div>
@@ -88,10 +138,10 @@ include ("header-admin.php");
                             <img src="../imagen/login/nombre.png" class="img"> Cargo</label>
                         <select name="cargo" class="form-control w-75 rounded-5 mb-2" id="correo">
                             <option value="">Elige el cargo</option>
-                            <option value="Administrador de Operaciones">Administrador de Operaciones</option>
-                            <option value="Administrador de gestión">Administrador de gestión</option>
-                            <option value="Administrador de Proyectos">Administrador de Proyectos</option>
-                            <option value="">Administrador de Ventas y Marketing</option>
+                            <option value="Administrador de Operaciones" <?php select1($cargo) ?>>Administrador de Operaciones</option>
+                            <option value="Administrador de gestión" <?php select2($cargo) ?>>Administrador de gestión</option>
+                            <option value="Administrador de Proyectos" <?php select3($cargo) ?> >Administrador de Proyectos</option>
+                            <option value="Administrador de Ventas y Marketing" <?php select4($cargo) ?>>Administrador de Ventas y Marketing</option>
                         </select>
                     </div>
 
@@ -100,7 +150,7 @@ include ("header-admin.php");
                             <img src="../imagen/login/pasaporte.png" class="img"> Descripcion</label>
                         <div class="form-floating">
                             <textarea class="form-control w-75" id="floatingTextarea"
-                                style="height: 200px;" name="descri"></textarea>
+                                style="height: 200px;" name="descri"><?php echo $descri ?></textarea>
                         </div>
                     </div>
                     <div class="mb-4 w-75 text-center">
@@ -117,6 +167,7 @@ include ("header-admin.php");
         </form>
     </div>
 </body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </html>
 <?php
 include ("conex.php");
@@ -177,12 +228,13 @@ if (isset($_POST['crear'])){
         $banDescri = true;
     }
     $total_ban= $banName && $banLastname && $banPass && $banEmail && $banPasporte && $banDui && $banCargo && $banDescri;
+   // parte para poder actualizar los datos de la base de datos
     if ($total_ban) {
         include ("conex.php");
-        $sql = "INSERT INTO administradores(nomAdmin,apeAdmin,pass,email,pasaporte,dui,cargo,descri) VALUES('$name','$lastname','$pass','$email','$pasporte','$dui','$cargo','$descri')";
-        $resul = $conexion->query($sql);
+        $update = "UPDATE administradores set nomAdmin='$name', apeAdmin='$lastname', pass='$pass', email='$email', pasaporte='$pasaporte', dui='$dui' , cargo='$cargo',descri='$descri' where idAdmin='$idAdmin' ";
+        $resul = $conexion->query($update);
         if ($resul) {
-            echo '<script>alert("Si funciona")</script>';
+            echo '<script>alert("Administrador '. $name .' Actualizado con exito")</script>';
         }else{
             echo '<script>alert("Error al ingresar datos del administrador")</script>';
 
