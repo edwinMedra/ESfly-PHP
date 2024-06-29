@@ -22,19 +22,21 @@
             <h3 class="card-title text-center mt-5">Reservar Vuelo Especial</h3>
             <form>
                 <div class="form-group mb-3">
-                    <label for="nombreCompleto">Nombre Completo </span></label>
+                    <label for="nombreCompleto">Nombre Completo de usuario</span></label>
                     <input type="text" class="form-control" id="nombreCompleto" disabled selected value="Patito Juan Pérez Gonzales" readonly>
                 </div>
                 <div class="form-group mb-3">
-                    <label for="dui">DUI </label>
+                    <label for="dui">DUI de usuario </label>
                     <input type="text" class="form-control" id="dui" disabled selected value="03387626-4" readonly>
                 </div>
                 <div class="form-group mb-3">
-                    <label for="pasaporte">Pasaporte </label>
+                    <label for="pasaporte">Pasaporte de usuario </label>
                     <input type="text" class="form-control" id="pasaporte" disabled selected value="3818970" readonly>
                 </div>
+
                 <div class="form-group mb-3">
                     <label>Boleto para: </label>
+
                     <div>
                         <div class="form-check form-check-inline mb-3">
                             <input class="form-check-input" type="radio" name="boletoPara" id="paraMi" value="paraMi" checked>
@@ -50,10 +52,47 @@
                         </div>
                     </div>
                 </div>
+
+
+                <div class="form-group mb-3">
+                    <label>Su hijo es menor de edad? </label>
+
+                    <div>
+                        <div class="form-check form-check-inline mb-3">
+                            <input class="form-check-input" type="radio" name="menorEdad" id="edad" value="edad" checked>
+                            <label class="form-check-label" >Si</label>
+                        </div>
+
+                        <div class="form-check form-check-inline mb-3">
+                            <input class="form-check-input" type="radio" name="menorEdad" id="edad" value="edad" >
+                            <label class="form-check-label" >No</label>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="form-group mb-3">
+                    <label>Subir partida de nacimiento reciente: </label>
+
+                    <form  class="ms-5" action="/upload" method="post" enctype="multipart/form-data">
+                        <label  class="ms-5 "> </label>
+                        <input type="file" id="" name="" accept="image/*">
+                    </form>
+
+
+                </div>   
+
                 <div class="form-group mb-3">
                     <label for="nombrePasajero">Nombre completo del pasajero <span class="text-danger">*</span></label>
                     <input type="text" class="form-control" id="nombrePasajero">
                 </div>
+
+
+                <div class="form-group mb-3">
+                    <label for="dui">DUI del pasajero </label>
+                    <input type="text" class="form-control" id="dui" >
+                </div>
+
                 <div class="form-group mb-3">
                     <label for="tipoIncapacidad">Tipo de incapacidad del pasajero <span class="text-danger">*</span></label>
                     <select class="form-control" id="tipoIncapacidad">
@@ -65,6 +104,37 @@
 
                     </select>
                 </div>
+
+
+                <div class="form-group mb-3">
+                    <label>El pasajero llevará acompañante? </label>
+
+                    <div>
+                        <div class="form-check form-check-inline mb-3">
+                            <input class="form-check-input" type="radio" name="acompañante" id="" value="" checked>
+                            <label class="form-check-label" >Si</label>
+                        </div>
+
+                        <div class="form-check form-check-inline mb-3">
+                            <input class="form-check-input" type="radio" name="acompañante" id="" value="" >
+                            <label class="form-check-label" >No</label>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="form-group mb-3">
+                    <label for="nombrePasajero">Nombre completo del acompañante <span class="text-danger">*</span></label>
+                    <input type="text" class="form-control" id="nombrePasajero">
+                </div>
+
+
+                <div class="form-group mb-3">
+                    <label for="dui">DUI del acompañante </label>
+                    <input type="text" class="form-control" id="dui" >
+                </div>
+
+                <h5 class="card-title text-center mt-5">Mascotas en el vuelo: </h5>
                 <div class="form-group mb-3">
                     <label>Mascotas en el vuelo <span class="text-danger">*</span></label>
                     <div>
@@ -78,32 +148,134 @@
                         </div>
                     </div>
                 </div>
-                 
-                <div class="form-group mb-3">
-                    <label for="cantidadMascotas">Cantidad de mascotas <span class="text-danger">*</span></label>
-                    <select class="form-control" id="cantidadMascotas" >
-                        <option value="0">-</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                    </select>
-                </div>
-                <div class="form-group mb-3">
-                    <label for="tipoMaletas mb-3">Tipo de maletas <span class="text-danger">*</span></label>
-                    <select class="form-control" id="tipoMaletas">
-                        <option value="" >Artículo personal</option>
-                        <option value="equipajeMano">Equipaje de mano</option>
-                        <option value="equipajeFacturado">Equipaje de bodega</option>
-                    </select>
-                </div>
-                <div class="form-group mb-3">
-                    <label for="cantidadMaletas mb-3">Cantidad de maletas <span class="text-danger">*</span></label>
-                    <select class="form-control" id="cantidadMaletas">
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                    </select>
-                </div>
+
+                <!--TABLA DE LAS MASCOTAS (aun no confirmada)-->
+                <table class=" mascotas-table table   text-center">
+
+                    <thead>
+                        <tr>
+                            <th>Tipo</th>
+                            <th>Mi mascota</th>
+                            <th>Cantidad</th>
+                            <th>Apoyo Emocional</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+
+                        <tr>
+                            <td class="tipoMas">Perro</td>
+                            <td><input type="checkbox" class="check"></td>
+                            <td>
+                                <select class=" ms-5 text-center form-control" id="cantidadMascotas">
+                                    <option value="0">0</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                </select>
+                            </td>
+                            <td><input type="checkbox" class="check"></td>
+                        </tr>
+
+                        <tr>
+                            <td class="tipoMas">Gato</td>
+                            <td><input type="checkbox" class="check"></td>
+                            <td>
+                                <select class="ms-5 text-center form-control" id="cantidadMascotas">
+                                    <option value="0">0</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                </select>
+                            </td>
+                            <td><input type="checkbox" class="check" disabled selected value=""></td>
+                        </tr>
+
+                        <tr>
+                            <td class="tipoMas">Gallina</td>
+                            <td><input type="checkbox" class="check"></td>
+                            <td>
+                                <select class="ms-5 text-center form-control" id="cantidadMascotas">
+                                    <option value="0">0</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                </select>
+                            </td>
+                            <td><input type="checkbox" class="check" disabled selected value=""></td>
+                        </tr>
+
+                    </tbody>
+                </table>
+                <!-- FIN TABLA DE LAS MASCOTAS -->
+
+
+            
+                <h5 class="card-title text-center mt-5">Equipaje: </h5>
+
+
+                <!--TABLA DE LAS MALETAS (aun no confirmada)-->
+                <table class=" mt-5 mascotas-table table   text-center">
+
+                    <thead>
+                        <tr>
+                            <th>Tipo maleta</th>
+                            <th>Mi maleta</th>
+                            <th>Cantidad</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+
+                        <tr>
+                            <td class="tipoMas">Artículo personal</td>
+                            <td><input type="checkbox" class="check"></td>
+                            <td class="maleta me-3">
+                                <select class=" text-center form-control" id="cantidadMaleta">
+                                    <option value="0">0</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                </select>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="tipoMas">Equipaje de mano</td>
+                            <td><input type="checkbox" class="check"></td>
+                            <td class="maleta me-3">
+                                <select class=" text-center form-control" id="cantidadMaleta">
+                                    <option value="0">0</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                </select>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="tipoMas">Equipaje de bodega</td>
+                            <td><input type="checkbox" class="check"></td>
+                            <td class="maleta me-3" >
+                                <select class=" text-center form-control" id="cantidadMaleta">
+                                    <option value="0">0</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                </select>
+                            </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+                <!-- FIN TABLA DE LAS MALETAS -->
+               
                 <div class="d-flex justify-content-between">
                     <button type="button" class="btn btn-secondary">Atrás</button>
                     <button type="submit" class="btn btn-primary">Siguiente</button>
