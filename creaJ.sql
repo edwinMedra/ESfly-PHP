@@ -104,6 +104,7 @@ create table avion(
 -- Tabla vuelo
 create table vuelo(
 	idVuelo int auto_increment,
+    origen varchar(500),
 	destino varchar(100),
     fechaSalida datetime,
     fechaEntrada datetime,
@@ -217,7 +218,7 @@ create table aerolineaVuelo(
     foreign key (idAero) references aerolinea(idAero)
   );
   -- INSERTANDO DATOS: 
-
+/*
 -- Ingreso de datos de usuario
 Insert into usuario values 
 ("Miguel", "López", "Masculino","11110", "miguel.lopez@gmail.com", "Casa #10, Colonia San Benito, San Salvador, El Salvador","2222-1234", "SV1234567", "00123456-8", null),
@@ -361,9 +362,10 @@ insert into aerolineaAlianza values
 (2, 4),
 (3, 3),
 (4, 2),
-(5, 1);
+(5, 1);*/
 -- select 
 select * from usuario;
+select * from asientos;
 select * from empleado;
 select * from aerolinea;
 select * from aeropuerto;
