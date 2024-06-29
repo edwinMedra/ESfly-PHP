@@ -184,11 +184,11 @@ if (isset($_POST['crear'])){
         if ($resul) {
             echo '<script>alert("Si funciona")</script>';
         }else{
-            echo '<script>alert("que paso")</script>';
+            echo '<script>alert("Error al ingresar datos del administrador")</script>';
 
         }
     }else{
-        echo '<script>alert("sapo")</script>';
+        echo '<script>alert("Cantidad de caracteres incorrectos, Complete los datos")</script>';
 
     }
     
