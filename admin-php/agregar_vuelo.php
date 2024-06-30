@@ -22,7 +22,7 @@
         <div class=" card-buscar card p-4">
             <div class="card-body">
                 <h5 class="card-title text-center text-formu ">Crear Vuelo: </h5>
-                <form class="form-inline justify-content-center" method="post">
+                <form class="form-inline justify-content-center" method="post" enctype="multipart/form-data">
 
 
                     <div class="form-group mt-4">
@@ -82,7 +82,7 @@
                     <div class="form-group mt-4">
                         <label for="Destino" class="text-titulo text-formu">País de Destino: </label>
                         <select class="form-control" id="Destino" name="destino">
-                        <option value="">Seleccionar país de destino</option>
+                            <option value="">Seleccionar país de destino</option>
                             <option value="Antigua y Barbuda">Antigua y Barbuda</option>
                             <option value="Argentina">Argentina</option>
                             <option value="Bahamas">Bahamas</option>
@@ -125,6 +125,15 @@
                         <label class="text-formu">Precio de vuelo: </label>
                         <input type="text7" class="form-control" id="fechaVuelo" placeholder="Precio" name="precio">
                     </div>
+
+                    <div class="form-group mt-4">
+                        <label class="text-formu">Colocar fotografía </label>
+                        <label for="foto">
+                            <a role="button" class="mx-3  d-flex flex-column align-items-center btn btn-primary" name="agregar">Subir Fotografía</a>
+                            <input type="file" class="form-control d-none" id="foto" name="foto">
+                        </label>
+                    </div>
+
                     <button role="submit" class=" mt-5  d-flex flex-column align-items-center btn btn-primary" name="agregar">Agregar vuelo</button>
                 </form>
             </div>
@@ -142,12 +151,20 @@ if (isset($_POST['agregar'])) {
     $destino = $_POST['destino'];
     $precio = trim($_POST['precio']);
     $precio_float = floatval($precio);
-    include("conex.php");
-    $insert = "INSERT INTO vuelo(origen,destino,fechaSalida,fechaEntrada,precio) VALUES('$origen','$destino','$fechaSalida', '$fechaEntrada','$precio_float')";
-    $resul = $conexion->query($insert);
-    if ($resul) {
-        echo '<script>alert("Vuelo agregado con exito")</script>';
+    $foto = $_FILES['foto']['error'];
+
+    if ($foto) {
+        echo '<script>alert("Es obligatorio el ingreso de una fotografía")</script>';
+    } else {
+        include("conex.php");
+        $foto = addslashes(file_get_contents($_FILES['foto']['tmp_name']));
+        $insert = "INSERT INTO vuelo(origen,destino,fechaSalida,fechaEntrada,precio,foto) VALUES('$origen','$destino','$fechaSalida', '$fechaEntrada','$precio_float','$foto')";
+        $resul = $conexion->query($insert);
+        if ($resul) {
+            echo '<script>alert("Vuelo agregado con exito")</script>';
+        }
     }
+    // parte para insertar vuelo
 }
 
 

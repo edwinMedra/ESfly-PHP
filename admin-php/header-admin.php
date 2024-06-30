@@ -61,7 +61,7 @@
                     </li>
 
                 </ul>
-                <a class="btn btn-registro ms-1 " href="../html/registro.php" type="submit">Cerrar Sesión</a>
+                <a class="btn btn-registro ms-1 " href="cerrar.php" type="button">Cerrar Sesión</a>
                 <a href="../html/busqueda.html" class="btn  btn-primary-outline ms-1" type="submit"><img
                         src="../imagen/header/lupa.png" class="" id="lupa" alt="" width="30"> Buscar</a>
             </div>

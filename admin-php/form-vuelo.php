@@ -292,7 +292,7 @@
         <div class=" card-buscar card p-4">
             <div class="card-body">
                 <h5 class="card-title text-center text-formu ">Editar Vuelo: </h5>
-                <form class="form-inline justify-content-center" method="post">
+                <form class="form-inline justify-content-center" method="post" enctype="multipart/form-data">
 
 
                     <div class="form-group mt-4">
@@ -396,6 +396,13 @@
                         <label class="text-formu">Precio de vuelo: </label>
                         <input type="text" class="form-control" id="fechaVuelo" placeholder="Precio" name="precio" value="<?php echo $precio ?>">
                     </div>
+                    <div class="form-group mt-4">
+                        <label class="text-formu">Colocar fotografía </label>
+                        <label for="foto">
+                            <a role="button" class="mx-3  d-flex flex-column align-items-center btn btn-primary" name="agregar">Subir Fotografía</a>
+                            <input type="file" class="form-control d-none" id="foto"  name="foto">
+                        </label>
+                    </div>
                     <!--AHI EL BOTON DE ABAJO TIENE Q DIRIGIT A DONDE DECIDA EL USUARIO (PAIS) -->
                     <button role="submit" class=" mt-5  d-flex flex-column align-items-center btn btn-primary" name="editar">Editar vuelo</button>
                 </form>
@@ -413,12 +420,25 @@ if (isset($_POST['editar'])) {
     $destino = $_POST['destino'];
     $precio = trim($_POST['precio']);
     $precio_float = floatval($precio);
-    include("conex.php");
-    $update = "UPDATE vuelo set origen='$origen', destino='$destino', fechaEntrada='$fechaEntrada', fechaSalida='$fechaSalida', precio='$precio' where idVuelo='$idVuelo'";
-    $resul = $conexion->query($update);
-    if ($resul) {
-        echo '<script>alert("Vuelo modificado con exito")</script>';
+    // evaluar si hay una imagen 
+    $foto = $_FILES['foto']['error'];
+    if ($foto) {
+        $update = "UPDATE vuelo set origen='$origen', destino='$destino', fechaEntrada='$fechaEntrada', fechaSalida='$fechaSalida', precio='$precio' where idVuelo='$idVuelo'";
+        $resul = $conexion->query($update);
+        if ($resul) {
+            echo '<script>alert("Vuelo modificado con exito")</script>';
+        }
+    }else{
+        $foto = addslashes(file_get_contents($_FILES['foto']['tmp_name']));
+        include("conex.php");
+        $update = "UPDATE vuelo set origen='$origen', destino='$destino', fechaEntrada='$fechaEntrada', fechaSalida='$fechaSalida', precio='$precio', foto='$foto' where idVuelo='$idVuelo'";
+        $resul = $conexion->query($update);
+        if ($resul) {
+            echo '<script>alert("Vuelo modificado con exito")</script>';
+        }
     }
+
+   
 }
 
 

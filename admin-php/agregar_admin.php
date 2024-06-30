@@ -107,7 +107,7 @@ include ("header-admin.php");
                         <label for="fotito">
                             <a  class="btn btn-primary">Subir foto de perfil</a>
                         </label>
-                        <input type="file" name="" id="fotito" class="d-none" name="foto"><br>
+                        <input type="file"  id="fotito" class="d-none" name="foto"><br>
                         <input class="btn btn-primary my-3" type="submit" value="Crear Administrador" name="crear">
                     </div>
 
@@ -141,7 +141,7 @@ if (isset($_POST['crear'])){
     $dui =  trim($_POST['dui']);
     $cargo =  trim($_POST['cargo']);
     $descri =  trim($_POST['descri']);
-
+    $foto = $_FILES['foto']['error'];
     // establecer funcion para resumir codigo
     
     if (strlen($name) > 1) {
@@ -179,15 +179,34 @@ if (isset($_POST['crear'])){
     }
     $total_ban= $banName && $banLastname && $banPass && $banEmail && $banPasporte && $banDui && $banCargo && $banDescri;
     if ($total_ban) {
-        include ("conex.php");
-        $sql = "INSERT INTO administradores(nomAdmin,apeAdmin,pass,email,pasaporte,dui,cargo,descri) VALUES('$name','$lastname','$pass','$email','$pasporte','$dui','$cargo','$descri')";
-        $resul = $conexion->query($sql);
-        if ($resul) {
-            echo '<script>alert("Administrador '. $name . ' Agregado con exito")</script>';
-        }else{
-            echo '<script>alert("Error al ingresar datos del administrador")</script>';
+
+        if ($foto) {
+
+            include ("conex.php");
+            $sql = "INSERT INTO administradores(nomAdmin,apeAdmin,pass,email,pasaporte,dui,cargo,descri) VALUES('$name','$lastname','$pass','$email','$pasporte','$dui','$cargo','$descri')";
+            $resul = $conexion->query($sql);
+            if ($resul) {
+                echo '<script>alert("Administrador '. $name . ' Agregado con exito")</script>';
+            }else{
+                echo '<script>alert("Error al ingresar datos del administrador")</script>';
+            }
+
+        } else {
+            
+            include ("conex.php");
+            $foto = addslashes(file_get_contents($_FILES['foto']['name']));
+            $sql = "INSERT INTO administradores(nomAdmin,apeAdmin,pass,email,pasaporte,dui,cargo,descri,foto) VALUES('$name','$lastname','$pass','$email','$pasporte','$dui','$cargo','$descri',$foto)";
+            $resul = $conexion->query($sql);
+            if ($resul) {
+                echo '<script>alert("Administrador '. $name . ' Agregado con exito")</script>';
+            }else{
+                echo '<script>alert("Error al ingresar datos del administrador")</script>';
+            }
 
         }
+        
+
+   
     }else{
         echo '<script>alert("Cantidad de caracteres incorrectos, Complete los datos")</script>';
 

@@ -62,7 +62,7 @@
       <div class="px-lg-5 py-lg-4 p-4 w-100 align-self-center">
         <h2 class="font-weight-bold align-self-center text-center "> <img src="../imagen/header/favicon.png" class="img-fluid me-3"><b>Agregar usuario</b></h2>
 
-        <form class="mb-2 g-0" method="post">
+        <form class="mb-2 g-0" method="post" enctype="multipart/form-data">
           <div class="mb-2 g-0">
             <label for="exampleImputEmail" class="form-label font-weight-bold">
               <img src="../imagen/login/nombre.png" class="img"> Nombre</label>
@@ -101,6 +101,10 @@
               <img src="../imagen/login/dui.png" class="img"> DUI</label>
             <input type="text" class="form-control mb-2" placeholder="Dui" id="dui" name="dui">
           </div>
+          <label for="foto" class=" ">
+          <a type="button" class="btn btn-primary w-100 mt-3 mx-auto" >Subir fotografía</a>
+          <input type="file" name="foto" id="foto" class="d-none">
+          </label>
           <button type="submit" class="btn btn-primary w-100 mt-3" name="crear">Crear</button>
         </form>
         </div>
@@ -120,10 +124,24 @@
     $email = trim($_POST['email']);
     $pasaporte =  trim($_POST['pasaporte']);
     $dui = trim($_POST['dui']);
-    $insert = "INSERT INTO usuario(nomCliente,apeCliente,pass,correo,pasaporte,dui) VALUES ('$nombre','$apellido','$pass','$email','$pasaporte','$dui')";
-    $resul = $conexion->query($insert);
-     if ($resul) {
-      echo '<script>alert("Usuario '. $nombre .' Agregado con exito");</script>';
-     }
+    $foto = $_FILES['foto']['error'];
+
+    if ($foto) {
+      $insert = "INSERT INTO usuario(nomCliente,apeCliente,pass,correo,pasaporte,dui) VALUES ('$nombre','$apellido','$pass','$email','$pasaporte','$dui')";
+      $resul = $conexion->query($insert);
+       if ($resul) {
+        echo '<script>alert("Usuario '. $nombre .' Agregado con exito");</script>';
+       }
+    } else {
+      $foto = addslashes(file_get_contents($_FILES['foto']['tmp_name']));
+      $insert = "INSERT INTO usuario(nomCliente,apeCliente,pass,correo,pasaporte,dui, foto) VALUES ('$nombre','$apellido','$pass','$email','$pasaporte','$dui','$foto')";
+      $resul = $conexion->query($insert);
+       if ($resul) {
+        echo '<script>alert("Usuario '. $nombre .' Agregado con exito");</script>';
+       }
+    }
+    
+
+
   }
 ?>

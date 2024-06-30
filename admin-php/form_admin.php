@@ -157,7 +157,7 @@ if ($conexion){
                         <label for="fotito">
                             <a  class="btn btn-primary">Subir foto de perfil</a>
                         </label>
-                        <input type="file" name="" id="fotito" class="d-none" name="foto"><br>
+                        <input type="file" id="fotito" class="d-none" name="foto"><br>
                         <input class="btn btn-primary my-3" type="submit" value="Actualizar Administrador" name="crear">
                     </div>
 
@@ -191,7 +191,7 @@ if (isset($_POST['crear'])){
     $dui =  trim($_POST['dui']);
     $cargo =  trim($_POST['cargo']);
     $descri =  trim($_POST['descri']);
-
+    $foto = $_FILES['foto']['error'];
     // establecer funcion para resumir codigo
     
     if (strlen($name) > 1) {
@@ -230,15 +230,35 @@ if (isset($_POST['crear'])){
     $total_ban= $banName && $banLastname && $banPass && $banEmail && $banPasaporte && $banDui && $banCargo && $banDescri;
    // parte para poder actualizar los datos de la base de datos
     if ($total_ban) {
-        include ("conex.php");
-        $update = "UPDATE administradores set nomAdmin='$name', apeAdmin='$lastname', pass='$pass', email='$email', pasaporte='$pasaporte', dui='$dui' , cargo='$cargo',descri='$descri' where idAdmin='$idAdmin' ";
-        $resul = $conexion->query($update);
-        if ($resul) {
-            echo '<script>alert("Administrador '. $name .' Actualizado con exito")</script>';
+
+        if ($foto){
+            include ("conex.php");
+            $update = "UPDATE administradores set nomAdmin='$name', apeAdmin='$lastname', pass='$pass', email='$email', pasaporte='$pasaporte', dui='$dui' , cargo='$cargo',descri='$descri' where idAdmin='$idAdmin' ";
+            $resul = $conexion->query($update);
+            if ($resul) {
+                echo '<script>alert("Administrador '. $name .' Actualizado con exito")</script>';
+            }else{
+                echo '<script>alert("Error al ingresar datos del administrador")</script>';
+    
+            }
         }else{
-            echo '<script>alert("Error al ingresar datos del administrador")</script>';
+            include ("conex.php");
+            $foto = addslashes(file_get_contents($_FILES['foto']['tmp_name']));
+            $update = "UPDATE administradores set nomAdmin='$name', apeAdmin='$lastname', pass='$pass', email='$email', pasaporte='$pasaporte', dui='$dui' , cargo='$cargo',descri='$descri', foto='$foto' where idAdmin='$idAdmin' ";
+            $resul = $conexion->query($update);
+            if ($resul) {
+                echo '<script>alert("Administrador '. $name .' Actualizado con exito")</script>';
+            }else{
+                echo '<script>alert("Error al ingresar datos del administrador")</script>';
+    
+            }
 
         }
+
+
+
+
+
     }else{
         echo '<script>alert("Cantidad de caracteres incorrectos, Complete los datos")</script>';
 

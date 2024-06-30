@@ -138,6 +138,7 @@ create table administradores(
     descri varchar(1000),
     primary key (idAdmin)
 );
+/*
 -- TABLAS INTERMEDIAS:
 -- Tabla aerolineaAsistente
 create table aerolineaAsistente(
@@ -218,7 +219,7 @@ create table aerolineaVuelo(
     foreign key (idAero) references aerolinea(idAero)
   );
   -- INSERTANDO DATOS: 
-/*
+
 -- Ingreso de datos de usuario
 Insert into usuario values 
 ("Miguel", "López", "Masculino","11110", "miguel.lopez@gmail.com", "Casa #10, Colonia San Benito, San Salvador, El Salvador","2222-1234", "SV1234567", "00123456-8", null),
