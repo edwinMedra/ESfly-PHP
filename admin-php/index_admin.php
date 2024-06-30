@@ -19,7 +19,7 @@
     <?php include("header-admin.php"); ?>
     <div class="back">
         <div><img src="../imagen/admin/back.png" alt=""></div>
-        <div class="titulo text-white text-center">Bienvenido nombre</div>
+        <div class="titulo text-white text-center">Bienvenido <?php echo $nomAdmin?></div>
     </div>
     <div class="container-fluid my-5">
         <h2 class="text-center">Cuentas Registradas</h2>

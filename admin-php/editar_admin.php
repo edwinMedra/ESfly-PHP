@@ -72,7 +72,8 @@
             <div class="col-lg-1  col-12 border border-black text-center"><?php echo $dui?></div>
             <div class="col-lg-1  col-12 border border-black text-center"><?php echo $cargo?></div>
             <div class="col-lg-1  col-12 border border-black text-center"><?php echo $idAdmin?></div>
-            <div class="col-lg-1  col-12 border border-black text-center"><img src="data:image/jpg;base64,<?php echo base64_encode($foto)?>" alt="" class="w-75 rounded-circle"></div>
+            <div class="col-lg-1  col-12 border border-black text-center"> <img src="data:image/jpg;base64,<?php echo base64_encode($foto)?>" class="rounded-circle mx-1 my-auto border border-1 border-black" id="lupa" alt=""  height="35px" width="35px">
+            </div>
             <div class="col-lg-1  col-12 border border-black text-center p-1"><a class="btn btn-primary" href="form_admin.php?idAdmin=<?php echo $idAdmin?> " role="button" id="link">Editar</a></div>            
             <!---->
         </div>
