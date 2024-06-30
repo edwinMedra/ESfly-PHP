@@ -54,7 +54,7 @@
           <button type="submit" class="btn btn-primary w-100 mt-3" name="ingreso">Ingresar</button>
         </form>
         <div class="text-center   w-100  g-0">
-          <p class="d-inline-block mb-0">¿Aun no tienes cuenta?</p><a href="../html/registro.html" class=" font-weight-bold text-decoration-none"> Registrarse</a><br>
+          <p class="d-inline-block mb-0">¿Aun no tienes cuenta?</p><a href="registro.php" class=" font-weight-bold text-decoration-none"> Registrarse</a><br>
           <p class="d-inline-block mb-0">ERROR AL INICIA SESION</p><br>
           <p class="d-inline-block mb-0">INTENTE DE NUEVO</p><br>
         </div>

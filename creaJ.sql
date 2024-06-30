@@ -104,6 +104,7 @@ create table avion(
 -- Tabla vuelo
 create table vuelo(
 	idVuelo int auto_increment,
+    origen varchar(500),
 	destino varchar(100),
     fechaSalida datetime,
     fechaEntrada datetime,
@@ -137,6 +138,7 @@ create table administradores(
     descri varchar(1000),
     primary key (idAdmin)
 );
+/*
 -- TABLAS INTERMEDIAS:
 -- Tabla aerolineaAsistente
 create table aerolineaAsistente(
@@ -361,9 +363,10 @@ insert into aerolineaAlianza values
 (2, 4),
 (3, 3),
 (4, 2),
-(5, 1);
+(5, 1);*/
 -- select 
 select * from usuario;
+select * from asientos;
 select * from empleado;
 select * from aerolinea;
 select * from aeropuerto;
@@ -371,5 +374,6 @@ select * from asistente;
 select * from alianza;
 select * from avion;
 select * from vuelo;
+select * from asientos;
 select * from administradores;
 use aerolinea;
