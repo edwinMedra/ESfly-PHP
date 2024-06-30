@@ -37,8 +37,8 @@ include("header-log.php");
 
     <?php
 // funcion para llamar a los datos de vuelo para poder colocarlos en la pagina web
-$inc = include ("conex.php");
-if ($inc){
+include ("conex.php");
+if ($conexion){
     $consul = "SELECT * FROM vuelo where destino='Belice'";
     $resul = mysqli_query($conexion,$consul);
     if ($resul){
