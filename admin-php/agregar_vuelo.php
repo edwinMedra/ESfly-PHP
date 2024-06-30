@@ -26,20 +26,21 @@
 
 
                     <div class="form-group mt-4">
-                        <label class="text-formu">Fecha de entrada: </label>
-                        <input type="datetime-local" class="form-control" id="fechaVuelo" placeholder="Fecha de Vuelo" name="fechaEntrada">
+                        <label class="text-formu">Fecha de Salida: </label>
+                        <input type="datetime-local" class="form-control" id="fechaVuelo" placeholder="Fecha de Vuelo" name="fechaSalida">
                     </div>
 
                     <div class="form-group mt-4">
-                        <label class="text-formu">Fecha de salida: </label>
-                        <input type="datetime-local" class="form-control" id="fechaVuelo" placeholder="Fecha de Vuelo" name="fechaSalida">
+                        <label class="text-formu">Fecha de Entrada: </label>
+                        <input type="datetime-local" class="form-control" id="fechaVuelo" placeholder="Fecha de Vuelo" name="fechaEntrada">
                     </div>
 
 
                     <div class="form-group mt-4">
                         <label class="text-formu ">País de Origen: </label>
                         <select class="form-control" id="Origen" name="origen">
-                        <option value="Antigua y Barbuda">Antigua y Barbuda</option>
+                            <option value="">Seleccionar país de Origen</option>
+                            <option value="Antigua y Barbuda">Antigua y Barbuda</option>
                             <option value="Argentina">Argentina</option>
                             <option value="Bahamas">Bahamas</option>
                             <option value="Barbados">Barbados</option>
@@ -49,7 +50,7 @@
                             <option value="Canada">Canadá</option>
                             <option value="Chile">Chile</option>
                             <option value="Colombia">Colombia</option>
-                            <option value="Costa-Rica">Costa Rica</option>
+                            <option value="Costa Rica">Costa Rica</option>
                             <option value="Cuba">Cuba</option>
                             <option value="Dominica">Dominica</option>
                             <option value="Ecuador">Ecuador</option>
@@ -66,9 +67,9 @@
                             <option value="Panama">Panamá</option>
                             <option value="Paraguay">Paraguay</option>
                             <option value="Peru">Perú</option>
-                            <option value="Republica-Dominicana">República Dominicana</option>
+                            <option value="Republica Dominicana">República Dominicana</option>
                             <option value="San Cristobal y Nieves">San Cristóbal y Nieves</option>
-                            <option value="San Vicente y las-Granadinas">San Vicente y las Granadinas</option>
+                            <option value="San Vicente y las Granadinas">San Vicente y las Granadinas</option>
                             <option value="Santa Lucia">Santa Lucía</option>
                             <option value="Surinam">Surinam</option>
                             <option value="Trinidad y Tobago">Trinidad y Tobago</option>
@@ -81,6 +82,7 @@
                     <div class="form-group mt-4">
                         <label for="Destino" class="text-titulo text-formu">País de Destino: </label>
                         <select class="form-control" id="Destino" name="destino">
+                        <option value="">Seleccionar país de destino</option>
                             <option value="Antigua y Barbuda">Antigua y Barbuda</option>
                             <option value="Argentina">Argentina</option>
                             <option value="Bahamas">Bahamas</option>
@@ -91,7 +93,7 @@
                             <option value="Canada">Canadá</option>
                             <option value="Chile">Chile</option>
                             <option value="Colombia">Colombia</option>
-                            <option value="Costa-Rica">Costa Rica</option>
+                            <option value="Costa Rica">Costa Rica</option>
                             <option value="Cuba">Cuba</option>
                             <option value="Dominica">Dominica</option>
                             <option value="Ecuador">Ecuador</option>
@@ -108,9 +110,9 @@
                             <option value="Panama">Panamá</option>
                             <option value="Paraguay">Paraguay</option>
                             <option value="Peru">Perú</option>
-                            <option value="Republica-Dominicana">República Dominicana</option>
+                            <option value="Republica Dominicana">República Dominicana</option>
                             <option value="San Cristobal y Nieves">San Cristóbal y Nieves</option>
-                            <option value="San Vicente y las-Granadinas">San Vicente y las Granadinas</option>
+                            <option value="San Vicente y las Granadinas">San Vicente y las Granadinas</option>
                             <option value="Santa Lucia">Santa Lucía</option>
                             <option value="Surinam">Surinam</option>
                             <option value="Trinidad y Tobago">Trinidad y Tobago</option>
@@ -121,9 +123,8 @@
                     </div>
                     <div class="form-group mt-4">
                         <label class="text-formu">Precio de vuelo: </label>
-                        <input type="number" class="form-control" id="fechaVuelo" placeholder="Precio" name="precio">
+                        <input type="text7" class="form-control" id="fechaVuelo" placeholder="Precio" name="precio">
                     </div>
-                    <!--AHI EL BOTON DE ABAJO TIENE Q DIRIGIT A DONDE DECIDA EL USUARIO (PAIS) -->
                     <button role="submit" class=" mt-5  d-flex flex-column align-items-center btn btn-primary" name="agregar">Agregar vuelo</button>
                 </form>
             </div>
@@ -141,7 +142,7 @@ if (isset($_POST['agregar'])) {
     $destino = $_POST['destino'];
     $precio = trim($_POST['precio']);
     $precio_float = floatval($precio);
-    include ("conex.php");
+    include("conex.php");
     $insert = "INSERT INTO vuelo(origen,destino,fechaSalida,fechaEntrada,precio) VALUES('$origen','$destino','$fechaSalida', '$fechaEntrada','$precio_float')";
     $resul = $conexion->query($insert);
     if ($resul) {

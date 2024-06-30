@@ -55,21 +55,21 @@ include ("header-admin.php");
                     <div class="mb-4">
                         <label for="exampleImputEmail" class="form-label font-weight-bold">
                             <img src="../imagen/login/contraseña.png" class="img"> Contraseña</label>
-                        <input type="password" class="form-control mb-2 rounded-5  w-75" placeholder="Ingresar apellido"
+                        <input type="password" class="form-control mb-2 rounded-5  w-75" placeholder="Ingresar contraseña"
                             id="correo" name="pass">
                     </div>
 
                     <div class="mb-4">
                         <label for="exampleImputEmail" class="form-label font-weight-bold">
                             <img src="../imagen/login/correo.png" class="img"> Correo</label>
-                        <input type="email" class="form-control mb-2 rounded-5  w-75" placeholder="Ingresar apellido"
+                        <input type="email" class="form-control mb-2 rounded-5  w-75" placeholder="Ingresar correo"
                             id="correo" name="email">
                     </div>
 
                     <div class="mb-4">
                         <label for="exampleImputEmail" class="form-label font-weight-bold">
                             <img src="../imagen/login/pasaporte.png" class="img"> Pasaporte</label>
-                        <input type="text" class="form-control mb-2 rounded-5  w-75" placeholder="Ingresar apellido"
+                        <input type="text" class="form-control mb-2 rounded-5  w-75" placeholder="Ingresar pasaporte"
                             id="correo" name="pasporte">
                     </div>
 
@@ -77,7 +77,7 @@ include ("header-admin.php");
                         <label for="exampleImputEmail" class="form-label font-weight-bold">
                             <img src="../imagen/login/dui.png" class="img"> DUI</label>
                         <input type="text" class="form-control mb-2 rounded-5 border border-1 w-75"
-                            placeholder="Ingresar apellido" id="correo" name="dui">
+                            placeholder="Ingresar DUI" id="correo" name="dui">
                     </div>
 
                 </div>

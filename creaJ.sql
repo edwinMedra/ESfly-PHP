@@ -373,5 +373,6 @@ select * from asistente;
 select * from alianza;
 select * from avion;
 select * from vuelo;
+select * from asientos;
 select * from administradores;
 use aerolinea;
