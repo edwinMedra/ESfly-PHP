@@ -392,5 +392,4 @@ select * from vuelo;
 select * from asientos;
 select * from administradores;
 select * from form;
-
 use aerolinea;
