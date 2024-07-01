@@ -64,7 +64,6 @@ if ($conexion){
                         </a>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="agregar_usuario.php">Agregar</a></li>
-                            <li><a class="dropdown-item" href="editar_usuario.php">Editar</a></li>
                             <li><a class="dropdown-item" href="eliminar_usuario.php">Eliminar</a></li>
                         </ul>
                     </li>
