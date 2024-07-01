@@ -12,14 +12,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Bayon&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../css/admin2.css">
+    <link rel="stylesheet" href="../css/admin3.css">
 </head>
 
 <body>
     <?php include("header-admin.php"); ?>
     <div class="back">
         <div><img src="../imagen/admin/back.png" alt=""></div>
-        <div class="titulo text-white text-center">Bienvenido nombre</div>
+        <div class="titulo text-white text-center">Bienvenido <?php echo $nomAdmin?></div>
     </div>
     <div class="container-fluid my-5">
         <h2 class="text-center">Cuentas Registradas</h2>
