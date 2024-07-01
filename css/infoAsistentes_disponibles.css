@@ -1,0 +1,31 @@
+*{
+    margin: 0;
+    padding: 0;
+  }
+  
+  body{
+    background-color: #f6f6f6;
+    font-family: "Be Vietnam Pro";
+  }
+  
+.card-title{
+    font-weight: bold;
+    font-size: 25px;
+}
+
+.card-text{
+    font-size: 17px;
+    text-align: justify;
+
+}
+
+.list-card{
+    font-size: 17px;
+    text-align: justify;
+
+}
+
+.btn-option{
+    font-size: 20px;
+    font-weight: bold;
+}
