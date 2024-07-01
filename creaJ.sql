@@ -115,13 +115,18 @@ create table vuelo(
 create table asientos (
 	idVuelo varchar(500),
     destino varchar(500),
-    idCliente varchar(500),
     A1 varchar(500),
+    clienteA1 varchar(500),
     A2 varchar(500),
+	clienteA2 varchar(500),
     A3 varchar(500),
+    clienteA3 varchar(500),    
     A4 varchar(500),
+    clienteA4 varchar(500),
     A5 varchar(500),
+    clienteA5 varchar(500),
     A6 varchar(500),
+    clienteA6 varchar(500),
     primary key (idVuelo)
 );
 
@@ -138,6 +143,17 @@ create table administradores(
     descri varchar(1000),
     primary key (idAdmin)
 );
+create table form(
+	idForm int auto_increment,
+	nombrePasajero varchar(500),
+    duiPasajero varchar(100),
+    tipoIncapacidad varchar(100),
+    artiPersona int,
+    equiMano int,
+    equiBodega int,
+    primary key (idForm)
+);
+
 /*
 -- TABLAS INTERMEDIAS:
 -- Tabla aerolineaAsistente

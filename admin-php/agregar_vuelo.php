@@ -163,9 +163,22 @@ if (isset($_POST['agregar'])) {
         if ($resul) {
             echo '<script>alert("Vuelo agregado con exito")</script>';
         }
+        // proceso para ingresar los asientos en la plataforma 
+        // obtener id de la tabla de vuelos para ingresar el valor de los asientos 
+        $sql = "SELECT idVuelo FROM vuelo where origen='$origen' and destino='$destino' and fechaSalida='$fechaSalida' and fechaEntrada='$fechaEntrada' and precio='$precio_float' ";
+        $resultado = $conexion->query($sql);
+        //tomar id de el vuelo
+        if ($resultado) {
+            while ($row = $resultado->fetch_array()) {
+                $idVuelo = $row['idVuelo'];
+            }
+            // insertar asientos para este vuelo
+            $asientos = "INSERT INTO asientos (idVuelo,destino,A1,A2,A3,A4,A5,A6) VALUES ('$idVuelo','$destino','libre','libre','libre','libre','libre','libre')";
+            $resulAsientos = $conexion->query($asientos);
+            if ($resulAsientos) {
+                echo '<script>alert("soy maldito")</script>';
+            }
+        }
     }
-    // parte para insertar vuelo
 }
-
-
 ?>

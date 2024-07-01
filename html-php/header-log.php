@@ -15,6 +15,9 @@ if ($sesion == null || $sesion == '') {
                                 if ($resul) {
                                     while ($row = $resul->fetch_array()) {
                                         $nomCliente = $row['nomCliente'];
+                                        $apeCliente = $row['apeCliente'];
+                                        $dui = $row['dui'];
+                                        $pasaporte = $row['pasaporte'];
                                         $foto = $row['foto'];
                                         $idCliente = $row['idCliente'];
                                     }
@@ -56,8 +59,8 @@ if ($sesion == null || $sesion == '') {
                 if ($foto == null) {
                     echo '<img src="https://cdn-icons-png.flaticon.com/512/9187/9187604.png" class="rounded-circle my-auto border border-1 border-black mx-1" id="lupa" alt=""  height="35px" width="35px">';
                 } else {
-                    ?><img src="data:image/jpg;base64,<?php echo base64_encode($foto) ?>" class="rounded-circle my-auto border border-1 border-black mx-1" id="lupa" alt="" height="35px" width="35px">
-                    <?php
+                ?><img src="data:image/jpg;base64,<?php echo base64_encode($foto) ?>" class="rounded-circle my-auto border border-1 border-black mx-1" id="lupa" alt="" height="35px" width="35px">
+                <?php
                 }
                 ?>
 

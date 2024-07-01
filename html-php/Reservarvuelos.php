@@ -24,7 +24,7 @@
   <?php
   include("header-log.php");
   // se inicia proceso para poder llamar a los vuelos el cual ese usuario ha reservad
-  error_reporting(0);
+
   ?>
   <!--Fin header-->
 
@@ -63,78 +63,7 @@
   </div>
   <?php
   include("conex.php");
-  if ($conexion) {
-    $select = "SELECT * FROM asientos where idCliente='$idCliente'";
-    $query = mysqli_query($conexion, $select);
-    if ($query) {
-      while ($row = $query->fetch_array()) {
-        $idCliente1 = $row['idCliente'];
-        $idVuelo = $row['idVuelo'];
-        $destino = $row['destino'];
-        $A1 = $row['A1'];
-        $A2 = $row['A2'];
-        $A3 = $row['A3'];
-        $A4 = $row['A4'];
-        $A5 = $row['A5'];
-        $A6 = $row['A6'];
-        $inc3 = include("conex.php");
-        if ($conexion) {
-          $selectVuelo = "SELECT * FROM vuelo where idVuelo='$idVuelo'";
-          $query2 = mysqli_query($conexion, $selectVuelo);
-          if ($query2) {
-            while ($row1 = $query2->fetch_array()) {
-              $destino = $row1['destino'];
-              $fechaSalida = $row1['fechaSalida'];
-              $fechaEntrada = $row1['fechaEntrada'];
-              $precio = $row1['precio'];
-            }
-          }
-        }
-        function asiento($num)
-        {
-          if ($num == "ocupado") {
-            echo "btn-success";
-          } else {
-            echo "btn-light";
-          }
-        }
-
-  ?>
-        <div class="container-fluid">
-          <div class="row border border-black border-1 rounded-4 w-100 mx-auto">
-            <div class="col-12">
-              <div class="row">
-                <div class="col-3">
-                  <p>Pais: <?php echo $destino ?></p>
-                </div>
-                <div class="col-3">
-                  <p>fecha de entrada: <?php echo $fechaEntrada ?></p>
-                </div>
-                <div class="col-3">
-                  <p>Fecha de salida: <?php echo $fechaSalida ?></p>
-                </div>
-                <div class="col-3">
-                  <p>Precio: <?php echo $precio ?></p>
-                </div>
-              </div>
-            </div>
-            <div class="col-12 text-center">
-              <button type="button" class="btn <?php asiento($A1) ?>">A1</button>
-              <button type="button" class="btn <?php asiento($A2) ?>">A2</button>
-              <button type="button" class="btn <?php asiento($A3) ?>">A3</button>
-              <button type="button" class="btn <?php asiento($A4) ?>">A4</button>
-              <button type="button" class="btn <?php asiento($A5) ?>">A5</button>
-              <button type="button" class="btn <?php asiento($A6) ?>">A6</button>
-
-            </div>
-          </div>
-        </div>
-  <?php
-      }
-    }
-  }
-
-  ?>
+?>
 
   <div class="container-fluid">
     <?php
@@ -143,6 +72,7 @@
     $destino = $_GET['destino'];
     // funcion para llamar a los datos de vuelo para poder colocarlos en la pagina web
     if ($fechaEntrada == null or $origen == null or $destino == null) {
+
     } else {
 
 
@@ -187,7 +117,7 @@
                     </div>
                   </div>
                   <div class="d-flex " id="boton">
-                  <a href="seleccionDeAsientosVIP.php?idVuelo=<?php echo $idVuelo ?>" class="text-decoration-none text-white btn-primary btn mx-auto">Tomar vuelo</a>
+                  <a href="formularioVueloEspecial.php?idVuelo=<?php echo $idVuelo ?>" class="text-decoration-none text-white btn-primary btn mx-auto">Tomar vuelo</a>
                   </div>
                 </div>
                 <!---->
@@ -202,14 +132,6 @@
       }
     }
     ?>
-
-
-
-
-
-
-
-
   </div>
   <?php
   include("pie.php")
