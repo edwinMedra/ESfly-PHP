@@ -1,225 +1,127 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="../imagen/header/favicon.png" type="image/x-icon">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="../imagen/header/favicon.png" type="image/x-icon">
 
-        <!--Comentario sobre el link para importar la tipografia-->
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Bayon&display=swap" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
-        <!--Fin tipografia-->
-        <link rel="stylesheet" href="../css/header.css">
-        <link rel="stylesheet" href="../css/pie.css">
-        <link rel="stylesheet" href="..//css/datos de cuenta.css">
-    <title>Información de cuenta</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bayon&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../css/index1.css">
+  <link rel="stylesheet" href="../css/headerr.css">
+  <link rel="stylesheet" href="../css/pie.css">
+  <!--Fin tipografia-->
+
+  <title>Información de cuenta</title>
 </head>
+<style>
+  input {
+    font-family: "red hat display";
+  }
+</style>
+<?php include("header-log.php") ?>
+<?php
 
-<?php 
-include("header-log.php");
-?> 
+?>
 
 <body>
-   <div class="Espacio1"></div>
+  <form class="my-auto" method="post" enctype="multipart/form-data">
 
-      <div class="Bloque">
+    <div class="container-fluid my-5">
+      <div class="row py-5">
+        <div class="col-4 text-primary-emphasis bg-light-subtle border border-secondary-subtle rounded-3 p-5 ms-5">
 
-         <div class="lado_izq">
-            <div class="foto_perfil">
-                <img class="perfil" src="../imagen/datosCuenta/foto_usuario.png" alt="">
-            </div>
-            <div class="subir_foto">
-                <p class="letra_subirfoto">Subir foto</p>
-            </div>
-            <div class="texto_en_gris">
-                <p class="requisitos">Requisitos para la foto: “Debe ser de frente, descubierta, sin accesorios y sin lentes o gafas de sol”</p>
-            </div>
-         </div>
+          <?php
+          if ($foto == null) {
 
-         <div class="espacio2"></div>
+          ?>
+            <img src="https://cdn-icons-png.flaticon.com/512/9187/9187604.png" class="rounded-circle my-auto border border-1 border-black mx-1 img-fluid" id="lupa" alt="">
 
-         <div class="lado_derech">
-            
-            <div class="Info_general">
-                <p>Información general</p>
-                <img class="logito2" src="../imagen/datosCuenta/logito.png">
-            </div>
+          <?php
+          } else {
+          ?>
+            <img src="data:image/jpg;base64,<?php echo base64_encode($foto) ?>" class="img-fluid rounded-circle my-auto border border-1 border-black mx-1 img-fluid" alt="">
 
-            <!--FORMULARIO NOMBRE Y APELLIDO-->
-            <div class="nombreYapellido"> <p>Nombre y Apellido</p><p class="asterisco">*</p>
-            </div>
-            <div><label for="name"><!--Nombre:--></label><input type="text" id="name" name="nombre" class="formuNombre"></div>
+          <?php
+          }
 
+          ?>
 
-             <!--FORMULARIO DUI-->
-
-            <div class="dui"> 
-                <p>Dui</p><p class="asterisco">*</p>
-            </div>
-            <div><label for="name"></label> <input type="text" id="dui" name="dui" class="formuDui"></div>
-
-            <!--FORMULARIO FECHA DE NACIMIENTO-->
-            <div class="fechaNacimiento"> 
-                <p>Fecha de Nacimiento</p><p class="asterisco">*</p>
-            </div>
-            <div><form>
-                <label for="fechaNacimiento"></label>
-                <input type="date" id="fechaNacimiento" name="fechaNacimiento" class="formuNacimiento"></form>
-            </div>
-    
-            <!--FORMULARIO CORREO-->
-            <div class="correoElectronico"> 
-                <p>Correo Electrónico</p>
-            </div>
-             <div class="espacio_correo">
-                <form>
-                    <label for="correo"></label>
-                    <input type="email" id="correo" name="correo" required class="correo">
-                </form>
-                <div class="cambiar_datos"><p class="letra_cambiardatos">Cambiar datos</p></div>
-             </div>
-
-            <!--FORMULARIO PASAPORTE-->
-            <div class="pasaporte">
-                <p>Pasaporte</p><p class="asterisco">*</p>
-            </div>
-            <div><label for="Pasaporte"></label><input type="text" id="Pasaporte" name="Pasaporte" class="formuPasaporte"></div>
-
-            <!--FORMULARIO PAIS DE ORIGEN-->
-            <div class="paisOrigen">
-                <p>País de origen</p><p class="asterisco">*</p>
-            </div>
-
-            <div>
-                <form>
-                    <label for="pais"></label>
-                    <select id="pais" name="pais" class="formupais">
-                        <option value="Antigua y Barbuda">Antigua y Barbuda</option>
-                        <option value="Argentina">Argentina</option>
-                        <option value="Bahamas">Bahamas</option>
-                        <option value="Barbados">Barbados</option>
-                        <option value="Belice">Belice</option>
-                        <option value="Bolivia">Bolivia</option>
-                        <option value="Brasil">Brasil</option>
-                        <option value="Canadá">Canadá</option>
-                        <option value="Chile">Chile</option>
-                        <option value="Colombia">Colombia</option>
-                        <option value="Costa Rica">Costa Rica</option>
-                        <option value="Cuba">Cuba</option>
-                        <option value="Dominica">Dominica</option>
-                        <option value="Ecuador">Ecuador</option>
-                        <option value="El Salvador">El Salvador</option>
-                        <option value="Estados Unidos">Estados Unidos</option>
-                        <option value="Granada">Granada</option>
-                        <option value="Guatemala">Guatemala</option>
-                        <option value="Guyana">Guyana</option>
-                        <option value="Haití">Haití</option>
-                        <option value="Honduras">Honduras</option>
-                        <option value="Jamaica">Jamaica</option>
-                        <option value="México">México</option>
-                        <option value="Nicaragua">Nicaragua</option>
-                        <option value="Uruguay">Uruguay</option>
-                        <option value="Panamá">Panamá</option>
-                        <option value="Paraguay">Paraguay</option>
-                        <option value="Perú">Perú</option>
-                        <option value="República Dominicana">República Dominicana</option>
-                        <option value="San Cristóbal y Nieves">San Cristóbal y Nieves</option>
-                        <option value="San Vicente y las Granadinas">San Vicente y las Granadinas</option>
-                        <option value="Santa Lucía">Santa Lucía</option>
-                        <option value="Surinam">Surinam</option>
-                        <option value="Trinidad y Tobago">Trinidad y Tobago</option>
-                        <option value="Venezuela">Venezuela</option>
-                    </select>
-                </form>
-            </div>
-
-             <!--FORMULARIO DIRECCION-->
-             <div class="direccion"> 
-                <p>Dirección</p>
-            </div>
-             <div class="espacio_direccion">
-                <form>
-                    <label for="direccion"></label>
-                    <input type="name" id="direccion" name="direccion" required class="formudireccion">
-                </form>
-                <div class="cambiar_datos"><p class="letra_cambiardatos">Cambiar datos</p></div>
-             </div>
-
-
-
-
-
-
-            </div>
-
-
-
-
-
-            
-
-         </div>
+          <div class="card-body">
+            <label for="foto">
+              <a type="button" class="btn btn-primary mb-5 ">Agregar foto</a>
+              <input type="file" id="foto" name="foto" class="d-none">
+            </label>
+            <p class="card-text">Requisitos para la foto: "Debe ser de frente, descubierta, sin accesorios, sin lentes o gafas de sol."</p>
+          </div>
         </div>
-   </div>
+        <div class="col-7 text-primary-emphasis bg-light-subtle border border-secondary-subtle rounded-3  p-5 ms-3">
+          <div class="">
+            <label for="InputEmail1" class="form-label">Nombre</label>
+            <input type="text" name="nombre" class="form-control" id="InputEmail1" aria-describedby="emailHelp" value="<?php echo $nomCliente; ?>">
+          </div>
+          <div class="">
+            <label for="InputEmail1" class="form-label">Apellido</label>
+            <input type="text" name="apellido" class="form-control" id="InputEmail1" aria-describedby="emailHelp" value="<?php echo $apeCliente; ?>">
+          </div>
 
-   <div class="Espacio_ultimo"></div>
+          <div class="mb-3">
+            <label for="InputPassword1" class="form-label">DUI</label>
+            <input type="text" name="dui" class="form-control" id="InputPassword1" value="<?php echo $dui ?>">
+          </div>
+          <div class="mb-3">
+            <label for="InputCorreo1" class="form-label">Correo</label>
+            <input type="email" name="email" class="form-control" id="InputCorreo1" value="<?php echo $email ?>">
+          </div>
+          <div class="mb-3">
+            <label for="InputCorreo1" class="form-label">Contraseña</label>
+            <input type="text" name="pass" class="form-control" id="InputCorreo1" value="<?php echo $pass ?>">
+          </div>
+          <div class="mb-3">
+            <label for="InputEmail1" class="form-label">Pasaporte</label>
+            <input type="text" name="pasaporte" class="form-control" id="InputEmail1" aria-describedby="emailHelp" value="<?php echo $pasaporte ?>">
+          </div>
+          <button type="submit" class="btn btn-primary" name="registro">Cambiar datos</button>
 
+        </div>
+      </div>
+    </div>
+  </form>
 </body>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
-<footer>
-    <div class="pie">
-        <div class="left-pie-img">
-            <img src="../imagen/index/pie-login.png" alt="">
-        </div>
-        <div class="datos-pie">
-            <div class="text-left-pie">
-                <h2>AYUDA</h2>
-                <ul>
-                    <li>Contactanos</li>
-                    <li>Metodos de pago</li>
-                    <li>Cambios y devoluciones</li>
-                    <li>Preguntas frecuentes</li>
-                    <li>Promociones</li>
-                </ul>
-            </div>
-            <div class="text-2/4-pie">
-                <h2>ACERCA DE</h2>
-                <ul>
-                    <li>Ubicación </li>
-                    <li>Redes</li>
-                </ul>
-            </div>
-            <div class="text-3/4-pie">
-                <h2>NOSOTROS</h2>
-                <ul>
-                    <li>Somos ESfly</li>
-                    <li>Alianzas y Beneficios</li>
-                    <li>Accesibilidad</li>
-                </ul>
-            </div>
-            <div class="text-derecha-pie">
-                <h2>SIGUENOS</h2>
-                <ul>
-                    <li><img src="../imagen/index/whatsapp.png" alt="whatsapp">7270-9970</li>
-                    <li><img src="../imagen/index/instagram.png" alt="instagram">ESfly_official</li>
-                    <li><img src="../imagen/index/facebook.png" alt="facebook">ESfly_official</li>
-                    <li><img src="../imagen/index/youtube.png" alt="youtube">ESfly_official</li>
-                </ul>
-            </div>
-        </div>
-        <hr class="br-footer">
-        <ul class="datosFinales-pie">
-            <li>Copyright © ESfly 2024</li>
-            <li>A STAR ALLIANCE MEMBER  <img src="../imagen/index/STA.png" alt="STAR ALLIANCE MEMBER"></li>
-            <li>Colegio Don Bosco 2 "B"</li>
-        </ul>
-    </div>
-    <div class="pie-telefono">
-        
-    </div>
-</footer>
 </html>
+<?php
+if (isset($_POST['registro'])) {
+  include ("conex.php");
+  $nombre = trim($_POST['nombre']);
+  $apellido = trim($_POST['apellido']);
+  $pass = trim($_POST['pass']);
+  $email = trim($_POST['email']);
+  $passport = trim($_POST['passport']);
+  $dui = trim($_POST['dui']);
+  $foto = $_FILES['foto']['error'];
+  if ($foto){
+    $update = "UPDATE usuario set nomCliente='$nombre', apeCliente='$apellido', pass='$pass', correo='$email', pasaporte='$pasaporte', dui='$dui'";
+    $resul = $conexion->query($update);
+    if ($resul){
+      echo '<script>alert("Datos modificados con exito")</script>';
+    }
+  }else{
+    $foto = addslashes(file_get_contents($_FILES['foto']['tmp_name']));
+    $update = "UPDATE usuario set nomCliente='$nombre', apeCliente='$apellido', pass='$pass', correo='$email', pasaporte='$pasaporte', dui='$dui', foto='$foto'";
+    $resul = $conexion->query($update);
+    if ($resul){
+      echo '<script>alert("Datos modificados con exito")</script>';
+    }
+
+
+  }
+
+}
+?>

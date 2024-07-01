@@ -70,6 +70,7 @@
 
   <div class="container-fluid">
     <?php
+    error_reporting(0);
     $fechaEntrada = $_GET['fecha'];
     $origen = $_GET['origen'];
     $destino = $_GET['destino'];

@@ -39,7 +39,6 @@ create table servicios(
 -- Tabla asistente
 create table asistente(
 idAsistente int auto_increment,
-idAero int,
 nomAsistente varchar(100),
 apeAsistente varchar(100),
 numTelefono varchar(10),
@@ -392,4 +391,6 @@ select * from avion;
 select * from vuelo;
 select * from asientos;
 select * from administradores;
+select * from form;
+
 use aerolinea;

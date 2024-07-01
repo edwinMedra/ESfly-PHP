@@ -17,9 +17,11 @@ if ($sesion == null || $sesion == '') {
                                         $nomCliente = $row['nomCliente'];
                                         $apeCliente = $row['apeCliente'];
                                         $dui = $row['dui'];
+                                        $email = $row['correo'];
                                         $pasaporte = $row['pasaporte'];
                                         $foto = $row['foto'];
                                         $idCliente = $row['idCliente'];
+                                        $pass = $row['pass'];
                                     }
                                 }
                             }
@@ -54,17 +56,21 @@ if ($sesion == null || $sesion == '') {
             <span class="navbar-text"></span>
 
             <form class="d-flex" role="search">
+       
                 <a href="cerrar.php" class="btn btn-primary-outline-success btn-primary ms-1" type="submit">Cerrar sesión</a>
+                <label for="lupa">
                 <?php
                 if ($foto == null) {
-                    echo '<img src="https://cdn-icons-png.flaticon.com/512/9187/9187604.png" class="rounded-circle my-auto border border-1 border-black mx-1" id="lupa" alt=""  height="35px" width="35px">';
+                    echo '<a href="datos de cuenta.php"><img src="https://cdn-icons-png.flaticon.com/512/9187/9187604.png" class="rounded-circle my-auto border border-1 border-black mx-1" id="lupa" alt=""  height="35px" width="35px"></a>';
                 } else {
-                ?><img src="data:image/jpg;base64,<?php echo base64_encode($foto) ?>" class="rounded-circle my-auto border border-1 border-black mx-1" id="lupa" alt="" height="35px" width="35px">
+                ?> <a href="datos de cuenta.php"> <img src="data:image/jpg;base64,<?php echo base64_encode($foto) ?>" class="rounded-circle my-auto border border-1 border-black mx-1" id="lupa" alt="" height="35px" width="35px"></a>
                 <?php
                 }
                 ?>
+                </label>
 
-                <a class="btn btn-registro ms-1 " href="perfil.php" type="submit"><?php echo $nomCliente ?></a>
+
+                <a class="btn btn-registro ms-1 " href="datos de cuenta.php" type="submit"><?php echo $nomCliente ?></a>
 
             </form>
             <a href="busqueda.php" class="btn  btn-primary-outline ms-1" type="submit"><img src="../imagen/header/lupa.png" class="" id="lupa" alt="" width="30"> Buscar</a>
