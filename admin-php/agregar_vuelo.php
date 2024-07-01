@@ -176,7 +176,7 @@ if (isset($_POST['agregar'])) {
             $asientos = "INSERT INTO asientos (idVuelo,destino,A1,A2,A3,A4,A5,A6) VALUES ('$idVuelo','$destino','libre','libre','libre','libre','libre','libre')";
             $resulAsientos = $conexion->query($asientos);
             if ($resulAsientos) {
-                echo '<script>alert("soy maldito")</script>';
+                
             }
         }
     }
