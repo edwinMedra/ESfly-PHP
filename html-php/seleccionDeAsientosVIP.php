@@ -565,6 +565,7 @@ if ($conexion) {
 </html>
 
 <?php
+error_reporting(0);
 // proceso para insertar los asientos
 include("conex.php");
 // adjuntar valores de los asientos
@@ -576,39 +577,46 @@ if (isset($_POST['reserva'])) {
   $A5 = $_POST['A5'];
   $A6 = $_POST['A6'];
 
+  if ($A1 == "A1") {
+    $update = "UPDATE asientos set A1='ocupado', clienteA1='$idCliente'";
+    $resulUpdate = $conexion->query($update);
+  }
 
-    if ($A1 == "A1"){
-      include ("conex.php");
-      $update = "UPDATE asientos set A1='ocupado', clienteA1='$idCliente'";
-      $resulUpdate = $conexion->query($update);
-     }
+  if ($A2 == "A2") {
+    $update = "UPDATE asientos set A2='ocupado', clienteA2='$idCliente'";
+    $resulUpdate = $conexion->query($update);
+  }
 
-     if ($A2 == "A2"){
-      include ("conex.php");
-      $update = "UPDATE asientos set A2='ocupado', clienteA2='$idCliente'";
-      $resulUpdate = $conexion->query($update);
-     }
-  
-     if ($A3 == "A3"){
-      include ("conex.php");
-      $update = "UPDATE asientos set A3='ocupado', clienteA3='$idCliente'";
-      $resulUpdate = $conexion->query($update);
-     }
+  if ($A2 == "A2") {
+    $update = "UPDATE asientos set A2='ocupado', clienteA2='$idCliente'";
+    $resulUpdate = $conexion->query($update);
+  }
 
-     if ($A4 == "A4"){
-      include ("conex.php");
-      $update = "UPDATE asientos set A4='ocupado', clienteA4='$idCliente'";
-      $resulUpdate = $conexion->query($update);
-     }
-  
-     if ($A5 == "A5"){
-      include ("conex.php");
-      $update = "UPDATE asientos set A5='ocupado', clienteA5='$idCliente'";
-      $resulUpdate = $conexion->query($update);
-     }
-  
+  if ($A3 == "A3") {
+    $update = "UPDATE asientos set A3='ocupado', clienteA3='$idCliente'";
+    $resulUpdate = $conexion->query($update);
+  }
 
- 
+  if ($A4 == "A4") {
+    $update = "UPDATE asientos set A4='ocupado', clienteA4='$idCliente'";
+    $resulUpdate = $conexion->query($update);
+  }
+
+  if ($A5 == "A5") {
+    $update = "UPDATE asientos set A5='ocupado', clienteA5='$idCliente'";
+    $resulUpdate = $conexion->query($update);
+  }
+
+  if ($A6 == "A6") {
+    $update = "UPDATE asientos set A6='ocupado', clienteA6='$idCliente'";
+    $resulUpdate = $conexion->query($update);
+  }
+  echo "<script>
+   function redireccionar() {
+window.location.href = 'infoAsistentes_disponibles.php?idVuelo=" .  $id . "';
+}
+redireccionar();
+</script>";
   // actualizar estado de los asientos
 }
 // crear el insert para ingresar el valor de la base de datos

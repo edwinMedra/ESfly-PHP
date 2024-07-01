@@ -23,7 +23,7 @@ include("header-log.php");
     <div class="card-formu container d-flex justify-content-center align-items-center mt-5 mb-5">
     <div class="card p-4 custom-card mt-5">
         <h3 class="card-title text-center mt-5">Reservar Vuelo Especial</h3>
-        <form action="/submit_form" method="post" enctype="multipart/form-data">
+        <form  method="post" enctype="multipart/form-data">
             <div class="form-group mb-3">
                 <label for="nombreCompleto">Nombre Completo de usuario</label>
                 <input type="text" class="form-control" id="nombreCompleto" disabled value="<?php echo htmlspecialchars($nombreCompleto); ?>" readonly>
@@ -76,12 +76,12 @@ include("header-log.php");
 
             <div class="form-group mb-3">
                 <label for="nombrePasajero">Nombre completo del pasajero <span class="text-danger">*</span></label>
-                <input type="text" class="form-control" id="nombrePasajero" required>
+                <input type="text" class="form-control" id="nombrePasajero" name="name" required>
             </div>
 
             <div class="form-group mb-3" id="documentoPasajeroSection">
                 <label for="documentoPasajero">DUI del pasajero</label>
-                <input type="text" class="form-control" id="documentoPasajero">
+                <input type="text" class="form-control" id="documentoPasajero" name="dui">
             </div>
 
             <div class="form-group mb-3">
@@ -248,7 +248,7 @@ include("header-log.php");
 
             <div class="d-flex justify-content-between">
                 <button type="button" class="btn btn-secondary">Atrás</button>
-                <button type="submit" class="btn btn-primary">Siguiente</button>
+                <button type="submit" class="btn btn-primary" name="siguiente">Siguiente</button>
             </div>
         </form>
     </div>
@@ -367,5 +367,27 @@ menorEdadNo.addEventListener('change', function() {
 </html>
 <?php
 include ("conex.php");
+$boton= isset($_POST['siguiente']);
+if ($boton){
+    $idVuelo = $_GET['idVuelo'];
+    $name = trim($_POST['name']);
+    $dui = trim($_POST['dui']);
+    $tipoIncapacidad = trim($_POST['tipoIncapacidad']);
+    $cantidadArticuloPersonal = trim($_POST['cantidadArticuloPersonal']);
+    $cantidadEquipajeMano = trim($_POST['cantidadEquipajeMano']);
+    $cantidadEquipajeBodega = trim($_POST['cantidadEquipajeBodega']);
 
+    $insertar = "INSERT INTO form(nombrePasajero,duiPasajero, tipoIncapacidad, artiPersona, equiMano, equiBodega) VALUES ('$name','$dui','$tipoIncapacidad','$cantidadArticuloPersonal','$cantidadEquipajeMano','$cantidadEquipajeBodega')";
+    $query = $conexion->query($insertar);
+    if ($query){
+        echo "<script>
+            function redireccionar() {
+      window.location.href = 'seleccionDeAsientosVIP.php?idVuelo=".  $idVuelo ."';
+    }
+      redireccionar();
+        </script>";
+    }
+
+
+}
 ?>

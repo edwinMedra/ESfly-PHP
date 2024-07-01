@@ -34,8 +34,8 @@
               <li class=" mt-4"><strong>Asistencia en tierra:</strong> Al llegar a su destino, el asistente puede ayudar a la persona discapacitada a desembarcar del avión y navegar por el aeropuerto para llegar a su destino final. Esto puede incluir el uso de equipos de asistencia y la coordinación con servicios terrestres, como transporte desde el aeropuerto.</li>
             </ul>
             <div class=" mt-5 d-flex justify-content-between">
-                <a href=""   class="btn btn-option btn-secondary ">No quiero ayudante, gracias</button></a>
-                <a href=""  class="btn btn-option btn-primary  ">Siguiente</button></a>
+                <a href="index.php"   class="btn btn-option btn-secondary ">No quiero ayudante, gracias</button></a>
+                <a href="asistentesDisponibles.php"  class="btn btn-option btn-primary  ">Siguiente</button></a>
             </div>
           </div>
         </div>

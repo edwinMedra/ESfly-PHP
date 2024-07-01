@@ -20,10 +20,6 @@
     <title>Asistentes disponibles</title>
 </head>
 <body>
-
-    
-
-    
     <!-- imagenes de la pagina-->
     <div class="contenedor">
 
@@ -77,7 +73,7 @@
                             <li class="datos-emple mt-4"><b>Género:</b> Femenino</li>
                         </ul>
                     </p>
-                    <a href="" class="b-info d-flex flex-column align-items-center btn btn-primary">Seleccionar Asistente</a>
+                    <a href="index.php" class="b-info d-flex flex-column align-items-center btn btn-primary">Seleccionar Asistente</a>
                 </div>
             </div>
         </div>
@@ -101,7 +97,7 @@
                             <li class="datos-emple mt-4"><b>Género:</b> Masculino</li>
                         </ul>
                     </p>
-                    <a href="" class="b-info d-flex flex-column align-items-center btn btn-primary">Seleccionar Asistente</a>
+                    <a href="index.php" class="b-info d-flex flex-column align-items-center btn btn-primary">Seleccionar Asistente</a>
                 </div>
             </div>
         </div>
@@ -125,7 +121,7 @@
                             <li class="datos-emple mt-4"><b>Género:</b> Femenino</li>
                         </ul>
                     </p>
-                    <a href="" class="b-info d-flex flex-column align-items-center btn btn-primary">Seleccionar Asistente</a>
+                    <a href="index.php" class="b-info d-flex flex-column align-items-center btn btn-primary">Seleccionar Asistente</a>
                 </div>
             </div>
         </div>
@@ -149,7 +145,7 @@
                             <li class="datos-emple mt-4"><b>Género:</b> Masculino</li>
                         </ul>
                     </p>
-                    <a href="" class="b-info d-flex flex-column align-items-center btn btn-primary">Seleccionar Asistente</a>
+                    <a href="index.php" class="b-info d-flex flex-column align-items-center btn btn-primary">Seleccionar Asistente</a>
                 </div>
             </div>
         </div>
@@ -173,7 +169,7 @@
                             <li class="datos-emple mt-4"><b>Género:</b> Femenino</li>
                         </ul>
                     </p>
-                    <a href="" class="b-info d-flex flex-column align-items-center btn btn-primary">Seleccionar Asistente</a>
+                    <a href="index.php" class="b-info d-flex flex-column align-items-center btn btn-primary">Seleccionar Asistente</a>
                 </div>
             </div>
         </div>
@@ -198,7 +194,7 @@
                             <li class="datos-emple mt-4"><b>Género:</b> Masculino</li>
                         </ul>
                     </p>
-                    <a href="" class="b-info d-flex flex-column align-items-center btn btn-primary">Seleccionar Asistente</a>
+                    <a href="index.php" class="b-info d-flex flex-column align-items-center btn btn-primary">Seleccionar Asistente</a>
                 </div>
             </div>
         </div>

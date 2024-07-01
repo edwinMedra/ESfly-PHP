@@ -60,6 +60,9 @@
   </div>
   <div class="container-fluid my-5">
     <h2 class="text-center">Reservas realizadas anteriormente</h2>
+    <div class="container-fluid">
+      
+    </div>
   </div>
   <?php
   include("conex.php");
