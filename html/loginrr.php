@@ -24,7 +24,15 @@
 
 <body>
 <!--INICIA REGISTRO 3-->
-
+<?php
+error_reporting();
+session_start();
+include("conex.php");
+$sesion = $_SESSION['correo'];
+if (!($sesion == null || $sesion == '')){
+  header("Location:../html-php/index.php");
+}
+?>
 <section>
 
   <div class="row g-0">

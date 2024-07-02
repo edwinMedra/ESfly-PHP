@@ -181,7 +181,14 @@ if ($conexion) {
     }
   }
 }
-
+// funcion para colocar la clase en el codigo
+function validar($numAsiento){
+  if ($numAsiento == "ocupado" ) {
+    echo 'class="seat btn-danger" disabled ' ;
+  }else{
+    echo 'class="seat" ' ;
+  }
+}
 
 ?>
 
@@ -222,8 +229,8 @@ if ($conexion) {
 
 
             <label for="A1d">
-              <button type="button" class="seat" id="A1" onclick="toggleCheckbox('A1d')">A1</button>
-              <input type="checkbox" id="A1d" name="A1" value="A1" class="">
+              <button type="button" <?php validar($A1)?> id="A1" onclick="toggleCheckbox('A1d')" >A1</button>
+              <input type="checkbox" id="A1d" name="A1" value="A1" class="d-none">
             </label>
 
 
@@ -232,8 +239,8 @@ if ($conexion) {
 
 
             <label for="A2d">
-              <button type="button" class="seat" id="A2" onclick="toggleCheckbox('A2d')">A2</button>
-              <input type="checkbox" id="A2d" name="A2" value="A2" class="">
+              <button type="button" <?php validar($A2)?> id="A2" onclick="toggleCheckbox('A2d')">A2</button>
+              <input type="checkbox" id="A2d" name="A2" value="A2" class="d-none">
             </label>
 
 
@@ -243,8 +250,8 @@ if ($conexion) {
           <div class="seat-group">
 
             <label for="A3d">
-              <button type="button" class="seat" id="A3" onclick="toggleCheckbox('A3d')">A3</button>
-              <input type="checkbox" id="A3d" name="A3" value="A3" class="">
+              <button type="button" <?php validar($A3)?> id="A3" onclick="toggleCheckbox('A3d')">A3</button>
+              <input type="checkbox" id="A3d" name="A3" value="A3" class="d-none">
             </label>
 
 
@@ -253,8 +260,8 @@ if ($conexion) {
           <div class="seat-group">
 
             <label for="A4d">
-              <button type="button" class="seat" id="A4" onclick="toggleCheckbox('A4d')">A4</button>
-              <input type="checkbox" id="A4d" name="A4" value="A4" class="">
+              <button type="button" <?php validar($A4)?> id="A4" onclick="toggleCheckbox('A4d')">A4</button>
+              <input type="checkbox" id="A4d" name="A4" value="A4" class="d-none">
             </label>
 
 
@@ -265,8 +272,8 @@ if ($conexion) {
 
 
             <label for="A5d">
-              <button type="button" class="seat" id="A5" onclick="toggleCheckbox('A5d')">A5</button>
-              <input type="checkbox" id="A5d" name="A5" value="A5" class="">
+              <button type="button" <?php validar($A5)?> id="A5" onclick="toggleCheckbox('A5d')">A5</button>
+              <input type="checkbox" id="A5d" name="A5" value="A5" class="d-none">
             </label>
 
 
@@ -275,8 +282,8 @@ if ($conexion) {
 
 
             <label for="A6d">
-              <button type="button" class="seat" id="A6" onclick="toggleCheckbox('A6d')">A6</button>
-              <input type="checkbox" id="A6d" name="A6" value="A6" class="">
+              <button type="button" <?php validar($A6)?> id="A6" onclick="toggleCheckbox('A6d')">A6</button>
+              <input type="checkbox" id="A6d" name="A6" value="A6" class="d-none">
             </label>
 
           </div>

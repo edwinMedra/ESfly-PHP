@@ -61,7 +61,8 @@
   <div class="container-fluid my-5">
     <h2 class="text-center">Reservas realizadas anteriormente</h2>
     <div class="container-fluid">
-      
+<!--Informacion de los vuelos donde el usuario ha seleccionado un asiento-->
+
     </div>
   </div>
   <?php
@@ -70,7 +71,7 @@
 
   <div class="container-fluid">
     <?php
-    error_reporting(0);
+  error_reporting(0);
     $fechaEntrada = $_GET['fecha'];
     $origen = $_GET['origen'];
     $destino = $_GET['destino'];
