@@ -381,7 +381,6 @@ insert into aerolineaAlianza values
 (5, 1);*/
 -- select 
 select * from usuario;
-select * from asientos;
 select * from empleado;
 select * from aerolinea;
 select * from aeropuerto;
@@ -393,4 +392,5 @@ select * from asientos;
 select * from administradores;
 select * from form;
 use aerolinea;
+truncate table form;
 

@@ -72,7 +72,6 @@
             <div class="col-lg-1  col-12 border border-black text-center p-1"><a type="submit" role="button" class="btn btn-danger" id="link" href="eliminar-usu.php?idCliente=<?php echo $idCliente ?>">Eliminar</a></div>
             <?php
             if (isset($_POST['delete'])) {
-                echo '<script>alert("Si funciona")</script>';
             }
             ?>
             <!---->
