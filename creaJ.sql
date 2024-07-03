@@ -142,6 +142,9 @@ create table administradores(
     descri varchar(1000),
     primary key (idAdmin)
 );
+insert into administradores values(
+null, "Edwin","Medrano", "edwin@123", "edwin@gmail.com","12345789","1234578-9","", null,"Administrador de la plataforma web" 
+);
 create table form(
 	idForm int auto_increment,
 	nombrePasajero varchar(500),
