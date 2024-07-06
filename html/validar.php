@@ -3,8 +3,7 @@ $correo = $_POST['correo'];
 $pass = $_POST['pass'];
 
 //conectar a la base de datos 
-$conexion = mysqli_connect("localhost", "root", "root", "aerolinea");
-
+include ("conex.php");
 $consulta = "SELECT * FROM usuario WHERE correo='$correo' and pass='$pass'";
 $resultado = mysqli_query($conexion, $consulta);
 
