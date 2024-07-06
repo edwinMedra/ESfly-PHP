@@ -13,7 +13,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="../css/index1.css">
   <link rel="stylesheet" href="../css/headerr.css">
   <link rel="stylesheet" href="../css/pie.css">
   <!--Fin tipografia-->
@@ -24,6 +23,7 @@
   input {
     font-family: "red hat display";
   }
+
 </style>
 <?php include("header-log.php") ?>
 <?php
@@ -33,26 +33,20 @@
 <body>
   <form class="my-auto" method="post" enctype="multipart/form-data">
 
-    <div class="container-fluid my-5">
-      <div class="row py-5">
-        <div class="col-4 text-primary-emphasis bg-light-subtle border border-secondary-subtle rounded-3 p-5 ms-5">
-
+    <div class="container-fluid my-5  ">
+      <div class="row py-5 w-100 justify-content-center mx-auto">
+        <div class="col-12 col-lg-4 text-primary-emphasis bg-light-subtle border border-secondary-subtle rounded-3 p-5 ps-5">
           <?php
           if ($foto == null) {
-
           ?>
-            <img src="https://cdn-icons-png.flaticon.com/512/9187/9187604.png" class="rounded-circle my-auto border border-1 border-black mx-1 img-fluid" id="lupa" alt="">
-
+            <img src="https://cdn-icons-png.flaticon.com/512/9187/9187604.png" class="rounded-circle mb-5 border border-1 border-black mx-1 img-fluid" id="lupa" alt="" max="22px" min="22px">
           <?php
           } else {
           ?>
-            <img src="data:image/jpg;base64,<?php echo base64_encode($foto) ?>" class="img-fluid rounded-circle my-auto border border-1 border-black mx-1 img-fluid" alt="">
-
+            <img src="data:image/jpg;base64,<?php echo base64_encode($foto) ?>" class="img-fluid rounded-circle mb-5 border border-1 border-black mx-1 img-fluid" alt="" max="22px" min="22px">
           <?php
           }
-
           ?>
-
           <div class="card-body">
             <label for="foto">
               <a type="button" class="btn btn-primary mb-5 ">Agregar foto</a>
@@ -61,7 +55,7 @@
             <p class="card-text">Requisitos para la foto: "Debe ser de frente, descubierta, sin accesorios, sin lentes o gafas de sol."</p>
           </div>
         </div>
-        <div class="col-7 text-primary-emphasis bg-light-subtle border border-secondary-subtle rounded-3  p-5 ms-3">
+        <div class="col-lg-7 col-12 text-primary-emphasis bg-light-subtle border border-secondary-subtle rounded-3  p-5 ps-3">
           <div class="">
             <label for="InputEmail1" class="form-label">Nombre</label>
             <input type="text" name="nombre" class="form-control" id="InputEmail1" aria-describedby="emailHelp" value="<?php echo $nomCliente; ?>">

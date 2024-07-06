@@ -22,6 +22,16 @@
 </head>
 
 <body>
+<style>
+#espacio {
+  display: none;
+}
+@media screen and (max-width:768px) {
+    #espacio {
+  display: flex;
+}
+}
+    </style>
     <?php
     include("header-log.php");
     ?>
@@ -74,7 +84,7 @@
                     </div>
                     <div class="form-group mt-4">
                         <label class="text-formu ">País de Origen: </label>
-                        <select class="form-control" id="Origen" name="origen">
+                        <select class="form-control w-50" id="Origen" name="origen">
                             <option value="Antigua y Barbuda">Antigua y Barbuda</option>
                             <option value="Argentina">Argentina</option>
                             <option value="Bahamas">Bahamas</option>
@@ -116,7 +126,7 @@
 
                     <div class="form-group mt-4">
                         <label for="Destino" class="text-titulo text-formu">País de Destino: </label>
-                        <select class="form-control" id="Destino" name="destino">
+                        <select class="form-control w-50" id="Destino" name="destino">
                         <option value="Antigua y Barbuda">Antigua y Barbuda</option>
                             <option value="Argentina">Argentina</option>
                             <option value="Bahamas">Bahamas</option>
@@ -228,9 +238,9 @@
         <h5>Información sobre nosotros ></h5>
     </div>
 
-    <div class="container mt-4 d-flex flex-column align-items-center">
+      <div class="container-fluid mt-4 d-flex flex-column align-items-center">
 
-        <div class="card-container  card mt-5 col-lg-12">
+        <div class="card-container  card mt-5 col-lg-12 w-75">
             <div class="row g-0">
                 <div class="col-md-7">
                     <img src="../imagen/index/equipaje.png" class="img-card img-fluid rounded-start" alt="...">
@@ -238,55 +248,63 @@
                 <div class="col-md-5">
                     <div class="card-body">
                         <h5 class="card-title">Equipaje</h5>
-                        <p class="card-text">Entérate de las condiciones que debes tener en cuenta al momento de preparar tu equipaje.</p>
-                        <a href="maleta.php" class="b-info d-flex flex-column align-items-center btn btn-primary">Ver información</a>
+                        <p class="card-text">Entérate de las condiciones que debes tener en cuenta al momento de
+                            preparar tu equipaje.</p>
+                        <a href="../html/maleta.html"
+                            class="b-info d-flex flex-column align-items-center btn btn-primary">Ver información</a>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div class=" card-container  card mt-5 col-lg-12">
+        <div class=" card-container card mt-5 col-lg-12 w-75">
             <div class="row g-0">
                 <div class="col-md-7">
                     <img src="../imagen/index/esflyInfo.png" class="img-card img-fluid rounded-start" alt="...">
                 </div>
                 <div class="col-md-5">
-                    <div class="card-body">
+                    <div class="card-body" stylesheet="min-height:20px">
                         <h5 class="card-title">ESfly information</h5>
-                        <p class="card-text">Adquiere información de vuelos seguros y cómodos. Con servicio excepcional, priorizamos tu experiencia de viaje.</p>
-                        <a href="../html/ESfly Information.html" class="b-info d-flex flex-column align-items-center btn btn-primary">Ver información</a>
+                        <p class="card-text">Adquiere información de vuelos seguros y cómodos. Con servicio excepcional,
+                            priorizamos tu experiencia de viaje.</p>
+                        <a href="../html/ESfly Information.html"
+                            class="b-info d-flex flex-column align-items-center btn btn-primary">Ver información</a>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div class="card-container card mb-3 mt-5 col-lg-12">
+        <div class="card-container card mb-5  mt-5 col-lg-12 w-75">
             <div class="row g-0">
-                <div class="col-md-7 " stylesheet="min-height:20px">
+                <div class="col-md-7 ">
                     <img src="../imagen/index/experiencia.png" class="img-card img-fluid rounded-start" alt="...">
                 </div>
                 <div class="col-md-5">
-                    <div class="card-body">
+                    <div class="card-body"  stylesheet="min-height:20px">
                         <h5 class="card-title">Experiencia ESfly</h5>
-                        <p class="card-text">Descubre los servicios a bordo que te ofrecemos al volar con nosotros, escribe reseñas.</p>
-                        <a href="../html/experienciasESfly.html" class=" b-info d-flex flex-column align-items-center btn btn-primary">Ver información</a>
+                        <p class="card-text">Descubre los servicios a bordo que te ofrecemos al volar con nosotros,
+                            escribe reseñas.</p>
+                        <a href="../html/experienciasESfly.html"
+                            class=" b-info d-flex flex-column align-items-center btn btn-primary">Ver información</a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
     <!--FIN DE CUADROS DE INFORMACION-->
+    <div class="mt-5 p-5" id="espacio"> </div>
 
     <!--PREPARAR PARA VIAJAR (CLIENTE)-->
     <div class=" container texto-titulo  mt-5 ">
         <h5>Información sobre nosotros ></h5>
     </div>
 
-    <div class="container mt-5">
-        <div class="row g-0">
+    <div class="container-fluid mt-5">
+        <div class="row justify-content-center ">
 
-            <a class="card-prep card card-hover-effect text-center mb-3 ms-5" style="width: 24rem;" href="centroAyuda.html">
-                <div>
+            <a class="card-prep card card-hover-effect text-center mb-3 " style="width: 22rem;"
+                href="centroAyuda.html">
+                <div class="">
                     <div class="card-body">
                         <h5 class="card-title mt-5">CENTRO DE AYUDA </h5>
                         <p class="card-text">Encuentra ayuda sobre la información que necesites.</p>
@@ -295,8 +313,9 @@
             </a>
 
 
-            <a class="card-prep card card-hover-effect text-center mb-3 ms-5" style="width: 24rem;" href="requisitos para viajar.html">
-                <div>
+            <a class="card-prep card card-hover-effect text-center mb-3 " style="width: 22rem;"
+                href="requisitos para viajar.html">
+                <div class="">
                     <div class="card-body">
                         <h5 class="card-title mt-5">REQUISITOS PARA VIAJAR </h5>
                         <p class="card-text">Infórmate acerca de visas, vacunas y demás documentos.</p>
@@ -304,7 +323,8 @@
                 </div>
             </a>
 
-            <a class="card-prep card card-hover-effect text-center mb-3 ms-5" style="width: 24rem;" href="check-in.html">
+            <a class="card-prep card card-hover-effect text-center mb-3 " style="width: 22rem;"
+                href="check-in.html">
                 <div>
                     <div class="card-body">
                         <h5 class="card-title mt-5">Check-in online </h5>
@@ -312,11 +332,9 @@
                     </div>
                 </div>
             </a>
-
         </div>
     </div>
     <!--FIN DE PREPARAR PARA VIAJAR (CLIENTE)-->
-
     <?php
     include ("pie.php");
     ?>

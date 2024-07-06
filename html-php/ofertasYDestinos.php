@@ -22,7 +22,13 @@
 </head>
 
 <body>
-   
+   <style>
+@media screen and (max-width:768px) {
+.titulo{
+    top: 15%;
+}
+}
+   </style>
 <?php 
 include("header-log.php");
 ?> 
@@ -31,19 +37,7 @@ include("header-log.php");
 
 <div class="back">
 <img src="../imagen/ofertasyDestinos/back.png" alt="">
-<div class="titulo">    <span>STATUE OF</span> <span>LIBERTY</span>   
-    <div class="titulo-son">viajes a Estados unidos (new york)</div>    </div>
-    <!--Botones de imagen principal-->
-    <div class="botones">
-        <div class="boton-left">
-            <button type="button">Buscar vuelo</button>
-        </div>
-        <div class="boton-right">
-            <button type="button">Ver información</button>
-        </div>
-    </div>
-    <!---->
-</div>
+<div class="titulo">    <span>STATUE OF</span> <span>LIBERTY</span>   </div>
 
 
 <!--IMAGENES DE PROMOCION DE VIAJES-->

@@ -49,3 +49,8 @@ body {
 #viajes > p {
   font-size: 14px;
 }
+@media screen and (max-width:768px) {
+  .texto-superpuesto {
+    font-size: 50px;
+  }
+}
