@@ -1,7 +1,7 @@
 -- CREACION DE LA BASE DE DATOS:
 
 Create database aerolinea;
-Use aerolinea;
+Use railway;
 -- CREACION DE TABLAS: 
 -- Tabla usuario
 create table usuario(
@@ -15,7 +15,7 @@ idCliente int auto_increment,
 foto longblob,
 constraint primary key (idCliente)
 );
-
+/*
 -- Tabla aerolinea
 create table aerolinea(
 idAero int auto_increment,
@@ -27,7 +27,8 @@ codigoIATA varchar(9),
 CEO varchar(25),
 constraint primary key (idAero)
 );
-
+*/
+/*
 create table servicios(
 	idServicio int auto_increment,
     nomServcio varchar(100),
@@ -35,7 +36,7 @@ create table servicios(
     precio float,
    constraint primary key (idServicio)
 );
-
+*/
 -- Tabla asistente
 create table asistente(
 idAsistente int auto_increment,
@@ -45,7 +46,7 @@ numTelefono varchar(10),
 servicios varchar(200),
 horarioTrabajo varchar(100),
 genero varchar(30),
-constraint primary key (idAsistente)
+primary key (idAsistente)
 );
 
 
@@ -63,7 +64,7 @@ create table empleado(
     dui varchar(15),
     constraint primary key (idEmpleado)
 );
-
+/*
 -- Tabla alianza
  create table alianza(
 	idAli int auto_increment,
@@ -99,7 +100,7 @@ create table avion(
     constraint primary key (idAvion)
 );
 
-
+*/
 -- Tabla vuelo
 create table vuelo(
 	idVuelo int auto_increment,
