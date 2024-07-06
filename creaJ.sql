@@ -1,6 +1,4 @@
 -- CREACION DE LA BASE DE DATOS:
-
-Create database aerolinea;
 Use railway;
 -- CREACION DE TABLAS: 
 -- Tabla usuario
@@ -396,5 +394,4 @@ select * from asientos;
 select * from administradores;
 select * from form;
 use aerolinea;
-truncate table form;
 
