@@ -13,23 +13,17 @@ if ($filas > 0) {
     $_SESSION['correo'] = $correo;
     header("location:../html-php/index.php");
 } else {
-    session_start();
-    $_SESSION['correo'] = $correo;
     $consulta = "SELECT * FROM administradores where email='$correo' and pass='$pass'";
     $resultado = $conexion->query($consulta);
     $filas1 = mysqli_num_rows($resultado);
     if ($filas1 > 0) {
+        session_start();
+        $_SESSION['correo'] = $correo;
         header("location:../admin-php/index_admin.php");
     } else {
         header("location:loginrr.php");
     }
 }
-
-
-
-
-
-
 
 mysqli_free_result($resultado);
 mysqli_close($conexion);

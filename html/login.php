@@ -30,7 +30,7 @@ session_start();
 include("conex.php");
 $sesion = $_SESSION['correo'];
 if (!($sesion == null || $sesion == '')){
-  header("Location:../html-php/index.php");
+  echo " <script> window.location.href = '../html-php/index.php'</script> "; 
 }
 ?>
 <section>

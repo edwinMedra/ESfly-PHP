@@ -24,6 +24,13 @@
     font-family: "red hat display";
   }
 
+  #perfil {
+    min-height: 299px;
+    max-height: 300px;
+    min-width: 299px;
+    max-width: 300px;
+    object-fit: cover;
+  }
 </style>
 <?php include("header-log.php") ?>
 <?php
@@ -43,7 +50,7 @@
           <?php
           } else {
           ?>
-            <img src="data:image/jpg;base64,<?php echo base64_encode($foto) ?>" class="img-fluid rounded-circle mb-5 border border-1 border-black mx-1 img-fluid" alt="" max="22px" min="22px">
+            <img src="data:image/jpg;base64,<?php echo base64_encode($foto) ?>" class="img-fluid rounded-circle mb-5 border border-1 border-black mx-1 img-fluid" alt="" id="perfil">
           <?php
           }
           ?>
@@ -92,7 +99,7 @@
 </html>
 <?php
 if (isset($_POST['registro'])) {
-  include ("conex.php");
+  include("conex.php");
   $nombre = trim($_POST['nombre']);
   $apellido = trim($_POST['apellido']);
   $pass = trim($_POST['pass']);
@@ -100,22 +107,19 @@ if (isset($_POST['registro'])) {
   $passport = trim($_POST['pasaporte']);
   $dui = trim($_POST['dui']);
   $foto = $_FILES['foto']['error'];
-  if ($foto){
+  if ($foto) {
     $update = "UPDATE usuario set nomCliente='$nombre', apeCliente='$apellido', pass='$pass', correo='$email', pasaporte='$passport', dui='$dui'";
     $resul = $conexion->query($update);
-    if ($resul){
+    if ($resul) {
       echo '<script>alert("Datos modificados con exito")</script>';
     }
-  }else{
+  } else {
     $foto = addslashes(file_get_contents($_FILES['foto']['tmp_name']));
     $update = "UPDATE usuario set nomCliente='$nombre', apeCliente='$apellido', pass='$pass', correo='$email', pasaporte='$pasaporte', dui='$dui', foto='$foto'";
     $resul = $conexion->query($update);
-    if ($resul){
+    if ($resul) {
       echo '<script>alert("Datos modificados con exito")</script>';
     }
-
-
   }
-
 }
 ?>

@@ -1,6 +1,6 @@
 <?php
-session_start();
 include("conex.php");
+session_start();
 $sesion = $_SESSION['correo'];
 if ($sesion == null || $sesion == '') {
     header("Location:../html/index.html");
@@ -8,8 +8,8 @@ if ($sesion == null || $sesion == '') {
     <h1>Ingrese nuevamente</h1> <?php
                             }
                             // proceso para poder mostrar el nombre de usuario y no el correo de el usuario 
-                            $inc = include("conex.php");
-                            if ($inc) {
+                            include("conex.php");
+                            if ($conexion) {
                                 $consul = "SELECT * FROM usuario where correo='$sesion'";
                                 $resul = mysqli_query($conexion, $consul);
                                 if ($resul) {
@@ -63,7 +63,7 @@ if ($sesion == null || $sesion == '') {
                 if ($foto == null) {
                     echo '<a href="datos de cuenta.php"><img src="https://cdn-icons-png.flaticon.com/512/9187/9187604.png" class="rounded-circle my-auto border border-1 border-black mx-1" id="lupa" alt=""  height="35px" width="35px"></a>';
                 } else {
-                ?> <a href="datos de cuenta.php"> <img src="data:image/jpg;base64,<?php echo base64_encode($foto) ?>" class="rounded-circle my-auto border border-1 border-black mx-1" id="lupa" alt="" height="35px" width="35px"></a>
+                ?> <a href="datos de cuenta.php"> <img src="data:image/jpg;base64,<?php echo base64_encode($foto) ?>" class="rounded-circle my-auto border border-1 border-black mx-1" id="lupa" alt="" height="35px" width="35px" style="object-fit: cover;"></a>
                 <?php
                 }
                 ?>
