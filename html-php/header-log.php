@@ -3,7 +3,7 @@ include("conex.php");
 session_start();
 $sesion = $_SESSION['correo'];
 if ($sesion == null || $sesion == '') {
-    header("Location:../html/index.html");
+    header("Location:../html/index.php");
 ?><h1>Usted no tiene autorización para ingresar a esta pagina</h1><br>
     <h1>Ingrese nuevamente</h1> <?php
                             }

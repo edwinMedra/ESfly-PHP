@@ -27,7 +27,7 @@
     <style>
         @media screen and (max-width:768px) {
             .titulo {
-                top: 15%;
+                top:10%;
             }
         }
     </style>
@@ -42,18 +42,8 @@
 
     <div class="back">
         <img src="../imagen/ofertasyDestinos/back.png" alt="">
-        <div class="titulo"> <span>STATUE OF</span> <span>LIBERTY</span>
-            <div class="titulo-son">viajes a Estados unidos (new york)</div>
-        </div>
+        <div class="titulo"> <span>STATUE OF</span> <span>LIBERTY</span>        </div>
         <!--Botones de imagen principal-->
-        <div class="botones">
-            <div class="boton-left">
-                <button type="button">Buscar vuelo</button>
-            </div>
-            <div class="boton-right">
-                <button type="button">Ver información</button>
-            </div>
-        </div>
         <!---->
     </div>
 
@@ -140,7 +130,7 @@
                                 sistema de cascadas más grande del mundo. De hecho, hay hasta 275 cataratas de varios
                                 tamaños. La Garganta del Diablo es la más grande y espectacular, aunque el conjunto te
                                 dejará sin palabras. </p>
-                            <a href="" class="btn btn-primary border-0">Tomar vuelo</a>
+                            <a href="login.php" class="btn btn-primary border-0">Tomar vuelo</a>
                         </div>
                     </div>
                 </div>

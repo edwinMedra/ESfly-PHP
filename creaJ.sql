@@ -154,7 +154,6 @@ create table form(
     equiBodega int,
     primary key (idForm)
 );
-
 /*
 -- TABLAS INTERMEDIAS:
 -- Tabla aerolineaAsistente

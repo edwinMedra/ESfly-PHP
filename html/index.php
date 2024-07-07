@@ -10,12 +10,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bayon&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&display=swap"
-        rel="stylesheet">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="../css/index1.css">
     <link rel="stylesheet" href="../css/headerr.css">
@@ -25,18 +22,23 @@
     <title>ESFLY</title>
     <style>
         #espacio {
-  display: none;
-}
+            display: none;
+        }
 
+        @media screen and (max-width:768px) {
+            #espacio {
+                display: flex;
+            }
+        }
     </style>
 </head>
 
 <body>
 
     <!--Inicio header-->
-   <?php
-   include ("header.php");
-   ?>
+    <?php
+    include("header.php");
+    ?>
 
     <!--Fin header-->
 
@@ -56,13 +58,11 @@
                     <img src="../imagen/index/fondo4.png" class="d-block w-100 h-200" alt="...">
                 </div>
             </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval"
-                data-bs-slide="prev">
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                 <span class="visually-hidden">Previous</span>
             </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval"
-                data-bs-slide="next">
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                 <span class="visually-hidden">Next</span>
             </button>
@@ -175,8 +175,7 @@
                         </select>
                     </div>
                     <!--AHI EL BOTON DE ABAJO TIENE Q DIRIGIT A DONDE DECIDA EL USUARIO (PAIS) -->
-                    <a href="Reservarvuelos.html"
-                        class=" mt-5  d-flex flex-column align-items-center btn btn-primary">Buscar Vuelo</a>
+                    <a href="login.php" class=" mt-5  d-flex flex-column align-items-center btn btn-primary">Buscar Vuelo</a>
                 </form>
             </div>
         </div>
@@ -261,8 +260,7 @@
                         <h5 class="card-title">Equipaje</h5>
                         <p class="card-text">Entérate de las condiciones que debes tener en cuenta al momento de
                             preparar tu equipaje.</p>
-                        <a href="../html/maleta.html"
-                            class="b-info d-flex flex-column align-items-center btn btn-primary">Ver información</a>
+                        <a href="maleta.php" class="b-info d-flex flex-column align-items-center btn btn-primary">Ver información</a>
                     </div>
                 </div>
             </div>
@@ -278,8 +276,7 @@
                         <h5 class="card-title">ESfly information</h5>
                         <p class="card-text">Adquiere información de vuelos seguros y cómodos. Con servicio excepcional,
                             priorizamos tu experiencia de viaje.</p>
-                        <a href="../html/ESfly Information.html"
-                            class="b-info d-flex flex-column align-items-center btn btn-primary">Ver información</a>
+                        <a href="ESfly Information.php" class="b-info d-flex flex-column align-items-center btn btn-primary">Ver información</a>
                     </div>
                 </div>
             </div>
@@ -291,19 +288,18 @@
                     <img src="../imagen/index/experiencia.png" class="img-card img-fluid rounded-start" alt="...">
                 </div>
                 <div class="col-md-5">
-                    <div class="card-body"  stylesheet="min-height:20px">
+                    <div class="card-body" stylesheet="min-height:20px">
                         <h5 class="card-title">Experiencia ESfly</h5>
                         <p class="card-text">Descubre los servicios a bordo que te ofrecemos al volar con nosotros,
                             escribe reseñas.</p>
-                        <a href="../html/experienciasESfly.html"
-                            class=" b-info d-flex flex-column align-items-center btn btn-primary">Ver información</a>
+                        <a href="experienciasESfly.php" class=" b-info d-flex flex-column align-items-center btn btn-primary">Ver información</a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
     <!--FIN DE CUADROS DE INFORMACION-->
-    <div class="mt-5 p-5" id="espacio"> </div>
+    <div class="mt-2 p-5" id="espacio"> </div>
     <!--PREPARAR PARA VIAJAR (CLIENTE)-->
     <div class=" container-fluid texto-titulo  mt-5 ps-5">
         <h5>Información sobre nosotros ></h5>
@@ -312,9 +308,8 @@
     <div class="container-fluid mt-5">
         <div class="row justify-content-center ">
 
-            <a class="card-prep card card-hover-effect text-center mb-3 " style="width: 22rem;"
-                href="centroAyuda.html">
-                <div class="">
+            <a class="card-prep card card-hover-effect text-center mb-3 " style="width: 22rem;" href="centroAyuda.php">
+                <div>
                     <div class="card-body">
                         <h5 class="card-title mt-5">CENTRO DE AYUDA </h5>
                         <p class="card-text">Encuentra ayuda sobre la información que necesites.</p>
@@ -323,8 +318,7 @@
             </a>
 
 
-            <a class="card-prep card card-hover-effect text-center mb-3 " style="width: 22rem;"
-                href="requisitos para viajar.html">
+            <a class="card-prep card card-hover-effect text-center mb-3 " style="width: 22rem;" href="requisitos para viajar.php">
                 <div class="">
                     <div class="card-body">
                         <h5 class="card-title mt-5">REQUISITOS PARA VIAJAR </h5>
@@ -333,19 +327,14 @@
                 </div>
             </a>
 
-            <a class="card-prep card card-hover-effect text-center mb-3 " style="width: 22rem;"
-                href="check-in.html">
-                <div>
+            <a class="card-prep card card-hover-effect text-center mb-3 " style="width: 22rem;" href="check-in.php">
+            <div>
                     <div class="card-body">
                         <h5 class="card-title mt-5">Check-in online </h5>
                         <p class="card-text">Obtén tu pase de abordar y ahorra tiempo en el aeropuerto.</p>
                     </div>
                 </div>
             </a>
-
-
-
-
         </div>
     </div>
 
@@ -353,11 +342,9 @@
     <!--FIN DE PREPARAR PARA VIAJAR (CLIENTE)-->
 
     <?php
-include ("pie.php");
-?>
+    include("pie.php");
+    ?>
 </body>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
 </html>

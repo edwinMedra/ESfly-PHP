@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="../imagen/header/favicon.png" type="image/x-icon">
-
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -292,7 +291,7 @@
         </div>
     </div>
     <!--FIN DE CUADROS DE INFORMACION-->
-    <div class="mt-5 p-5" id="espacio"> </div>
+    <div class="mt-2 p-5" id="espacio"> </div>
 
     <!--PREPARAR PARA VIAJAR (CLIENTE)-->
     <div class=" container texto-titulo  mt-5 ">
@@ -303,8 +302,8 @@
         <div class="row justify-content-center ">
 
             <a class="card-prep card card-hover-effect text-center mb-3 " style="width: 22rem;"
-                href="centroAyuda.html">
-                <div class="">
+                href="centroAyuda.php">
+                <div>
                     <div class="card-body">
                         <h5 class="card-title mt-5">CENTRO DE AYUDA </h5>
                         <p class="card-text">Encuentra ayuda sobre la información que necesites.</p>
@@ -314,7 +313,7 @@
 
 
             <a class="card-prep card card-hover-effect text-center mb-3 " style="width: 22rem;"
-                href="requisitos para viajar.html">
+                href="requisitos para viajar.php">
                 <div class="">
                     <div class="card-body">
                         <h5 class="card-title mt-5">REQUISITOS PARA VIAJAR </h5>
@@ -324,7 +323,7 @@
             </a>
 
             <a class="card-prep card card-hover-effect text-center mb-3 " style="width: 22rem;"
-                href="check-in.html">
+                href="check-in.php">
                 <div>
                     <div class="card-body">
                         <h5 class="card-title mt-5">Check-in online </h5>
