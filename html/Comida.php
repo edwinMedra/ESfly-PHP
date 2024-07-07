@@ -15,96 +15,47 @@
     href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&display=swap"
     rel="stylesheet" />
   <link rel="shortcut icon" href="../imagen/header/favicon.png" type="image/x-icon" />
-  <link rel="stylesheet" href="../css/header.css" />
+  <link rel="stylesheet" href="../css/headerr.css" />
   <link rel="stylesheet" href="../css/pie.css" />
-  <link rel="stylesheet" href="../css/ReservaAsiento_vueloNormal.css" />
-  <title>Información sobre vuelos</title>
+  <link rel="stylesheet" href="../css/platillosComida.css" />
+  <title>Platillos de comida</title>
 </head>
 
 <body>
-  <!---Header de pagina web hecho con frameworks-->
-  <nav class="navbar navbar-expand-lg bg-body-tertiary">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="index.html"><img src="../imagen/estoyAnsioso/esflyInfo.png" class="" id="logo"
-          alt="" /></a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
-        aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarText">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="Reservarvuelos.html">Reserva tu vuelo</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="ofertasYDestinos.html">Ofertas y destinos</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="check-in.html">Check-in</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="login.html">Login</a>
-          </li>
-        </ul>
-        <span class="navbar-text"> </span>
-        <form class="d-flex" role="search">
-          <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search" />
-          <button class="btn btn-primary-outline-success btn-primary" type="submit">Buscar</button>
-          </button>
-        </form>
-      </div>
-    </div>
-  </nav>
-  <!--Fin header-->
+ 
+  <!--Inicio header-->
+  <?php
+  include ("header.php");
+  ?>
+
+<!--Fin header-->   
+
   <div class="back">
-    <img src="../imagen/datosVuelo/fondo.png" alt="" />
-    <div class="titulo"><p >Información sobre vuelos</p></div>
+    <img src="../imagen/platillosComida/fondos.png" alt="" />
+    <div class="titulo"><p >Comida</p></div>
   </div>
   <!---->
 
 <div class="container mt-5 mb-5">
-  <div class="row">
-
-
-    <div class=" mt-5 mp-5 col-md-12 col-sm-12 col-lg-6">
-      <div class="card">
-        <img src="../imagen/ReservaAsiento_vueloNormal/normal.png" class="card-img-top " alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Asientos comunes</h5>
-          <p class="card-text mt-3 ps-4 pe-4">Posee asientos cómodos, en los cuales pasrán un agradable viaje hasta su  lugar de destino, pero estos
-             no  pueden recostarse, no poseen menú online, pero pueden obtener algun aperitivos que les ofrezca la azafata sin ningún
-            problema. </p>
-
-            <div class="d-flex justify-content-center">
-              <a href="#"><button type="button" class="btn btn-primary mt-4">¡Tomar vuelo! </button></a>
-            </div>
+    <div class="card mb-3 border-0" >
+        <div class="row g-0">
           
-        </div>
-      </div>
-    </div>
-
-    <div class=" mt-5 mp-5 col-md-12 col-sm-12 col-lg-6">
-      <div class="card">
-        <img src="../imagen/ReservaAsiento_vueloNormal/vip.png" class="card-img-top " alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Asientos VIP</h5>
-          <p class="card-text mt-4 ps-4 pe-4">
-            <li class=" ps-4 pe-4"><b>Asientos super cómodos:</b>Permiten recostarse al punto de acomodar libremente su cabeza y piernas sin 
-              generar molestias a los demás pasajeros.</li><br>
-            <li class="ps-4 pe-4"><b>Menú online:</b>Consta de un menú online el cual podrá ordenar desde su móvil algo 
-              del bufet.</li></p>
-
-          <div class="d-flex justify-content-center">
-            <a href="#"><button type="button" class="btn btn-primary ">¡Tomar vuelo! </button></a>
+          <div class="col-md-12 col-sm-12 col-lg-5">
+            <div class="card-body">
+              <h2 class="card-title pt-5">Comida en el vuelo</h2>
+              <p class="card-text pt-5 ps-3 pe-3">Puedes obtener tus alimentos cuando la azafata se presente entre los pasillos. 
+                En ese momento, ella te proporcionará un menú detallado que incluye una variedad de opciones de 
+                alimentos y bebidas de excelente calidad. Podrás elegir entre diversas alternativas cuidadosamente 
+                seleccionadas para satisfacer tus gustos y necesidades. Además, la azafata estará disponible para 
+                responder cualquier pregunta que puedas tener y para asegurarse de que tu experiencia sea placentera 
+                y satisfactoria.</p>
+            </div>
           </div>
-            
+          <div class="col-md-12 col-sm-12 col-lg-7">
+            <img src="../imagen/platillosComida/azafata.png" class="img-fluid rounded-start" alt="azafata">
+          </div>
         </div>
       </div>
-    </div>
-
-
-
-  </div>
 </div>
 
     <!--FOOTER-->

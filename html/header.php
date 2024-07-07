@@ -1,3 +1,12 @@
+<?php
+error_reporting(0);
+session_start();
+include("conex.php");
+$sesion = $_SESSION['correo'];
+if (!($sesion == null || $sesion == '')){
+  header("Location:../html-php/index.php");
+}
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -15,12 +24,9 @@
      <link href="https://fonts.googleapis.com/css2?family=Bayon&display=swap" rel="stylesheet">
      <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
      <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
-
-
-
     <link rel="stylesheet" href="../css/headerr.css">
 
-    <title>Experiencias ESfly</title>
+    <title>header</title>
 </head>
 <body>
 
@@ -28,7 +34,7 @@
      <nav class="navbar navbar-expand-lg bg-body-tertiary shadow-navbar fixed-top">
         <div class="container-fluid">
     
-            <a class="navbar-brand" href="index.html">
+            <a class="navbar-brand" href="index.php">
                 <img src="../imagen/estoyAnsioso/esflyInfo.png" class="" id="logo" alt="">
             </a>
     
@@ -39,25 +45,25 @@
             <div class="collapse navbar-collapse" id="navbarText">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link " aria-current="page" href="Reservarvuelos.html">Reserva tu vuelo</a>
+                        <a class="nav-link " aria-current="page" href="Reservarvuelos.php">Reserva tu vuelo</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="ofertasYDestinos.html">Ofertas y destinos</a>
+                        <a class="nav-link" href="ofertasYDestinos.php">Ofertas y destinos</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="check-in.html">Check-in</a>
+                        <a class="nav-link" href="check-in.php">Check-in</a>
                     </li>
                 </ul>
     
                 <span class="navbar-text"></span>
     
                 <form class="d-flex" role="search">
-                    <a href="../html/login.html" class="btn btn-primary-outline-success btn-primary ms-1" type="submit">Iniciar sesión</a>
+                    <a href="login.php" class="btn btn-primary-outline-success btn-primary ms-1" type="submit">Iniciar sesión</a>
 
-                    <a href="../html/registro.html" class="btn btn-registro ms-1 " href="../html/registro.html" type="submit">Registrarse</a>
+                    <a href="registro.php" class="btn btn-registro ms-1 " href="../html/registro.html" type="submit">Registrarse</a>
 
                 </form>
-                <a href="../html/busqueda.html" class="btn  btn-primary-outline ms-1" type="submit"><img src="../imagen/header/lupa.png" class="" id="lupa" alt="" width="30"> Buscar</a>
+                <a href="busqueda.php" class="btn  btn-primary-outline ms-1" type="submit"><img src="../imagen/header/lupa.png" class="" id="lupa" alt="" width="30"> Buscar</a>
             </div>
         </div>
     </nav>

@@ -21,42 +21,9 @@
   <body>
     
         <!--Inicio header-->
-        <nav class="navbar navbar-expand-lg bg-body-tertiary shadow-navbar fixed-top">
-          <div class="container-fluid">
-      
-              <a class="navbar-brand" href="index.html">
-                  <img src="../imagen/estoyAnsioso/esflyInfo.png" class="" id="logo" alt="">
-              </a>
-      
-              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-                  <span class="navbar-toggler-icon"></span>
-              </button>
-      
-              <div class="collapse navbar-collapse" id="navbarText">
-                  <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                      <li class="nav-item">
-                          <a class="nav-link " aria-current="page" href="Reservarvuelos.html">Reserva tu vuelo</a>
-                      </li>
-                      <li class="nav-item">
-                          <a class="nav-link" href="ofertasYDestinos.html">Ofertas y destinos</a>
-                      </li>
-                      <li class="nav-item">
-                          <a class="nav-link" href="check-in.html">Check-in</a>
-                      </li>
-                  </ul>
-      
-                  <span class="navbar-text"></span>
-      
-                  <form class="d-flex" role="search">
-                      <a href="../html/login.php" class="btn btn-primary-outline-success btn-primary ms-1" type="submit">Iniciar sesión</a>
-  
-                      <a class="btn btn-registro ms-1 " href="../html/registro.php" type="submit">Registrarse</a>
-  
-                  </form>
-                  <a href="../html/busqueda.html" class="btn  btn-primary-outline ms-1" type="submit"><img src="../imagen/header/lupa.png" class="" id="lupa" alt="" width="30"> Buscar</a>
-              </div>
-          </div>
-      </nav>
+        <?php
+   include ("header.php");
+   ?>
     <!--Fin header-->   
     <!-- Estructura principal de pagina principal -->
     <div class="contenedor">
