@@ -29,6 +29,7 @@ if ($sesion == null || $sesion == '') {
 
                                 ?>
 <!--Inicio header-->
+
 <nav class="navbar navbar-expand-lg bg-body-tertiary shadow-navbar fixed-top">
     <div class="container-fluid">
 
@@ -55,18 +56,18 @@ if ($sesion == null || $sesion == '') {
 
             <span class="navbar-text"></span>
 
-            <form class="d-flex" role="search">
-       
+            <form class="d-flex justify-content-center" role="search">
+
                 <a href="cerrar.php" class="btn btn-primary-outline-success btn-primary ms-1" type="submit">Cerrar sesión</a>
                 <label for="lupa">
-                <?php
-                if ($foto == null) {
-                    echo '<a href="datos de cuenta.php"><img src="https://cdn-icons-png.flaticon.com/512/9187/9187604.png" class="rounded-circle my-auto border border-1 border-black mx-1" id="lupa" alt=""  height="35px" width="35px"></a>';
-                } else {
-                ?> <a href="datos de cuenta.php"> <img src="data:image/jpg;base64,<?php echo base64_encode($foto) ?>" class="rounded-circle my-auto border border-1 border-black mx-1" id="lupa" alt="" height="35px" width="35px" style="object-fit: cover;"></a>
-                <?php
-                }
-                ?>
+                    <?php
+                    if ($foto == null) {
+                        echo '<a href="datos de cuenta.php"><img src="https://cdn-icons-png.flaticon.com/512/9187/9187604.png" class="rounded-circle my-auto border border-1 border-black mx-1" id="lupa" alt=""  height="35px" width="35px"></a>';
+                    } else {
+                    ?> <a href="datos de cuenta.php"> <img src="data:image/jpg;base64,<?php echo base64_encode($foto) ?>" class="rounded-circle my-auto border border-1 border-black mx-1" id="lupa" alt="" height="35px" width="35px" style="object-fit: cover;"></a>
+                    <?php
+                    }
+                    ?>
                 </label>
 
 

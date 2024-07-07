@@ -82,7 +82,7 @@
           </div>
           <div class="mb-3">
             <label for="InputCorreo1" class="form-label">Contraseña</label>
-            <input type="text" name="pass" class="form-control" id="InputCorreo1" value="<?php echo $pass ?>">
+            <input type="password" name="pass" class="form-control" id="InputCorreo1" value="<?php echo $pass ?>">
           </div>
           <div class="mb-3">
             <label for="InputEmail1" class="form-label">Pasaporte</label>
@@ -95,7 +95,9 @@
     </div>
   </form>
 </body>
-
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
 </html>
 <?php
 if (isset($_POST['registro'])) {
