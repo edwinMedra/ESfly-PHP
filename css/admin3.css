@@ -1,0 +1,70 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+/*cuadro de vuelos*/
+.centered-card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+  }
+  .card-buscar {
+    width: 100%;
+    max-width: 900px;
+    min-height: 60vh;
+    font-family:"Be Vietnam Pro" ;
+  
+  }
+  .form-inline .form-group {
+    display: flex;
+    align-items: center;
+  }
+  .form-inline .form-control {
+    width: auto;
+    flex: 1;
+  }
+  
+  .text-formu{
+    font-weight: bold;
+  }
+  
+/**/
+.titulo {
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: "red hat display";
+    font-size: 60px;
+}
+h2{
+    font-family: "bayon" !important;
+    color: #273758;
+}
+#usuT {
+    background-color: #273758;
+    color: white;
+    width: 90%;
+}
+
+body {
+    font-family: "be vietnam pro";
+}
+h5 {
+    font-family: "bayon";
+}
+#tabla {
+    width: 90%;
+    }
+#tabla .col-12 {
+    font-size: 12px ;
+}
+#tabla img{
+    max-height: 40px;
+    max-width: 40px;
+    object-fit: fill;
+}
+#link {
+    padding: 0px 5px;;
+}

@@ -1,0 +1,23 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: "bayon";
+  background-image: url(../imagen/metodosDePago/fondo.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+#pago p {
+    font-family: "be vietnam pro";
+    text-align: justify;
+}
+@media screen and (max-width:768px) {
+    #pago .row {
+        width: 100% !important;
+    }
+    #pago p {
+        text-align: left;
+    }
+}

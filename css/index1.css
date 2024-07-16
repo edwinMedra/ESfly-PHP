@@ -1,0 +1,197 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+
+body{
+  background-color: #f6f6f6;
+  font-family: "bayon";
+}
+
+.contenedor img{
+  width: 100%;
+  height: 620px;
+  filter: brightness(55%);
+  object-fit: cover;
+
+}
+  
+.texto-superpuesto {
+  font-family: "Be Vietnam Pro";
+  color: white;
+  text-align: center;
+  font-size: 40px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 10px;
+  border-radius: 5px;
+}
+
+#carouselExampleInterval img {
+  max-height: 600px;
+}
+
+
+/*CUADRO DE BUSCAR VUELOS*/
+
+.centered-card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+.card-buscar {
+  width: 100%;
+  max-width: 900px;
+  min-height: 60vh;
+  font-family:"Be Vietnam Pro" ;
+
+}
+.form-inline .form-group {
+  display: flex;
+  align-items: center;
+}
+.form-inline .form-control {
+  width: auto;
+  flex: 1;
+}
+
+.text-formu{
+  font-weight: bold;
+}
+
+
+/*FIN DEL CUADRO DE BUSCAR VUELOS*/
+
+
+/*empieza galeria de viajes CON HOVER DE PRUEBA*/
+
+.image-container {
+  position: relative;
+  width: 100%;
+  height: 300px;
+}
+
+.image-container img {
+  width: 100%;
+  height: auto;
+  height: 300px;
+  border: 40px;
+  object-fit: cover;
+  border-radius: 30px;
+
+
+}
+
+.overlay {
+  border-radius: 30px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  font-family: "Be Vietnam Pro";
+}
+
+.image-container:hover .overlay {
+  opacity: 1;
+}
+
+.overlay-content {
+  text-align: center;
+}
+
+/*fin galeria de viajes*/
+
+/*INFORMACION GENERAL DE LA AEROLINEA*/
+.texto-titulo{
+  font-family: "Be Vietnam Pro";
+}
+.card-text{
+  font-family: "Be Vietnam Pro";
+}
+
+.card-title{
+  font-size: 25px;
+}
+
+.card {
+  width: 100%;
+  height: 200px; 
+}
+
+.card img{
+  height:200px;
+  width: 650px;
+  object-fit: cover;
+}
+
+.b-info{
+  font-family: "Be Vietnam Pro";
+}
+/*TERMINA LA INFORAMACION DE LA AEROLINEA*/
+
+/*PREPARATTE PARA VIAJAR*/
+
+.card-prep{
+  background-color: rgb(46, 92, 243);
+  color: #f6f6f6;
+  text-decoration: none;
+}
+
+.card-group{
+  max-width: 600px;
+  text-decoration: none;
+}
+
+.card-img-top{
+  object-fit: cover;
+}
+
+.card-hover-effect {
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card-hover-effect:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+#espacio {
+  display: none;
+}
+/**/
+
+/* responsive pagina web*/
+@media screen and (max-width:768px) {
+  .viaje-titulo #rectangulo img{
+    margin: 0 4px;
+  }
+  .texto-superpuesto {
+    font-size: 30px;
+    font-weight: bold;
+  }
+  .col-4 img {
+    width: 3000px;
+  }
+
+.preparate{
+  display: inline;
+}
+.preparate .son{
+  margin: 20px auto;
+}
+  #espacio {
+    display: flex;
+  }
+}
+

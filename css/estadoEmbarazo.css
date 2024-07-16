@@ -1,0 +1,59 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+header{
+    position: fixed;
+    z-index: 1;
+}
+body{
+    background-color: #ECEBEB;    
+    font-family: "Be Vietnam Pro";
+}
+h3 {
+    font-family: "Bayon";
+}
+.back img{
+    width: 100%;
+    filter: brightness(50%);
+    object-fit: cover;
+    max-height: 500px;
+}
+.titulo{
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    color: white;
+    font-size: 50px;
+    font-family: "red hat display";
+    margin-top: -250px;
+}
+.col-lg-9 p {
+    text-align: justify;
+    margin: 20px 0;
+}
+li {
+    text-align: justify;
+    margin: 10px 0;
+}
+@media screen and (max-width:768px) {
+    #info {
+        width: 85% !important;
+    }
+    .titulo{
+        color: white;
+        font-size: 30px;
+        font-family: "red hat display";
+        margin-top: -150px;
+    }
+    h3 {
+        margin: 15px 0 !important;
+    }
+    #estado {
+        width: 75% !important;
+    }
+    #tiempo {
+        width: 75% !important;
+        margin: 20px 0;
+    }
+}

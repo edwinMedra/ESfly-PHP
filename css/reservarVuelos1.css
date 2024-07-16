@@ -1,0 +1,56 @@
+.back img {
+  width: 100%;
+}
+
+.contenedor img{
+  width: 100%;
+  height: 620px;
+  filter: brightness(55%);
+  object-fit: cover;
+
+}
+  
+.texto-superpuesto {
+  font-family: "Be Vietnam Pro";
+  color: white;
+  text-align: center;
+  font-size: 80px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 10px;
+  border-radius: 5px;
+}
+
+body {
+    background-color: #ECEBEB;
+}
+#vuelos {
+    border: 1px solid black;
+}
+#personas{
+ background-color: blue;
+}
+#columna {
+    border: 2px solid black;
+    border-radius: 50px;
+}
+#columna .col:not(:first-child) {
+    border-left: 1px solid black ;
+}
+#botonB {
+  background-color: #273758;
+}
+#avion {
+  width: 30px;
+  height: max-content;
+}
+#viajes > p {
+  font-size: 14px;
+}
+@media screen and (max-width:768px) {
+  .texto-superpuesto {
+    font-size: 50px;
+  }
+}
