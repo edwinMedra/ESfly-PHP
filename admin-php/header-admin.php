@@ -3,7 +3,7 @@ session_start();
 include ("conex.php");
 $sesion= $_SESSION['correo'];
 if ($sesion == null || $sesion=='' ){
-    header ("Location:../html/index.html");
+    header ("Location:../html/index.php");
 }
 // proceso para poder mostrar el nombre de usuario y no el correo de el usuario 
 
