@@ -47,10 +47,10 @@ if ($conexion){
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                             aria-expanded="false">
-                            Empleado
+                            Asistente
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="agregar_empleado.php">Agregar</a></li>
+                            <li><a class="dropdown-item" href="agregar_asistente.php">Agregar</a></li>
                             <li><a class="dropdown-item" href="editar_empleado.php">Editar</a></li>
                             <li><a class="dropdown-item" href="eliminar_empleado.php">Eliminar</a></li>
                         </ul>
