@@ -143,11 +143,11 @@ if (!($sesion == null || $sesion == '')){
         const searchSuggestions = document.getElementById('search-suggestions');
 
         const pages = [
-            { name: "Reserva tu vuelo", url: "Reservarvuelos.html" },
-            { name: "Ofertas y destinos", url: "ofertasYDestinos.html" },
-            { name: "Check-in", url: "check-in.html" },
-            { name: "Iniciar sesión", url: "../html/login.html" },
-            { name: "Registrarse", url: "../html/registro.html" }
+            { name: "Reserva tu vuelo", url: "Reservarvuelos.php" },
+            { name: "Ofertas y destinos", url: "ofertasYDestinos.php" },
+            { name: "Check-in", url: "check-in.php" },
+            { name: "Iniciar sesión", url: "../html/login.php" },
+            { name: "Registrarse", url: "../html/registro.php" }
 
         ];
 
