@@ -183,7 +183,7 @@ if (isset($_POST['crear'])){
         if ($foto) {
 
             include ("conex.php");
-            $sql = "INSERT INTO administradores(nomAdmin,apeAdmin,pass,email,pasaporte,dui,cargo,descri) VALUES('$name','$lastname','$pass','$email','$pasporte','$dui','$cargo','$descri')";
+            $sql = "INSERT INTO administradores(nomAdmin,apeAdmin,pass,email,pasaporte,dui,cargo,descri,rol) VALUES('$name','$lastname','$pass','$email','$pasporte','$dui','$cargo','$descri','admin')";
             $resul = $conexion->query($sql);
             if ($resul) {
                 echo '<script>alert("Administrador '. $name . ' Agregado con exito")</script>';

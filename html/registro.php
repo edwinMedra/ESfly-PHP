@@ -173,6 +173,21 @@ if (isset($_POST['registro'])) {
   } elseif (!preg_match("/^[0-9]{8}-[0-9]{1}$/", $dui)) {
     echo '<script>alert("El DUI debe tener 10 caracteres, incluyendo un guion después de 8 dígitos")</script>';
   } else {
+    // hacer consulta para verificar que no exista un usuario igual en la base de datos 
+    // $email, $passport, $dui VARIABLES A UTILIZAR COMO BASE PARA VERIFICAR QUE NO EXISTA OTRO USUARIO EN LA BASE DE DATOS 
+    $buscar = $conexion->query("SELECT * FROM usuario where correo='$email'");
+    $buscar1 = $conexion->query("SELECT * FROM usuario where pasaporte='$passport'");
+    $buscar2 = $conexion->query("SELECT * FROM usuario where dui='$dui'");
+    $filaCorreo = mysqli_num_rows($buscar);
+    $filaEmail = mysqli_num_rows($buscar1);
+    $filaDui = mysqli_num_rows($buscar2);
+    if ($filaCorreo) {
+      echo '<script>alert("Correo ' . $email . ' no valido, intente nuevamente")</script>';
+    } else if ($filaEmail) {
+      echo '<script>alert("Pasaporte ' . $passport . ' no valido, intente nuevamente")</script>';
+    }else if($filaDui){
+      echo '<script>alert("Dui ' . $dui . ' no valido, intente nuevamente")</script>';
+    }else 
     if ($foto) {
       $insertar = "INSERT INTO usuario(nomCliente,apeCliente,pass, correo, pasaporte, dui) VALUES('$nombre','$apellido','$pass','$email','$passport','$dui')";
       $resultado = mysqli_query($conexion, $insertar);

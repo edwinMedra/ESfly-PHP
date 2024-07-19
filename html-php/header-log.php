@@ -4,30 +4,32 @@ session_start();
 $sesion = $_SESSION['correo'];
 if ($sesion == null || $sesion == '') {
     header("Location:../html/index.php");
-?><h1>Usted no tiene autorización para ingresar a esta pagina</h1><br>
-    <h1>Ingrese nuevamente</h1> <?php
-                            }
-                            // proceso para poder mostrar el nombre de usuario y no el correo de el usuario 
-                            include("conex.php");
-                            if ($conexion) {
-                                $consul = "SELECT * FROM usuario where correo='$sesion'";
-                                $resul = mysqli_query($conexion, $consul);
-                                if ($resul) {
-                                    while ($row = $resul->fetch_array()) {
-                                        $nomCliente = $row['nomCliente'];
-                                        $apeCliente = $row['apeCliente'];
-                                        $dui = $row['dui'];
-                                        $email = $row['correo'];
-                                        $pasaporte = $row['pasaporte'];
-                                        $foto = $row['foto'];
-                                        $idCliente = $row['idCliente'];
-                                        $pass = $row['pass'];
-                                    }
-                                }
-                            }
-                            // se incluye el header para no tener que cambiar las demas rutas
+}
+// proceso para poder mostrar el nombre de usuario y no el correo de el usuario 
+include("conex.php");
+if ($conexion) {
+    $consul = "SELECT * FROM usuario where correo='$sesion'";
+    $resul = mysqli_query($conexion, $consul);
+    $filas = mysqli_num_rows($resul);
+    if ($filas) {
+        while ($row = $resul->fetch_array()) {
+            $nomCliente = $row['nomCliente'];
+            $apeCliente = $row['apeCliente'];
+            $dui = $row['dui'];
+            $email = $row['correo'];
+            $pasaporte = $row['pasaporte'];
+            $foto = $row['foto'];
+            $idCliente = $row['idCliente'];
+            $pass = $row['pass'];
+        }
+    }else{
+        header("Location:../admin-php/index_admin.php");
 
-                                ?>
+    }
+}
+// se incluye el header para no tener que cambiar las demas rutas
+
+?>
 <!--Inicio header-->
 
 <nav class="navbar navbar-expand-lg bg-body-tertiary shadow-navbar fixed-top">

@@ -11,6 +11,7 @@ pasaporte varchar(9),
 dui varchar(10),
 idCliente int auto_increment,
 foto longblob,
+rol varchar(100),
 constraint primary key (idCliente)
 );
 /*
@@ -139,6 +140,7 @@ create table administradores(
     cargo varchar(500),
     foto longblob,
     descri varchar(1000),
+    rol varchar(100),
     primary key (idAdmin)
 );
 insert into administradores values(
