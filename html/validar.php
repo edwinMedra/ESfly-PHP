@@ -1,11 +1,11 @@
 <?php
-$correo = $_POST['correo'];
-$pass = $_POST['pass'];
-
+$correo = htmlspecialchars($_POST['correo']);
+$pass = htmlspecialchars($_POST['pass']);
 //conectar a la base de datos 
 include ("conex.php");
-$consulta = "SELECT * FROM usuario WHERE correo='$correo' and pass='$pass'";
-$resultado = mysqli_query($conexion, $consulta);
+$consulta = "SELECT * FROM usuario WHERE correo=?";
+$resul = $conexion->prepare($consulta);
+$resul = bind_param("s", $correo);
 
 $filas = mysqli_num_rows($resultado);
 if ($filas > 0) {

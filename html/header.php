@@ -93,7 +93,7 @@ if (!($sesion == null || $sesion == '')){
     <nav class="navbar navbar-expand-lg bg-body-tertiary shadow-navbar fixed-top">
         <div class="container-fluid">
     
-            <a class="navbar-brand" href="index.html">
+            <a class="navbar-brand" href="index.php">
                 <img src="../imagen/estoyAnsioso/esflyInfo.png" class="" id="logo" alt="">
             </a>
     
@@ -104,21 +104,21 @@ if (!($sesion == null || $sesion == '')){
             <div class="collapse navbar-collapse" id="navbarText">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="Reservarvuelos.html">Reserva tu vuelo</a>
+                        <a class="nav-link" aria-current="page" href="Reservarvuelos.php">Reserva tu vuelo</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="ofertasYDestinos.html">Ofertas y destinos</a>
+                        <a class="nav-link" href="ofertasYDestinos.php">Ofertas y destinos</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="check-in.html">Check-in</a>
+                        <a class="nav-link" href="check-in.php">Check-in</a>
                     </li>
                 </ul>
     
                 <span class="navbar-text"></span>
     
                 <form class="d-flex" role="search">
-                    <a href="../html/login.html" class="btn btn-primary-outline-success btn-primary ms-1" type="submit">Iniciar sesión</a>
-                    <a href="../html/registro.html" class="btn btn-registro ms-1" href="../html/registro.html" type="submit">Registrarse</a>
+                    <a href="login.php" class="btn btn-primary-outline-success btn-primary ms-1" type="submit">Iniciar sesión</a>
+                    <a href="registro.php" class="btn btn-registro ms-1" type="submit">Registrarse</a>
                 </form>
                 <button class="btn btn-primary-outline ms-1" type="button" id="search-btn">
                     <img src="../imagen/header/lupa.png" class="" id="lupa" alt="" width="20"> Buscar
@@ -146,8 +146,8 @@ if (!($sesion == null || $sesion == '')){
             { name: "Reserva tu vuelo", url: "Reservarvuelos.php" },
             { name: "Ofertas y destinos", url: "ofertasYDestinos.php" },
             { name: "Check-in", url: "check-in.php" },
-            { name: "Iniciar sesión", url: "../html/login.php" },
-            { name: "Registrarse", url: "../html/registro.php" }
+            { name: "Iniciar sesión", url: "login.php" },
+            { name: "Registrarse", url: "registro.php" }
 
         ];
 

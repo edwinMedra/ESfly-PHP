@@ -185,11 +185,13 @@ if (isset($_POST['registro'])) {
       echo '<script>alert("Correo ' . $email . ' no valido, intente nuevamente")</script>';
     } else if ($filaEmail) {
       echo '<script>alert("Pasaporte ' . $passport . ' no valido, intente nuevamente")</script>';
-    }else if($filaDui){
+    } else if ($filaDui) {
       echo '<script>alert("Dui ' . $dui . ' no valido, intente nuevamente")</script>';
-    }else 
+    } else 
     if ($foto) {
-      $insertar = "INSERT INTO usuario(nomCliente,apeCliente,pass, correo, pasaporte, dui) VALUES('$nombre','$apellido','$pass','$email','$passport','$dui')";
+      // proceso para encriptar contraseñas al momento de pasar a la base de datos 
+      $passIncriptado = password_hash($pass, PASSWORD_DEFAULT);
+      $insertar = "INSERT INTO usuario(nomCliente,apeCliente,pass, correo, pasaporte, dui) VALUES('$nombre','$apellido','$passIncriptado','$email','$passport','$dui')";
       $resultado = mysqli_query($conexion, $insertar);
       if ($resultado) {
         echo '<script>alert("El usuario fue registrado exitosamente")</script>';
@@ -198,7 +200,9 @@ if (isset($_POST['registro'])) {
       }
     } else {
       $foto = addslashes(file_get_contents($_FILES['foto']['tmp_name']));
-      $insertar = "INSERT INTO usuario(nomCliente,apeCliente,pass, correo, pasaporte, dui,foto) VALUES('$nombre','$apellido','$pass','$email','$passport','$dui','$foto')";
+      // proceso para encriptar contraseñas al momento de pasar a la base de datos 
+      $passIncriptado = password_hash($pass, PASSWORD_DEFAULT);
+      $insertar = "INSERT INTO usuario(nomCliente,apeCliente,pass, correo, pasaporte, dui,foto) VALUES('$nombre','$apellido','$passIncriptado','$email','$passport','$dui','$foto')";
       $resultado = mysqli_query($conexion, $insertar);
       if ($resultado) {
         echo '<script>alert("El usuario fue registrado exitosamente")</script>';
