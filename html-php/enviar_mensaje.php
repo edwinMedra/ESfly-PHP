@@ -6,19 +6,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $idCliente = intval($_POST['idCliente']);
     $idAdmin = intval($_POST['idAdmin']);
     $remitente = $_POST['remitente'];
-    $foto = NULL;
 
-    if (isset($_FILES['foto']) && $_FILES['foto']['error'] == 0) {
-        $fotoPath = 'uploads/' . basename($_FILES['foto']['name']);
-        if (move_uploaded_file($_FILES['foto']['tmp_name'], $fotoPath)) {
-            $foto = $fotoPath;
-        }
-    }
-
-    if ($mensaje != '' || $foto != NULL) {
-        $sql = "INSERT INTO mensajes (mensaje, idUsuario, idAdmin, remitente, foto) VALUES (?, ?, ?, ?, ?)";
+    if ($mensaje != '') {
+        $sql = "INSERT INTO mensajes (mensaje, idUsuario, idAdmin, remitente) VALUES (?, ?, ?, ?)";
         $stmt = $conexion->prepare($sql);
-        $stmt->bind_param('siiss', $mensaje, $idCliente, $idAdmin, $remitente, $foto);
+        $stmt->bind_param('siis', $mensaje, $idCliente, $idAdmin, $remitente);
         $stmt->execute();
         $stmt->close();
     }

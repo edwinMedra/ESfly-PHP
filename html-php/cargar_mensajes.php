@@ -9,15 +9,9 @@ if (isset($_GET['idAdmin']) && isset($_GET['idCliente'])) {
 
     while ($row = $result->fetch_assoc()) {
         if ($row['remitente'] == 'cliente') {
-            echo '<div class="text-end"><p class="msg-cliente d-inline-block p-2 rounded">' . htmlspecialchars($row['mensaje']) . '</p>';
-            if ($row['foto']) {
-                echo '<br><img src="' . htmlspecialchars($row['foto']) . '" class="img-fluid" style="max-width: 200px;"></div>';
-            }
+            echo '<div class="text-end"><p class="bg-primary text-white d-inline-block p-2 rounded">' . $row['mensaje'] . '</p></div>';
         } else {
-            echo '<div class="text-start"><p class="msg-admin d-inline-block p-2 rounded">' . htmlspecialchars($row['mensaje']) . '</p>';
-            if ($row['foto']) {
-                echo '<br><img src="' . htmlspecialchars($row['foto']) . '" class="img-fluid" style="max-width: 200px;"></div>';
-            }
+            echo '<div class="text-start"><p class="bg-secondary text-white d-inline-block p-2 rounded">' . $row['mensaje'] . '</p></div>';
         }
     }
 }
