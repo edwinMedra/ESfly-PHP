@@ -183,7 +183,8 @@ if (isset($_POST['crear'])){
         if ($foto) {
 
             include ("conex.php");
-            $sql = "INSERT INTO administradores(nomAdmin,apeAdmin,pass,email,pasaporte,dui,cargo,descri,rol) VALUES('$name','$lastname','$pass','$email','$pasporte','$dui','$cargo','$descri','admin')";
+            $incriptada = password_hash($pass, PASSWORD_DEFAULT);
+            $sql = "INSERT INTO administradores(nomAdmin,apeAdmin,pass,email,pasaporte,dui,cargo,descri,rol) VALUES('$name','$lastname','$incriptada','$email','$pasporte','$dui','$cargo','$descri','admin')";
             $resul = $conexion->query($sql);
             if ($resul) {
                 echo '<script>alert("Administrador '. $name . ' Agregado con exito")</script>';
@@ -192,10 +193,10 @@ if (isset($_POST['crear'])){
             }
 
         } else {
-            
             include ("conex.php");
+            $incriptada = password_hash($pass, PASSWORD_DEFAULT);
             $foto = addslashes(file_get_contents($_FILES['foto']['name']));
-            $sql = "INSERT INTO administradores(nomAdmin,apeAdmin,pass,email,pasaporte,dui,cargo,descri,foto) VALUES('$name','$lastname','$pass','$email','$pasporte','$dui','$cargo','$descri',$foto)";
+            $sql = "INSERT INTO administradores(nomAdmin,apeAdmin,pass,email,pasaporte,dui,cargo,descri,foto) VALUES('$name','$lastname','$incriptada','$email','$pasporte','$dui','$cargo','$descri',$foto)";
             $resul = $conexion->query($sql);
             if ($resul) {
                 echo '<script>alert("Administrador '. $name . ' Agregado con exito")</script>';

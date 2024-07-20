@@ -1,14 +1,14 @@
 <?php
 session_start();
 include ("conex.php");
-$sesion= $_SESSION['correo'];
+$sesion= $_SESSION['$id'];
 if ($sesion == null || $sesion=='' ){
     header ("Location:../html/index.php");
 }
 // proceso para poder mostrar el nombre de usuario y no el correo de el usuario 
 
 if ($conexion){
-    $consul = "SELECT * FROM administradores where email='$sesion'";
+    $consul = "SELECT * FROM administradores where idAdmin='$sesion'";
     $resul = mysqli_query($conexion,$consul);
     if ($resul){
         while ($row = $resul->fetch_array()){
