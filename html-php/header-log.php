@@ -1,14 +1,14 @@
 <?php
 include("conex.php");
 session_start();
-$sesion = $_SESSION['correo'];
-if ($sesion == null || $sesion == '') {
+$id = $_SESSION['$id'];
+if ($id == null || $id == '') {
     header("Location:../html/index.php");
 }
 // proceso para poder mostrar el nombre de usuario y no el correo de el usuario 
 include("conex.php");
 if ($conexion) {
-    $consul = "SELECT * FROM usuario where correo='$sesion'";
+    $consul = "SELECT * FROM usuario where idCliente='$id'";
     $resul = mysqli_query($conexion, $consul);
     $filas = mysqli_num_rows($resul);
     if ($filas) {

@@ -1,12 +1,33 @@
 <?php
-$correo = htmlspecialchars($_POST['correo']);
-$pass = htmlspecialchars($_POST['pass']);
+$correo = $_POST['correo'];
+$pass = $_POST['pass'];
 //conectar a la base de datos 
 include ("conex.php");
-$consulta = "SELECT * FROM usuario WHERE correo=?";
-$resul = $conexion->prepare($consulta);
-$resul = bind_param("s", $correo);
+// comprobar primero el rol que imparte la persona que va a iniciar sesión
+$consulta = "SELECT * FROM usuario WHERE correo='$correo'";
+$resul = $conexion->query($consulta);
+if ($resul){
+    $filas = mysqli_num_rows($resul);
+    $row =$resul->fetch_assoc();
+    $encriptada = $row['pass'];
+    if (password_verify($pass,$encriptada)){
+        // consultar la ID de el usuario
+        $lugar = $conexion->query("SELECT * FROM usuario where correo='$correo'");
+        $row = $lugar->fetch_assoc();
+        $id = $row['idCliente'];
+        session_start();
+        $_SESSION['$id'] = $id; 
+       header("Location:../html-php/index.php");
+        echo "hola mundo";
 
+    }else{
+        echo "hola mundo";
+    }
+}else{
+    echo "hola mundo";
+
+}
+/*
 $filas = mysqli_num_rows($resultado);
 if ($filas > 0) {
     session_start();
@@ -27,3 +48,4 @@ if ($filas > 0) {
 
 mysqli_free_result($resultado);
 mysqli_close($conexion);
+*/
