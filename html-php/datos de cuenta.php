@@ -38,7 +38,7 @@
 ?>
 
 <body>
-  <form class="my-auto" method="post" enctype="multipart/form-data" action="cambiarPerfil.php">
+  <form class="my-auto" method="post" enctype="multipart/form-data" >
 
     <div class="container-fluid my-5  ">
       <div class="row py-5 w-100 justify-content-center mx-auto">
@@ -82,9 +82,9 @@
           </div>
           <div class="mb-3">
             <label for="InputCorreo1" class="form-label">Contraseña</label>
-            <input type="password" name="pass" class="form-control" id="InputCorreo1" value="<?php echo $pass ?>">
+            <input type="password" name="pass" class="form-control" id="InputCorreo1" placeholder="Ingresar nueva contraseña">
           </div>
-          <div class="mb-3">
+          <div class=" mb-3">
             <label for="InputEmail1" class="form-label">Pasaporte</label>
             <input type="text" name="pasaporte" class="form-control" id="InputEmail1" aria-describedby="emailHelp" value="<?php echo $pasaporte ?>">
           </div>
@@ -95,7 +95,58 @@
     </div>
   </form>
 </body>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
 </html>
+<?php
+// tomar los datos para poder cambiar lde el perfil 
+if (isset($_POST['registro'])) {
+  include("conex.php");
+  $nombre = trim($_POST['nombre']);
+  $apellido = trim($_POST['apellido']);
+  $pass = trim($_POST['pass']);
+  $email = trim($_POST['email']);
+  $passport = trim($_POST['pasaporte']);
+  $dui = trim($_POST['dui']);
+  $foto = $_FILES['foto']['error'];
+  if ($foto) {
+    if ($pass == null or $pass == "") {
+      $update = "UPDATE usuario set nomCliente='$nombre', apeCliente='$apellido', correo='$email', pasaporte='$passport', dui='$dui' where idCliente='$id'";
+      $resul = $conexion->query($update);
+      if ($resul) {
+        echo '<script>alert("Datos modificados con exito")</script>';
+      }
+    } else {
+      $encriptada = password_hash($pass, PASSWORD_DEFAULT);
+      $update = "UPDATE usuario set nomCliente='$nombre', apeCliente='$apellido', pass='$encriptada', correo='$email', pasaporte='$passport', dui='$dui' where idCliente='$id'";
+      $resul = $conexion->query($update);
+      if ($resul) {
+        echo '<script>alert("Datos modificados con exito")</script>';
+      }
+    }
+  } else {
+    if ($pass == null or $pass == "") {
+      $foto = addslashes(file_get_contents($_FILES['foto']['tmp_name']));
+      $update = "UPDATE usuario set nomCliente='$nombre', apeCliente='$apellido',correo='$email', pasaporte='$pasaporte', dui='$dui', foto='$foto' where idCliente='$id'";
+      $resul = $conexion->query($update);
+      if ($resul) {
+        echo '<script>alert("Datos modificados con exito")</script>';
+      }
+    } else {
+      $encriptada = password_hash($pass, PASSWORD_DEFAULT);
+      $foto = addslashes(file_get_contents($_FILES['foto']['tmp_name']));
+      $update = "UPDATE usuario set nomCliente='$nombre', apeCliente='$apellido', pass='$encriptada', correo='$email', pasaporte='$pasaporte', dui='$dui', foto='$foto' where idCliente='$id'";
+      $resul = $conexion->query($update);
+      if ($resul) {
+        echo '<script>alert("Datos modificados con exito")</script>';
+      }
+    }
+  }
+  echo "
+  <script>
+  window.location.href = 'datos de cuenta.php'
+  </script>
+  ";
+}
+
+?>
