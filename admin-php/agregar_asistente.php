@@ -36,6 +36,7 @@ include ("header-admin.php");
     <div class="container-fluid w-75 ps-5 pt-5 rounded-5" id="form">
         <form action="" method="post" enctype="multipart/form-data">
             <div class="row">
+                <!--Columna uno-->
                 <div class="col-lg-6 col-12 ">
 
                     <div class="mb-4">
@@ -68,28 +69,28 @@ include ("header-admin.php");
 
                     <div class="mb-4">
                         <label for="exampleImputEmail" class="form-label font-weight-bold">
-                            <img src="../imagen/login/pasaporte.png" class="img"> Pasaporte</label>
-                        <input type="text" class="form-control mb-2 rounded-5  w-75" placeholder="Ingresar pasaporte"
-                            id="correo" name="pasporte">
+                            <img src="../imagen/login/pasaporte.png" class="img"> Número de teléfono</label>
+                        <input type="text" class="form-control mb-2 rounded-5  w-75" placeholder="Ingresar tu número de teléfono"
+                            id="correo" name="numero">
                     </div>
 
                     <div class="mb-4">
                         <label for="exampleImputEmail" class="form-label font-weight-bold">
-                            <img src="../imagen/login/dui.png" class="img"> DUI</label>
-                        <input type="text" class="form-control mb-2 rounded-5 border border-1 w-75"
-                            placeholder="Ingresar DUI" id="correo" name="dui">
+                            <img src="../imagen/login/dui.png" class="img"> Horario de trabajo</label>
+                        <input type="date" class="form-control mb-2 rounded-5 border border-1 w-75"
+                            placeholder="Ingresar horario de trabajo" id="correo" name="date">
                     </div>
 
                 </div>
-
+                <!--Columna dos-->
                 <div class="col-lg-6 col-12">
                     <div class="mb-4">
                         <label for="exampleImputEmail" class="form-label font-weight-bold">
                             <img src="../imagen/login/nombre.png" class="img"> Género</label>
-                        <select name="cargo" class="form-control w-75 rounded-5 mb-2" id="correo">
+                        <select name="genero" class="form-control w-75 rounded-5 mb-2" id="correo">
                             <option value="">Elige el género</option>
-                            <option value="Hombre">Hombre</option>
-                            <option value="Mujer">Mujer</option>
+                            <option value="Hombre">Maculino</option>
+                            <option value="Mujer">Femenino</option>
                             <option value="Otro">Otro</option>
                         </select>
                     </div>
@@ -107,7 +108,7 @@ include ("header-admin.php");
                             <a  class="btn btn-primary">Subir foto de perfil</a>
                         </label>
                         <input type="file"  id="fotito" class="d-none" name="foto"><br>
-                        <input class="btn btn-primary my-3" type="submit" value="Crear Administrador" name="crear">
+                        <input class="btn btn-primary my-3" type="submit" value="Crear Asistente" name="crear">
                     </div>
 
                 </div>
@@ -126,9 +127,9 @@ if (isset($_POST['crear'])){
     $banLastname = false;
     $banPass = false;
     $banEmail = false;
-    $banPasporte = false;
-    $banDui = false;
-    $banCargo = false;
+    $banNumero = false;
+    $banDate = false;
+    $banGenero = false;
     $banDescri = false;
 
     // variables tomadas de el formulario
@@ -136,9 +137,9 @@ if (isset($_POST['crear'])){
     $lastname =  trim($_POST['lastname']);
     $pass =  trim($_POST['pass']);
     $email =  trim($_POST['email']);
-    $pasporte =  trim($_POST['pasporte']);
-    $dui =  trim($_POST['dui']);
-    $cargo =  trim($_POST['cargo']);
+    $pasporte =  trim($_POST['numero']);
+    $dui =  trim($_POST['date']);
+    $cargo =  trim($_POST['genero']);
     $descri =  trim($_POST['descri']);
     $foto = $_FILES['foto']['error'];
     // establecer funcion para resumir codigo
@@ -162,44 +163,44 @@ if (isset($_POST['crear'])){
         $banEmail = true;
     }
     //
-    if (strlen($pasporte) > 1) {
+    if (strlen($numero) > 1) {
         $banPasporte = true;
     }
     //
-    if (strlen($dui) > 1) {
+    if (strlen($date) > 1) {
         $banDui = true;
     }
     //
-    if (strlen($cargo) > 1) {
+    if (strlen($genero) > 1) {
         $banCargo = true;
     }
     if (strlen($descri) > 1) {
         $banDescri = true;
     }
-    $total_ban= $banName && $banLastname && $banPass && $banEmail && $banPasporte && $banDui && $banCargo && $banDescri;
+    $total_ban= $banName && $banLastname && $banPass && $banEmail && $banNumero && $banDate && $banGenero && $banDescri;
     if ($total_ban) {
 
         if ($foto) {
 
             include ("conex.php");
-            $sql = "INSERT INTO administradores(nomAdmin,apeAdmin,pass,email,pasaporte,dui,cargo,descri) VALUES('$name','$lastname','$pass','$email','$pasporte','$dui','$cargo','$descri')";
+            $sql = "INSERT INTO asistente(nomAsistente,apeAsistente,passAsisten,correoAsisten,numTelefono,horarioTrabajo, genero,descri) VALUES('$name','$lastname','$pass','$email','$numero','$date','$genero','$descri')";
             $resul = $conexion->query($sql);
             if ($resul) {
-                echo '<script>alert("Administrador '. $name . ' Agregado con exito")</script>';
+                echo '<script>alert("Asistente '. $name . ' Agregado con exito")</script>';
             }else{
-                echo '<script>alert("Error al ingresar datos del administrador")</script>';
+                echo '<script>alert("Error al ingresar datos del asistente")</script>';
             }
 
         } else {
             
             include ("conex.php");
             $foto = addslashes(file_get_contents($_FILES['foto']['name']));
-            $sql = "INSERT INTO administradores(nomAdmin,apeAdmin,pass,email,pasaporte,dui,cargo,descri,foto) VALUES('$name','$lastname','$pass','$email','$pasporte','$dui','$cargo','$descri',$foto)";
+            $sql = "INSERT INTO asistente(nomAsistente,apeAsistente,passAsisten,correoAsisten,numTelefono,horarioTrabajo,genero,descri,foto) VALUES('$name','$lastname','$pass','$email','$numero','$date','$genero','$descri',$foto)";
             $resul = $conexion->query($sql);
             if ($resul) {
-                echo '<script>alert("Administrador '. $name . ' Agregado con exito")</script>';
+                echo '<script>alert("Asistente '. $name . ' Agregado con exito")</script>';
             }else{
-                echo '<script>alert("Error al ingresar datos del administrador")</script>';
+                echo '<script>alert("Error al ingresar datos del asistente")</script>';
             }
 
         }
