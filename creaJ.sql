@@ -156,6 +156,18 @@ create table form(
     equiBodega int,
     primary key (idForm)
 );
+
+CREATE TABLE mensajes (
+    id INT AUTO_INCREMENT,
+    mensaje TEXT,
+    idUsuario INT,
+    idAdmin INT,
+    remitente VARCHAR(10), -- Puede ser 'cliente' o 'admin'
+    fecha TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    archivo longblob,
+    tipo_archivo varchar(255),
+    PRIMARY KEY (id)
+);
 /*
 -- TABLAS INTERMEDIAS:
 -- Tabla aerolineaAsistente
@@ -394,4 +406,5 @@ select * from vuelo;
 select * from asientos;
 select * from administradores;
 select * from form;
+select * from mensajes;
 use railway; 

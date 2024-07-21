@@ -6,12 +6,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $idCliente = intval($_POST['idCliente']);
     $idAdmin = intval($_POST['idAdmin']);
     $remitente = $_POST['remitente'];
+    $archivo = $_FILES['archivo'];
 
-    if ($mensaje != '') {
-        $sql = "INSERT INTO mensajes (mensaje, idUsuario, idAdmin, remitente) VALUES (?, ?, ?, ?)";
+    if ($mensaje != '' || !empty($archivo['name'])) {
+        $sql = "INSERT INTO mensajes (mensaje, idUsuario, idAdmin, remitente, archivo) VALUES (?, ?, ?, ?, ?)";
         $stmt = $conexion->prepare($sql);
-        $stmt->bind_param('siis', $mensaje, $idCliente, $idAdmin, $remitente);
+        $archivoData = null;
+        if (!empty($archivo['name'])) {
+            $archivoData = file_get_contents($archivo['tmp_name']);
+        }
+        $stmt->bind_param('siiss', $mensaje, $idCliente, $idAdmin, $remitente, $archivoData);
         $stmt->execute();
         $stmt->close();
     }
 }
+?>
