@@ -48,6 +48,7 @@ genero varchar(30),
 descri varchar(600),
 correoAsisten varchar(200),
 passAsisten varchar(200),
+foto longblob,
 primary key (idAsistente)
 );
 -- Tabla empleado
