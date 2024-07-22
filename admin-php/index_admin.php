@@ -60,7 +60,7 @@
             <!--Tabla de datos de los usuarios-->
             <div class="col-lg-2  col-12 border border-black text-center"><?php echo $nombre?></div>
             <div class="col-lg-2  col-12 border border-black text-center"><?php echo $apellido?></div>
-            <div class="col-lg-2  col-12 border border-black text-center"><?php echo $pass?></div>
+            <div class="col-lg-2  col-12 border border-black text-center">-</div>
             <div class="col-lg-2  col-12 border border-black text-center"><?php echo $correo?></div>
             <div class="col-lg-1  col-12 border border-black text-center"><?php echo $pasaporte?></div>
             <div class="col-lg-1  col-12 border border-black text-center"><?php echo $dui?></div>
@@ -105,7 +105,7 @@
             <!--Tabla de datos de los usuarios-->
             <div class="col-lg-3 col-12 border border-black text-center"><?php echo $nombre?></div>
             <div class="col-lg-3  col-12 border border-black text-center"><?php echo $apellido?></div>
-            <div class="col-lg-2  col-12 border border-black text-center"><?php echo $pass?></div>
+            <div class="col-lg-2  col-12 border border-black text-center">-</div>
             <div class="col-lg-2  col-12 border border-black text-center"><?php echo $correo?></div>
             <div class="col-lg-2  col-12 border border-black text-center"><?php echo $idAdmin?></div>
             <!---->
