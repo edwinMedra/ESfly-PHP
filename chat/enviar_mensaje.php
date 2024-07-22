@@ -1,6 +1,6 @@
 <?php
 include("conex.php");
-
+date_default_timezone_set('America/El_Salvador');
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $mensaje = trim($_POST['mensaje']);
     $idCliente = intval($_POST['idCliente']);

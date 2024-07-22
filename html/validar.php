@@ -19,7 +19,9 @@ if ($filas) {
         $_SESSION['$id'] = $id;
         header("Location:../html-php/index.php");
         echo "hola mundo";
-    } 
+    } else{
+        header("location:loginrr.php");
+    }
 } else {
     // evaluar el segundo rol para ver si es administrador
     $consulta = "SELECT * FROM administradores WHERE email='$correo'";
@@ -38,11 +40,11 @@ if ($filas) {
         }
     } else {
         // aqui va la parte de la validacion de los datos de los administradores 
-
+        header("location:loginrr.php");
         // falta la parte de diego
     }
 }
 
 
-mysqli_free_result($resultado);
+mysqli_free_result($resul);
 mysqli_close($conexion);
