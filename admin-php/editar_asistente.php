@@ -47,34 +47,34 @@
     <?php
     $inc = include("conex.php");
     if ($inc){
-        $select = "SELECT * FROM administradores";
+        $select = "SELECT * FROM asistente";
         $query = mysqli_query($conexion,$select);
         if ($query){
             while ($row = $query->fetch_array()){
-            $nombre = $row['nomAdmin'];
-            $apellido = $row['apeAdmin'];
-            $pass = $row['pass'];
-            $correo = $row['email'];
-            $pasaporte = $row['pasaporte'];
-            $dui = $row['dui'];
-            $cargo = $row['cargo'];
+            $nombre = $row['nomAsistente'];
+            $apellido = $row['apeAsistente'];
+            $pass = $row['passAsisten'];
+            $correo = $row['correoAsisten'];
+            $numero = $row['numTelefono'];
+            $date = $row['horarioTrabajo'];
+            $genero = $row['genero'];
             $foto = $row['foto'];
-            $idAdmin = $row['idAdmin'];
+            $idAsistente = $row['idAsistente'];
             ?>
         <div class="container-fluid  rounded-1" id="tabla">
         <div class="row">
-            <!--Tabla de datos de los usuarios-->
+            <!--Tabla de datos de los asistentes-->
             <div class="col-lg-2  col-12 border border-black text-center"><?php echo $nombre?></div>
             <div class="col-lg-1  col-12 border border-black text-center"><?php echo $apellido?></div>
             <div class="col-lg-1  col-12 border border-black text-center"><?php echo $pass?></div>
             <div class="col-lg-2  col-12 border border-black text-center"><?php echo $correo?></div>
-            <div class="col-lg-1  col-12 border border-black text-center"><?php echo $pasaporte?></div>
-            <div class="col-lg-1  col-12 border border-black text-center"><?php echo $dui?></div>
-            <div class="col-lg-1  col-12 border border-black text-center"><?php echo $cargo?></div>
-            <div class="col-lg-1  col-12 border border-black text-center"><?php echo $idAdmin?></div>
+            <div class="col-lg-1  col-12 border border-black text-center"><?php echo $numero?></div>
+            <div class="col-lg-1  col-12 border border-black text-center"><?php echo $date?></div>
+            <div class="col-lg-1  col-12 border border-black text-center"><?php echo $genero?></div>
+            <div class="col-lg-1  col-12 border border-black text-center"><?php echo $idAsistente?></div>
             <div class="col-lg-1  col-12 border border-black text-center"> <img src="data:image/jpg;base64,<?php echo base64_encode($foto)?>" class="rounded-circle mx-1 my-auto border border-1 border-black" id="lupa" alt=""  height="35px" width="35px">
             </div>
-            <div class="col-lg-1  col-12 border border-black text-center p-1"><a class="btn btn-primary" href="form_admin.php?idAdmin=<?php echo $idAdmin?> " role="button" id="link">Editar</a></div>            
+            <div class="col-lg-1  col-12 border border-black text-center p-1"><a class="btn btn-primary" href="form_asistente.php?idAsistente=<?php echo $idAsistente?> " role="button" id="link">Editar</a></div>            
             <!---->
         </div>
     </div>
