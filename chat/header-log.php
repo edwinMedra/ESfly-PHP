@@ -1,6 +1,9 @@
 <?php
 include("conex.php");
 session_start();
+
+date_default_timezone_set('America/El_Salvador');
+
 $id = $_SESSION['$id'];
 if ($id == null || $id == '') {
     header("Location:../html/index.php");
@@ -32,7 +35,7 @@ if ($conexion) {
 <nav class="navbar navbar-expand-lg bg-body-tertiary shadow-navbar fixed-top">
     <div class="container-fluid">
 
-        <a class="navbar-brand" href="index.php">
+        <a class="navbar-brand" href="../html-php/index.php">
             <img src="../imagen/estoyAnsioso/esflyInfo.png" class="" id="logo" alt="">
         </a>
 
@@ -43,35 +46,35 @@ if ($conexion) {
         <div class="collapse navbar-collapse" id="navbarText">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="Reservarvuelos.php">Reserva tu vuelo</a>
+                    <a class="nav-link" aria-current="page" href="../html-php/Reservarvuelos.php">Reserva tu vuelo</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="ofertasYDestinos.php">Ofertas y destinos</a>
+                    <a class="nav-link" href="../html-php/ofertasYDestinos.php">Ofertas y destinos</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="check-in.php">Check-in</a>
+                    <a class="nav-link" href="../html-php/check-in.php">Check-in</a>
                 </li>
             </ul>
 
             <span class="navbar-text"></span>
 
             <form class="d-flex justify-content-center" role="search">
-                <a href="../chat/chat_cliente.php" class="btn btn-outline-success ms-1 " type="button">
+                <a href="chat_cliente.php" class="btn btn-outline-success ms-1 " type="button">
                     <i class="bi bi-chat"></i> Chat
                 </a>
-                <a href="cerrar.php" class="btn btn-outline-primary ms-1" type="submit">Cerrar sesión</a>
+                <a href="../html-php/cerrar.php" class="btn btn-outline-primary ms-1" type="submit">Cerrar sesión</a>
                 <label for="lupa">
                     <?php
                     if ($foto == null) {
-                        echo '<a href="datos de cuenta.php"><img src="https://cdn-icons-png.flaticon.com/512/9187/9187604.png" class="rounded-circle my-auto border border-1 border-black mx-1" id="lupa" alt=""  height="35px" width="35px"></a>';
+                        echo '<a href="../html-php/datos de cuenta.php"><img src="https://cdn-icons-png.flaticon.com/512/9187/9187604.png" class="rounded-circle my-auto border border-1 border-black mx-1" id="lupa" alt=""  height="35px" width="35px"></a>';
                     } else {
-                        echo '<a href="datos de cuenta.php"><img src="data:image/jpg;base64,' . base64_encode($foto) . '" class="rounded-circle my-auto border border-1 border-black mx-1" id="lupa" alt="" height="35px" width="35px" style="object-fit: cover;"></a>';
+                        echo '<a href="../html-php/datos de cuenta.php"><img src="data:image/jpg;base64,' . base64_encode($foto) . '" class="rounded-circle my-auto border border-1 border-black mx-1" id="lupa" alt="" height="35px" width="35px" style="object-fit: cover;"></a>';
                     }
                     ?>
                 </label>
-                <a class="btn btn-registro ms-1" href="datos de cuenta.php" type="submit"><?php echo $nomCliente; ?></a>
+                <a class="btn btn-registro ms-1" href="../html-php/datos de cuenta.php" type="submit"><?php echo $nomCliente; ?></a>
             </form>
-            <a href="busqueda.php" class="btn btn-outline-primary ms-1" type="submit"><img src="../imagen/header/lupa.png" class="" id="lupa" alt="" width="30"> Buscar</a>
+            <a href="../html-php/busqueda.php" class="btn btn-outline-primary ms-1" type="submit"><img src="../imagen/header/lupa.png" class="" id="lupa" alt="" width="30"> Buscar</a>
         </div>
     </div>
 </nav>
