@@ -51,8 +51,8 @@ if ($conexion){
                         </a>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="agregar_asistente.php">Agregar</a></li>
-                            <li><a class="dropdown-item" href="editar_empleado.php">Editar</a></li>
-                            <li><a class="dropdown-item" href="eliminar_empleado.php">Eliminar</a></li>
+                            <li><a class="dropdown-item" href="editar_asistente.php">Editar</a></li>
+                            <li><a class="dropdown-item" href="eliminar_asistente.php">Eliminar</a></li>
                         </ul>
                     </li>
                     <!---->
