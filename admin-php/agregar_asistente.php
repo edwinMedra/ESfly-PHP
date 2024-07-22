@@ -88,6 +88,12 @@
 
                     <div class="mb-4">
                         <label for="exampleImputEmail" class="form-label font-weight-bold">
+                            <img src="../imagen/login/dui.png" class="img"> Servicios</label>
+                        <input type="text" class="form-control mb-2 rounded-5 border border-1 w-75" placeholder="Ingresar servicio" id="correo" name="servicio">
+                    </div>
+
+                    <div class="mb-4">
+                        <label for="exampleImputEmail" class="form-label font-weight-bold">
                             <img src="../imagen/login/pasaporte.png" class="img"> Descripcion</label>
                         <div class="form-floating">
                             <textarea class="form-control w-75" id="floatingTextarea" style="height: 200px;" name="descri"></textarea>
@@ -121,6 +127,7 @@ if (isset($_POST['crear'])) {
     $banNumero = false;
     $banDate = false;
     $banGenero = false;
+    $banSerivicio = false;
     $banDescri = false;
 
     // variables tomadas de el formulario
@@ -131,6 +138,7 @@ if (isset($_POST['crear'])) {
     $numero =  trim($_POST['numero']);
     $date =  $_POST['date'];
     $genero =  trim($_POST['genero']);
+    $servicio = trim($_POST['servicio'])
     $descri =  trim($_POST['descri']);
     $foto = $_FILES['foto']['error'];
     // establecer funcion para resumir codigo
@@ -165,6 +173,9 @@ if (isset($_POST['crear'])) {
     if (strlen($genero) > 1) {
         $banCargo = true;
     }
+    if (strlen($servicio) > 1) {
+        $banServicio = true;
+    }
     if (strlen($descri) > 1) {
         $banDescri = true;
     }
@@ -174,7 +185,7 @@ if (isset($_POST['crear'])) {
     if (strlen($genero) > 1) {
         $banGenero = true;
     }
-    $total_ban = $banName && $banLastname && $banPass && $banEmail && $banNumero &&  $banGenero && $banDescri;
+    $total_ban = $banName && $banLastname && $banPass && $banEmail && $banNumero &&  $banGenero && $banDescri && $banSerivicio;
     if ($total_ban) {
 
         if ($foto) {
@@ -182,7 +193,7 @@ if (isset($_POST['crear'])) {
             include("conex.php");
             // encriptar la contraseña 
             $encriptada = password_hash($pass, PASSWORD_DEFAULT);
-            $sql = "INSERT INTO asistente(nomAsistente,apeAsistente,passAsisten,correoAsisten,numTelefono,horarioTrabajo, genero,descri) VALUES('$name','$lastname','$encriptada','$email','$numero','$date','$genero','$descri')";
+            $sql = "INSERT INTO asistente(nomAsistente,apeAsistente,passAsisten,correoAsisten,numTelefono,horarioTrabajo, genero, servicios, descri) VALUES('$name','$lastname','$encriptada','$email','$numero','$date','$genero', '$servicio', '$descri')";
             $resul = $conexion->query($sql);
             if ($resul) {
                 echo '<script>alert("Asistente ' . $name . ' Agregado con exito")</script>';
@@ -194,7 +205,7 @@ if (isset($_POST['crear'])) {
             $encriptada = password_hash($pass, PASSWORD_DEFAULT);
             include("conex.php");
             $foto = addslashes(file_get_contents($_FILES['foto']['name']));
-            $sql = "INSERT INTO asistente(nomAsistente,apeAsistente,passAsisten,correoAsisten,numTelefono,horarioTrabajo,genero,descri,foto) VALUES('$name','$lastname','$encriptada','$email','$numero','$date','$genero','$descri',$foto)";
+            $sql = "INSERT INTO asistente(nomAsistente,apeAsistente,passAsisten,correoAsisten,numTelefono,horarioTrabajo,genero, servicios, descri,foto) VALUES('$name','$lastname','$encriptada','$email','$numero','$date','$genero', '$servicio','$descri',$foto)";
             $resul = $conexion->query($sql);
             if ($resul) {
                 echo '<script>alert("Asistente ' . $name . ' Agregado con exito")</script>';
