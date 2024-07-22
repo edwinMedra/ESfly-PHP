@@ -187,8 +187,8 @@
         <h5>Algunas ofertas ></h5>
     </div>
 
-    <div class="container-fluid mt-5">
-        <div class="row">
+    <div class="container-fluid mt-5 mb-5">
+        <div class="row mb-5">
             <div class="col-md-3">
                 <div class="image-container">
                     <img src="../imagen/index/colombia.png" alt="Imagen 1">

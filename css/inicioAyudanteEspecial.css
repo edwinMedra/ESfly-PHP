@@ -1,0 +1,120 @@
+* {
+    padding: 0;
+    margin: 0;
+  }
+
+  body {
+  background-color: #ecebeb;
+  }
+  
+.back img {
+  width: 100%;
+  filter: brightness(40%);
+  object-fit: cover;
+  max-height: 400px;
+}
+  
+.titulo{
+  font-family: "Be Vietnam Pro";
+
+}
+
+.texto-titulo{
+    color: #6A6A6A;
+    font-family: "Be Vietnam Pro";
+}
+
+.back .titulo {
+  position: absolute;
+  top: 20%;
+  color: white;
+  width: 100%;
+  text-align: center;
+  font-size: 35px;
+}
+
+
+.perfil-ayudante {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    height: 200px;
+    background-color: #f9f9f9;
+}
+.perfil-ayudante img {
+    border-radius: 50%;
+    max-width: 280px;
+    height: auto;
+    max-height: 280px;
+    margin-right: 40px;
+}
+.perfil-ayudante .btn {
+    background-color: #007bff;
+    color: white;
+}
+.seccion-datos {
+    margin-top: 20px;
+}
+.seccion-datos .card {
+    cursor: pointer;
+    text-align: center;
+}
+
+.chat-boton{
+    background-color: #657CA0;
+    height: 260px;
+}
+
+
+.chat-boton img{
+    height: 160px;
+    width: 160px;
+}
+
+.chat-boton {
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+  
+.chat-boton:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+.citas-boton{
+    background-color: #345D9B;
+    height: 260px;
+}
+
+.citas-boton img{
+    height: 160px;
+    width: 160px;
+}
+
+
+.citas-boton {
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+  
+.citas-boton:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+
+@media (max-width: 576px) {
+    .perfil-ayudante img {
+        max-width: 50px;
+    }
+    .perfil-ayudante h5, .perfil-ayudante p {
+        font-size: 0.9rem;
+    }
+    .btn {
+        font-size: 0.8rem;
+        padding: 5px 10px;
+    }
+}
+.seccion-datos .card {
+    text-align: center;
+}
