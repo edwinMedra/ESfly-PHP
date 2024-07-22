@@ -28,9 +28,9 @@
   error_reporting(0);
   session_start();
   include("conex.php");
-  $sesion = $_SESSION['correo'];
+  $sesion = $_SESSION['$id'];
   if (!($sesion == null || $sesion == '')) {
-    echo " <script> window.location.href = '../html-php/index.php'</script> ";
+    header("Location:../html/index.php");
   }
   ?>
   <section>
