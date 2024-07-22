@@ -19,7 +19,7 @@ if ($filas) {
         $_SESSION['$id'] = $id;
         header("Location:../html-php/index.php");
         echo "hola mundo";
-    } else{
+    } else {
         header("location:loginrr.php");
     }
 } else {
@@ -37,14 +37,29 @@ if ($filas) {
             $id = $row['idAdmin'];
             $_SESSION['$id'] = $id;
             header("Location:../admin-php/index_admin.php");
+        } else {
+            header("location:loginrr.php");
         }
     } else {
-        // aqui va la parte de la validacion de los datos de los administradores 
-        header("location:loginrr.php");
-        // falta la parte de diego
+        $consulta = "SELECT * FROM asistente WHERE correoAsisten='$correo'";
+        $resul = $conexion->query($consulta);
+        $filas = mysqli_num_rows($resul);
+        if ($filas) {
+            $row = $resul->fetch_assoc();
+            $encriptada = $row['passAsisten'];
+            if (password_verify($pass, $encriptada)) {
+                $lugar = $conexion->query("SELECT * FROM asistente where correoAsisten='$correo'");
+                $row = $lugar->fetch_assoc();
+                session_start();
+                $id = $row['idAsistente'];
+                $_SESSION['$id'] = $id;
+                header("Location:../asistente-php/inicioEmpleado.php");
+            } else {
+                header("location:loginrr.php");
+            }
+            // falta la parte de diego
+        }
     }
 }
-
-
 mysqli_free_result($resul);
 mysqli_close($conexion);

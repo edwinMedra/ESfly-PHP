@@ -68,7 +68,7 @@
             <div class="col-md-6">
                 <div class=" chat-boton card p-4 mt-2 mb-5">
                     <div class="  card-body">
-                        <h5>Chat</h5>
+                        <h5 class="text-white">Chat</h5>
                         <img src="../imagen/inicioAsistente/mensajes.png" alt="" />
                     </div>
                 </div>
@@ -76,7 +76,7 @@
             <div class="col-md-6">
                 <div class="citas-boton card p-4  mt-2 mb-5">
                     <div class="card-body">
-                        <h5>Citas</h5>
+                        <h5 class="text-white">Citas</h5>
                         <img src="../imagen/inicioAsistente/citas.png" alt="" />
 
                     </div>
