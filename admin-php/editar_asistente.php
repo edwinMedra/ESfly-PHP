@@ -66,7 +66,7 @@
             <!--Tabla de datos de los asistentes-->
             <div class="col-lg-2  col-12 border border-black text-center"><?php echo $nombre?></div>
             <div class="col-lg-1  col-12 border border-black text-center"><?php echo $apellido?></div>
-            <div class="col-lg-1  col-12 border border-black text-center"><?php echo $pass?></div>
+            <div class="col-lg-1  col-12 border border-black text-center">-</div>
             <div class="col-lg-2  col-12 border border-black text-center"><?php echo $correo?></div>
             <div class="col-lg-1  col-12 border border-black text-center"><?php echo $numero?></div>
             <div class="col-lg-1  col-12 border border-black text-center"><?php echo $date?></div>

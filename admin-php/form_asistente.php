@@ -31,39 +31,33 @@ if ($conexion){
   $resul = $conexion->query($select);
   if ($resul){
     while ($row = $resul->fetch_array()){
-      $name = $row['nomAsistente '];
-      $lastname = $row['apeAsistente '];
-      $pass = $row['passAsisten '];
-      $email = $row['correoAsisten '];
-      $numero = $row['numTelefono '];
-      $date = $row['horarioTrabajo '];
-      $genero = $row['genero '];
+      $name = $row['nomAsistente'];
+      $lastname = $row['apeAsistente'];
+      $pass = $row['passAsisten'];
+      $email = $row['correoAsisten'];
+      $numero = $row['numTelefono'];
+      $date = $row['horarioTrabajo'];
+      $genero = $row['genero'];
       $descri = $row['descri'];
       $idAsistente = $row['idAsistente'];
       // condicional para verificar que el input de select tenga el dato correcto
       // para primer rol
       // segunda funcion
 
-      function select1($dato){
-        if ($dato == "Administrador de Operaciones")  {
+      function select1($genero){
+        if ($genero == "Masculino")  {
             echo "selected";
         }
       }
 
-      function select2($dato){
-        if ($dato == "Administrador de gestión")  {
+      function select2($genero){
+        if ($genero == "Femenino")  {
             echo "selected";
         }
       }
 
-      function select3($dato){
-        if ($dato == "Administrador de Proyectos")  {
-            echo "selected";
-        }
-      }
-
-      function select4($dato){
-        if ($dato == "Administrador de Ventas y Marketing")  {
+      function select3($genero){
+        if ($genero == "Otro")  {
             echo "selected";
         }
       }
@@ -120,7 +114,7 @@ if ($conexion){
                         <label for="exampleImputEmail" class="form-label font-weight-bold">
                             <img src="../imagen/login/pasaporte.png" class="img"> Número de teléfono</label>
                         <input type="text" class="form-control mb-2 rounded-5  w-75" placeholder="Ingresar número de teléfono"
-                            id="correo" name="pasaporte" value="<?php echo $numero ?>">
+                            id="correo" name="numero" value="<?php echo $numero ?>">
                     </div>
 
                     <div class="mb-4">
@@ -138,10 +132,9 @@ if ($conexion){
                             <img src="../imagen/login/nombre.png" class="img"> Género</label>
                         <select name="genero" class="form-control w-75 rounded-5 mb-2" id="correo">
                             <option value="">Elige el género</option>
-                            <option value="Administrador de Operaciones" <?php select1($cargo) ?>>Administrador de Operaciones</option>
-                            <option value="Administrador de gestión" <?php select2($cargo) ?>>Administrador de gestión</option>
-                            <option value="Administrador de Proyectos" <?php select3($cargo) ?> >Administrador de Proyectos</option>
-                            <option value="Administrador de Ventas y Marketing" <?php select4($cargo) ?>>Administrador de Ventas y Marketing</option>
+                            <option value="Masculino" <?php select1($genero) ?>>Masculino</option>
+                            <option value="Femenino" <?php select2($genero) ?>>Femenino</option>
+                            <option value="Otro" <?php select3($genero) ?> >Otro</option>
                         </select>
                     </div>
 
@@ -158,7 +151,7 @@ if ($conexion){
                             <a  class="btn btn-primary">Subir foto de perfil</a>
                         </label>
                         <input type="file" id="fotito" class="d-none" name="foto"><br>
-                        <input class="btn btn-primary my-3" type="submit" value="Actualizar Administrador" name="crear">
+                        <input class="btn btn-primary my-3" type="submit" value="Actualizar Asistente" name="crear">
                     </div>
 
                 </div>
@@ -177,9 +170,9 @@ if (isset($_POST['crear'])){
     $banLastname = false;
     $banPass = false;
     $banEmail = false;
-    $banPasaporte = false;
-    $banDui = false;
-    $banCargo = false;
+    $banNumero = false;
+    $banDate = false;
+    $banGenero = false;
     $banDescri = false;
 
     // variables tomadas de el formulario
@@ -187,9 +180,9 @@ if (isset($_POST['crear'])){
     $lastname =  trim($_POST['lastname']);
     $pass =  trim($_POST['pass']);
     $email =  trim($_POST['email']);
-    $pasaporte =  trim($_POST['pasaporte']);
-    $dui =  trim($_POST['dui']);
-    $cargo =  trim($_POST['cargo']);
+    $numero =  trim($_POST['numero']);
+    $date =  trim($_POST['date']);
+    $genero =  trim($_POST['genero']);
     $descri =  trim($_POST['descri']);
     $foto = $_FILES['foto']['error'];
     // establecer funcion para resumir codigo
@@ -213,43 +206,43 @@ if (isset($_POST['crear'])){
         $banEmail = true;
     }
     //
-    if (strlen($pasaporte) > 1) {
-        $banPasaporte = true;
+    if (strlen($numero) > 1) {
+        $banNumero = true;
     }
     //
-    if (strlen($dui) > 1) {
-        $banDui = true;
+    if (strlen($date) > 1) {
+        $banDate = true;
     }
     //
-    if (strlen($cargo) > 1) {
-        $banCargo = true;
+    if (strlen($genero) > 1) {
+        $banGenero = true;
     }
     if (strlen($descri) > 1) {
         $banDescri = true;
     }
-    $total_ban= $banName && $banLastname && $banPass && $banEmail && $banPasaporte && $banDui && $banCargo && $banDescri;
+    $total_ban= $banName && $banLastname && $banPass && $banEmail && $banNumero && $banDate && $banGenero && $banDescri;
    // parte para poder actualizar los datos de la base de datos
     if ($total_ban) {
 
         if ($foto){
             include ("conex.php");
-            $update = "UPDATE administradores set nomAdmin='$name', apeAdmin='$lastname', pass='$pass', email='$email', pasaporte='$pasaporte', dui='$dui' , cargo='$cargo',descri='$descri' where idAdmin='$idAdmin' ";
+            $update = "UPDATE asistente set nomAsistente='$name', apeAsistente='$lastname', pass='$pass', email='$email', numTelefono='$numero', horarioTrabajo='$date' , genero='$genero',descri='$descri' where idAsistente='$idAsistente' ";
             $resul = $conexion->query($update);
             if ($resul) {
-                echo '<script>alert("Administrador '. $name .' Actualizado con exito")</script>';
+                echo '<script>alert("Asistente '. $name .' Actualizado con exito")</script>';
             }else{
-                echo '<script>alert("Error al ingresar datos del administrador")</script>';
+                echo '<script>alert("Error al ingresar datos del asistente")</script>';
     
             }
         }else{
             include ("conex.php");
             $foto = addslashes(file_get_contents($_FILES['foto']['tmp_name']));
-            $update = "UPDATE administradores set nomAdmin='$name', apeAdmin='$lastname', pass='$pass', email='$email', pasaporte='$pasaporte', dui='$dui' , cargo='$cargo',descri='$descri', foto='$foto' where idAdmin='$idAdmin' ";
+            $update = "UPDATE asistente set nomAsistente='$name', apeAsistente='$lastname', pass='$pass', email='$email', numTelefono='$numero', horarioTrabajo='$date' , genero='$genero',descri='$descri', foto='$foto' where idAsistente='$idAsistente' ";
             $resul = $conexion->query($update);
             if ($resul) {
-                echo '<script>alert("Administrador '. $name .' Actualizado con exito")</script>';
+                echo '<script>alert("Asistente '. $name .' Actualizado con exito")</script>';
             }else{
-                echo '<script>alert("Error al ingresar datos del administrador")</script>';
+                echo '<script>alert("Error al ingresar datos del asistente")</script>';
     
             }
 

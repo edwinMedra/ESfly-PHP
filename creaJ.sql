@@ -45,10 +45,11 @@ numTelefono varchar(10),
 servicios varchar(200),
 horarioTrabajo varchar(100),
 genero varchar(30),
+descri varchar(600),
+correoAsisten varchar(200),
+passAsisten varchar(200),
 primary key (idAsistente)
 );
-
-
 -- Tabla empleado
 create table empleado(
 	idEmpleado int auto_increment,
@@ -61,6 +62,7 @@ create table empleado(
     genero varchar(30),
     departamento varchar(500),
     dui varchar(15),
+    descri varchar(600),
     constraint primary key (idEmpleado)
 );
 /*
