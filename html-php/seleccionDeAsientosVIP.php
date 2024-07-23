@@ -136,10 +136,10 @@
 <?php
 // proceso para poder insertar el cliente tambien
 session_start();
-$sesion = $_SESSION['correo'];
+$sesion = $_SESSION['$id'];
 $inc1 = include("conex.php");
 if ($inc1) {
-  $consul = "SELECT * FROM usuario where correo='$sesion'";
+  $consul = "SELECT * FROM usuario where idCliente='$sesion'";
   $resul = mysqli_query($conexion, $consul);
   if ($resul) {
     while ($row = $resul->fetch_array()) {
@@ -226,406 +226,145 @@ function validar($numAsiento){
         <!-- Asientos del Avion-->
         <div class="row justify-content-center row-spacing">
           <div class="seat-group">
-
-
             <label for="A1d">
-              <button type="button" <?php validar($A1)?> id="A1" onclick="toggleCheckbox('A1d')" >A1</button>
-              <input type="checkbox" id="A1d" name="A1" value="A1" class="d-none">
+              <button type="button" <?php validar($A1)?> id="A1" onclick="toggleCheckbox('A1d')">A1</button>
+              <input type="checkbox" id="A1d" name="A1" value="ocupado" class="hola">
             </label>
-
-
           </div>
           <div class="seat-group">
-
-
             <label for="A2d">
               <button type="button" <?php validar($A2)?> id="A2" onclick="toggleCheckbox('A2d')">A2</button>
-              <input type="checkbox" id="A2d" name="A2" value="A2" class="d-none">
+              <input type="checkbox" id="A2d" name="A2" value="ocupado" class="hola">
             </label>
-
-
-
           </div>
           <div class="seat-passage"></div> <!-- Pasillo entre columnas 2 y 3 -->
           <div class="seat-group">
-
             <label for="A3d">
               <button type="button" <?php validar($A3)?> id="A3" onclick="toggleCheckbox('A3d')">A3</button>
-              <input type="checkbox" id="A3d" name="A3" value="A3" class="d-none">
+              <input type="checkbox" id="A3d" name="A3" value="ocupado" class="hola">
             </label>
-
-
-
           </div>
           <div class="seat-group">
-
             <label for="A4d">
               <button type="button" <?php validar($A4)?> id="A4" onclick="toggleCheckbox('A4d')">A4</button>
-              <input type="checkbox" id="A4d" name="A4" value="A4" class="d-none">
+              <input type="checkbox" id="A4d" name="A4" value="ocupado" class="hola">
             </label>
-
-
           </div>
-          <div class="seat-passage"></div> <!-- Pasillo entre columnas 4 y 5 -->
           <div class="seat-group">
-
-
-
             <label for="A5d">
               <button type="button" <?php validar($A5)?> id="A5" onclick="toggleCheckbox('A5d')">A5</button>
-              <input type="checkbox" id="A5d" name="A5" value="A5" class="d-none">
+              <input type="checkbox" id="A5d" name="A5" value="ocupado" class="hola">
             </label>
-
-
           </div>
           <div class="seat-group">
-
-
             <label for="A6d">
               <button type="button" <?php validar($A6)?> id="A6" onclick="toggleCheckbox('A6d')">A6</button>
-              <input type="checkbox" id="A6d" name="A6" value="A6" class="d-none">
+              <input type="checkbox" id="A6d" name="A6" value="ocupado" class="hola">
             </label>
-
           </div>
         </div>
         <div class="row justify-content-center row-spacing">
           <div class="seat-group">
-            <div class="seat" id="B1">B1</div>
+            <label for="A1d">
+              <button type="button" <?php validar($B1)?> id="B1" onclick="toggleCheckbox('B1d')">B1</button>
+              <input type="checkbox" id="B1d" name="B1" value="ocupado" class="hola">
+            </label>
           </div>
           <div class="seat-group">
-            <div class="seat" id="B2">B2</div>
+            <label for="A2d">
+              <button type="button" <?php validar($B2)?> id="B2" onclick="toggleCheckbox('B2d')">B2</button>
+              <input type="checkbox" id="A2d" name="A2" value="ocupado" class="hola">
+            </label>
           </div>
-          <div class="seat-passage"></div>
+          <div class="seat-passage"></div> <!-- Pasillo entre columnas 2 y 3 -->
           <div class="seat-group">
-            <div class="seat" id="B3">B3</div>
-          </div>
-          <div class="seat-group">
-            <div class="seat" id="B4">B4</div>
-          </div>
-          <div class="seat-passage"></div>
-          <div class="seat-group">
-            <div class="seat" id="B5">B5</div>
-          </div>
-          <div class="seat-group">
-            <div class="seat" id="B6">B6</div>
-          </div>
-        </div>
-        <div class="row justify-content-center row-spacing row-offset">
-          <div class="seat-group">
-            <div class="seat" id="C1">C1</div>
+            <label for="A3d">
+              <button type="button" <?php validar($A3)?> id="A3" onclick="toggleCheckbox('A3d')">A3</button>
+              <input type="checkbox" id="A3d" name="A3" value="ocupado" class="hola">
+            </label>
           </div>
           <div class="seat-group">
-            <div class="seat" id="C2">C2</div>
-          </div>
-          <div class="seat-passage"></div>
-          <div class="seat-group">
-            <div class="seat" id="C3">C3</div>
-          </div>
-          <div class="seat-group">
-            <div class="seat" id="C4">C4</div>
-          </div>
-          <div class="seat-passage"></div>
-          <div class="seat-group">
-            <div class="seat" id="C5">C5</div>
+            <label for="A4d">
+              <button type="button" <?php validar($A4)?> id="A4" onclick="toggleCheckbox('A4d')">A4</button>
+              <input type="checkbox" id="A4d" name="A4" value="ocupado" class="hola">
+            </label>
           </div>
           <div class="seat-group">
-            <div class="seat" id="C6">C6</div>
-          </div>
-        </div>
-        <div class="row justify-content-center row-spacing row-offset">
-          <div class="seat-group">
-            <div class="seat" id="D1">D1</div>
+            <label for="A5d">
+              <button type="button" <?php validar($A5)?> id="A5" onclick="toggleCheckbox('A5d')">A5</button>
+              <input type="checkbox" id="A5d" name="A5" value="ocupado" class="hola">
+            </label>
           </div>
           <div class="seat-group">
-            <div class="seat" id="D2">D2</div>
-          </div>
-          <div class="seat-passage"></div>
-          <div class="seat-group">
-            <div class="seat" id="D3">D3</div>
-          </div>
-          <div class="seat-group">
-            <div class="seat" id="D4">D4</div>
-          </div>
-          <div class="seat-passage"></div>
-          <div class="seat-group">
-            <div class="seat" id="D5">D5</div>
-          </div>
-          <div class="seat-group">
-            <div class="seat" id="D6">D6</div>
-          </div>
-        </div>
-        <div class="row justify-content-center row-spacing row-offset">
-          <div class="seat-group">
-            <div class="seat" id="E1">E1</div>
-          </div>
-          <div class="seat-group">
-            <div class="seat" id="E2">E2</div>
-          </div>
-          <div class="seat-passage"></div>
-          <div class="seat-group">
-            <div class="seat" id="E3">E3</div>
-          </div>
-          <div class="seat-group">
-            <div class="seat" id="E4">E4</div>
-          </div>
-          <div class="seat-passage"></div>
-          <div class="seat-group">
-            <div class="seat" id="E5">E5</div>
-          </div>
-          <div class="seat-group">
-            <div class="seat" id="E6">E6</div>
-          </div>
-        </div>
-        <div class="row justify-content-center row-spacing row-offset">
-          <div class="seat-group">
-            <div class="seat" id="F1">F1</div>
-          </div>
-          <div class="seat-group">
-            <div class="seat" id="F2">F2</div>
-          </div>
-          <div class="seat-passage"></div>
-          <div class="seat-group">
-            <div class="seat" id="F3">F3</div>
-          </div>
-          <div class="seat-group">
-            <div class="seat" id="F4">F4</div>
-          </div>
-          <div class="seat-passage"></div>
-          <div class="seat-group">
-            <div class="seat" id="F5">F5</div>
-          </div>
-          <div class="seat-group">
-            <div class="seat" id="F6">F6</div>
-          </div>
-        </div>
-
-        <div class="row justify-content-center row-spacing row-offset">
-          <div class="seat-group">
-            <div class="seat" id="G1">G1</div>
-          </div>
-          <div class="seat-group">
-            <div class="seat" id="G2">G2</div>
-          </div>
-          <div class="seat-passage"></div>
-          <div class="seat-group">
-            <div class="seat" id="G3">G3</div>
-          </div>
-          <div class="seat-group">
-            <div class="seat" id="G4">G4</div>
-          </div>
-          <div class="seat-passage"></div>
-          <div class="seat-group">
-            <div class="seat" id="G5">G5</div>
-          </div>
-          <div class="seat-group">
-            <div class="seat" id="G6">G6</div>
-          </div>
-        </div>
-        <div class="row justify-content-center row-spacing row-offset">
-          <div class="seat-group">
-            <div class="seat" id="H1">H1</div>
-          </div>
-          <div class="seat-group">
-            <div class="seat" id="H2">H2</div>
-          </div>
-          <div class="seat-passage"></div>
-          <div class="seat-group">
-            <div class="seat" id="H3">H3</div>
-          </div>
-          <div class="seat-group">
-            <div class="seat" id="H4">H4</div>
-          </div>
-          <div class="seat-passage"></div>
-          <div class="seat-group">
-            <div class="seat" id="H5">H5</div>
-          </div>
-          <div class="seat-group">
-            <div class="seat" id="H6">H6</div>
-          </div>
-        </div>
-        <div class="row justify-content-center row-spacing row-offset">
-          <div class="seat-group">
-            <div class="seat" id="I1">I1</div>
-          </div>
-          <div class="seat-group">
-            <div class="seat" id="I2">I2</div>
-          </div>
-          <div class="seat-passage"></div>
-          <div class="seat-group">
-            <div class="seat" id="I3">I3</div>
-          </div>
-          <div class="seat-group">
-            <div class="seat" id="I4">I4</div>
-          </div>
-          <div class="seat-passage"></div>
-          <div class="seat-group">
-            <div class="seat" id="I5">I5</div>
-          </div>
-          <div class="seat-group">
-            <div class="seat" id="I6">I6</div>
-          </div>
-        </div>
-        <div class="row justify-content-center row-spacing row-offset">
-          <div class="seat-group">
-            <div class="seat" id="J1">J1</div>
-          </div>
-          <div class="seat-group">
-            <div class="seat" id="J2">J2</div>
-          </div>
-          <div class="seat-passage"></div>
-          <div class="seat-group">
-            <div class="seat" id="J3">J3</div>
-          </div>
-          <div class="seat-group">
-            <div class="seat" id="J4">J4</div>
-          </div>
-          <div class="seat-passage"></div>
-          <div class="seat-group">
-            <div class="seat" id="J5">J5</div>
-          </div>
-          <div class="seat-group">
-            <div class="seat" id="J6">J6</div>
-          </div>
-        </div>
-        <div class="row justify-content-center row-spacing row-offset">
-          <div class="seat-group">
-            <div class="seat" id="K1">K1</div>
-          </div>
-          <div class="seat-group">
-            <div class="seat" id="K2">K2</div>
-          </div>
-          <div class="seat-passage"></div>
-          <div class="seat-group">
-            <div class="seat" id="K3">K3</div>
-          </div>
-          <div class="seat-group">
-            <div class="seat" id="K4">K4</div>
-          </div>
-          <div class="seat-passage"></div>
-          <div class="seat-group">
-            <div class="seat" id="K5">K5</div>
-          </div>
-          <div class="seat-group">
-            <div class="seat" id="K6">K6</div>
+            <label for="A6d">
+              <button type="button" <?php validar($A6)?> id="A6" onclick="toggleCheckbox('A6d')">A6</button>
+              <input type="checkbox" id="A6d" name="A6" value="ocupado" class="hola">
+            </label>
           </div>
         </div>
       </div>
-
-
-
+      <button type="submit" class="reserve-button" id="reserve-button">Reservar</button>
+    </form>
   </div>
-  <button role="submit" class="reserve-button" onclick="reserveSeats()" name="reserva">Reservar</button>
-  </div>
-  </form>
-  <!--parte de inputs para poder almacenar los asientos que se compren y se guarden-->
+
+  <!-- Bootstrap and jQuery JavaScript -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   <script>
-    function redireccionar() {
-      window.location.href = 'index.php';
-    }
-    const seats = document.querySelectorAll('.seat');
-    const totalBoletos = document.getElementById('total-boletos');
-    const asientosReservados = document.getElementById('asientos-reservados');
-    const seatLimit = parseInt(totalBoletos.textContent);
+    const totalBoletos = 2; // Cambia esto si el límite de boletos cambia
 
-    seats.forEach(seat => {
-      seat.addEventListener('click', () => {
-        toggleSeatSelection(seat);
+    const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+    const totalBoletosElement = document.getElementById('total-boletos');
+    const asientosReservadosElement = document.getElementById('asientos-reservados');
+    const reserveButton = document.getElementById('reserve-button');
+
+    let asientosReservados = 0;
+
+    checkboxes.forEach(checkbox => {
+      checkbox.addEventListener('change', (event) => {
+        const checkbox = event.target;
+        const isChecked = checkbox.checked;
+        if (isChecked) {
+          asientosReservados++;
+        } else {
+          asientosReservados--;
+        }
+        updateUI();
       });
     });
 
-    function toggleSeatSelection(seat) {
-      if (seat.classList.contains('selected')) {
-        seat.classList.remove('selected');
-      } else if (document.querySelectorAll('.seat.selected').length < seatLimit) {
-        seat.classList.add('selected');
-      }
-      updateReservedCount();
-    }
-
-    function updateReservedCount() {
-      const reservedSeats = document.querySelectorAll('.seat.selected').length;
-      asientosReservados.textContent = reservedSeats;
-    }
-
-    function reserveSeats() {
-      const reservedSeats = document.querySelectorAll('.seat.selected');
-      if (reservedSeats.length === 0) {
-        alert('Por favor selecciona al menos un asiento antes de reservar.');
-      } else if (reservedSeats.length < seatLimit) {
-        alert(`Aún te faltan boletos por reservar. Has seleccionado ${reservedSeats.length} asientos, pero necesitas ${seatLimit}.`);
-      } else if (reservedSeats.length > seatLimit) {
-        alert(`Has seleccionado más boletos de los permitidos. Solo puedes reservar ${seatLimit} asientos.`);
+    function updateUI() {
+      asientosReservadosElement.textContent = asientosReservados;
+      if (asientosReservados >= totalBoletos) {
+        checkboxes.forEach(checkbox => {
+          if (!checkbox.checked) {
+            checkbox.disabled = true;
+          }
+        });
       } else {
-        const reservedSeatNumbers = Array.from(reservedSeats).map(seat => seat.id);
-        alert(`¡Vuelos reservados con éxito para los asientos: ${reservedSeatNumbers.join(', ')}!`)
+        checkboxes.forEach(checkbox => {
+          checkbox.disabled = false;
+        });
       }
     }
-  </script>
-  <script>
-    function toggleCheckbox(checkboxId) {
-      var checkbox = document.getElementById(checkboxId);
+
+    function toggleCheckbox(id) {
+      const checkbox = document.getElementById(id);
       checkbox.checked = !checkbox.checked;
+      const event = new Event('change');
+      checkbox.dispatchEvent(event);
     }
+
+    reserveButton.addEventListener('click', () => {
+      if (asientosReservados < totalBoletos) {
+        alert('Por favor, seleccione todos los boletos.');
+      } else {
+        // Aquí puedes manejar el envío del formulario o la lógica de reserva
+        alert('¡Reserva completada!');
+      }
+    });
   </script>
 </body>
 
 </html>
-
-<?php
-error_reporting(0);
-// proceso para insertar los asientos
-include("conex.php");
-// adjuntar valores de los asientos
-if (isset($_POST['reserva'])) {
-  $A1 = $_POST['A1'];
-  $A2 = $_POST['A2'];
-  $A3 = $_POST['A3'];
-  $A4 = $_POST['A4'];
-  $A5 = $_POST['A5'];
-  $A6 = $_POST['A6'];
-
-  if ($A1 == "A1") {
-    $update = "UPDATE asientos set A1='ocupado', clienteA1='$idCliente'";
-    $resulUpdate = $conexion->query($update);
-  }
-
-  if ($A2 == "A2") {
-    $update = "UPDATE asientos set A2='ocupado', clienteA2='$idCliente'";
-    $resulUpdate = $conexion->query($update);
-  }
-
-  if ($A2 == "A2") {
-    $update = "UPDATE asientos set A2='ocupado', clienteA2='$idCliente'";
-    $resulUpdate = $conexion->query($update);
-  }
-
-  if ($A3 == "A3") {
-    $update = "UPDATE asientos set A3='ocupado', clienteA3='$idCliente'";
-    $resulUpdate = $conexion->query($update);
-  }
-
-  if ($A4 == "A4") {
-    $update = "UPDATE asientos set A4='ocupado', clienteA4='$idCliente'";
-    $resulUpdate = $conexion->query($update);
-  }
-
-  if ($A5 == "A5") {
-    $update = "UPDATE asientos set A5='ocupado', clienteA5='$idCliente'";
-    $resulUpdate = $conexion->query($update);
-  }
-
-  if ($A6 == "A6") {
-    $update = "UPDATE asientos set A6='ocupado', clienteA6='$idCliente'";
-    $resulUpdate = $conexion->query($update);
-  }
-  echo "<script>
-   function redireccionar() {
-window.location.href = 'infoAsistentes_disponibles.php?idVuelo=" .  $id . "';
-}
-redireccionar();
-</script>";
-  // actualizar estado de los asientos
-}
-// crear el insert para ingresar el valor de la base de datos
-
-?>
