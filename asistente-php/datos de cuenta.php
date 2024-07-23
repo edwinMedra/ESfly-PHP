@@ -74,7 +74,7 @@
 
           <div class="mb-3">
             <label for="InputPassword1" class="form-label">DUI</label>
-            <input type="text" name="dui" class="form-control" id="InputPassword1" value="<?php echo $dui?>">
+            <input type="text" name="dui" class="form-control" id="InputPassword1" value="<?php echo $dui ?>">
           </div>
           <div class="mb-3">
             <label for="InputCorreo1" class="form-label">Correo</label>
@@ -112,14 +112,14 @@ if (isset($_POST['registro'])) {
   $foto = $_FILES['foto']['error'];
   if ($foto) {
     if ($pass == null or $pass == "") {
-      $update = "UPDATE usuario set nomCliente='$nombre', apeCliente='$apellido', correo='$email', pasaporte='$passport', dui='$dui' where idCliente='$id'";
+      $update = "UPDATE asistente set nomAsistente='$nombre', apeAsistente='$apellido', correoAsisten='$email', pasaporte='$passport', dui='$dui' where idAsistente='$sesion'";
       $resul = $conexion->query($update);
       if ($resul) {
         echo '<script>alert("Datos modificados con exito")</script>';
       }
     } else {
       $encriptada = password_hash($pass, PASSWORD_DEFAULT);
-      $update = "UPDATE usuario set nomCliente='$nombre', apeCliente='$apellido', pass='$encriptada', correo='$email', pasaporte='$passport', dui='$dui' where idCliente='$id'";
+      $update = "UPDATE asistente set nomAsistente='$nombre', apeAsistente='$apellido', passAsisten='$encriptada', correoAsisten='$email', pasaporte='$passport', dui='$dui' where idAsistente='$sesion'";
       $resul = $conexion->query($update);
       if ($resul) {
         echo '<script>alert("Datos modificados con exito")</script>';
@@ -128,7 +128,7 @@ if (isset($_POST['registro'])) {
   } else {
     if ($pass == null or $pass == "") {
       $foto = addslashes(file_get_contents($_FILES['foto']['tmp_name']));
-      $update = "UPDATE usuario set nomCliente='$nombre', apeCliente='$apellido',correo='$email', pasaporte='$pasaporte', dui='$dui', foto='$foto' where idCliente='$id'";
+      $update = "UPDATE asistente set nomAsistete='$nombre', apeAsistente='$apellido',correoAsisten='$email', pasaporte='$pasaporte', dui='$dui', foto='$foto' where idAsistente='$sesion'";
       $resul = $conexion->query($update);
       if ($resul) {
         echo '<script>alert("Datos modificados con exito")</script>';
@@ -136,7 +136,7 @@ if (isset($_POST['registro'])) {
     } else {
       $encriptada = password_hash($pass, PASSWORD_DEFAULT);
       $foto = addslashes(file_get_contents($_FILES['foto']['tmp_name']));
-      $update = "UPDATE usuario set nomCliente='$nombre', apeCliente='$apellido', pass='$encriptada', correo='$email', pasaporte='$pasaporte', dui='$dui', foto='$foto' where idCliente='$id'";
+      $update = "UPDATE asistente set nomAsistente='$nombre', apeAsistente='$apellido', passAsistente='$encriptada', correoAsisten='$email', pasaporte='$pasaporte', dui='$dui', foto='$foto' where idCliente='$sesion'";
       $resul = $conexion->query($update);
       if ($resul) {
         echo '<script>alert("Datos modificados con exito")</script>';
