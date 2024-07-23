@@ -55,13 +55,13 @@
           <form class="mb-2 g-0" method="post" enctype="multipart/form-data">
             <div class="mb-2 g-0">
               <label for="exampleImputEmail" class="form-label font-weight-bold">
-                <img src="../imagen/login/nombre.png" class="img"> Nombre</label>
+                <img src="../imagen/login/nombre.png" class="img"> Nombres</label>
               <input type="username" class="form-control" placeholder="Ingresa tu nombre" id="nombre" aria-describedby="emailHelp" name="nombre" value="<?php echo isset($_POST['nombre']) ? htmlspecialchars($_POST['nombre']) : ''; ?>">
             </div>
 
             <div class="mb-2 ">
               <label for="exampleImputEmail" class="form-label font-weight-bold">
-                <img src="../imagen/login/apellido.png" class="img"> Apellido</label>
+                <img src="../imagen/login/apellido.png" class="img"> Apellidos</label>
               <input type="lastname" class="form-control mb-2" placeholder="Ingresa tu apellido" id="apellido" name="apellido" value="<?php echo isset($_POST['apellido']) ? htmlspecialchars($_POST['apellido']) : ''; ?>">
             </div>
 

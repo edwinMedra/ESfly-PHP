@@ -138,7 +138,7 @@ if (isset($_POST['crear'])) {
     $numero =  trim($_POST['numero']);
     $date =  $_POST['date'];
     $genero =  trim($_POST['genero']);
-    $servicio = trim($_POST['servicio'])
+    $servicio = trim($_POST['servicio']);
     $descri =  trim($_POST['descri']);
     $foto = $_FILES['foto']['error'];
     // establecer funcion para resumir codigo
@@ -185,7 +185,7 @@ if (isset($_POST['crear'])) {
     if (strlen($genero) > 1) {
         $banGenero = true;
     }
-    $total_ban = $banName && $banLastname && $banPass && $banEmail && $banNumero &&  $banGenero && $banDescri && $banSerivicio;
+    $total_ban = $banName && $banLastname && $banPass && $banEmail && $banNumero &&  $banGenero && $banDescri && $banServicio;
     if ($total_ban) {
 
         if ($foto) {

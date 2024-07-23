@@ -204,7 +204,6 @@ if (isset($_POST['agregar'])) {
 
             $resulAsientos = $conexion->query($asientos);
             if ($resulAsientos) {
-                echo '<script>alert("hola mundo")</script>';
             }
         }
     }
