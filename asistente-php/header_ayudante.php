@@ -1,30 +1,29 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="../imagen/header/favicon.png" type="image/x-icon">
-
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bayon&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
-
-    <link rel="stylesheet" href="../css/inicioAyudanteEspecial.css">
-    <link rel="stylesheet" href="../css/headerr.css">
-    <link rel="stylesheet" href="../css/pie.css">
-    <!--Fin tipografia-->
-
+    <?php
+    // proceso para hacer el backend para tener los datos de el usuario
+    include ("conex.php");
+    session_start();
+    $sesion = $_SESSION['$id'];
+    // hacer consulta del asistente que ha iniciado sesión 
+    $query = $conexion->query("SELECT * FROM asistente where idAsistente='$sesion'");
+    $row = $query->fetch_assoc();
+    $nombre = $row['nomAsistente'];
+    $apellido = $row['apeAsistente'];
+    $telefono = $row['numTelefono'];
+    $servicios = $row['servicios'];
+    $horario = $row['horarioTrabajo'];
+    $genero = $row['genero'];
+    $correo = $row['correoAsisten'];
+    $foto = $row['foto'];
+    $descripcion = $row['descri'];
+    $dui = $row['dui'];
+    $pasaporte = $row['pasaporte'];
+    ?>
+   <link rel="stylesheet" href="../css/inicioAyudanteEspecial.css">
     <title>Inicio Asistente</title>
-</head>
-<body>
     <nav class="navbar navbar-expand-lg bg-body-tertiary shadow-navbar fixed-top">
         <div class="container-fluid">
     
-            <a class="navbar-brand" href="index.php">
+            <a class="navbar-brand" href="inicioEmpleado.php">
                 <img src="../imagen/estoyAnsioso/esflyInfo.png" class="" id="logo" alt="">
             </a>
     
@@ -35,7 +34,7 @@
             <div class="collapse navbar-collapse" id="navbarText">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="Reservarvuelos.php">Mi perfil</a>
+                        <a class="nav-link" aria-current="page" href="datos de cuenta.php?id=<?php echo $sesion?>">Mi perfil</a>
                     </li>
                     
                     <li class="nav-item">
@@ -61,9 +60,8 @@
                         <img src="../imagen/header_ayudante/logo_usuario.png" class="rounded-circle border border-1 border-black mx-1" id="lupa" alt="" height="35px" width="35px">
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="agregar_admin.php">Ver perfil</a></li>
-                        <li><a class="dropdown-item" href="editar_admin.php">Editar</a></li>
-                        <li><a class="dropdown-item" href="eliminar_admin.php">Cerrar sesión</a></li>
+                        <li><a class="dropdown-item" href="datos de cuenta.php">Ver perfil</a></li>
+                        <li><a class="dropdown-item" href="cerrar.php">Cerrar sesión</a></li>
                     </ul>
                 </div>
 
@@ -74,6 +72,3 @@
             </div>
         </div>
     </nav>
-</body>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-</html>

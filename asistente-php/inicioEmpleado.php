@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -20,9 +21,9 @@
 
     <title>Inicio Asistente</title>
 </head>
-<body>
+<?php include ("header_ayudante.php")?>
 
-    <!--HEADER DE AYUDANTE ESPECIAL-->
+<!--HEADER DE AYUDANTE ESPECIAL-->
 </head>
 
 
@@ -31,10 +32,12 @@
 
 <body>
 
-<div class="back">
-    <img src="../imagen/AsistentesDisponibles/asistentes2.png" alt="" />
-    <div class="titulo"><p >Asistente Especial</p></div>
-</div>
+    <div class="back">
+        <img src="../imagen/AsistentesDisponibles/asistentes2.png" alt="" />
+        <div class="titulo">
+            <p>Asistente Especial</p>
+        </div>
+    </div>
 
 
     <div class="container mt-5">
@@ -46,16 +49,17 @@
         <div class="perfil-ayudante">
             <img src="../imagen/datosCuenta/foto_usuario.png" alt="">
             <div>
-                <h5>Nombre de usuario</h5>
+                <h5><?php echo $nombre?></h5>
                 <p>Horas de servicio</p>
+                <?php echo $horario?>
                 <button class="btn btn-primary">Editar perfil</button>
             </div>
         </div>
 
 
         <div class=" texto-titulo container-fluid  mt-5 mb-5 ps-5">
-            <h5>Datos y chats ></h5>
-        </div>  
+            <h5>Datos y chats</h5>
+        </div>
 
 
         <div class="seccion-datos row mt-4">
@@ -80,7 +84,8 @@
     </div>
 
 
- 
+
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
 </html>

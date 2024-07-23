@@ -58,6 +58,8 @@ if ($filas) {
                 header("location:loginrr.php");
             }
             // falta la parte de diego
+        } else {
+            header("location:loginrr.php");
         }
     }
 }
