@@ -49,6 +49,8 @@ descri varchar(600),
 correoAsisten varchar(200),
 passAsisten varchar(200),
 foto longblob,
+dui varchar(20),
+pasaporte varchar(20),
 primary key (idAsistente)
 );
 -- Tabla empleado
