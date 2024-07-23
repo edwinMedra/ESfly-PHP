@@ -399,13 +399,13 @@ insert into aerolineaAlianza values
 (4, 2),
 (5, 1);*/
 -- select 
-select * from usuario;
-select * from empleado;
-select * from aerolinea;
-select * from aeropuerto;
+--  select * from empleado;
+--  select * from aerolinea;
+-- select * from aeropuerto;
+--  select * from alianza;
+--  select * from avion;
 select * from asistente;
-select * from alianza;
-select * from avion;
+select * from usuario;
 select * from vuelo;
 select * from asientos;
 select * from administradores;
