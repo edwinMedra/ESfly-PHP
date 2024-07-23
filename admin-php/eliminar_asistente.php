@@ -21,60 +21,58 @@
     <?php include("header-admin.php"); ?>
     <div class="back">
         <div><img src="../imagen/admin/back.png" alt=""></div>
-        <div class="titulo text-white text-center">Editar Administradores</div>
+        <div class="titulo text-white text-center">Eliminar Asistentes</div>
     </div>
     <div class="container-fluid my-5">
         <h2 class="text-center">Cuentas Registradas</h2>
     </div>
     <div class="col-lg-12 col-12 border border-black text-center mx-auto" id="usuT" >
-                <h5>Administradores</h5>
+                <h5>Asistentes</h5>
     </div>
-    <div class="container-fluid" id="tabla" >
+    <div class="container-fluid " id="tabla" >
         <div class="row">
             <div class="col-lg-2  col-12 border border-black text-center"><b>Nombre</b></div>
-            <div class="col-lg-1  col-12 border border-black text-center"><b>Apellido</b></div>
+            <div class="col-lg-1 col-12 border border-black text-center"><b>Apellido</b></div>
             <div class="col-lg-1  col-12 border border-black text-center"><b>Contraseña</b></div>
-            <div class="col-lg-2  col-12 border border-black text-center"><b>Correo</b></div>
-            <div class="col-lg-1  col-12 border border-black text-center"><b>Pasaporte</b></div>
-            <div class="col-lg-1  col-12 border border-black text-center"><b>Dui</b></div>
-            <div class="col-lg-1  col-12 border border-black text-center"><b>Cargo</b></div>
+            <div class="col-lg-2 col-12 border border-black text-center"><b>Correo</b></div>
+            <div class="col-lg-1  col-12 border border-black text-center"><b>Número de teléfono</b></div>
+            <div class="col-lg-1  col-12 border border-black text-center"><b>Horario de trabajo</b></div>
+            <div class="col-lg-1  col-12 border border-black text-center"><b>Género</b></div>
+            <div class="col-lg-1  col-12 border border-black text-center"><b>Imagen</b></div>
             <div class="col-lg-1  col-12 border border-black text-center"><b>ID</b></div>
-            <div class="col-lg-1  col-12 border border-black text-center"><b>Foto</b></div>
             <div class="col-lg-1  col-12 border border-black text-center"><b>Opción</b></div>
-
         </div>
     </div>
     <?php
     $inc = include("conex.php");
     if ($inc){
-        $select = "SELECT * FROM administradores";
+        $select = "SELECT * FROM asistente";
         $query = mysqli_query($conexion,$select);
         if ($query){
             while ($row = $query->fetch_array()){
-            $nombre = $row['nomAdmin'];
-            $apellido = $row['apeAdmin'];
-            $pass = $row['pass'];
-            $correo = $row['email'];
-            $pasaporte = $row['pasaporte'];
-            $dui = $row['dui'];
-            $cargo = $row['cargo'];
+            $nombre = $row['nomAsistente'];
+            $apellido = $row['apeAsistente'];
+            $pass = $row['passAsisten'];
+            $correo = $row['correoAsisten'];
+            $numero = $row['numTelefono'];
+            $date = $row['horarioTrabajo'];
+            $genero = $row['genero'];
             $foto = $row['foto'];
-            $idAdmin = $row['idAdmin'];
+            $idAsistente = $row['idAsistente'];
             ?>
         <div class="container-fluid  rounded-1" id="tabla">
         <div class="row">
             <!--Tabla de datos de los usuarios-->
             <div class="col-lg-2  col-12 border border-black text-center"><?php echo $nombre?></div>
             <div class="col-lg-1  col-12 border border-black text-center"><?php echo $apellido?></div>
-            <div class="col-lg-1  col-12 border border-black text-center">-</div>
+            <div class="col-lg-1  col-12 border border-black text-center"><?php echo $pass?></div>
             <div class="col-lg-2  col-12 border border-black text-center"><?php echo $correo?></div>
-            <div class="col-lg-1  col-12 border border-black text-center"><?php echo $pasaporte?></div>
-            <div class="col-lg-1  col-12 border border-black text-center"><?php echo $dui?></div>
-            <div class="col-lg-1  col-12 border border-black text-center"><?php echo $cargo?></div>
-            <div class="col-lg-1  col-12 border border-black text-center"><?php echo $idAdmin?></div>
-            <div class="col-lg-1  col-12 border border-black text-center"> <img src="data:image/jpg;base64,<?php echo base64_encode($foto)?>" class="rounded-circle mx-1 my-auto border border-1 border-black" id="lupa" alt=""  height="35px" width="35px">
-            </div>
-            <div class="col-lg-1  col-12 border border-black text-center p-1"><a class="btn btn-primary" href="form_admin.php?idAdmin=<?php echo $idAdmin?> " role="button" id="link">Editar</a></div>            
+            <div class="col-lg-1  col-12 border border-black text-center"><?php echo $numero?></div>
+            <div class="col-lg-1  col-12 border border-black text-center"><?php echo $date?></div>
+            <div class="col-lg-1  col-12 border border-black text-center"><?php echo $genero?></div>
+            <div class="col-lg-1  col-12 border border-black text-center"><img src="data:image/jpg;base64,<?php echo base64_encode($foto)?>" class="rounded-circle mx-1 my-auto border border-1 border-black" id="lupa" alt=""  height="35px" width="35px"></div>
+            <div class="col-lg-1  col-12 border border-black text-center"><?php echo $idAsistente?></div>
+            <div class="col-lg-1  col-12 border border-black text-center p-1"><a type="submit" role="button" class="btn btn-danger" id="link" href="eliminar-asis.php?idAsistente=<?php echo $idAsistente ?>">Eliminar</a></div>
             <!---->
         </div>
     </div>
@@ -86,5 +84,4 @@
 
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-
 </html>
