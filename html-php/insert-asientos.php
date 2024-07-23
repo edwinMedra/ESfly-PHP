@@ -256,9 +256,9 @@ insert($K4,$K4N,$sesion,$idVuelo);
 insert($K5,$K5N,$sesion,$idVuelo);
 insert($K6,$K6N,$sesion,$idVuelo);
 
-/*
+
 echo "<script>
 window.location.href = 'infoAsistentes_disponibles.php?idVuelo=" . $idVuelo . "'
 </script>";
-*/
+
 // sigo mañana en modulo
