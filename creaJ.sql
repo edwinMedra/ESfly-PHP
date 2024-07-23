@@ -49,8 +49,6 @@ descri varchar(600),
 correoAsisten varchar(200),
 passAsisten varchar(200),
 foto longblob,
-dui varchar(20),
-pasaporte varchar(20),
 primary key (idAsistente)
 );
 -- Tabla empleado
@@ -119,20 +117,21 @@ create table vuelo(
 create table asientos (
 	idVuelo varchar(500),
     destino varchar(500),
-    A1 varchar(500),
-    clienteA1 varchar(500),
-    A2 varchar(500),
-	clienteA2 varchar(500),
-    A3 varchar(500),
-    clienteA3 varchar(500),    
-    A4 varchar(500),
-    clienteA4 varchar(500),
-    A5 varchar(500),
-    clienteA5 varchar(500),
-    A6 varchar(500),
-    clienteA6 varchar(500),
+    A1 varchar(50),
+    clienteA1 varchar(50),
+    A2 varchar(50),
+	clienteA2 varchar(50),
+    A3 varchar(50),
+    clienteA3 varchar(50),    
+    A4 varchar(50),
+    clienteA4 varchar(50),
+    A5 varchar(50),
+    clienteA5 varchar(50),
+    A6 varchar(50),
+    clienteA6 varchar(50),
     primary key (idVuelo)
 );
+
 
 create table administradores(
 	idAdmin int auto_increment, -- llave primaria

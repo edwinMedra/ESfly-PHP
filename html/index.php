@@ -230,7 +230,7 @@
                     <img src="../imagen/index/fondo1.png" alt="Imagen 4">
                     <div class="overlay">
                         <div class="overlay-content">
-                            <h4>Brazil</h4>
+                            <h4>Brasil</h4>
                             <h6>Río de Janeiro</h6>
                             <a href="login.php" class="btn btn-primary">Tomar viaje</a>
                         </div>

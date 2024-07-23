@@ -89,9 +89,9 @@ include("header-log.php");
                 <img src="../imagen/index/fondo1.png" alt="Imagen 4">
                 <div class="overlay">
                     <div class="overlay-content">
-                        <h4>Brazil</h4>
+                        <h4>Brasil</h4>
                         <h6>Río de Janeiro</h6>
-                        <a href="brazil.php"  class="btn btn-primary">Tomar viaje</a>
+                        <a href="brasil.php"  class="btn btn-primary">Tomar viaje</a>
                     </div>
                 </div>
             </div>
@@ -118,7 +118,7 @@ include("header-log.php");
             <div class="container-fluid">
                 <p class="text-center fs-5 my-3"><b>Cataratas de Iguazú (Brasil)</b></p>
                 <p>Este lugar es uno de los más espectaculares que ver en Latinoamérica. Cuando hablamos de maravillas naturales, pocas son tan impresionantes como las Cataratas de Iguazú. Son el sistema de cascadas más grande del mundo. De hecho, hay hasta 275 cataratas de varios tamaños. La Garganta del Diablo es la más grande y espectacular, aunque el conjunto te dejará sin palabras. </p>
-                <a href="" class="btn btn-primary border-0">Tomar vuelo</a>
+                <a href="brasil.php" class="btn btn-primary border-0">Tomar vuelo</a>
             </div>
         </div>
       </div>
@@ -128,7 +128,7 @@ include("header-log.php");
             <div class="container-fluid">
                 <p class="text-center fs-5 my-3"><b>Salar de Uyuni (Bolivia)</b></p>
                 <p>Se trata del salar más grande del mundo y el principal atractivo de Bolivia. ¡Tiene casi 11.000 kilómetros cuadrados de superficie! De hecho, los astronautas dicen que es el punto que más se refleja del planeta. Esta joya natural se encuentra en los Andes a casi 3.700 metros sobre el nivel del mar. </p>
-                <a href="" class="btn btn-primary border-0">Tomar vuelo</a>
+                <a href="bolivia.php" class="btn btn-primary border-0">Tomar vuelo</a>
             </div>
         </div>
       </div>
@@ -170,7 +170,7 @@ include("header-log.php");
             <div class="container">
                 <p class="text-center fs-5 my-3"><b> Parque Nacional Los Glaciares y el Perito Moreno (Argentina)</b></p>
                 <p>El parque nacional más grande de Argentina no podía faltar en esta lista de los mejores lugares que ver en Latinoamérica. ¿Sabías que allí se encuentra la capa de hielo más grande fuera de las áreas polares? Alimenta, nada más y nada menos, que a 47 enormes glaciares.</p>
-                <a href="" class="btn btn-primary border-0">Tomar vuelo</a>
+                <a href="argentina.php" class="btn btn-primary border-0">Tomar vuelo</a>
             </div>
         </div>
       </div>
@@ -180,7 +180,7 @@ include("header-log.php");
             <div class="container">
                 <p class="text-center fs-5 my-3"><b> Chichén Itzá y Riviera Maya (México)</b></p>
                 <p>México es uno de los grandes destinos turísticos mundiales. ¡Tiene tantas cosas por ver! Desde el Chichén Itzá, las ruinas mayas más famosas del mundo, hasta las paradisiacas playas de la Riviera Maya. ¡No te vas a aburrir! Respecto a Chichén Itzá, visitar esta antigua capital maya y ver sus impresionantes templos como el de Kukulkán es una experiencia magnífica. </p>
-                <a href="" class="btn btn-primary border-0">Tomar vuelo</a>
+                <a href="mexico.php" class="btn btn-primary border-0">Tomar vuelo</a>
             </div>
         </div>
       </div>

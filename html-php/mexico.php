@@ -1,200 +1,137 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EsFly</title>
-    <!--Parte obligatoria del head-->
+    <title>ESfly</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="../imagen/header/favicon.png" type="image/x-icon">
-     <!--Comentario sobre el link para importar la tipografia-->
-     <link rel="preconnect" href="https://fonts.googleapis.com">
-     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-     <link href="https://fonts.googleapis.com/css2?family=Bayon&display=swap" rel="stylesheet">
-     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
-     <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
-     <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
-     <!--Fin tipografia-->  
-     <link rel="stylesheet" href="../css/header.css">
-    <link rel="stylesheet" href="../css/mexico.css">
-     <link rel="stylesheet" href="../css/pie.css">
-    <!--Fin head-->
-</head> <?php 
-include("header-log.php");
-?> 
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bayon&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+
+</head>
+<style>
+    .back img {
+        width: 100%;
+        object-fit: cover;
+        max-height: 600px;
+        filter: brightness(50%);
+        z-index: -1;
+    }
+
+    .titulo {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-family: "red hat display";
+        font-size: 100px;
+    }
+
+    @media screen and (max-width:768px) {
+        .titulo {
+            position: absolute;
+            top: 21%;
+            font-size: 60px;
+        }
+
+        div>x {
+            font-size: 10px;
+        }
+
+        .row {
+            display: inline-block;
+            width: 150%;
+            margin: 0 auto;
+        }
+
+        .col-4 {
+            margin: 0 17%;
+        }
+
+        #origen #calendar {
+            width: 20px;
+            margin-top: 6px;
+        }
+    }
+</style>
+
 <body>
-    <!--Inicia estructura de la pagina web-->
-    <!--Imagen principal de la pagina web-->
+    <?php
+    include("header-log.php");
+    ?>
     <div class="back">
-        <img src="../imagen/mexico/back.jpg" alt="">
-        <div class="titulo">
-            <p>México</p>
-        </div>
+        <div><img src="../imagen/mexico/back.jpg" alt=""></div>
+        <div class="titulo text-white">México</div>
     </div>
-    <!--Fin de imagen principal de la pagina web-->
-    <!--Inicio de aeropuertos -->
-    <!--Titulo de aeropuerto-->
-    <div class="start">
+    <!---->
+    <div class="container m-5 fs-5">
         <p>Vuelos disponibles ></p>
     </div>
-    <!--Inicio de aeropuertos disponibles del pais-->
-    <!--Ciudad de México-->
-    <div class="aero">
-        <!--Origen y destino-->
-        <div class="horarios">
-            <div class="padre">
-                <div class="left">
-                    <div class="left-img"><img src="../imagen/estadosUnidos/avion.png" alt=""></div>
-                    <div class="left-text"><p><b>ORIGEN: </b> San Salvador (El Salvador)</p></div>
+    <br>
+    <hr>
+    <?php
+    include("conex.php");
+    if ($conexion) {
+        $consul = "SELECT * FROM vuelo where destino='Mexico'";
+        $resul = mysqli_query($conexion, $consul);
+        if ($resul) {
+            while ($row = $resul->fetch_array()) {
+                $origen = $row['origen'];
+                $destino = $row['destino'];
+                $fechaSalida = $row['fechaSalida'];
+                $fechaEntrada = $row['fechaEntrada'];
+                $foto = $row['foto'];
+                $idVuelo = $row['idVuelo'];
+    ?>
+                <div class="container rounded-4 border border-1 border-black w-100 p-0 my-5">
+                    <div class="row">
+                        <div class="col-8 mt-4">
+                            <div class="row d-flex mx-auto my-4 w-75 border border-black border-1 rounded-5">
+                                <div class="col py-1 d-flex py-1" id="origen">
+                                    <img src="../imagen/argentina/plane.png" alt="" class="">
+                                    <x class="mt-2"> <b>ORIGEN:</b> <?php echo $origen?></x>
+                                </div>
+                                <div class="col d-flex border border-top-0 border-end-0 border-bottom-0 border-black" id="origen">
+                                    <img src="../imagen/argentina/end.png" alt="" class="mt-2">
+                                    <x class="mt-3"> <b>DESTINO:</b> <?php echo $destino ?></x>
+                                </div>
+                            </div>
+                            <!---->
+                            <div class="row d-flex mx-auto my-4 w-75 border border-black border-1 rounded-5">
+                                <div class="col py-1 d-flex py-1" id="origen">
+                                    <img src="../imagen/argentina/calendar.png" alt="" class="" id="calendar">
+                                    <x class="mt-2"> <b>IDA:</b> <?php echo $fechaSalida ?></x>
+                                </div>
+                                <div class="col d-flex border border-top-0 border-end-0 border-bottom-0 border-black" id="origen">
+                                    <img src="../imagen/argentina/calendar.png" alt="" class="mt-1" id="calendar">
+                                    <x class="mt-2"> <b>VUELTA:</b> <?php echo $fechaEntrada ?></x>
+                                </div>
+                            </div>
+                            <div class="d-flex " id="boton">
+                            <a href="formularioVueloEspecial.php?idVuelo=<?php echo $idVuelo ?>" class="text-decoration-none text-white btn-primary btn mx-auto">Tomar vuelo</a>
+                            </div>
+                        </div>
+                        <!---->
+                        <div class="col-4">
+                            <img src="data:image/jpg;base64,<?php echo base64_encode($foto) ?>" alt="" class="w-100 rounded-4 pe-0">
+                        </div>
+                    </div>
                 </div>
-                <div class="barrita"><img src="../imagen/estadosUnidos/barita.png" alt=""></div>
-                <div class="left">
-                    <div class="left-img"><img src="../imagen/estadosUnidos/destino.png" alt=""></div>
-                    <div class="left-text"><p><b>DESTINO: </b> México (Ciudad de México)</p></div>
-                </div>
-            </div>
-            <!--Hora y fecha de los vuelos-->
-            <div class="padre-1">
-                <div class="left">
-                    <div class="left-img"><img src="../imagen/estadosUnidos/calendario.png" alt=""></div>
-                    <div class="left-text"><p><b>IDA: </b>27/09/2024 <b>HORA: </b>4:00 PM</p></div>
-                </div>
-                <div class="barrita"><img src="../imagen/estadosUnidos/barita.png" alt=""></div>
-                <div class="left">
-                    <div class="left-img"><img src="../imagen/estadosUnidos/calendario.png" alt=""></div>
-                    <div class="left-text"><p><b>VUELTA: </b> 12/09/2024 <b>HORA: </b>4:00 PM</P></div>
-                </div>
-            </div>
-            <div class="boton"><button>Tomar vuelo</button></div>
-        </div>
-    
-<div class="img">
-    <img src="../imagen/mexico/Ciudad de México.webp" alt="">
-</div>
-    </div>
-<!--Fin Ciudad de México-->
-<!--Cancún-->
-<div class="aero">
-    <!--Origen y destino-->
-    <div class="horarios">
-        <div class="padre">
-            <div class="left">
-                <div class="left-img"><img src="../imagen/estadosUnidos/avion.png" alt=""></div>
-                <div class="left-text"><p><b>ORIGEN: </b> San Salvador (El Salvador)</p></div>
-            </div>
-            <div class="barrita"><img src="../imagen/estadosUnidos/barita.png" alt=""></div>
-            <div class="left">
-                <div class="left-img"><img src="../imagen/estadosUnidos/destino.png" alt=""></div>
-                <div class="left-text"><p><b>DESTINO: </b> México (Cancún)</p></div>
-            </div>
-        </div>
-        <!--Hora y fecha de los vuelos-->
-        <div class="padre-1">
-            <div class="left">
-                <div class="left-img"><img src="../imagen/estadosUnidos/calendario.png" alt=""></div>
-                <div class="left-text"><p><b>IDA: </b>27/09/2024 <b>HORA: </b>10:00 PM</p></div>
-            </div>
-            <div class="barrita"><img src="../imagen/estadosUnidos/barita.png" alt=""></div>
-            <div class="left">
-                <div class="left-img"><img src="../imagen/estadosUnidos/calendario.png" alt=""></div>
-                <div class="left-text"><p><b>VUELTA: </b> 12/09/2024 <b>HORA: </b>4:00 PM</P></div>
-            </div>
-        </div>
-        <div class="boton"><button>Tomar vuelo</button></div>
-    </div>
-
-<div class="img">
-<img src="../imagen/mexico/Cancún.jpg" alt="">
-</div>
-</div>
-<!--Fin Cancún-->
-<!--Guadalajara-->
-<div class="aero">
-    <!--Origen y destino-->
-    <div class="horarios">
-        <div class="padre">
-            <div class="left">
-                <div class="left-img"><img src="../imagen/estadosUnidos/avion.png" alt=""></div>
-                <div class="left-text"><p><b>ORIGEN: </b> San Salvador (El Salvador)</p></div>
-            </div>
-            <div class="barrita"><img src="../imagen/estadosUnidos/barita.png" alt=""></div>
-            <div class="left">
-                <div class="left-img"><img src="../imagen/estadosUnidos/destino.png" alt=""></div>
-                <div class="left-text"><p><b>DESTINO: </b> México (Guadalajara)</p></div>
-            </div>
-        </div>
-        <!--Hora y fecha de los vuelos-->
-        <div class="padre-1">
-            <div class="left">
-                <div class="left-img"><img src="../imagen/estadosUnidos/calendario.png" alt=""></div>
-                <div class="left-text"><p><b>IDA: </b>27/09/2024 <b>HORA: </b>4:00 AM</p></div>
-            </div>
-            <div class="barrita"><img src="../imagen/estadosUnidos/barita.png" alt=""></div>
-            <div class="left">
-                <div class="left-img"><img src="../imagen/estadosUnidos/calendario.png" alt=""></div>
-                <div class="left-text"><p><b>VUELTA: </b> 12/09/2024 <b>HORA: </b>4:00 PM</P></div>
-            </div>
-        </div>
-        <div class="boton"><button>Tomar vuelo</button></div>
-    </div>
-
-<div class="img">
-<img src="../imagen/mexico/Guadalajara.avif" alt="">
-</div>
-</div>
-<!--Fin Guadalajara-->
-    <!--pie de pagina web-->
-    <footer>
-        <div class="pie">
-            <div class="left-pie-img">
-                <img src="../imagen/index/pie-login.png" alt="">
-            </div>
-            <div class="datos-pie">
-                <div class="text-left-pie">
-                    <h2>AYUDA</h2>
-                    <ul>
-                        <li>Contactanos</li>
-                        <li>Metodos de pago</li>
-                        <li>Cambios y devoluciones</li>
-                        <li>Preguntas frecuentes</li>
-                        <li>Promociones</li>
-                    </ul>
-                </div>
-                <div class="text-2/4-pie">
-                    <h2>ACERCA DE</h2>
-                    <ul>
-                        <li>Ubicación </li>
-                        <li>Redes</li>
-                    </ul>
-                </div>
-                <div class="text-3/4-pie">
-                    <h2>NOSOTROS</h2>
-                    <ul>
-                        <li>Somos ESfly</li>
-                        <li>Alianzas y Beneficios</li>
-                        <li>Accesibilidad</li>
-                    </ul>
-                </div>
-                <div class="text-derecha-pie">
-                    <h2>SIGUENOS</h2>
-                    <ul>
-                        <li><img src="../imagen/index/whatsapp.png" alt="whatsapp">7270-9970</li>
-                        <li><img src="../imagen/index/instagram.png" alt="instagram">ESfly_official</li>
-                        <li><img src="../imagen/index/facebook.png" alt="facebook">ESfly_official</li>
-                        <li><img src="../imagen/index/youtube.png" alt="youtube">ESfly_official</li>
-                    </ul>
-                </div>
-            </div>
-            <hr class="br-footer">
-            <ul class="datosFinales-pie">
-                <li>Copyright © ESfly 2024</li>
-                <li>A STAR ALLIANCE MEMBER  <img src="../imagen/index/STA.png" alt="STAR ALLIANCE MEMBER"></li>
-                <li>Colegio Don Bosco 2 "B"</li>
-            </ul>
-        </div>
-        <div class="pie-telefono">
-            
-        </div>
-    </footer>
+    <?php
+            }
+        }
+    }
+    include("pie.php")
+    ?>
 </body>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
 </html>

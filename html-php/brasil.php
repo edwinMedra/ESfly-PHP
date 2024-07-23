@@ -69,8 +69,8 @@
     include("header-log.php");
     ?>
     <div class="back">
-        <div><img src="../imagen/bolivia/back.jpg" alt=""></div>
-        <div class="titulo text-white">Bolivia</div>
+        <div><img src="../imagen/brazil/back.jpg" alt=""></div>
+        <div class="titulo text-white">Brasil</div>
     </div>
     <!---->
     <div class="container m-5 fs-5">
@@ -81,7 +81,7 @@
     <?php
     include("conex.php");
     if ($conexion) {
-        $consul = "SELECT * FROM vuelo where destino='Bolivia'";
+        $consul = "SELECT * FROM vuelo where destino='Brasil'";
         $resul = mysqli_query($conexion, $consul);
         if ($resul) {
             while ($row = $resul->fetch_array()) {
