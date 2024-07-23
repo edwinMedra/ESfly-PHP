@@ -128,7 +128,7 @@ if (isset($_POST['registro'])) {
   } else {
     if ($pass == null or $pass == "") {
       $foto = addslashes(file_get_contents($_FILES['foto']['tmp_name']));
-      $update = "UPDATE asistente set nomAsistete='$nombre', apeAsistente='$apellido',correoAsisten='$email', pasaporte='$pasaporte', dui='$dui', foto='$foto' where idAsistente='$sesion'";
+      $update = "UPDATE asistente set nomAsistente='$nombre', apeAsistente='$apellido',correoAsisten='$email', pasaporte='$pasaporte', dui='$dui', foto='$foto' where idAsistente='$sesion'";
       $resul = $conexion->query($update);
       if ($resul) {
         echo '<script>alert("Datos modificados con exito")</script>';
