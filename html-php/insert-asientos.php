@@ -1,5 +1,6 @@
 <?php
 include("conex.php");
+error_reporting(0);
 session_start();
 $sesion = $_SESSION['$id'];
 $idVuelo = $_GET['idVuelo'];
@@ -138,93 +139,126 @@ $K5 = $_POST['K5'];
 $K6 = $_POST['K6'];
 
 // insertar el valor de los asientos segun su numero de usuario asi como el estado 
-function insertar($asiento, $num, $sesion, $idVuelo)
+
+// update 
+include("conex.php");
+
+function insert($asiento,$num, $sesion, $idVuelo)
 {
-    // update 
     include("conex.php");
-    if (!($asiento == null)) {
-        $resul = $conexion->query("UPDATE asientos set $num='ocupado', cliente$asiento=$sesion where idVuelo='$idVuelo'");
+    if (!($asiento == null or $asiento == "")) {
+        $resul = $conexion->query("UPDATE asientos set $num='ocupado', cliente$num='$sesion' where idVuelo='$idVuelo'");
         if ($resul) {
             echo "hola mundo";
         }
     }
 }
-insertar($A1N, $A1N, $sesion, $idVuelo);
-insertar($A2N, $A2N, $sesion, $idVuelo);
-insertar($A3N, $A3N, $sesion, $idVuelo);
-insertar($A4N, $A4N, $sesion, $idVuelo);
-insertar($A5N, $A5N, $sesion, $idVuelo);
-insertar($A6N, $A6N, $sesion, $idVuelo);
+// en todos los asientos 
 
-insertar($B1N, $B1N, $sesion, $idVuelo);
-insertar($B2N, $B2N, $sesion, $idVuelo);
-insertar($B3N, $B3N, $sesion, $idVuelo);
-insertar($B4N, $B4N, $sesion, $idVuelo);
-insertar($B5N, $B5N, $sesion, $idVuelo);
-insertar($B6N, $B6N, $sesion, $idVuelo);
+// tomar el valor de la fila a
 
-insertar($C1N, $C1N, $sesion, $idVuelo);
-insertar($C2N, $C2N, $sesion, $idVuelo);
-insertar($C3N, $C3N, $sesion, $idVuelo);
-insertar($C4N, $C4N, $sesion, $idVuelo);
-insertar($C5N, $C5N, $sesion, $idVuelo);
-insertar($C6N, $C6N, $sesion, $idVuelo);
+insert($A1,$A1N,$sesion,$idVuelo);
+insert($A2,$A2N,$sesion,$idVuelo);
+insert($A3,$A3N,$sesion,$idVuelo);
+insert($A4,$A4N,$sesion,$idVuelo);
+insert($A5,$A5N,$sesion,$idVuelo);
+insert($A6,$A6N,$sesion,$idVuelo);
 
-insertar($D1N, $D1N, $sesion, $idVuelo);
-insertar($D2N, $D2N, $sesion, $idVuelo);
-insertar($D3N, $D3N, $sesion, $idVuelo);
-insertar($D4N, $D4N, $sesion, $idVuelo);
-insertar($D5N, $D5N, $sesion, $idVuelo);
-insertar($D6N, $D6N, $sesion, $idVuelo);
+// tomar el valor de la fila B
 
-insertar($E1N, $E1N, $sesion, $idVuelo);
-insertar($E2N, $E2N, $sesion, $idVuelo);
-insertar($E3N, $E3N, $sesion, $idVuelo);
-insertar($E4N, $E4N, $sesion, $idVuelo);
-insertar($E5N, $E5N, $sesion, $idVuelo);
-insertar($E6N, $E6N, $sesion, $idVuelo);
+insert($B1,$B1N,$sesion,$idVuelo);
+insert($B2,$B2N,$sesion,$idVuelo);
+insert($B3,$B3N,$sesion,$idVuelo);
+insert($B4,$B4N,$sesion,$idVuelo);
+insert($B5,$B5N,$sesion,$idVuelo);
+insert($B6,$B6N,$sesion,$idVuelo);
 
-insertar($F1N, $F1N, $sesion, $idVuelo);
-insertar($F2N, $F2N, $sesion, $idVuelo);
-insertar($F3N, $F3N, $sesion, $idVuelo);
-insertar($F4N, $F4N, $sesion, $idVuelo);
-insertar($F5N, $F5N, $sesion, $idVuelo);
-insertar($F6N, $F6N, $sesion, $idVuelo);
 
-insertar($G1N, $G1N, $sesion, $idVuelo);
-insertar($G2N, $G2N, $sesion, $idVuelo);
-insertar($G3N, $G3N, $sesion, $idVuelo);
-insertar($G4N, $G4N, $sesion, $idVuelo);
-insertar($G5N, $G5N, $sesion, $idVuelo);
-insertar($G6N, $G6N, $sesion, $idVuelo);
+// tomar el valor de la fila c 
 
-insertar($H1N, $H1N, $sesion, $idVuelo);
-insertar($H2N, $H2N, $sesion, $idVuelo);
-insertar($H3N, $H3N, $sesion, $idVuelo);
-insertar($H4N, $H4N, $sesion, $idVuelo);
-insertar($H5N, $H5N, $sesion, $idVuelo);
-insertar($H6N, $H6N, $sesion, $idVuelo);
+insert($C1,$C1N,$sesion,$idVuelo);
+insert($C2,$C2N,$sesion,$idVuelo);
+insert($C3,$C3N,$sesion,$idVuelo);
+insert($C4,$C4N,$sesion,$idVuelo);
+insert($C5,$C5N,$sesion,$idVuelo);
+insert($C6,$C6N,$sesion,$idVuelo);
 
-insertar($I1N, $I1N, $sesion, $idVuelo);
-insertar($I2N, $I2N, $sesion, $idVuelo);
-insertar($I3N, $I3N, $sesion, $idVuelo);
-insertar($I4N, $I4N, $sesion, $idVuelo);
-insertar($I5N, $I5N, $sesion, $idVuelo);
-insertar($I6N, $I6N, $sesion, $idVuelo);
+// tomar el valor de la fila d
 
-insertar($J1N, $J1N, $sesion, $idVuelo);
-insertar($J2N, $J2N, $sesion, $idVuelo);
-insertar($J3N, $J3N, $sesion, $idVuelo);
-insertar($J4N, $J4N, $sesion, $idVuelo);
-insertar($J5N, $J5N, $sesion, $idVuelo);
-insertar($J6N, $J6N, $sesion, $idVuelo);
+insert($D1,$D1N,$sesion,$idVuelo);
+insert($D2,$D2N,$sesion,$idVuelo);
+insert($D3,$D3N,$sesion,$idVuelo);
+insert($D4,$D4N,$sesion,$idVuelo);
+insert($D5,$D5N,$sesion,$idVuelo);
+insert($D6,$D6N,$sesion,$idVuelo);
 
-insertar($K1N, $K1N, $sesion, $idVuelo);
-insertar($K2N, $K2N, $sesion, $idVuelo);
-insertar($K3N, $K3N, $sesion, $idVuelo);
-insertar($K4N, $K4N, $sesion, $idVuelo);
-insertar($K5N, $K5N, $sesion, $idVuelo);
-insertar($K6N, $K6N, $sesion, $idVuelo);
+// tomar el valor de la fila E
 
-header("Location:infoAsistentes_disponibles.php?idVuelo=$idVuelo");
+insert($E1,$E1N,$sesion,$idVuelo);
+insert($E2,$E2N,$sesion,$idVuelo);
+insert($E3,$E3N,$sesion,$idVuelo);
+insert($E4,$E4N,$sesion,$idVuelo);
+insert($E5,$E5N,$sesion,$idVuelo);
+insert($E6,$E6N,$sesion,$idVuelo);
+
+// tomar el valor de la fila F
+
+insert($F1,$F1N,$sesion,$idVuelo);
+insert($F2,$F2N,$sesion,$idVuelo);
+insert($F3,$F3N,$sesion,$idVuelo);
+insert($F4,$F4N,$sesion,$idVuelo);
+insert($F5,$F5N,$sesion,$idVuelo);
+insert($F6,$F6N,$sesion,$idVuelo);
+
+// Tomar el valor de la fila G
+
+insert($F1,$F1N,$sesion,$idVuelo);
+insert($F2,$F2N,$sesion,$idVuelo);
+insert($F3,$F3N,$sesion,$idVuelo);
+insert($F4,$F4N,$sesion,$idVuelo);
+insert($F5,$F5N,$sesion,$idVuelo);
+insert($F6,$F6N,$sesion,$idVuelo);
+
+
+// tomar el valor de la Fila H
+
+insert($H1,$F1N,$sesion,$idVuelo);
+insert($H2,$F2N,$sesion,$idVuelo);
+insert($H3,$F3N,$sesion,$idVuelo);
+insert($H4,$F4N,$sesion,$idVuelo);
+insert($H5,$F5N,$sesion,$idVuelo);
+insert($H6,$F6N,$sesion,$idVuelo);
+
+// tomar el valor de la Fila I
+
+insert($G1,$G1N,$sesion,$idVuelo);
+insert($G2,$G2N,$sesion,$idVuelo);
+insert($G3,$G3N,$sesion,$idVuelo);
+insert($G4,$G4N,$sesion,$idVuelo);
+insert($G5,$G5N,$sesion,$idVuelo);
+insert($G6,$G6N,$sesion,$idVuelo);
+
+// tomar el valor de la Fila J
+
+insert($J1,$J1N,$sesion,$idVuelo);
+insert($J2,$J2N,$sesion,$idVuelo);
+insert($J3,$J3N,$sesion,$idVuelo);
+insert($J4,$J4N,$sesion,$idVuelo);
+insert($J5,$J5N,$sesion,$idVuelo);
+insert($J6,$J6N,$sesion,$idVuelo);
+
+// tomar el valor de la Fila K
+
+insert($K1,$K1N,$sesion,$idVuelo);
+insert($K2,$K2N,$sesion,$idVuelo);
+insert($K3,$K3N,$sesion,$idVuelo);
+insert($K4,$K4N,$sesion,$idVuelo);
+insert($K5,$K5N,$sesion,$idVuelo);
+insert($K6,$K6N,$sesion,$idVuelo);
+
+
+echo "<script>
+window.location.href = 'infoAsistentes_disponibles.php?idVuelo=" . $idVuelo . "'
+</script>";
+
 // sigo mañana en modulo
