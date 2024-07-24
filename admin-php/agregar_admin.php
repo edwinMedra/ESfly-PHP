@@ -40,14 +40,14 @@ include ("header-admin.php");
 
                     <div class="mb-4">
                         <label for="exampleImputEmail" class="form-label font-weight-bold">
-                            <img src="../imagen/login/nombre.png" class="img"> Nombre</label>
+                            <img src="../imagen/login/nombre.png" class="img"> Nombres</label>
                         <input type="text" class="form-control mb-2 rounded-5  w-75" placeholder="Ingresar nombre"
                             id="correo" name="name">
                     </div>
 
                     <div class="mb-4">
                         <label for="exampleImputEmail" class="form-label font-weight-bold">
-                            <img src="../imagen/login/apellido.png" class="img"> Apellido</label>
+                            <img src="../imagen/login/apellido.png" class="img"> Apellidos</label>
                         <input type="text" class="form-control mb-2 rounded-5  w-75" placeholder="Ingresar apellido"
                             id="correo" name="lastname">
                     </div>
