@@ -137,6 +137,9 @@
 // proceso para poder insertar el cliente tambien
 session_start();
 $sesion = $_SESSION['$id'];
+if ($sesion == null || $sesion == ''){
+  header("Location:../html-php/index.php");
+}
 $inc1 = include("conex.php");
 if ($inc1) {
   $consul = "SELECT * FROM usuario where idCliente='$sesion'";
