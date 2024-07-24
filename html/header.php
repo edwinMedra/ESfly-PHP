@@ -2,7 +2,7 @@
 error_reporting(0);
 session_start();
 include("conex.php");
-$sesion = $_SESSION['correo'];
+$sesion = $_SESSION['$id'];
 if (!($sesion == null || $sesion == '')){
   header("Location:../html-php/index.php");
 }

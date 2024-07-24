@@ -66,40 +66,46 @@
           <form class="mb-2 g-0" method="post" enctype="multipart/form-data">
             <div class="mb-2 g-0">
               <label for="exampleImputEmail" class="form-label font-weight-bold">
-                <img src="../imagen/login/nombre.png" class="img"> Nombre</label>
-              <input type="username" class="form-control" placeholder="Nombres" id="nombre" aria-describedby="emailHelp" value="" name="name">
+                <img src="../imagen/login/nombre.png" class="img"> Nombres</label>
+              <input type="username" class="form-control" placeholder="Nombres" id="nombre" aria-describedby="emailHelp" value="<?php echo isset($_POST['name']) ? htmlspecialchars($_POST['name']) : ''; ?>" name="name">
             </div>
 
             <div class="mb-2 ">
               <label for="exampleImputEmail" class="form-label font-weight-bold">
-                <img src="../imagen/login/apellido.png" class="img"> Apellido</label>
-              <input type="lastname" class="form-control mb-2" placeholder="Apellidos" id="apellido" name="lastName">
+                <img src="../imagen/login/apellido.png" class="img"> Apellidos</label>
+              <input type="lastname" class="form-control mb-2" placeholder="Apellidos" id="apellido" name="lastname" value="<?php echo isset($_POST['lastname']) ? htmlspecialchars($_POST['lastname']) : ''; ?>">
             </div>
 
             <div class="mb-2">
               <label for="exampleImputPassword" class="form-label font-weight-bold">
                 <img src="../imagen/login/contraseña.png" class="img"> Contraseña
               </label><i class="ojo bx bx-show-alt  mt-2" id="togglePassword"></i>
-              <input type="text" class="pass form-control mb-2" placeholder="Contraseña" id="pass" name="pass">
+              <input type="password" class="pass form-control mb-2" placeholder="Contraseña" id="pass" name="pass">
+            </div>
 
+            <div class="mb-2">
+              <label for="exampleImputPassword" class="form-label font-weight-bold">
+                <img src="../imagen/login/contraseña.png" class="img">Validar Contraseña
+              </label><i class="ojo bx bx-show-alt  mt-2" id="togglePassword"></i>
+              <input type="password" class="pass form-control mb-2" placeholder="Contraseña" id="pass" name="validarPass">
             </div>
 
             <div class="mb-2">
               <label for="exampleImputEmail" class="form-label font-weight-bold">
                 <img src="../imagen/login/correo.png" class="img"> Correo</label>
-              <input type="email" class="form-control mb-2" placeholder="Correo" id="correo" name="email">
+              <input type="email" class="form-control mb-2" placeholder="Correo" id="correo" name="email" value="<?php echo isset($_POST['email']) ? htmlspecialchars($_POST['email']) : ''; ?>">
             </div>
 
             <div class="mb-2">
               <label for="exampleImputEmail" class="form-label font-weight-bold">
                 <img src="../imagen/login/pasaporte.png" class="img"> Pasaporte</label>
-              <input type="text" class="form-control mb-2" placeholder="Pasaporte" id="pasaporte" name="pasaporte">
+              <input type="text" class="form-control mb-2" placeholder="Pasaporte" id="pasaporte" name="pasaporte" value="<?php echo isset($_POST['pasaporte']) ? htmlspecialchars($_POST['pasaporte']) : ''; ?>">
             </div>
 
             <div class="mb-2">
               <label for="exampleImputEmail" class="form-label font-weight-bold">
                 <img src="../imagen/login/dui.png" class="img"> DUI</label>
-              <input type="text" class="form-control mb-2" placeholder="Dui" id="dui" name="dui">
+              <input type="text" class="form-control mb-2" placeholder="Dui" id="dui" name="dui" value="<?php echo isset($_POST['dui']) ? htmlspecialchars($_POST['dui']) : ''; ?>">
             </div>
             <label for="foto" class=" ">
               <a type="button" class="btn btn-primary w-100 mt-3 mx-auto">Subir fotografía</a>
@@ -119,28 +125,86 @@
 <?php
 include("conex.php");
 if (isset($_POST['crear'])) {
+
   $nombre = trim($_POST['name']);
-  $apellido = trim($_POST['lastName']);
+  $apellido = trim($_POST['lastname']);
+  $Valpass = trim($_POST['validarPass']);
   $pass = trim($_POST['pass']);
   $email = trim($_POST['email']);
-  $pasaporte =  trim($_POST['pasaporte']);
+  $passport = trim($_POST['pasaporte']);
   $dui = trim($_POST['dui']);
   $foto = $_FILES['foto']['error'];
-  if ($foto) {
-    // encriptación de contraseña para el usuario 
-    $encriptada = password_hash($pass, PASSWORD_DEFAULT);
-    $insert = "INSERT INTO usuario(nomCliente,apeCliente,pass,correo,pasaporte,dui) VALUES ('$nombre','$apellido','$encriptada','$email','$pasaporte','$dui')";
-    $resul = $conexion->query($insert);
-    if ($resul) {
-      echo '<script>alert("Usuario ' . $nombre . ' Agregado con exito");</script>';
-    }
+
+  // Validaciones
+  if (empty($nombre)) {
+    echo '<script>alert("Falta que digites tu nombre")</script>';
+  } elseif (empty($apellido)) {
+    echo '<script>alert("Falta que digites tu apellido")</script>';
+  } elseif (empty($pass)) {
+    echo '<script>alert("Falta que digites tu contraseña")</script>';
+  } elseif (empty($email)) {
+    echo '<script>alert("Falta que digites tu correo")</script>';
+  } elseif (empty($passport)) {
+    echo '<script>alert("Falta que digites tu pasaporte")</script>';
+  } elseif (empty($dui)) {
+    echo '<script>alert("Falta que digites tu dui")</script>';
+  } elseif (strlen($nombre) < 5) {
+    echo '<script>alert("El nombre es muy corto")</script>';
+  } elseif (strlen($apellido) < 5) {
+    echo '<script>alert("El apellido es muy corto")</script>';
+  } elseif (strlen($pass) < 4) {
+    echo '<script>alert("La contraseña es muy corta")</script>';
+  } elseif (!($pass == $Valpass)) {
+    echo '<script>alert("Las contraseñas no son iguales, intente nuevamente")</script>';
+  } elseif (!preg_match("/^[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{1,100}$/", $nombre)) {
+    echo '<script>alert("Nombre no válido")</script>';
+  } elseif (!preg_match("/^[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{1,100}$/", $apellido)) {
+    echo '<script>alert("Apellido no válido")</script>';
+  } elseif (strlen($pass) > 15) {
+    echo '<script>alert("La contraseña debe tener máximo 15 caracteres")</script>';
+  } elseif (strlen($email) > 80) {
+    echo '<script>alert("El correo debe tener máximo 80 caracteres")</script>';
+  } elseif (!preg_match("/^[a-zA-Z0-9]{1,9}$/", $passport)) {
+    echo '<script>alert("El pasaporte debe tener máximo 9 caracteres y solo puede contener letras y números")</script>';
+  } elseif (!preg_match("/^[0-9]{8}-[0-9]{1}$/", $dui)) {
+    echo '<script>alert("El DUI debe tener 10 caracteres, incluyendo un guion después de 8 dígitos")</script>';
   } else {
-    $encriptada = password_hash($pass, PASSWORD_DEFAULT);
-    $foto = addslashes(file_get_contents($_FILES['foto']['tmp_name']));
-    $insert = "INSERT INTO usuario(nomCliente,apeCliente,pass,correo,pasaporte,dui, foto) VALUES ('$nombre','$apellido','$encriptada','$email','$pasaporte','$dui','$foto')";
-    $resul = $conexion->query($insert);
-    if ($resul) {
-      echo '<script>alert("Usuario ' . $nombre . ' Agregado con exito");</script>';
+    // hacer consulta para verificar que no exista un usuario igual en la base de datos 
+    // $email, $passport, $dui VARIABLES A UTILIZAR COMO BASE PARA VERIFICAR QUE NO EXISTA OTRO USUARIO EN LA BASE DE DATOS 
+    $buscar = $conexion->query("SELECT * FROM usuario where correo='$email'");
+    $buscar1 = $conexion->query("SELECT * FROM usuario where pasaporte='$passport'");
+    $buscar2 = $conexion->query("SELECT * FROM usuario where dui='$dui'");
+    $filaCorreo = mysqli_num_rows($buscar);
+    $filaEmail = mysqli_num_rows($buscar1);
+    $filaDui = mysqli_num_rows($buscar2);
+    if ($filaCorreo) {
+      echo '<script>alert("Correo ' . $email . ' no valido, intente nuevamente")</script>';
+    } else if ($filaEmail) {
+      echo '<script>alert("Pasaporte ' . $passport . ' no valido, intente nuevamente")</script>';
+    } else if ($filaDui) {
+      echo '<script>alert("Dui ' . $dui . ' no valido, intente nuevamente")</script>';
+    } else 
+    if ($foto) {
+      // proceso para encriptar contraseñas al momento de pasar a la base de datos 
+      $passIncriptado = password_hash($pass, PASSWORD_DEFAULT);
+      $insertar = "INSERT INTO usuario(nomCliente,apeCliente,pass, correo, pasaporte, dui) VALUES('$nombre','$apellido','$passIncriptado','$email','$passport','$dui')";
+      $resultado = mysqli_query($conexion, $insertar);
+      if ($resultado) {
+        echo '<script>alert("El usuario fue registrado exitosamente")</script>';
+      } else {
+        echo '<script>alert("Error al registrar")</script>';
+      }
+    } else {
+      $foto = addslashes(file_get_contents($_FILES['foto']['tmp_name']));
+      // proceso para encriptar contraseñas al momento de pasar a la base de datos 
+      $passIncriptado = password_hash($pass, PASSWORD_DEFAULT);
+      $insertar = "INSERT INTO usuario(nomCliente,apeCliente,pass, correo, pasaporte, dui,foto) VALUES('$nombre','$apellido','$passIncriptado','$email','$passport','$dui','$foto')";
+      $resultado = mysqli_query($conexion, $insertar);
+      if ($resultado) {
+        echo '<script>alert("El usuario fue registrado exitosamente")</script>';
+      } else {
+        echo '<script>alert("Error al registrar")</script>';
+      }
     }
   }
 }
