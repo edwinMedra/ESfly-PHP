@@ -33,9 +33,7 @@ if ($conexion){
     while ($row = $resul->fetch_array()){
       $name = $row['nomAdmin'];
       $lastname = $row['apeAdmin'];
-      $pass = $row['pass'];
       $email = $row['email'];
-      $pasaporte = $row['pasaporte'];
       $dui = $row['dui'];
       $cargo = $row['cargo'];
       $descri = $row['descri'];
@@ -102,12 +100,7 @@ if ($conexion){
                             id="correo" name="lastname" value="<?php echo $lastname ?>">
                     </div>
 
-                    <div class="mb-4">
-                        <label for="exampleImputEmail" class="form-label font-weight-bold">
-                            <img src="../imagen/login/contraseña.png" class="img"> Contraseña</label>
-                        <input type="text" class="form-control mb-2 rounded-5  w-75" placeholder="Ingresar apellido"
-                            id="correo" name="pass" value="<?php echo $pass ?>">
-                    </div>
+
 
                     <div class="mb-4">
                         <label for="exampleImputEmail" class="form-label font-weight-bold">
@@ -116,12 +109,6 @@ if ($conexion){
                             id="correo" name="email" value="<?php echo $email ?>">
                     </div>
 
-                    <div class="mb-4">
-                        <label for="exampleImputEmail" class="form-label font-weight-bold">
-                            <img src="../imagen/login/pasaporte.png" class="img"> Pasaporte</label>
-                        <input type="text" class="form-control mb-2 rounded-5  w-75" placeholder="Ingresar apellido"
-                            id="correo" name="pasaporte" value="<?php echo $pasaporte ?>">
-                    </div>
 
                     <div class="mb-4">
                         <label for="exampleImputEmail" class="form-label font-weight-bold">
@@ -175,7 +162,7 @@ if (isset($_POST['crear'])){
     // se establecen banderas para poder hacer la validacion de forma efectiva 
     $banName = false;
     $banLastname = false;
-    $banPass = false;
+
     $banEmail = false;
     $banPasaporte = false;
     $banDui = false;
@@ -185,9 +172,7 @@ if (isset($_POST['crear'])){
     // variables tomadas de el formulario
     $name =  trim($_POST['name']);
     $lastname =  trim($_POST['lastname']);
-    $pass =  trim($_POST['pass']);
     $email =  trim($_POST['email']);
-    $pasaporte =  trim($_POST['pasaporte']);
     $dui =  trim($_POST['dui']);
     $cargo =  trim($_POST['cargo']);
     $descri =  trim($_POST['descri']);
@@ -204,18 +189,14 @@ if (isset($_POST['crear'])){
     }   
     //
 
-    if (strlen($pass) > 1) {
-        $banPass = true;
-    }
+
     //
 
     if (strlen($email) > 1) {
         $banEmail = true;
     }
     //
-    if (strlen($pasaporte) > 1) {
-        $banPasaporte = true;
-    }
+
     //
     if (strlen($dui) > 1) {
         $banDui = true;
@@ -227,13 +208,13 @@ if (isset($_POST['crear'])){
     if (strlen($descri) > 1) {
         $banDescri = true;
     }
-    $total_ban= $banName && $banLastname && $banPass && $banEmail && $banPasaporte && $banDui && $banCargo && $banDescri;
+    $total_ban= $banName && $banLastname && $banEmail  && $banDui && $banCargo && $banDescri;
    // parte para poder actualizar los datos de la base de datos
     if ($total_ban) {
 
         if ($foto){
             include ("conex.php");
-            $update = "UPDATE administradores set nomAdmin='$name', apeAdmin='$lastname', pass='$pass', email='$email', pasaporte='$pasaporte', dui='$dui' , cargo='$cargo',descri='$descri' where idAdmin='$idAdmin' ";
+            $update = "UPDATE administradores set nomAdmin='$name', apeAdmin='$lastname', email='$email', dui='$dui' , cargo='$cargo',descri='$descri' where idAdmin='$idAdmin' ";
             $resul = $conexion->query($update);
             if ($resul) {
                 echo '<script>alert("Administrador '. $name .' Actualizado con exito")</script>';
@@ -244,7 +225,7 @@ if (isset($_POST['crear'])){
         }else{
             include ("conex.php");
             $foto = addslashes(file_get_contents($_FILES['foto']['tmp_name']));
-            $update = "UPDATE administradores set nomAdmin='$name', apeAdmin='$lastname', pass='$pass', email='$email', pasaporte='$pasaporte', dui='$dui' , cargo='$cargo',descri='$descri', foto='$foto' where idAdmin='$idAdmin' ";
+            $update = "UPDATE administradores set nomAdmin='$name', apeAdmin='$lastname', email='$email', dui='$dui' , cargo='$cargo',descri='$descri', foto='$foto' where idAdmin='$idAdmin' ";
             $resul = $conexion->query($update);
             if ($resul) {
                 echo '<script>alert("Administrador '. $name .' Actualizado con exito")</script>';

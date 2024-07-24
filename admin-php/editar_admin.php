@@ -35,7 +35,7 @@
             <div class="col-lg-1  col-12 border border-black text-center"><b>Apellido</b></div>
             <div class="col-lg-1  col-12 border border-black text-center"><b>Contraseña</b></div>
             <div class="col-lg-2  col-12 border border-black text-center"><b>Correo</b></div>
-            <div class="col-lg-1  col-12 border border-black text-center"><b>Pasaporte</b></div>
+            <div class="col-lg-1  col-12 border border-black text-center"><b>Rol</b></div>
             <div class="col-lg-1  col-12 border border-black text-center"><b>Dui</b></div>
             <div class="col-lg-1  col-12 border border-black text-center"><b>Cargo</b></div>
             <div class="col-lg-1  col-12 border border-black text-center"><b>ID</b></div>
@@ -55,7 +55,7 @@
             $apellido = $row['apeAdmin'];
             $pass = $row['pass'];
             $correo = $row['email'];
-            $pasaporte = $row['pasaporte'];
+            $rol = $row['rol'];
             $dui = $row['dui'];
             $cargo = $row['cargo'];
             $foto = $row['foto'];
@@ -68,7 +68,7 @@
             <div class="col-lg-1  col-12 border border-black text-center"><?php echo $apellido?></div>
             <div class="col-lg-1  col-12 border border-black text-center">-</div>
             <div class="col-lg-2  col-12 border border-black text-center"><?php echo $correo?></div>
-            <div class="col-lg-1  col-12 border border-black text-center"><?php echo $pasaporte?></div>
+            <div class="col-lg-1  col-12 border border-black text-center"><?php echo $rol?></div>
             <div class="col-lg-1  col-12 border border-black text-center"><?php echo $dui?></div>
             <div class="col-lg-1  col-12 border border-black text-center"><?php echo $cargo?></div>
             <div class="col-lg-1  col-12 border border-black text-center"><?php echo $idAdmin?></div>

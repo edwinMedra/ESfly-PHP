@@ -96,12 +96,6 @@ if ($conexion){
                             id="correo" name="lastname" value="<?php echo $lastname ?>">
                     </div>
 
-                    <div class="mb-4">
-                        <label for="exampleImputEmail" class="form-label font-weight-bold">
-                            <img src="../imagen/login/contraseña.png" class="img"> Contraseña</label>
-                        <input type="text" class="form-control mb-2 rounded-5  w-75" placeholder="Ingresar contraseña"
-                            id="correo" name="pass" value="<?php echo $pass ?>">
-                    </div>
 
                     <div class="mb-4">
                         <label for="exampleImputEmail" class="form-label font-weight-bold">
@@ -178,7 +172,7 @@ if (isset($_POST['crear'])){
     // variables tomadas de el formulario
     $name =  trim($_POST['name']);
     $lastname =  trim($_POST['lastname']);
-    $pass =  trim($_POST['pass']);
+
     $email =  trim($_POST['email']);
     $numero =  trim($_POST['numero']);
     $date =  trim($_POST['date']);
@@ -197,9 +191,6 @@ if (isset($_POST['crear'])){
     }   
     //
 
-    if (strlen($pass) > 1) {
-        $banPass = true;
-    }
     //
 
     if (strlen($email) > 1) {
@@ -220,13 +211,13 @@ if (isset($_POST['crear'])){
     if (strlen($descri) > 1) {
         $banDescri = true;
     }
-    $total_ban= $banName && $banLastname && $banPass && $banEmail && $banNumero && $banDate && $banGenero && $banDescri;
+    $total_ban= $banName && $banLastname  && $banEmail && $banNumero && $banDate && $banGenero && $banDescri;
    // parte para poder actualizar los datos de la base de datos
     if ($total_ban) {
 
         if ($foto){
             include ("conex.php");
-            $update = "UPDATE asistente set nomAsistente='$name', apeAsistente='$lastname', pass='$pass', email='$email', numTelefono='$numero', horarioTrabajo='$date' , genero='$genero',descri='$descri' where idAsistente='$idAsistente' ";
+            $update = "UPDATE asistente set nomAsistente='$name', apeAsistente='$lastname',  correoAsisten='$email', numTelefono='$numero', horarioTrabajo='$date' , genero='$genero',descri='$descri' where idAsistente='$idAsistente' ";
             $resul = $conexion->query($update);
             if ($resul) {
                 echo '<script>alert("Asistente '. $name .' Actualizado con exito")</script>';
@@ -237,7 +228,7 @@ if (isset($_POST['crear'])){
         }else{
             include ("conex.php");
             $foto = addslashes(file_get_contents($_FILES['foto']['tmp_name']));
-            $update = "UPDATE asistente set nomAsistente='$name', apeAsistente='$lastname', pass='$pass', email='$email', numTelefono='$numero', horarioTrabajo='$date' , genero='$genero',descri='$descri', foto='$foto' where idAsistente='$idAsistente' ";
+            $update = "UPDATE asistente set nomAsistente='$name', apeAsistente='$lastname',  correoAsisten='$email', numTelefono='$numero', horarioTrabajo='$date' , genero='$genero',descri='$descri', foto='$foto' where idAsistente='$idAsistente' ";
             $resul = $conexion->query($update);
             if ($resul) {
                 echo '<script>alert("Asistente '. $name .' Actualizado con exito")</script>';
