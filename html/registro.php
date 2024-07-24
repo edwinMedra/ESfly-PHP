@@ -73,6 +73,13 @@
             </div>
 
             <div class="mb-2">
+              <label for="exampleImputPassword" class="form-label font-weight-bold">
+                <img src="../imagen/login/contraseña.png" class="img"> Validar Contraseña
+              </label><i class="ojo bx bx-show-alt  mt-2" id="togglePassword"></i>
+              <input type="password" class="pass form-control mb-2" placeholder="Ingresa tu contraseña" id="pass" name="validarPass" value="">
+            </div>
+
+            <div class="mb-2">
               <label for="exampleImputEmail" class="form-label font-weight-bold">
                 <img src="../imagen/login/correo.png" class="img"> Correo</label>
               <input type="email" class="form-control mb-2" placeholder="Ingresa tu correo" id="correo" name="email" value="<?php echo isset($_POST['email']) ? htmlspecialchars($_POST['email']) : ''; ?>">
@@ -135,6 +142,7 @@ include("conex.php");
 if (isset($_POST['registro'])) {
   $nombre = trim($_POST['nombre']);
   $apellido = trim($_POST['apellido']);
+  $Valpass = trim($_POST['validarPass']);
   $pass = trim($_POST['pass']);
   $email = trim($_POST['email']);
   $passport = trim($_POST['passport']);
@@ -160,7 +168,10 @@ if (isset($_POST['registro'])) {
     echo '<script>alert("El apellido es muy corto")</script>';
   } elseif (strlen($pass) < 4) {
     echo '<script>alert("La contraseña es muy corta")</script>';
-  } elseif (!preg_match("/^[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{1,100}$/", $nombre)) {
+  } elseif (!($pass == $Valpass)){
+    echo '<script>alert("Las contraseñas no son iguales, intente nuevamente")</script>';
+  }elseif
+   (!preg_match("/^[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{1,100}$/", $nombre)) {
     echo '<script>alert("Nombre no válido")</script>';
   } elseif (!preg_match("/^[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{1,100}$/", $apellido)) {
     echo '<script>alert("Apellido no válido")</script>';

@@ -38,7 +38,7 @@
 ?>
 
 <body>
-  <form class="my-auto" method="post" enctype="multipart/form-data" >
+  <form class="my-auto" method="post" enctype="multipart/form-data">
 
     <div class="container-fluid my-5  ">
       <div class="row py-5 w-100 justify-content-center mx-auto">
@@ -74,11 +74,11 @@
 
           <div class="mb-3">
             <label for="InputPassword1" class="form-label">DUI</label>
-            <input type="text" name="dui" class="form-control" id="InputPassword1" value="<?php echo $dui ?>">
+            <input disabled type="text" name="dui" class="form-control" id="InputPassword1" value="<?php echo $dui ?>">
           </div>
           <div class="mb-3">
             <label for="InputCorreo1" class="form-label">Correo</label>
-            <input type="email" name="email" class="form-control" id="InputCorreo1" value="<?php echo $email ?>">
+            <input disabled type="email" name="email" class="form-control" id="InputCorreo1" value="<?php echo $email ?>">
           </div>
           <div class="mb-3">
             <label for="InputCorreo1" class="form-label">Contraseña</label>
@@ -86,9 +86,12 @@
           </div>
           <div class=" mb-3">
             <label for="InputEmail1" class="form-label">Pasaporte</label>
-            <input type="text" name="pasaporte" class="form-control" id="InputEmail1" aria-describedby="emailHelp" value="<?php echo $pasaporte ?>">
+            <input disabled type="text" name="pasaporte" class="form-control" id="InputEmail1" aria-describedby="emailHelp" value="<?php echo $pasaporte ?>">
           </div>
-          <button type="submit" class="btn btn-primary" name="registro">Cambiar datos</button>
+          <div class="mb-3  text-center">
+            <button type="submit" class="btn btn-primary mx-auto" name="registro">Cambiar datos</button>
+            <button type="button" class="btn btn-primary mx-auto bg-danger border-0" onclick={eliminar()}>Eliminar cuenta</button>
+          </div>
 
         </div>
       </div>
@@ -99,26 +102,37 @@
 
 </html>
 <?php
+// proceso en caso de que el usuario desee eliminar su cuenta
+
+echo '
+<script>
+  function eliminar(){
+    let res = confirm("¿Estas seguro que deseas eliminar tu cuenta?");
+    if (res){
+        window.location.href = "eliminar-cuenta.php";
+    } 
+  }
+</script>
+';
 // tomar los datos para poder cambiar lde el perfil 
 if (isset($_POST['registro'])) {
   include("conex.php");
   $nombre = trim($_POST['nombre']);
   $apellido = trim($_POST['apellido']);
   $pass = trim($_POST['pass']);
-  $email = trim($_POST['email']);
-  $passport = trim($_POST['pasaporte']);
-  $dui = trim($_POST['dui']);
   $foto = $_FILES['foto']['error'];
+  //empiezan validaciones para validar el dui, pasaporte y tambien el correo 
+
   if ($foto) {
     if ($pass == null or $pass == "") {
-      $update = "UPDATE usuario set nomCliente='$nombre', apeCliente='$apellido', correo='$email', pasaporte='$passport', dui='$dui' where idCliente='$id'";
+      $update = "UPDATE usuario set nomCliente='$nombre', apeCliente='$apellido' where idCliente='$id'";
       $resul = $conexion->query($update);
       if ($resul) {
         echo '<script>alert("Datos modificados con exito")</script>';
       }
     } else {
       $encriptada = password_hash($pass, PASSWORD_DEFAULT);
-      $update = "UPDATE usuario set nomCliente='$nombre', apeCliente='$apellido', pass='$encriptada', correo='$email', pasaporte='$passport', dui='$dui' where idCliente='$id'";
+      $update = "UPDATE usuario set nomCliente='$nombre', apeCliente='$apellido', pass='$encriptada',  where idCliente='$id'";
       $resul = $conexion->query($update);
       if ($resul) {
         echo '<script>alert("Datos modificados con exito")</script>';
@@ -127,7 +141,7 @@ if (isset($_POST['registro'])) {
   } else {
     if ($pass == null or $pass == "") {
       $foto = addslashes(file_get_contents($_FILES['foto']['tmp_name']));
-      $update = "UPDATE usuario set nomCliente='$nombre', apeCliente='$apellido',correo='$email', pasaporte='$pasaporte', dui='$dui', foto='$foto' where idCliente='$id'";
+      $update = "UPDATE usuario set nomCliente='$nombre', apeCliente='$apellido',  foto='$foto' where idCliente='$id'";
       $resul = $conexion->query($update);
       if ($resul) {
         echo '<script>alert("Datos modificados con exito")</script>';
@@ -135,7 +149,7 @@ if (isset($_POST['registro'])) {
     } else {
       $encriptada = password_hash($pass, PASSWORD_DEFAULT);
       $foto = addslashes(file_get_contents($_FILES['foto']['tmp_name']));
-      $update = "UPDATE usuario set nomCliente='$nombre', apeCliente='$apellido', pass='$encriptada', correo='$email', pasaporte='$pasaporte', dui='$dui', foto='$foto' where idCliente='$id'";
+      $update = "UPDATE usuario set nomCliente='$nombre', apeCliente='$apellido', pass='$encriptada' , foto='$foto' where idCliente='$id'";
       $resul = $conexion->query($update);
       if ($resul) {
         echo '<script>alert("Datos modificados con exito")</script>';
