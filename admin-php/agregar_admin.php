@@ -196,7 +196,7 @@ if (isset($_POST['crear'])){
             include ("conex.php");
             $incriptada = password_hash($pass, PASSWORD_DEFAULT);
             $foto = addslashes(file_get_contents($_FILES['foto']['name']));
-            $sql = "INSERT INTO administradores(nomAdmin,apeAdmin,pass,email,pasaporte,dui,cargo,descri,foto,rol) VALUES('$name','$lastname','$incriptada','$email','$pasporte','$dui','$cargo','$descri',$foto,'admin')";
+            $sql = "INSERT INTO administradores(nomAdmin,apeAdmin,pass,email,dui,cargo,descri,foto,rol,pasaporte) VALUES('$name','$lastname','$incriptada','$email','$pasporte','$dui','$cargo','$descri',$foto,'admin','$pasporte')";
             $resul = $conexion->query($sql);
             if ($resul) {
                 echo '<script>alert("Administrador '. $name . ' Agregado con exito")</script>';
