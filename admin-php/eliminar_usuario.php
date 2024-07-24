@@ -69,7 +69,7 @@
             <div class="col-lg-1  col-12 border border-black text-center"><?php echo $dui?></div>
             <div class="col-lg-1  col-12 border border-black text-center"><img src="data:image/jpg;base64,<?php echo base64_encode($foto)?>" class="rounded-circle mx-1 my-auto border border-1 border-black" id="lupa" alt=""  height="35px" width="35px"></div>
             <div class="col-lg-1  col-12 border border-black text-center"><?php echo $idCliente?></div>
-            <div class="col-lg-1  col-12 border border-black text-center p-1"><a type="submit" role="button" class="btn btn-danger" id="link" href="eliminar-usu.php?idCliente=<?php echo $idCliente ?>">Eliminar</a></div>
+            <div class="col-lg-1  col-12 border border-black text-center p-1"><a type="submit" role="button" class="btn btn-danger" id="link" onclick={eliminar()}>Eliminar</a></div>
             <?php
             if (isset($_POST['delete'])) {
             }
@@ -86,3 +86,16 @@
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </html>
+<?php
+error_reporting(0);
+echo '
+<script>
+    function eliminar() {
+        let x = confirm("¿Esta seguro que desea eliminar este usuario?");
+        if (x) {
+            window.location.href = "eliminar-asu.php?idCliente='.$idCliente.'"
+        }
+    }
+</script>
+';
+?>

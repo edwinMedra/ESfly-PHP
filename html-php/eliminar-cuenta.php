@@ -28,6 +28,9 @@
 include("conex.php");
 session_start();
 $id = $_SESSION['$id'];
+if ($id == null || $id == ''){
+  header("Location:../html-php/index.php");
+}
 ?>
 <div class=" mb-3 w-50" id="centro">
     <form action="" method="post">
