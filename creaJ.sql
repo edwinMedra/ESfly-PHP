@@ -1,11 +1,12 @@
 -- CREACION DE LA BASE DE DATOS:
+create database railway;
 Use railway;
 -- CREACION DE TABLAS: 
 -- Tabla usuario
 create table usuario(
 nomCliente varchar(100),
 apeCliente varchar(100),
-pass varchar(20),
+pass varchar(100),
 correo varchar(20),
 pasaporte varchar(15),
 dui varchar(10),
