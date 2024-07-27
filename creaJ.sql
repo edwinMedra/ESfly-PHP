@@ -5,13 +5,12 @@ Use railway;
 create table usuario(
 nomCliente varchar(100),
 apeCliente varchar(100),
-pass varchar(100),
-correo varchar(100),
-pasaporte varchar(9),
+pass varchar(20),
+correo varchar(20),
+pasaporte varchar(15),
 dui varchar(10),
 idCliente int auto_increment,
 foto longblob,
-rol varchar(100),
 constraint primary key (idCliente)
 );
 /*
@@ -41,17 +40,20 @@ create table asistente(
 idAsistente int auto_increment,
 nomAsistente varchar(100),
 apeAsistente varchar(100),
-numTelefono varchar(10),
-servicios varchar(200),
-horarioTrabajo varchar(100),
-genero varchar(30),
+numTelefono varchar(15),
+servicios varchar(400),
+horarioTrabajo varchar(200),
+genero varchar(20),
 descri varchar(600),
-correoAsisten varchar(200),
-passAsisten varchar(200),
+correoAsisten varchar(50),
+passAsisten varchar(50),
+dui varchar (11),
+pasaporte varchar(20),
 foto longblob,
 primary key (idAsistente)
 );
 -- Tabla empleado
+/*
 create table empleado(
 	idEmpleado int auto_increment,
     idAero int,
@@ -66,6 +68,7 @@ create table empleado(
     descri varchar(600),
     constraint primary key (idEmpleado)
 );
+*/
 /*
 -- Tabla alianza
  create table alianza(
@@ -106,54 +109,107 @@ create table avion(
 -- Tabla vuelo
 create table vuelo(
 	idVuelo int auto_increment,
-    origen varchar(500),
-	destino varchar(100),
+    origen varchar(80),
+	destino varchar(80),
     fechaSalida datetime,
     fechaEntrada datetime,
     precio float,
     foto longblob,
     constraint primary key (idVuelo)
 );
-create table asientos (
-	idVuelo varchar(500),
-    destino varchar(500),
-    A1 varchar(50),
-    clienteA1 varchar(50),
-    A2 varchar(50),
-	clienteA2 varchar(50),
-    A3 varchar(50),
-    clienteA3 varchar(50),    
-    A4 varchar(50),
-    clienteA4 varchar(50),
-    A5 varchar(50),
-    clienteA5 varchar(50),
-    A6 varchar(50),
-    clienteA6 varchar(50),
-    primary key (idVuelo)
+CREATE TABLE asientos (
+    idVuelo VARCHAR(500),
+    destino VARCHAR(500),
+    A1 VARCHAR(50), clienteA1 VARCHAR(50),
+    A2 VARCHAR(50), clienteA2 VARCHAR(50),
+    A3 VARCHAR(50), clienteA3 VARCHAR(50),
+    A4 VARCHAR(50), clienteA4 VARCHAR(50),
+    A5 VARCHAR(50), clienteA5 VARCHAR(50),
+    A6 VARCHAR(50), clienteA6 VARCHAR(50),
+    B1 VARCHAR(50), clienteB1 VARCHAR(50),
+    B2 VARCHAR(50), clienteB2 VARCHAR(50),
+    B3 VARCHAR(50), clienteB3 VARCHAR(50),
+    B4 VARCHAR(50), clienteB4 VARCHAR(50),
+    B5 VARCHAR(50), clienteB5 VARCHAR(50),
+    B6 VARCHAR(50), clienteB6 VARCHAR(50),
+    C1 VARCHAR(50), clienteC1 VARCHAR(50),
+    C2 VARCHAR(50), clienteC2 VARCHAR(50),
+    C3 VARCHAR(50), clienteC3 VARCHAR(50),
+    C4 VARCHAR(50), clienteC4 VARCHAR(50),
+    C5 VARCHAR(50), clienteC5 VARCHAR(50),
+    C6 VARCHAR(50), clienteC6 VARCHAR(50),
+    D1 VARCHAR(50), clienteD1 VARCHAR(50),
+    D2 VARCHAR(50), clienteD2 VARCHAR(50),
+    D3 VARCHAR(50), clienteD3 VARCHAR(50),
+    D4 VARCHAR(50), clienteD4 VARCHAR(50),
+    D5 VARCHAR(50), clienteD5 VARCHAR(50),
+    D6 VARCHAR(50), clienteD6 VARCHAR(50),
+    E1 VARCHAR(50), clienteE1 VARCHAR(50),
+    E2 VARCHAR(50), clienteE2 VARCHAR(50),
+    E3 VARCHAR(50), clienteE3 VARCHAR(50),
+    E4 VARCHAR(50), clienteE4 VARCHAR(50),
+    E5 VARCHAR(50), clienteE5 VARCHAR(50),
+    E6 VARCHAR(50), clienteE6 VARCHAR(50),
+    F1 VARCHAR(50), clienteF1 VARCHAR(50),
+    F2 VARCHAR(50), clienteF2 VARCHAR(50),
+    F3 VARCHAR(50), clienteF3 VARCHAR(50),
+    F4 VARCHAR(50), clienteF4 VARCHAR(50),
+    F5 VARCHAR(50), clienteF5 VARCHAR(50),
+    F6 VARCHAR(50), clienteF6 VARCHAR(50),
+    G1 VARCHAR(50), clienteG1 VARCHAR(50),
+    G2 VARCHAR(50), clienteG2 VARCHAR(50),
+    G3 VARCHAR(50), clienteG3 VARCHAR(50),
+    G4 VARCHAR(50), clienteG4 VARCHAR(50),
+    G5 VARCHAR(50), clienteG5 VARCHAR(50),
+    G6 VARCHAR(50), clienteG6 VARCHAR(50),
+    H1 VARCHAR(50), clienteH1 VARCHAR(50),
+    H2 VARCHAR(50), clienteH2 VARCHAR(50),
+    H3 VARCHAR(50), clienteH3 VARCHAR(50),
+    H4 VARCHAR(50), clienteH4 VARCHAR(50),
+    H5 VARCHAR(50), clienteH5 VARCHAR(50),
+    H6 VARCHAR(50), clienteH6 VARCHAR(50),
+    I1 VARCHAR(50), clienteI1 VARCHAR(50),
+    I2 VARCHAR(50), clienteI2 VARCHAR(50),
+    I3 VARCHAR(50), clienteI3 VARCHAR(50),
+    I4 VARCHAR(50), clienteI4 VARCHAR(50),
+    I5 VARCHAR(50), clienteI5 VARCHAR(50),
+    I6 VARCHAR(50), clienteI6 VARCHAR(50),
+    J1 VARCHAR(50), clienteJ1 VARCHAR(50),
+    J2 VARCHAR(50), clienteJ2 VARCHAR(50),
+    J3 VARCHAR(50), clienteJ3 VARCHAR(50),
+    J4 VARCHAR(50), clienteJ4 VARCHAR(50),
+    J5 VARCHAR(50), clienteJ5 VARCHAR(50),
+    J6 VARCHAR(50), clienteJ6 VARCHAR(50),
+    K1 VARCHAR(50), clienteK1 VARCHAR(50),
+    K2 VARCHAR(50), clienteK2 VARCHAR(50),
+    K3 VARCHAR(50), clienteK3 VARCHAR(50),
+    K4 VARCHAR(50), clienteK4 VARCHAR(50),
+    K5 VARCHAR(50), clienteK5 VARCHAR(50),
+    K6 VARCHAR(50), clienteK6 VARCHAR(50),
+    PRIMARY KEY (idVuelo)
 );
+
 
 
 create table administradores(
 	idAdmin int auto_increment, -- llave primaria
-    nomAdmin varchar(200),
-    apeAdmin varchar(200),
-    pass varchar(500),
-    email varchar(500),
-    pasaporte varchar(500),
-    dui varchar(500),
+    nomAdmin varchar(100),
+    apeAdmin varchar(100),
+    pass varchar(100),
+    email varchar(100),
+    pasaporte varchar(15),
+    dui varchar(15),
     cargo varchar(500),
     foto longblob,
-    descri varchar(1000),
+    descri varchar(500),
     rol varchar(100),
     primary key (idAdmin)
 );
-insert into administradores values(
-null, "Edwin","Medrano", "edwin@123", "edwin@gmail.com","12345789","1234578-9","", null,"Administrador de la plataforma web" 
-);
+
 create table form(
 	idForm int auto_increment,
-	nombrePasajero varchar(500),
-    duiPasajero varchar(100),
+	nombrePasajero varchar(100),
+    duiPasajero varchar(15),
     tipoIncapacidad varchar(100),
     artiPersona int,
     equiMano int,
@@ -168,6 +224,7 @@ CREATE TABLE mensajes (
     idAdmin INT,
     remitente VARCHAR(10), -- Puede ser 'cliente' o 'admin'
     fecha TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+	foto longblob,
     archivo longblob,
     tipo_archivo varchar(255),
     PRIMARY KEY (id)
@@ -404,8 +461,8 @@ insert into aerolineaAlianza values
 -- select * from aeropuerto;
 --  select * from alianza;
 --  select * from avion;
-select * from asistente;
 select * from usuario;
+select * from asistente;
 select * from vuelo;
 select * from asientos;
 select * from administradores;
