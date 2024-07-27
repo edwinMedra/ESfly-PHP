@@ -23,6 +23,7 @@ if ($filas) {
         header("location:loginrr.php");
     }
 } else {
+    
     // evaluar el segundo rol para ver si es administrador
     $consulta = "SELECT * FROM administradores WHERE email='$correo'";
     $resul = $conexion->query($consulta);
