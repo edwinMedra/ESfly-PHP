@@ -113,16 +113,6 @@
 <?php
 include("conex.php");
 if (isset($_POST['crear'])) {
-    // se establecen banderas para poder hacer la validacion de forma efectiva 
-    $banName = false;
-    $banLastname = false;
-    $banPass = false;
-    $banEmail = false;
-    $banPasporte = false;
-    $banDui = false;
-    $banCargo = false;
-    $banDescri = false;
-
     // variables tomadas de el formulario
     $name =  trim($_POST['name']);
     $lastname =  trim($_POST['lastname']);
@@ -165,7 +155,7 @@ if (isset($_POST['crear'])) {
         if ($filaCorreo) {
             echo '<script>alert("Correo ' . $email . ' ya existente, intente nuevamente")</script>';
         } else if ($filaEmail) {
-            echo '<script>alert("Pasaporte ' . $passport . ' ya existente, intente nuevamente")</script>';
+            echo '<script>alert("Pasaporte ' . $pasporte . ' ya existente, intente nuevamente")</script>';
         } else if ($filaDui) {
             echo '<script>alert("Dui ' . $dui . ' ya existente, intente nuevamente")</script>';
         } else 

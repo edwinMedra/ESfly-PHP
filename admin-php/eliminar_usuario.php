@@ -93,7 +93,7 @@ echo '
     function eliminar() {
         let x = confirm("¿Esta seguro que desea eliminar este usuario?");
         if (x) {
-            window.location.href = "eliminar-asu.php?idCliente='.$idCliente.'"
+            window.location.href = "eliminar-usu.php?idCliente='.$idCliente.'"
         }
     }
 </script>
