@@ -39,43 +39,43 @@
                     <div class="mb-4">
                         <label for="exampleImputEmail" class="form-label font-weight-bold">
                             <img src="../imagen/login/nombre.png" class="img"> Nombre</label>
-                        <input type="text" class="form-control mb-2 rounded-5  w-75" placeholder="Ingresar nombre" id="correo" name="name" value="<?php echo isset($_POST['name']) ? $_POST['name'] : ""; ?>">
+                        <input required type="text" class="form-control mb-2 rounded-5  w-75" placeholder="Ingresar nombre" id="correo" name="name" value="<?php echo isset($_POST['name']) ? $_POST['name'] : ""; ?>">
                     </div>
 
                     <div class="mb-4">
                         <label for="exampleImputEmail" class="form-label font-weight-bold">
                             <img src="../imagen/login/apellido.png" class="img"> Apellido</label>
-                        <input type="text" class="form-control mb-2 rounded-5  w-75" placeholder="Ingresar apellido" id="correo" name="lastname" value="<?php echo isset($_POST['lastname']) ? $_POST['lastname'] : ""; ?>">
+                        <input required type="text" class="form-control mb-2 rounded-5  w-75" placeholder="Ingresar apellido" id="correo" name="lastname" value="<?php echo isset($_POST['lastname']) ? $_POST['lastname'] : ""; ?>">
                     </div>
 
                     <div class="mb-4">
                         <label for="exampleImputEmail" class="form-label font-weight-bold">
                             <img src="../imagen/login/contraseña.png" class="img"> Contraseña</label>
-                        <input type="password" class="form-control mb-2 rounded-5  w-75" placeholder="Ingresar contraseña" id="correo" name="pass">
+                        <input required type="password" class="form-control mb-2 rounded-5  w-75" placeholder="Ingresar contraseña" id="correo" name="pass">
                     </div>
 
                     <div class="mb-4">
                         <label for="exampleImputEmail" class="form-label font-weight-bold">
                             <img src="../imagen/login/correo.png" class="img"> Correo</label>
-                        <input type="email" class="form-control mb-2 rounded-5  w-75" placeholder="Ingresar correo" id="correo" name="email" value="<?php echo isset($_POST['email']) ? $_POST['email'] : ""; ?>">
+                        <input required type="email" class="form-control mb-2 rounded-5  w-75" placeholder="Ingresar correo" id="correo" name="email" value="<?php echo isset($_POST['email']) ? $_POST['email'] : ""; ?>">
                     </div>
 
                     <div class="mb-4">
                         <label for="exampleImputEmail" class="form-label font-weight-bold">
                             <img src="../imagen/login/pasaporte.png" class="img"> Número de teléfono</label>
-                        <input type="text" class="form-control mb-2  rounded-5  w-75" placeholder="Ingresar tu número de teléfono" id="correo" name="numero" value="<?php echo isset($_POST['numero']) ? $_POST['numero'] : ""; ?>">
+                        <input required type="text" class="form-control mb-2  rounded-5  w-75" placeholder="Ingresar tu número de teléfono" id="correo" name="numero" value="<?php echo isset($_POST['numero']) ? $_POST['numero'] : ""; ?>">
                     </div>
 
                     <div class="mb-4">
                         <label for="exampleImputEmail" class="form-label font-weight-bold">
                             <img src="../imagen/login/dui.png" class="img"> Pasaporte</label>
-                        <input type="text" class="form-control mb-2 rounded-5 border border-1 w-75" placeholder="Ingresar pasaporte" id="correo" name="pasaporte" value="<?php echo isset($_POST['pasaporte']) ? $_POST['pasaporte'] : ""; ?>">
+                        <input required type="text" class="form-control mb-2 rounded-5 border border-1 w-75" placeholder="Ingresar pasaporte" id="correo" name="pasaporte" value="<?php echo isset($_POST['pasaporte']) ? $_POST['pasaporte'] : ""; ?>">
                     </div>
 
                     <div class="mb-4">
                         <label for="exampleImputEmail" class="form-label font-weight-bold">
                             <img src="../imagen/login/dui.png" class="img"> DUI</label>
-                        <input type="text" class="form-control mb-2 rounded-5 border border-1 w-75" placeholder="Ingresar DUI del Asistente" id="correo" name="dui" value="<?php echo isset($_POST['dui']) ? $_POST['dui'] : ""; ?>">
+                        <input required type="text" class="form-control mb-2 rounded-5 border border-1 w-75" placeholder="Ingresar DUI del Asistente" id="correo" name="dui" value="<?php echo isset($_POST['dui']) ? $_POST['dui'] : ""; ?>">
                     </div>
 
                 </div>
@@ -85,7 +85,7 @@
                     <div class="mb-4">
                         <label for="exampleImputEmail" class="form-label font-weight-bold">
                             <img src="../imagen/login/dui.png" class="img"> Horario de trabajo</label>
-                        <input type="text" class="form-control mb-2 rounded-5 border border-1 w-75" placeholder="Ingresar horario de trabajo" id="correo" name="date" >
+                        <input required type="text" class="form-control mb-2 rounded-5 border border-1 w-75" placeholder="Ingresar horario de trabajo" id="correo" name="date" >
                     </div>
                     <div class="mb-4">
                         <label for="exampleImputEmail" class="form-label font-weight-bold">
@@ -101,7 +101,7 @@
                     <div class="mb-4">
                         <label for="exampleImputEmail" class="form-label font-weight-bold">
                             <img src="../imagen/login/dui.png" class="img"> Servicios</label>
-                        <input type="text" class="form-control mb-2 rounded-5 border border-1 w-75" placeholder="Ingresar servicio" id="correo" name="servicio" value="<?php echo isset($_POST['servicio']) ? $_POST['servicio'] : ""; ?>">
+                        <input required type="text" class="form-control mb-2 rounded-5 border border-1 w-75" placeholder="Ingresar servicio" id="correo" name="servicio" value="<?php echo isset($_POST['servicio']) ? $_POST['servicio'] : ""; ?>">
                     </div>
 
                     <div class="mb-4">
@@ -115,7 +115,7 @@
                         <label for="fotito">
                             <a class="btn btn-primary">Subir foto de perfil</a>
                         </label>
-                        <input type="file" id="fotito" class="d-none" name="foto"><br>
+                        <input required type="file" id="fotito" class="d-none" name="foto" accept="image/*"><br>
                         <input class="btn btn-primary my-3" type="submit" value="Crear Asistente" name="crear">
                     </div>
 
@@ -199,7 +199,9 @@ if (isset($_POST['crear'])) {
                 $sql = "INSERT INTO asistente(nomAsistente,apeAsistente,passAsisten,correoAsisten,numTelefono,horarioTrabajo, genero, servicios, descri,pasaporte,dui) VALUES('$name','$lastname','$encriptada','$email','$numero','$date','$genero', '$servicio', '$descri','$pasaporte','$dui')";
                 $resul = $conexion->query($sql);
                 if ($resul) {
-                    echo '<script>alert("Asistente ' . $name . ' Agregado con exito")</script>';
+                    echo '<script>alert("Asistente ' . $name . ' Agregado con exito")
+                    window.location.href = "agregar_asistente.php"
+                    </script>';
                 } else {
                     echo '<script>alert("Error al ingresar datos del asistente")</script>';
                 }
@@ -211,7 +213,9 @@ if (isset($_POST['crear'])) {
                 $sql = "INSERT INTO asistente(nomAsistente,apeAsistente,passAsisten,correoAsisten,numTelefono,horarioTrabajo,genero, servicios, descri,foto,pasaporte,dui) VALUES('$name','$lastname','$encriptada','$email','$numero','$date','$genero', '$servicio','$descri','$foto','$pasaporte','$dui')";
                 $resul = $conexion->query($sql);
                 if ($resul) {
-                    echo '<script>alert("Asistente ' . $name . ' Agregado con exito")</script>';
+                    echo '<script>alert("Asistente ' . $name . ' Agregado con exito")
+                    window.location.href = "agregar_asistente.php"
+                    </script>';
                 } else {
                     echo '<script>alert("Error al ingresar datos del asistente")</script>';
                 }

@@ -83,7 +83,7 @@
 
       include("conex.php");
       if ($conexion) {
-        $consul = "SELECT * FROM vuelo where origen='$origen' and destino='$destino' or fechaEntrada='$fechaEntrada%'";
+        $consul = "SELECT * FROM vuelo where origen='$origen' or destino='$destino' or fechaEntrada='$fechaEntrada%'";
         $resul = mysqli_query($conexion, $consul);
         if ($resul) {
           while ($row = $resul->fetch_array()) {

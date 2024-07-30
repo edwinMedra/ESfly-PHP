@@ -109,7 +109,7 @@
             </div>
             <label for="foto" class=" ">
               <a type="button" class="btn btn-primary w-100 mt-3 mx-auto">Subir fotografía</a>
-              <input type="file" name="foto" id="foto" class="d-none">
+              <input type="file" name="foto" id="foto" class="d-none" accept="image/*">
             </label>
             <button type="submit" class="btn btn-primary w-100 mt-3" name="crear">Crear</button>
           </form>

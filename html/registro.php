@@ -100,7 +100,7 @@
               <a class="btn btn-primary w-100 mt-3" name="registro">Subir foto de perfil</a>
             </label>
             <button type="submit" class="btn btn-primary w-100 mt-3" name="registro">Crear</button>
-            <input type="file" class="d-none" id="foto" name="foto">
+            <input type="file" class="d-none" id="foto" name="foto" accept="image/*">
           </form>
 
           <div class="text-center w-100 mt-1 g-0">

@@ -97,7 +97,7 @@
                         <label for="fotito">
                             <a class="btn btn-primary">Subir foto de perfil</a>
                         </label>
-                        <input type="file" id="fotito" class="d-none" name="foto"><br>
+                        <input type="file" id="fotito" class="d-none" name="foto" accept="image/*"><br>
                         <input class="btn btn-primary my-3" type="submit" value="Crear Administrador" name="crear">
                     </div>
 
