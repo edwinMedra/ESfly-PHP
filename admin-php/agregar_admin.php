@@ -1,6 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
+<?php
+include("conex.php");
+if (isset($_POST['crear'])) {
+    // variables tomadas de el formulario
+    $name =  trim($_POST['name']);
+    $lastname =  trim($_POST['lastname']);
+    $pass =  trim($_POST['pass']);
+    $email =  trim($_POST['email']);
+    $pasporte =  trim($_POST['pasporte']);
+    $dui =  trim($_POST['dui']);
+    $cargo =  trim($_POST['cargo']);
+    $descri =  trim($_POST['descri']);
+    $foto = $_FILES['foto']['error'];
+    // establecer funcion para resumir codigo
 
+    # logica para mantener el select colocado
+  
+    // empieza validaciones de parte de el agregar usuario 
+    if (preg_match("/[0-9]/", $name)) {
+        echo "<script>alert('Nombre no valido, Intente de nuevo')</script>";
+    } else if (preg_match("/[0-9]/", $lastname)) {
+        echo "<script>alert('Apellido no valido, Intente de nuevo')</script>";
+    } else if (strlen($pass) < 4) {
+        echo "<script>alert('La contraseña es muy corta, Intente de nuevo')</script>";
+    } else if (strlen($pass) > 8) {
+        echo "<script>alert('La contraseña es muy larga, Intente de nuevo')</script>";
+    } else if (!(preg_match("/[@]/", $email))) {
+        echo "<script>alert('Correo no valido, Intente de nuevo')</script>";
+    } else if (!(strlen($pasporte) == 9)) {
+        echo "<script>alert('Pasaporte no valido, maximo 9 caracteres , Intente de nuevo')</script>";
+    } elseif (!preg_match("/^[0-9]{8}-[0-9]{1}$/", $dui)) {
+        echo '<script>alert("El DUI debe tener 10 caracteres, incluyendo un guion después de 8 dígitos")</script>';
+    } else if ($cargo == null || $cargo == "") {
+        echo "<script>alert('Seleccione un cargo para este administrador Intente de nuevo')</script>";
+    } else if ($descri == null || $descri == "") {
+        echo "<script>alert('Por favor escribir la descripción de este administrador')</script>";
+    } else {
+
+        // evaluar si el administrador ya es existente en la base de datos 
+        $buscar = $conexion->query("SELECT * FROM administradores where email='$email'");
+        $buscar1 = $conexion->query("SELECT * FROM administradores where pasaporte='$pasporte'");
+        $buscar2 = $conexion->query("SELECT * FROM administradores where dui='$dui'");
+        $filaCorreo = mysqli_num_rows($buscar);
+        $filaEmail = mysqli_num_rows($buscar1);
+        $filaDui = mysqli_num_rows($buscar2);
+        if ($filaCorreo) {
+            echo '<script>alert("Correo ' . $email . ' ya existente, intente nuevamente")</script>';
+        } else if ($filaEmail) {
+            echo '<script>alert("Pasaporte ' . $pasporte . ' ya existente, intente nuevamente")</script>';
+        } else if ($filaDui) {
+            echo '<script>alert("Dui ' . $dui . ' ya existente, intente nuevamente")</script>';
+        } else 
+        if ($foto) {
+            include("conex.php");
+            $incriptada = password_hash($pass, PASSWORD_DEFAULT);
+            $sql = "INSERT INTO administradores(nomAdmin,apeAdmin,pass,email,pasaporte,dui,cargo,descri,rol) VALUES('$name','$lastname','$incriptada','$email','$pasporte','$dui','$cargo','$descri','admin')";
+            $resul = $conexion->query($sql);
+            if ($resul) {
+                echo '<script>alert("Administrador ' . $name . ' Agregado con exito")
+                window.location.href = "agregar_admin.php"
+                </script>';
+            } else {
+                echo '<script>alert("Error al ingresar datos del administrador")</script>';
+            }
+        } else {
+            include("conex.php");
+            $incriptada = password_hash($pass, PASSWORD_DEFAULT);
+            $foto = addslashes(file_get_contents($_FILES['foto']['name']));
+            $sql = "INSERT INTO administradores(nomAdmin,apeAdmin,pass,email,dui,cargo,descri,foto,rol,pasaporte) VALUES('$name','$lastname','$incriptada','$email','$dui','$cargo','$descri','$foto','admin','$pasporte')";
+            $resul = $conexion->query($sql);
+            if ($resul) {
+                echo '<script>alert("Administrador ' . $name . ' Agregado con exito")
+                window.location.href = "agregar_admin.php"
+                </script>';
+            } else {
+                echo '<script>alert("Error al ingresar datos del administrador")</script>';
+            }
+        }
+    }
+}
+
+?>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,6 +100,15 @@
 <body>
     <?php
     include("header-admin.php");
+    error_reporting(0);
+    function select($cargo, $car){
+        if ($cargo == $car){
+            return "selected";
+        }else{
+            return "";
+        }
+    }
+
     ?>
     <!--Estructura principal de pagina web-->
     <div class="container-fluid">
@@ -79,10 +169,10 @@
                             <img src="../imagen/login/nombre.png" class="img"> Cargo</label>
                         <select name="cargo" class="form-control w-75 rounded-5 mb-2" id="correo">
                             <option value="">Elige el cargo</option>
-                            <option value="Administrador de Operaciones">Administrador de Operaciones</option>
-                            <option value="Administrador de gestión">Administrador de gestión</option>
-                            <option value="Administrador de Proyectos">Administrador de Proyectos</option>
-                            <option value="Administrador de Ventas y Marketing">Administrador de Ventas y Marketing</option>
+                            <option <?php echo select($cargo, "Administrador de Operaciones" );?> value="Administrador de Operaciones">Administrador de Operaciones</option>
+                            <option <?php echo select($cargo, "Administrador de gestión" );?> value="Administrador de gestión">Administrador de gestión</option>
+                            <option <?php echo select($cargo, "Administrador de Proyectos" );?> value="Administrador de Proyectos">Administrador de Proyectos</option>
+                            <option <?php echo select($cargo, "Administrador de Ventas y Marketing" );?> value="Administrador de Ventas y Marketing">Administrador de Ventas y Marketing</option>
                         </select>
                     </div>
 
@@ -110,78 +200,3 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
 </html>
-<?php
-include("conex.php");
-if (isset($_POST['crear'])) {
-    // variables tomadas de el formulario
-    $name =  trim($_POST['name']);
-    $lastname =  trim($_POST['lastname']);
-    $pass =  trim($_POST['pass']);
-    $email =  trim($_POST['email']);
-    $pasporte =  trim($_POST['pasporte']);
-    $dui =  trim($_POST['dui']);
-    $cargo =  trim($_POST['cargo']);
-    $descri =  trim($_POST['descri']);
-    $foto = $_FILES['foto']['error'];
-    // establecer funcion para resumir codigo
-    // empieza validaciones de parte de el agregar usuario 
-    if (preg_match("/[0-9]/", $name)) {
-        echo "<script>alert('Nombre no valido, Intente de nuevo')</script>";
-    } else if (preg_match("/[0-9]/", $lastname)) {
-        echo "<script>alert('Apellido no valido, Intente de nuevo')</script>";
-    } else if (strlen($pass) < 4) {
-        echo "<script>alert('La contraseña es muy corta, Intente de nuevo')</script>";
-    } else if (strlen($pass) > 8) {
-        echo "<script>alert('La contraseña es muy larga, Intente de nuevo')</script>";
-    } else if (!(preg_match("/[@]/", $email))) {
-        echo "<script>alert('Correo no valido, Intente de nuevo')</script>";
-    } else if (!(strlen($pasporte) == 9)) {
-        echo "<script>alert('Pasaporte no valido, maximo 9 caracteres , Intente de nuevo')</script>";
-    } elseif (!preg_match("/^[0-9]{8}-[0-9]{1}$/", $dui)) {
-        echo '<script>alert("El DUI debe tener 10 caracteres, incluyendo un guion después de 8 dígitos")</script>';
-    } else if ($cargo == null || $cargo == "") {
-        echo "<script>alert('Seleccione un cargo para este administrador Intente de nuevo')</script>";
-    } else if ($descri == null || $descri == "") {
-        echo "<script>alert('Por favor escribir la descripción de este administrador')</script>";
-    } else {
-
-        // evaluar si el administrador ya es existente en la base de datos 
-        $buscar = $conexion->query("SELECT * FROM administradores where email='$email'");
-        $buscar1 = $conexion->query("SELECT * FROM administradores where pasaporte='$pasporte'");
-        $buscar2 = $conexion->query("SELECT * FROM administradores where dui='$dui'");
-        $filaCorreo = mysqli_num_rows($buscar);
-        $filaEmail = mysqli_num_rows($buscar1);
-        $filaDui = mysqli_num_rows($buscar2);
-        if ($filaCorreo) {
-            echo '<script>alert("Correo ' . $email . ' ya existente, intente nuevamente")</script>';
-        } else if ($filaEmail) {
-            echo '<script>alert("Pasaporte ' . $pasporte . ' ya existente, intente nuevamente")</script>';
-        } else if ($filaDui) {
-            echo '<script>alert("Dui ' . $dui . ' ya existente, intente nuevamente")</script>';
-        } else 
-        if ($foto) {
-            include("conex.php");
-            $incriptada = password_hash($pass, PASSWORD_DEFAULT);
-            $sql = "INSERT INTO administradores(nomAdmin,apeAdmin,pass,email,pasaporte,dui,cargo,descri,rol) VALUES('$name','$lastname','$incriptada','$email','$pasporte','$dui','$cargo','$descri','admin')";
-            $resul = $conexion->query($sql);
-            if ($resul) {
-                echo '<script>alert("Administrador ' . $name . ' Agregado con exito")</script>';
-            } else {
-                echo '<script>alert("Error al ingresar datos del administrador")</script>';
-            }
-        } else {
-            include("conex.php");
-            $incriptada = password_hash($pass, PASSWORD_DEFAULT);
-            $foto = addslashes(file_get_contents($_FILES['foto']['name']));
-            $sql = "INSERT INTO administradores(nomAdmin,apeAdmin,pass,email,dui,cargo,descri,foto,rol,pasaporte) VALUES('$name','$lastname','$incriptada','$email','$pasporte','$dui','$cargo','$descri',$foto,'admin','$pasporte')";
-            $resul = $conexion->query($sql);
-            if ($resul) {
-                echo '<script>alert("Administrador ' . $name . ' Agregado con exito")</script>';
-            } else {
-                echo '<script>alert("Error al ingresar datos del administrador")</script>';
-            }
-        }
-    }
-}
-
-?>

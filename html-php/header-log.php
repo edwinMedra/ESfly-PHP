@@ -2,8 +2,18 @@
 include("conex.php");
 session_start();
 $id = $_SESSION['$id'];
+
 if ($id == null || $id == '') {
     header("Location:../html/index.php");
+}
+// hacer consulta en caso de que el usuario haya sido eliminado
+$delete = $conexion->query("SELECT * FROM usuario where idCliente='$id'");
+$resul = mysqli_num_rows($delete);
+if(!($resul)){
+session_destroy();
+echo "<script>
+window.location.href = '../html/index.php';
+</script>";
 }
 
 // Proceso para mostrar el nombre de usuario en lugar del correo

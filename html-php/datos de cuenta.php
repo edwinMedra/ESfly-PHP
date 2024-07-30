@@ -57,7 +57,7 @@
           <div class="card-body">
             <label for="foto">
               <a type="button" class="btn btn-primary mb-5 ">Agregar foto</a>
-              <input type="file" id="foto" name="foto" class="d-none">
+              <input type="file" id="foto" name="foto" class="d-none" accept="image*/">
             </label>
             <p class="card-text">Requisitos para la foto: "Debe ser de frente, descubierta, sin accesorios, sin lentes o gafas de sol."</p>
           </div>
