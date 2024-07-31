@@ -20,9 +20,9 @@ if (!($sesion == null || $sesion == '')){
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bayon&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/headerr.css">
-
+    <link rel="stylesheet" href="../js/index..js">
     <title>header</title>
     <style>
         /* Diseño del buscador */
@@ -87,12 +87,11 @@ if (!($sesion == null || $sesion == '')){
         }
     </style>
 </head>
-<body>
+<body data-bs-theme="light">
 
     <!--Inicio header-->
     <nav class="navbar navbar-expand-lg bg-body-tertiary shadow-navbar fixed-top">
-        <div class="container-fluid">
-    
+        <div class="container-fluid">    
             <a class="navbar-brand" href="index.php">
                 <img src="../imagen/estoyAnsioso/esflyInfo.png" class="" id="logo" alt="">
             </a>
@@ -120,7 +119,13 @@ if (!($sesion == null || $sesion == '')){
                     <a href="login.php" class="btn btn-primary-outline-success btn-primary ms-1" type="submit">Iniciar sesión</a>
                     <a href="registro.php" class="btn btn-registro ms-1" type="submit">Registrarse</a>
                 </form>
-                <button class="btn btn-primary-outline ms-1" type="button" id="search-btn">
+
+                <!--BOTON DE TEMAS  -->
+                <button  onclick="cambiarTema()" class="btn rounded-fill"><i id="dl-icon" class="bi bi-moon-fill"></i></button>
+
+                <img src="../imagen/header/traductor.png" class="" id="lupa" alt="" width="20"> 
+                
+                <button class="btn ms-1" type="button" id="search-btn">
                     <img src="../imagen/header/lupa.png" class="" id="lupa" alt="" width="20"> Buscar
                 </button>
             </div>
@@ -135,7 +140,6 @@ if (!($sesion == null || $sesion == '')){
     
     <!--Fin header-->   
     
-    
     <script>
         const searchBtn = document.getElementById('search-btn');
         const searchBar = document.getElementById('search-bar');
@@ -148,7 +152,6 @@ if (!($sesion == null || $sesion == '')){
             { name: "Check-in", url: "check-in.php" },
             { name: "Iniciar sesión", url: "login.php" },
             { name: "Registrarse", url: "registro.php" }
-
         ];
 
         searchBtn.addEventListener('click', () => {
@@ -177,10 +180,35 @@ if (!($sesion == null || $sesion == '')){
             }
         });
 
-
         searchBar.addEventListener('click', (event) => {
             event.stopPropagation();
         });
+
+        // MODO OSCURO Y CLARO DE LA PAGINA
+        const temaOscuro = () => {
+            document.querySelector("body").setAttribute("data-bs-theme", "dark");
+            document.querySelector("#dl-icon").setAttribute("class", "bi bi-sun-fill");
+            localStorage.setItem("theme", "dark");
+        }
+
+        const temaClaro = () => {
+            document.querySelector("body").setAttribute("data-bs-theme", "light");
+            document.querySelector("#dl-icon").setAttribute("class", "bi bi-moon-fill");
+            localStorage.setItem("theme", "light");
+        }
+
+        const cambiarTema = () => {
+            document.querySelector("body").getAttribute("data-bs-theme") === "light" ? temaOscuro() : temaClaro();
+        }
+
+        // PARA GUARDAR EL COLOR DE LA PAGINA (tutorial 2)
+        window.addEventListener('load', () => {
+            const theme = localStorage.getItem("theme");
+            if (theme === "dark") {
+                temaOscuro();
+            } else {
+                temaClaro();
+            }
+        });
     </script>
-</body>
-</html>
+</body
