@@ -41,7 +41,9 @@
       <div class="col-lg-5 col-md-12 col-sm-12 d-flex flex-column justify-content-center align-items-center min-vh-100">
         <div class="px-lg-5 py-lg-4 p-4 w-100">
           <h1 class="font-weight-bold text-center">
-            <img src="../imagen/header/favicon.png" class="img-fluid"> <b>Iniciar sesión</b>
+          <a href="../html/index.php">
+            <img src="../imagen/header/favicon.png" class="img-fluid"></a>
+            <b>Iniciar sesión</b>
           </h1>
 
           <form class="mb-5 mt-5 g-0" method="post" action="validar.php">

@@ -48,7 +48,8 @@
       <div class="col-lg-5 col-md-12 col-sm-12 cod-flex flex-column align-items-end min-vh-100">
         <div class="px-lg-5 py-lg-4 p-4 w-100 align-self-center">
           <h1 class="font-weight-bold align-self-center text-center">
-            <img src="../imagen/header/favicon.png" class="img-fluid">
+            <a href="../html/index.php">
+             <img src="../imagen/header/favicon.png" class="img-fluid"></a>
             <b>Registro</b>
           </h1>
 
