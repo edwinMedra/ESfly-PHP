@@ -68,7 +68,6 @@ if (!($sesion == null || $sesion == '')){
             background-color: #f1f1f1;
         }
 
-        /* Asegura que el estilo del botón no interfiera */
         .btn-primary-outline {
             background-color: transparent;
             border: 1px solid #000000;
@@ -85,6 +84,12 @@ if (!($sesion == null || $sesion == '')){
         .btn-primary-outline img {
             margin-right: 5px;
         }
+
+        .navbarText{
+            color:#f1f1f1;
+
+        }
+
     </style>
 </head>
 <body data-bs-theme="light">
@@ -210,5 +215,6 @@ if (!($sesion == null || $sesion == '')){
                 temaClaro();
             }
         });
+
     </script>
 </body
