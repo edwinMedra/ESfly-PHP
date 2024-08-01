@@ -11,6 +11,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Bayon&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/5.0.0/css/bootstrap.min.css" rel="stylesheet"> 
+
     <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="../css/index1.css">
@@ -29,7 +32,43 @@
                 display: flex;
             }
         }
+
+        .custom-carousel-control {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 5%;
+            height: 5%;
+            background-color: rgba(0, 0, 0, 0.5);
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        .custom-carousel-control:hover {
+            background-color: rgba(0, 0, 0, 1);
+        } 
+        
+        .custom-carousel-control.prev {
+            left: -2%;
+        }
+
+        .custom-carousel-control.next {
+            right: -2%;
+        }
+
+        .carousel-control-prev-icon,
+        .carousel-control-next-icon {
+            background-color: rgba(0, 0, 0, 0.5);
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+        }
+
+        #carouselExampleIndicators {
+            position: relative;
+        }
     </style>
+
 </head>
 
 <body>
@@ -181,65 +220,248 @@
     </div>
     <!-- FIN CUADRO DE BUSCAR VUELOS-->
 
-
-    <!--IMAGENES DE PROMOCION DE VIAJES-->
-    <div class=" texto-titulo container-fluid  mt-5 ps-5">
-        <h5>Algunas ofertas ></h5>
+    <div class=" container-fluid texto-titulo  mt-5 ps-5">
+        <h5>Sugerencias de viajes ></h5>
     </div>
 
-    <div class="container-fluid mt-5 mb-5">
-        <div class="row mb-5">
-            <div class="col-md-3">
-                <div class="image-container">
-                    <img src="../imagen/index/colombia.png" alt="Imagen 1">
-                    <div class="overlay">
-                        <div class="overlay-content">
-                            <h4>Colombia</h4>
-                            <h6>Palmas de cera del Valle del Cocora</h6>
-                            <a href="login.php" class="btn btn-primary">Tomar viaje</a>
-                        </div>
+
+<!-- Carrusel de Promociones de Viajes -->
+
+
+<div class="container-fluid mt-5 mb-5">
+    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+
+            <!-- Primer fila de imágenes -->
+            <div class="carousel-item active">
+                <div class="row">
+
+
+                    <div class="col-md-3 mt-5 mb-5">
+                        <a href="login.php" class="d-block">
+                            <div class="image-container">
+                            <img src="../imagen/index/argentina.png" alt="Argentina" class="d-block w-100">
+                                <div class="overlay">
+                                    <div class="overlay-content">
+                                    <h4>Argentina</h4>
+                                    <h6>Glaciar Perito Moreno</h6>
+                                    <button class="btn btn-primary">Tomar viaje</button> <!-- Cambié el <a> a <button> para evitar conflictos -->
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
                     </div>
+
+                    <div class="col-md-3 mt-5 mb-5">
+                        <a href="login.php" class="d-block">
+                            <div class="image-container">
+                            <img src="../imagen/index/brasil.png" alt="Argentina" class="d-block w-100">
+                                <div class="overlay">
+                                    <div class="overlay-content">
+                                    <h4>Brasil</h4>
+                                    <h6>Río de Janeiro</h6>
+                                    <button class="btn btn-primary">Tomar viaje</button> <!-- Cambié el <a> a <button> para evitar conflictos -->
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+
+                    <div class="col-md-3 mt-5 mb-5">
+                        <a href="login.php" class="d-block">
+                            <div class="image-container">
+                            <img src="../imagen/index/ElSalvador.png" alt="Argentina" class="d-block w-100">
+                                <div class="overlay">
+                                    <div class="overlay-content">
+                                    <h4>El Salvador</h4>
+                                    <h6>Playa El Tunco</h6>
+                                    <button class="btn btn-primary">Tomar viaje</button> <!-- Cambié el <a> a <button> para evitar conflictos -->
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+
+                    <div class="col-md-3 mt-5 mb-5">
+                        <a href="login.php" class="d-block">
+                            <div class="image-container">
+                            <img src="../imagen/index/guatemala.png" alt="Argentina" class="d-block w-100">
+                                <div class="overlay">
+                                    <div class="overlay-content">
+                                    <h4>Guatemala</h4>
+                                    <h6>Ciudad de Antigua Guatemala</h6>
+                                    <button class="btn btn-primary">Tomar viaje</button> <!-- Cambié el <a> a <button> para evitar conflictos -->
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+
                 </div>
             </div>
-            <div class="col-md-3">
-                <div class="image-container">
-                    <img src="../imagen/index/belice.png" alt="Imagen 2">
-                    <div class="overlay">
-                        <div class="overlay-content">
-                            <h4>Belice</h4>
-                            <h6>The Split: ¡La playa más hermosa de Belice!</h6>
-                            <a href="login.php" class="btn btn-primary">Tomar viaje</a>
-                        </div>
+            <!-- Segundo fila de imágenes -->
+            <div class="carousel-item">
+                <div class="row">
+
+
+                    <div class="col-md-3 mt-5 mb-5">
+                        <a href="login.php" class="d-block">
+                            <div class="image-container">
+                            <img src="../imagen/index/MX.png" alt="Argentina" class="d-block w-100">
+                                <div class="overlay">
+                                    <div class="overlay-content">
+                                    <h4>México</h4>
+                                    <h6>Chichén Itzá</h6>
+                                    <button class="btn btn-primary">Tomar viaje</button> <!-- Cambié el <a> a <button> para evitar conflictos -->
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
                     </div>
+
+                    <div class="col-md-3 mt-5 mb-5">
+                        <a href="login.php" class="d-block">
+                            <div class="image-container">
+                            <img src="../imagen/index/EEUU.png" alt="Argentina" class="d-block w-100">
+                                <div class="overlay">
+                                    <div class="overlay-content">
+                                    <h4>Estados Unidos</h4>
+                                    <h6>Gran Cañón</h6>
+                                    <button class="btn btn-primary">Tomar viaje</button> <!-- Cambié el <a> a <button> para evitar conflictos -->
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+
+                    <div class="col-md-3 mt-5 mb-5">
+                        <a href="login.php" class="d-block">
+                            <div class="image-container">
+                            <img src="../imagen/index/venezuela.png" alt="Argentina" class="d-block w-100">
+                                <div class="overlay">
+                                    <div class="overlay-content">
+                                    <h4>Venezuela</h4>
+                                    <h6>Roraima</h6>
+                                    <button class="btn btn-primary">Tomar viaje</button> <!-- Cambié el <a> a <button> para evitar conflictos -->
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+
+                    <div class="col-md-3 mt-5 mb-5">
+                        <a href="login.php" class="d-block">
+                            <div class="image-container">
+                            <img src="../imagen/index/peru.png" alt="Argentina" class="d-block w-100">
+                                <div class="overlay">
+                                    <div class="overlay-content">
+                                    <h4>Perú</h4>
+                                    <h6>Machu Picchu</h6>
+                                    <button class="btn btn-primary">Tomar viaje</button> <!-- Cambié el <a> a <button> para evitar conflictos -->
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
                 </div>
             </div>
-            <div class="col-md-3">
-                <div class="image-container">
-                    <img src="../imagen/index/guatemala.png" alt="Imagen 3">
-                    <div class="overlay">
-                        <div class="overlay-content">
-                            <h4>Guatemala</h4>
-                            <h6>Barrio de antigua Guatemala</h6>
-                            <a href="login.php" class="btn btn-primary">Tomar viaje</a>
-                        </div>
+
+            <!-- Tercer fila de imágenes -->
+
+            <div class="carousel-item">
+                <div class="row">
+
+
+                <div class="col-md-3 mt-5 mb-5">
+                        <a href="login.php" class="d-block">
+                            <div class="image-container">
+                            <img src="../imagen/index/paraguay.png" alt="Argentina" class="d-block w-100">
+                                <div class="overlay">
+                                    <div class="overlay-content">
+                                    <h4>Paraguay</h4>
+                                    <h6>Ciudad del Este</h6>
+                                    <button class="btn btn-primary">Tomar viaje</button> <!-- Cambié el <a> a <button> para evitar conflictos -->
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
                     </div>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="image-container">
-                    <img src="../imagen/index/fondo1.png" alt="Imagen 4">
-                    <div class="overlay">
-                        <div class="overlay-content">
-                            <h4>Brasil</h4>
-                            <h6>Río de Janeiro</h6>
-                            <a href="login.php" class="btn btn-primary">Tomar viaje</a>
-                        </div>
+
+                    <div class="col-md-3 mt-5 mb-5">
+                        <a href="login.php" class="d-block">
+                            <div class="image-container">
+                            <img src="../imagen/index/repuDominicana.png" alt="Argentina" class="d-block w-100">
+                                <div class="overlay">
+                                    <div class="overlay-content">
+                                    <h4>República Dominicana</h4>
+                                    <h6>Playa Punta Cana</h6>
+                                    <button class="btn btn-primary">Tomar viaje</button> <!-- Cambié el <a> a <button> para evitar conflictos -->
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
                     </div>
+
+
+                    <div class="col-md-3 mt-5 mb-5">
+                        <a href="login.php" class="d-block">
+                            <div class="image-container">
+                            <img src="../imagen/index/argentina.png" alt="Argentina" class="d-block w-100">
+                                <div class="overlay">
+                                    <div class="overlay-content">
+                                    <h4>Cuba</h4>
+                                    <h6>Playa Varadero</h6>
+                                    <button class="btn btn-primary">Tomar viaje</button> <!-- Cambié el <a> a <button> para evitar conflictos -->
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+
+                    <div class="col-md-3 mt-5 mb-5">
+                        <a href="login.php" class="d-block">
+                            <div class="image-container">
+                            <img src="../imagen/index/jamaica.png" alt="Argentina" class="d-block w-100">
+                                <div class="overlay">
+                                    <div class="overlay-content">
+                                    <h4>Jamaica</h4>
+                                    <h6>Playa Seven Mile</h6>
+                                    <button class="btn btn-primary">Tomar viaje</button> <!-- Cambié el <a> a <button> para evitar conflictos -->
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+
                 </div>
             </div>
         </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon custom-carousel-control" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+            <span class="carousel-control-next-icon custom-carousel-control" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
     </div>
-    <!--TERMINAN IMAGENES DE PROMOCION-->
+</div>
+<!-- TERMINAN IMAGENES DE PROMOCION -->
+
+
 
     <!--CUADROS DE INFORMACION-->
 
@@ -345,5 +567,6 @@
     ?>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-
+<!-- Bootstrap Bundle JS (with Popper) -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/5.0.0/js/bootstrap.bundle.min.js"></script>
 </html>
