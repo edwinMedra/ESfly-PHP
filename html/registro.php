@@ -48,7 +48,8 @@
       <div class="col-lg-5 col-md-12 col-sm-12 cod-flex flex-column align-items-end min-vh-100">
         <div class="px-lg-5 py-lg-4 p-4 w-100 align-self-center">
           <h1 class="font-weight-bold align-self-center text-center">
-            <img src="../imagen/header/favicon.png" class="img-fluid">
+            <a href="../html/index.php">
+             <img src="../imagen/header/favicon.png" class="img-fluid"></a>
             <b>Registro</b>
           </h1>
 
@@ -132,6 +133,34 @@
       icon.classList.remove("bx-hide");
     }
   });
+
+
+  // MODO OSCURO Y CLARO DE LA PAGINA
+const temaOscuro = () => {
+    document.querySelector("body").setAttribute("data-bs-theme", "dark");
+    document.querySelector("#dl-icon").setAttribute("class", "bi bi-sun-fill");
+    localStorage.setItem("theme", "dark");
+}
+
+const temaClaro = () => {
+    document.querySelector("body").setAttribute("data-bs-theme", "light");
+    document.querySelector("#dl-icon").setAttribute("class", "bi bi-moon-fill");
+    localStorage.setItem("theme", "light");
+}
+
+const cambiarTema = () => {
+    document.querySelector("body").getAttribute("data-bs-theme") === "light" ? temaOscuro() : temaClaro();
+}
+
+// PARA GUARDAR EL COLOR DE LA PAGINA (tutorial 2)
+window.addEventListener('load', () => {
+    const theme = localStorage.getItem("theme");
+    if (theme === "dark") {
+        temaOscuro();
+    } else {
+        temaClaro();
+    }
+});
 </script>
 
 </html>
