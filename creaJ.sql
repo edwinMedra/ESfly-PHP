@@ -212,13 +212,15 @@ create table administradores(
 create table form(
 	-- informacion de el usuario
 	idForm int auto_increment, -- id de el usuario
+    idVuelo int,
+    idUsuario int,
 	nombreUsu varchar(100), -- nombre completo de el usuario 
     duiUsu varchar(15), -- dui de usuario
     pasaporteUsu varchar(12),
     -- fin info de usuario
     -- info de el usuario con discapacidad
 	nombrePasajero varchar(100),
-    duiPasa varchar(12), -- este dato solo se usa si el acompañante no es menor de edad
+    duiPasajero varchar(12), -- este dato solo se usa si el acompañante no es menor de edad
     tipoIncapacidad varchar(100),
     -- info de segundo usuario EN CASO que haya acompañante
     segundoNombre varchar(100),
@@ -229,8 +231,6 @@ create table form(
     -- mascotas de el pasajero 
     -- se toma el valor de quien es
     paraQuien varchar(30),
-    miPerro varchar(10),
-    miGato varchar(10),
     perro int,
     gato int,
     apoyoGato varchar(10),

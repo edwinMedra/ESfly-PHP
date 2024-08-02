@@ -28,15 +28,15 @@
             <form method="post" enctype="multipart/form-data">
                 <div class="form-group mb-3">
                     <label for="nombreCompleto">Nombre Completo de usuario</label>
-                    <input type="text" name="name" class="form-control" id="nombreCompleto"  value="<?php echo htmlspecialchars($nombreCompleto); ?>" readonly>
+                    <input type="text" name="name" class="form-control" id="nombreCompleto" value="<?php echo htmlspecialchars($nombreCompleto); ?>" disabled readonly>
                 </div>
                 <div class="form-group mb-3">
                     <label for="dui">DUI de usuario</label>
-                    <input type="text" name="dui" class="form-control" id="dui" value="<?php echo htmlspecialchars($dui); ?>" readonly>
+                    <input type="text" name="dui" class="form-control" id="dui" value="<?php echo htmlspecialchars($dui); ?>" disabled readonly>
                 </div>
                 <div class="form-group mb-3">
                     <label for="pasaporte">Pasaporte de usuario</label>
-                    <input type="text" class="form-control" id="pasaporte" name="pasaporte" value="<?php echo htmlspecialchars($pasaporte); ?>" readonly>
+                    <input type="text" class="form-control" id="pasaporte" name="pasaporte" value="<?php echo htmlspecialchars($pasaporte); ?>" disabled readonly>
                 </div>
 
                 <div class="form-group mb-3">
@@ -78,7 +78,7 @@
 
                 <div class="form-group mb-3">
                     <label for="nombrePasajero">Nombre completo del pasajero <span class="text-danger">*</span></label>
-                    <input type="text" class="form-control" id="nombrePasajero" name="namePasajero" >
+                    <input type="text" class="form-control" id="nombrePasajero" name="namePasajero">
                 </div>
 
                 <div class="form-group mb-3" id="documentoPasajeroSection">
@@ -88,7 +88,7 @@
 
                 <div class="form-group mb-3">
                     <label for="tipoIncapacidad">Tipo de incapacidad del pasajero <span class="text-danger">*</span></label>
-                    <select class="form-control" id="tipoIncapacidad" name="tipoIncapacidad" >
+                    <select class="form-control" id="tipoIncapacidad" name="tipoIncapacidad">
                         <option value="">Seleccione...</option>
                         <option value="motora">Motora</option>
                         <option value="mental">Mental</option>
@@ -160,7 +160,7 @@
                                         <option value="4">4</option>
                                     </select>
                                 </td>
-                                <td><input type="checkbox" class="check" name="perroApoyo"></td>
+                                <td><input type="checkbox" class="check" name="perroApoyo" value="true"></td>
                             </tr>
                             <tr>
                                 <td>Gato</td>
@@ -174,7 +174,7 @@
                                         <option value="4">4</option>
                                     </select>
                                 </td>
-                                <td><input type="checkbox" class="check" name="gatoApoyo"></td>
+                                <td><input type="checkbox" class="check" name="gatoApoyo" value="true"></td>
                             </tr>
                         </tbody>
                     </table>
@@ -362,79 +362,79 @@ $boton = isset($_POST['siguiente']);
 if ($boton) {
     # estos datos son del propio usuario que ha iniciado sesión
     $idVuelo = $_GET['idVuelo'];
-    $name = trim($_POST['name']);
-    $dui = trim($_POST['dui']);
-    $pasaporte = trim($_POST['pasaporte']);
+    $name = $nomCliente . " " . $apeCliente;
+    $dui = $dui;
+    $pasaporte = $pasaporte;
+    $acompanante = $_POST['acompanante'];
     # fin datos de el usuario que ha iniciado sesión
-
-
     # En caso que este la opcion de "PARA MI" tomar los siguientes datos
     $nombrePasajero = trim($_POST['namePasajero']);
     $duiPasa = trim($_POST['duiPasajero']);
     # fin info de "PARA MI"
-
-
-    # Se toma los datos en caso de que se lleve un segundo acompañante
-    $acompanante = $_POST['acompanante'];
-    if ($acompanante == "si"){
-        $nomAcom = trim($_POST['nomAcom']);
-        $duiAcom = trim($_POST['duiAcom']);
-    } // si no hay segundo, simplemente no se toma el valor de el formulario
-
     # se evalua si el pasajero es menor de edad
     $menorEdad =  $_POST['menorEdad'];
-    if ($menorEdad == "no") {
-    # $nombrePasajero = trim($_POST['namePasajero']); se vuelve a reutilizar este dato
-    # $duiPasa = trim($_POST['duiPasajero']); Tambien se reutiliza este dato
-    } else {
-    # $nombrePasajero = trim($_POST['namePasajero']); se vuelve a reutilizar este dato
-    $menorDUI = $_POST['duiPasajero'];
-    } # en lugar de el dui sera el carnet de menoridad
-
+    if (!($menorEdad == "no")) {
+        $menorDUI = $_POST['duiPasajero'];
+    }
     $boletoPara = $_POST['boletoPara']; // se toma el valor de los ratios para tomar el valor
     // datos obligatorios 
-    if ($boletoPara == "paraMi"){
+    if ($boletoPara == "paraMi") {
         // proceso de insertar datos en caso de que sea para mi 
         $boletoPara = "Para mi";
-    }else if($boletoPara == "miHijo"){
+    } else if ($boletoPara == "miHijo") {
         $boletoPara = "Mi hijo";
     } else {
         $boletoPara = "Otro";
-    } 
-
-    # cantidad de maletas a llevar segun el usuario
-    $tipoIncapacidad = trim($_POST['tipoIncapacidad']);
-    $cantidadArticuloPersonal = trim($_POST['cantidadArticuloPersonal']);
-    $cantidadEquipajeMano = trim($_POST['cantidadEquipajeMano']);
-    $cantidadEquipajeBodega = trim($_POST['cantidadEquipajeBodega']);
+    }
     // proceso obligatorio 
-    $insert = $conexion->query("INSERT INTO form(nombreUsu,duiUsu,pasaporteUsu, paraQuien)VALUES('$name', '$dui','$pasaporte','$boletoPara')");
+    $insert = $conexion->query("INSERT INTO form(nombreUsu,duiUsu,pasaporteUsu, paraQuien,idVuelo,idUsuario)VALUES('$name', '$dui','$pasaporte','$boletoPara','$idVuelo','$id')");
     // proceso para sacar el id de el formulario
-    $select = $conexion->query("SELECT * FROM form where nombreUsu='$name' and duiUsu='$dui' and pasaporteUsu='$pasaporte' and paraQuien='$boletoPara' ");
+    $select = $conexion->query("SELECT * FROM form where idUsuario='$id' and idVuelo='$idVuelo'");
     $row = $select->fetch_array();
     $idForm = $row['idForm'];
     echo $idForm;
     // fin proceso 
-    if ($boletoPara == "Para mi"){
-        $update = $conexion->query("UPDATE ");
+    if ($boletoPara == "Para mi") {
+        $update = $conexion->query("UPDATE form SET nombrePasajero='$nombrePasajero', duiPasajero='$duiPasa'  where idVuelo='$idVuelo' and idUsuario='$id'");
+    } else if ($boletoPara == "Mi hijo") {
+        if ($menorEdad == 'no') {
+            $update = $conexion->query("UPDATE form SET nombrePasajero='$nombrePasajero', duiPasajero='$duiPasa'  where  idVuelo='$idVuelo' and idUsuario='$id'");
+        } else {
+            $update = $conexion->query("UPDATE form SET nombrePasajero='$nombrePasajero', carnetMino='$menorDUI'  where  idVuelo='$idVuelo' and idUsuario='$id'");
+        }
+    } else if ($boletoPara == "Otro") {
+        if ($menorEdad == "no") {
+            $update = $conexion->query("UPDATE form SET nombrePasajero='$nombrePasajero', duiPasajero='$duiPasa'  where  idVuelo='$idVuelo' and idUsuario='$id'");
+        } else {
+            $update = $conexion->query("UPDATE form SET nombrePasajero='$nombrePasajero', carnetMino='$menorDUI'  where  idVuelo='$idVuelo' and idUsuario='$id'");
+        }
     }
- 
-    
+    if ($acompanante == "si") {
+        $nomAcom = trim($_POST['nomAcom']);
+        $duiAcom = trim($_POST['duiAcom']);
+        $update = $conexion->query("UPDATE form SET segundoNombre='$nomAcom', segundoDui='$duiAcom'   where idVuelo='$idVuelo' and idUsuario='$id'");
+    }
 
-    // proceso para insertar los datos en la base de datos 
- 
-   /* $insertar = "INSERT INTO form(nombrePasajero,duiPasajero, tipoIncapacidad, artiPersona, equiMano, equiBodega) VALUES ('$name','$dui','$tipoIncapacidad','$cantidadArticuloPersonal','$cantidadEquipajeMano','$cantidadEquipajeBodega')";
-    $query = $conexion->query($insertar);
-    if ($query) {
-
-        echo "<script>
-            function redireccionar() {
-      window.location.href = 'seleccionDeAsientosVIP.php?idVuelo=" .  $idVuelo . "';
+    # proceso para guardar todos los objetos en la base de datos
+    # mascotas en caso de que lleve
+    $mascotasVuelo = $_POST['mascotasVuelo'];
+    if ($mascotasVuelo == "si") {
+        # tomar el valor de la cantidad de mascotas
+        $cantidadPerro = $_POST['cantidadPerro'];
+        $cantidadGato = $_POST['cantidadGato'];
+        # tomar el datella de la mascota
+        $perroApoyo = $_POST['perroApoyo'];
+        $gatoApoyo = $_POST['gatoApoyo'];
+        # proceso para guardar los informacion en base de datos
+        $sql = $conexion->query("UPDATE form SET perro='$cantidadPerro', gato='$cantidadGato', apoyoGato='$gatoApoyo', apoyoPerro='$perroApoyo'");
     }
-      redireccionar();
-        </script>";
-        
-    }
-        */
+    # equipaje de el usuario
+    $tipoIncapacidad = trim($_POST['tipoIncapacidad']);
+    $cantArticPerso = trim($_POST['cantidadArticuloPersonal']);
+    $cantEquiMano = trim($_POST['cantidadEquipajeMano']);
+    $cantEquiBodega = trim($_POST['cantidadEquipajeBodega']);
+    $articulos = $conexion->query("UPDATE form SET tipoIncapacidad='$tipoIncapacidad', artiPersona='$cantArticPerso', equiMano='$cantEquiMano', equiBodega='$cantEquiBodega' where idVuelo='$idVuelo' and idUsuario='$id'");
+    /*echo "<script>
+      window.location.href = 'seleccionDeAsientosVIP.php?idVuelo=" .  $idVuelo . "'; </script>";*/
 }
 ?>
