@@ -67,6 +67,55 @@
         #carouselExampleIndicators {
             position: relative;
         }
+
+        /*EFECTO DE CARGAR DE LA PAGINA (2)*/
+
+
+        .loader {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f3f3f3;
+        }
+
+        .bar {
+            width: 10px;
+            height: 30px;
+            margin: 0 3px;
+            background-color: #3498db;
+            animation: loading 1s infinite ease-in-out;
+        }
+
+        .bar:nth-child(2) {
+            animation-delay: 0.1s;
+        }
+
+        .bar:nth-child(3) {
+            animation-delay: 0.2s;
+        }
+
+        .bar:nth-child(4) {
+            animation-delay: 0.3s;
+        }
+
+        .bar:nth-child(5) {
+            animation-delay: 0.4s;
+        }
+
+        @keyframes loading {
+            0%, 40%, 100% {
+                transform: scaleY(0.4);
+            }
+            20% {
+                transform: scaleY(1.0);
+            }
+        }
+
+        #content {
+            display: none;
+        }
+
     </style>
 
 </head>
@@ -82,7 +131,7 @@
 
 
     <!-- imagenes de la pagina-->
-    <div class="contenedor">
+    <div class="contenedor spinner">
 
         <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-inner">
@@ -566,7 +615,17 @@
     include("pie.php");
     ?>
 </body>
+
+
+
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-<!-- Bootstrap Bundle JS (with Popper) -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/5.0.0/js/bootstrap.bundle.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/5.0.0/js/bootstrap.bundle.min.js">
+
+
+    /*EFECTO DE CARGAR SPINNER (2)*/
+
+    
+</script>
+
 </html>

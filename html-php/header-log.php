@@ -116,6 +116,22 @@ if ($conexion) {
         .btn-primary-outline img {
             margin-right: 5px;
         }
+
+        .fijo{
+            background-color: #4d86e3; 
+            color: white; 
+            cursor: default;
+        }
+
+        .fijo:hover {
+            cursor: default;
+            background-color: #4d86e3; 
+            color: white; 
+
+
+        }
+
+
     </style>
 </head>
 <body>
@@ -146,26 +162,75 @@ if ($conexion) {
 
             <span class="navbar-text"></span>
 
+            
+
             <form class="d-flex" role="search">
-                <a href="../chat/chat_cliente.php" class="btn btn-outline-success ms-1 " type="button">
-                    <i class="bi bi-chat"></i> Chat
+
+                <a href="../chat/chat_cliente.php" class="btn ms-1 " type="button">
+                    <img src="../imagen/header_ayudante/chats.png" class="" id="" alt="" width="20"> Chats
                 </a>
-                <a href="cerrar.php" class="btn btn-outline-primary ms-1" type="submit">Cerrar sesión</a>
+                
                 <label for="lupa">
                     <?php
                     if ($foto == null) {
-                        echo '<a href="datos de cuenta.php"><img src="https://cdn-icons-png.flaticon.com/512/9187/9187604.png" class="rounded-circle my-auto border border-1 border-black mx-1" id="lupa" alt=""  height="35px" width="35px"></a>';
+                        echo '<div class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <img src="../imagen/header_ayudante/logo_usuario.png" class="rounded-circle border ms-2 border-1 border-black mx-1" id="lupa" alt="" height="35px" width="35px">
+                        </a>
+
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item fijo " type="">¡Hola, ' . htmlspecialchars($nomCliente) . '!</a></li><hr>
+                            <li><a class="dropdown-item" href="datos de cuenta.php">Ver perfil</a></li>
+                            <li><a class="dropdown-item" href="cerrar.php">Cerrar sesión</a></li>
+                        </ul>
+                    </div>';
+                    
                     } else {
-                        echo '<a href="datos de cuenta.php"><img src="data:image/jpg;base64,' . base64_encode($foto) . '" class="rounded-circle my-auto border border-1 border-black mx-1" id="lupa" alt="" height="35px" width="35px" style="object-fit: cover;"></a>';
+                        echo '
+                        <div class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="datos de cuenta.php" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <img src="data:image/jpg;base64,' . base64_encode($foto) . '" class="rounded-circle my-auto border border-1 border-black mx-1" id="lupa" alt="" height="35px" width="35px" style="object-fit: cover;">
+                        </a>
+
+                        <ul class="dropdown-menu">
+                        <hr>
+                            <li><a class="dropdown-item fijo " type="">¡Hola, ' . htmlspecialchars($nomCliente) . '!</a></li><hr>
+                            <li><a class="dropdown-item" href="datos de cuenta.php">Ver perfil</a></li>
+                            <li><a class="dropdown-item" href="cerrar.php">Cerrar sesión</a></li>
+                        </ul>
+                    </div>';
                     }
                     ?>
                 </label>
-                <a class="btn btn-registro ms-1" href="datos de cuenta.php" type="submit"><?php echo $nomCliente; ?></a>
+
+                
+
+                
+ 
+            </form>
+                <!--<a class="btn  ms-" href="datos de cuenta.php" type="submit"><?php //echo $nomCliente; ?></a>-->
+
+          
+                 <!--BOTON DE TEMAS  -->
+                <button  onclick="cambiarTema()" class="btn rounded-fill"><i id="dl-icon" class="bi bi-moon-fill"></i></button>
+                <img src="../imagen/header/traductor.png" class="me-2" id="lupa" alt="" width="20">
+
+
+
+            <form class="d-flex" role="search">
                 <button class="btn btn-primary-outline ms-1" type="button" id="search-btn">
                     <img src="../imagen/header/lupa.png" class="" id="lupa" alt="" width="20"> Buscar
                 </button>
             </form>
+
+            
+
+
+
+            
         </div>
+
+
     </div>
 </nav>
 
@@ -217,6 +282,36 @@ if ($conexion) {
             searchBar.style.display = 'none'; // Ocultar el buscador si se hace clic fuera de él
         }
     });
+
+    // MODO OSCURO Y CLARO DE LA PAGINA
+    const temaOscuro = () => {
+            document.querySelector("body").setAttribute("data-bs-theme", "dark");
+            document.querySelector("#dl-icon").setAttribute("class", "bi bi-sun-fill");
+            localStorage.setItem("theme", "dark");
+        }
+
+        const temaClaro = () => {
+            document.querySelector("body").setAttribute("data-bs-theme", "light");
+            document.querySelector("#dl-icon").setAttribute("class", "bi bi-moon-fill");
+            localStorage.setItem("theme", "light");
+        }
+
+        const cambiarTema = () => {
+            document.querySelector("body").getAttribute("data-bs-theme") === "light" ? temaOscuro() : temaClaro();
+        }
+
+        // PARA GUARDAR EL COLOR DE LA PAGINA (tutorial 2)
+        window.addEventListener('load', () => {
+            const theme = localStorage.getItem("theme");
+            if (theme === "dark") {
+                temaOscuro();
+            } else {
+                temaClaro();
+            }
+        });
+
+
+
 </script>
 
 </body>
