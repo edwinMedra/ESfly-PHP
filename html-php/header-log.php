@@ -126,9 +126,12 @@ if ($conexion) {
         .fijo:hover {
             cursor: default;
             background-color: #4d86e3; 
-            color: white; 
+            color: white;
 
+        }
 
+        .nav-link.dropdown-toggle::after {
+            display: none;
         }
 
 
@@ -166,7 +169,11 @@ if ($conexion) {
 
             <form class="d-flex" role="search">
 
-                <a href="../chat/chat_cliente.php" class="btn ms-1 " type="button">
+                <a href="../chat/chat_cliente.php" class="btn  " type="button">
+                    <img src="../imagen/header_ayudante/boleto.png" class="" id="" alt="" width="20"> Boletos
+                </a>
+
+                <a href="../chat/chat_cliente.php" class="btn  " type="button">
                     <img src="../imagen/header_ayudante/chats.png" class="" id="" alt="" width="20"> Chats
                 </a>
                 
@@ -212,13 +219,21 @@ if ($conexion) {
 
           
                  <!--BOTON DE TEMAS  -->
-                <button  onclick="cambiarTema()" class="btn rounded-fill"><i id="dl-icon" class="bi bi-moon-fill"></i></button>
-                <img src="../imagen/header/traductor.png" class="me-2" id="lupa" alt="" width="20">
+                <button  onclick="cambiarTema()" class="btn rounded-fill  ms-1"><i id="dl-icon" class="bi bi-moon-fill"></i></button>
 
+                <div class="nav-item dropdown ms-2">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <img src="../imagen/header/traductor.png" class="me-2" id="lupa" alt="" width="20">
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" onclick="setLanguage('es')" href="">Español</a></li>
+                        <li><a class="dropdown-item" onclick="setLanguage('en')" href="">Inglés</a></li>
+                    </ul>
+                </div>
 
 
             <form class="d-flex" role="search">
-                <button class="btn btn-primary-outline ms-1" type="button" id="search-btn">
+                <button class="btn ms-1" type="button" id="search-btn">
                     <img src="../imagen/header/lupa.png" class="" id="lupa" alt="" width="20"> Buscar
                 </button>
             </form>
@@ -241,6 +256,32 @@ if ($conexion) {
 </div>
 
 <script>
+
+/*////////////////////////TRADUCTOR//////////////////////////////////////////*/ 
+
+// Diccionario de traducción
+const translations = {
+            "es": {
+                "text": "Hola, ¿cómo estás? Gracias por visitar mi página."
+            },
+            "en": {
+                "text": "Hello, how are you? Thank you for visiting my page."
+            }
+        };
+
+        function setLanguage(language) {
+            // Obtener el texto traducido según el idioma seleccionado
+            const translatedText = translations[language].text;
+            
+            // Actualizar el contenido del DOM
+            document.getElementById("textContent").textContent = translatedText;
+        }
+
+        // Configurar idioma inicial (opcional)
+        setLanguage('es');  // Cambia 'es' a 'en' si deseas comenzar en inglés
+
+
+/*//////////////////////////////////////////////////////////////////*/ 
     const searchBtn = document.getElementById('search-btn');
     const searchBar = document.getElementById('search-bar');
     const searchInput = document.getElementById('search-input');
