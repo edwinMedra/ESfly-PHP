@@ -127,8 +127,7 @@ if ($conexion) {
             cursor: default;
             background-color: #4d86e3; 
             color: white;
-
-sd        }
+        }
 
         .nav-link.dropdown-toggle::after {
             display: none;
@@ -258,27 +257,6 @@ sd        }
 <script>
 
 /*////////////////////////TRADUCTOR//////////////////////////////////////////*/ 
-
-// Diccionario de traducción
-const translations = {
-            "es": {
-                "text": "Hola, ¿cómo estás? Gracias por visitar mi página."
-            },
-            "en": {
-                "text": "Hello, how are you? Thank you for visiting my page."
-            }
-        };
-
-        function setLanguage(language) {
-            // Obtener el texto traducido según el idioma seleccionado
-            const translatedText = translations[language].text;
-            
-            // Actualizar el contenido del DOM
-            document.getElementById("textContent").textContent = translatedText;
-        }
-
-        // Configurar idioma inicial (opcional)
-        setLanguage('es');  // Cambia 'es' a 'en' si deseas comenzar en inglés
 
 
 /*//////////////////////////////////////////////////////////////////*/ 

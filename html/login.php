@@ -50,13 +50,13 @@
 
             <div class="mb-5">
               <label for="exampleImputEmail" class="form-label font-weight-bold">
-                <img src="../imagen/login/correo.png" class="img"> Correo</label>
+                <img src="../imagen/registroLogin/correo.png" class="img"> Correo</label>
               <input type="email" class="form-control mb-2" placeholder="Ingresa tu correo" id="correo" name="correo">
             </div>
 
             <div class="mb-3">
               <label for="exampleImputPassword" class="form-label font-weight-bold">
-                <img src="../imagen/login/contraseña.png" class="img"> Contraseña
+                <img src="../imagen/registroLogin/contraseña.png" class="img"> Contraseña
               </label>
               <i class="ojo bx bx-show-alt mt-2" id="togglePassword"></i>
               <input type="password" class="pass form-control mb-2" placeholder="Ingresa tu contraseña" id="pass" name="pass">
