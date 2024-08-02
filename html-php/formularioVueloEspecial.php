@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,244 +16,231 @@
     <link rel="stylesheet" href="../css/pie.css">
     <title>Formulario Especial</title>
 </head>
+
 <body>
-<?php 
-include("header-log.php");
-?> 
-    
+    <?php
+    include("header-log.php");
+    ?>
+
     <div class="card-formu container d-flex justify-content-center align-items-center mt-5 mb-5">
-    <div class="card p-4 custom-card mt-5">
-        <h3 class="card-title text-center mt-5">Reservar Vuelo Especial</h3>
-        <form  method="post" enctype="multipart/form-data">
-            <div class="form-group mb-3">
-                <label for="nombreCompleto">Nombre Completo de usuario</label>
-                <input type="text" class="form-control" id="nombreCompleto" disabled value="<?php echo htmlspecialchars($nombreCompleto); ?>" readonly>
-            </div>
-            <div class="form-group mb-3">
-                <label for="dui">DUI de usuario</label>
-                <input type="text" class="form-control" id="dui" disabled value="<?php echo htmlspecialchars($dui); ?>" readonly>
-            </div>
-            <div class="form-group mb-3">
-                <label for="pasaporte">Pasaporte de usuario</label>
-                <input type="text" class="form-control" id="pasaporte" disabled value="<?php echo htmlspecialchars($pasaporte); ?>" readonly>
-            </div>
+        <div class="card p-4 custom-card mt-5">
+            <h3 class="card-title text-center mt-5">Reservar Vuelo Especial</h3>
+            <form method="post" enctype="multipart/form-data">
+                <div class="form-group mb-3">
+                    <label for="nombreCompleto">Nombre Completo de usuario</label>
+                    <input type="text" name="name" class="form-control" id="nombreCompleto"  value="<?php echo htmlspecialchars($nombreCompleto); ?>" readonly>
+                </div>
+                <div class="form-group mb-3">
+                    <label for="dui">DUI de usuario</label>
+                    <input type="text" name="dui" class="form-control" id="dui" value="<?php echo htmlspecialchars($dui); ?>" readonly>
+                </div>
+                <div class="form-group mb-3">
+                    <label for="pasaporte">Pasaporte de usuario</label>
+                    <input type="text" class="form-control" id="pasaporte" name="pasaporte" value="<?php echo htmlspecialchars($pasaporte); ?>" readonly>
+                </div>
 
-            <div class="form-group mb-3">
-                <label>Boleto para:</label>
-                <div>
-                    <div class="form-check form-check-inline mb-3">
-                        <input class="form-check-input" type="radio" name="boletoPara" id="paraMi" value="paraMi" checked>
-                        <label class="form-check-label" for="paraMi">Para mí</label>
-                    </div>
-                    <div class="form-check form-check-inline mb-3">
-                        <input class="form-check-input" type="radio" name="boletoPara" id="miHijo" value="miHijo">
-                        <label class="form-check-label" for="miHijo">Mi hijo/a</label>
-                    </div>
-                    <div class="form-check form-check-inline mb-3">
-                        <input class="form-check-input" type="radio" name="boletoPara" id="otros" value="otros">
-                        <label class="form-check-label" for="otros">Otro</label>
+                <div class="form-group mb-3">
+                    <label>Boleto para:</label>
+                    <div>
+                        <div class="form-check form-check-inline mb-3">
+                            <input class="form-check-input" type="radio" name="boletoPara" id="paraMi" value="paraMi" checked>
+                            <label class="form-check-label" for="paraMi">Para mí</label>
+                        </div>
+                        <div class="form-check form-check-inline mb-3">
+                            <input class="form-check-input" type="radio" name="boletoPara" id="miHijo" value="miHijo">
+                            <label class="form-check-label" for="miHijo">Mi hijo/a</label>
+                        </div>
+                        <div class="form-check form-check-inline mb-3">
+                            <input class="form-check-input" type="radio" name="boletoPara" id="otros" value="otros">
+                            <label class="form-check-label" for="otros">Otro</label>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="form-group mb-3" id="menorEdadSection">
-                <label>Su hijo es menor de edad?</label>
-                <div>
-                    <div class="form-check form-check-inline mb-3">
-                        <input class="form-check-input" type="radio" name="menorEdad" id="menorEdadSi" value="si" checked>
-                        <label class="form-check-label" for="menorEdadSi">Sí</label>
-                    </div>
-                    <div class="form-check form-check-inline mb-3">
-                        <input class="form-check-input" type="radio" name="menorEdad" id="menorEdadNo" value="no">
-                        <label class="form-check-label" for="menorEdadNo">No</label>
-                    </div>
-                </div>
-            </div>
-
-            <div class="form-group mb-3" id="partidaNacimientoSection">
-                <label>Subir partida de nacimiento reciente:</label>
-                <input type="file" id="partidaNacimiento" name="partidaNacimiento" accept="image/*">
-            </div>
-
-            <div class="form-group mb-3">
-                <label for="nombrePasajero">Nombre completo del pasajero <span class="text-danger">*</span></label>
-                <input type="text" class="form-control" id="nombrePasajero" name="name" required>
-            </div>
-
-            <div class="form-group mb-3" id="documentoPasajeroSection">
-                <label for="documentoPasajero">DUI del pasajero</label>
-                <input type="text" class="form-control" id="documentoPasajero" name="dui">
-            </div>
-
-            <div class="form-group mb-3">
-                <label for="tipoIncapacidad">Tipo de incapacidad del pasajero <span class="text-danger">*</span></label>
-                <select class="form-control" id="tipoIncapacidad" name="tipoIncapacidad" required>
-                    <option value="">Seleccione...</option>
-                    <option value="motora">Motora</option>
-                    <option value="mental">Mental</option>
-                    <option value="auditiva">Auditiva</option>
-                    <option value="vista">Vista</option>
-                    <option value="mudez">Mudez</option>
-                </select>
-            </div>
-
-            <div class="form-group mb-3">
-                <label>El pasajero llevará acompañante?</label>
-                <div>
-                    <div class="form-check form-check-inline mb-3">
-                        <input class="form-check-input" type="radio" name="acompanante" id="acompananteSi" value="si" >
-                        <label class="form-check-label" for="acompananteSi">Sí</label>
-                    </div>
-                    <div class="form-check form-check-inline mb-3">
-                        <input class="form-check-input" type="radio" name="acompanante" id="acompananteNo" value="no" checked>
-                        <label class="form-check-label" for="acompananteNo">No</label>
+                <div class="form-group mb-3" id="menorEdadSection">
+                    <label>Su hijo es menor de edad?</label>
+                    <div>
+                        <div class="form-check form-check-inline mb-3">
+                            <input class="form-check-input" type="radio" name="menorEdad" id="menorEdadSi" value="si" checked>
+                            <label class="form-check-label" for="menorEdadSi">Sí</label>
+                        </div>
+                        <div class="form-check form-check-inline mb-3">
+                            <input class="form-check-input" type="radio" name="menorEdad" id="menorEdadNo" value="no">
+                            <label class="form-check-label" for="menorEdadNo">No</label>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="form-group mb-3" id="nombreAcompananteSection">
-                <label for="nombreAcompanante">Nombre completo del acompañante <span class="text-danger">*</span></label>
-                <input type="text" class="form-control" id="nombreAcompanante">
-            </div>
+                <div class="form-group mb-3" id="partidaNacimientoSection">
+                    <label>Subir partida de nacimiento reciente:</label>
+                    <input type="file" id="partidaNacimiento" name="partidaNacimiento" accept="image/*">
+                </div>
 
-            <div class="form-group mb-3" id="duiAcompananteSection">
-                <label for="duiAcompanante">DUI del acompañante</label>
-                <input type="text" class="form-control" id="duiAcompanante">
-            </div>
+                <div class="form-group mb-3">
+                    <label for="nombrePasajero">Nombre completo del pasajero <span class="text-danger">*</span></label>
+                    <input type="text" class="form-control" id="nombrePasajero" name="namePasajero" >
+                </div>
 
-            <h5 class="card-title text-center mt-5">Mascotas en el vuelo:</h5>
-            <div class="form-group mb-3">
-                <label>Mascotas en el vuelo <span class="text-danger">*</span></label>
-                <div>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="mascotasVuelo" id="mascotasSi" value="si">
-                        <label class="form-check-label" for="mascotasSi">Sí</label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="mascotasVuelo" id="mascotasNo" value="no" checked>
-                        <label class="form-check-label" for="mascotasNo">No</label>
+                <div class="form-group mb-3" id="documentoPasajeroSection">
+                    <label for="documentoPasajero">DUI del pasajero</label>
+                    <input type="text" class="form-control" id="documentoPasajero" name="duiPasajero">
+                </div>
+
+                <div class="form-group mb-3">
+                    <label for="tipoIncapacidad">Tipo de incapacidad del pasajero <span class="text-danger">*</span></label>
+                    <select class="form-control" id="tipoIncapacidad" name="tipoIncapacidad" >
+                        <option value="">Seleccione...</option>
+                        <option value="motora">Motora</option>
+                        <option value="mental">Mental</option>
+                        <option value="auditiva">Auditiva</option>
+                        <option value="vista">Vista</option>
+                        <option value="mudez">Mudez</option>
+                    </select>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label>El pasajero llevará acompañante?</label>
+                    <div>
+                        <div class="form-check form-check-inline mb-3">
+                            <input class="form-check-input" type="radio" name="acompanante" id="acompananteSi" value="si">
+                            <label class="form-check-label" for="acompananteSi">Sí</label>
+                        </div>
+                        <div class="form-check form-check-inline mb-3">
+                            <input class="form-check-input" type="radio" name="acompanante" id="acompananteNo" value="no" checked>
+                            <label class="form-check-label" for="acompananteNo">No</label>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <div id="tablaMascotasSection" class="mb-3">
-                <table class="table text-center">
-                    <thead>
-                        <tr>
-                            <th>Tipo</th>
-                            <th>Mi mascota</th>
-                            <th>Cantidad</th>
-                            <th>Apoyo Emocional</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Perro</td>
-                            <td><input type="checkbox" class="check" name="perro"></td>
-                            <td>
-                                <select class="form-control" name="cantidadPerro">
-                                    <option value="0">0</option>
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                    <option value="4">4</option>
-                                </select>
-                            </td>
-                            <td><input type="checkbox" class="check" name="perroApoyo"></td>
-                        </tr>
-                        <tr>
-                            <td>Gato</td>
-                            <td><input type="checkbox" class="check" name="gato"></td>
-                            <td>
-                                <select class="form-control" name="cantidadGato">
-                                    <option value="0">0</option>
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                    <option value="4">4</option>
-                                </select>
-                            </td>
-                            <td><input type="checkbox" class="check" name="gatoApoyo"></td>
-                        </tr>
-                        <tr>
-                            <td>Gallina</td>
-                            <td><input type="checkbox" class="check" name="gallina"></td>
-                            <td>
-                                <select class="form-control" name="cantidadGallina">
-                                    <option value="0">0</option>
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                    <option value="4">4</option>
-                                </select>
-                            </td>
-                            <td><input type="checkbox" class="check" name="gallinaApoyo"></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+                <div class="form-group mb-3" id="nombreAcompananteSection">
+                    <label for="nombreAcompanante">Nombre completo del acompañante <span class="text-danger">*</span></label>
+                    <input type="text" class="form-control" id="nombreAcompanante" name="nomAcom">
+                </div>
 
-            <h5 class="card-title text-center mt-5">Equipaje:</h5>
-            <div id="tablaEquipajeSection" class="mb-3">
-                <table class="table text-center">
-                    <thead>
-                        <tr>
-                            <th>Tipo maleta</th>
-                            <th>Mi maleta</th>
-                            <th>Cantidad</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Artículo personal</td>
-                            <td><input type="checkbox" class="check" name="articuloPersonal"></td>
-                            <td>
-                                <select class="form-control" name="cantidadArticuloPersonal">
-                                    <option value="0">0</option>
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                    <option value="4">4</option>
-                                </select>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Equipaje de mano</td>
-                            <td><input type="checkbox" class="check" name="equipajeMano"></td>
-                            <td>
-                                <select class="form-control" name="cantidadEquipajeMano">
-                                    <option value="0">0</option>
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                    <option value="4">4</option>
-                                </select>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Equipaje de bodega</td>
-                            <td><input type="checkbox" class="check" name="equipajeBodega"></td>
-                            <td>
-                                <select class="form-control" name="cantidadEquipajeBodega">
-                                    <option value="0">0</option>
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                    <option value="4">4</option>
-                                </select>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+                <div class="form-group mb-3" id="duiAcompananteSection">
+                    <label for="duiAcompanante">DUI del acompañante</label>
+                    <input type="text" class="form-control" id="duiAcompanante" name="duiAcom">
+                </div>
 
-            <div class="d-flex justify-content-between">
-                <button type="button" class="btn btn-secondary">Atrás</button>
-                <button type="submit" class="btn btn-primary" name="siguiente">Siguiente</button>
-            </div>
-        </form>
+                <h5 class="card-title text-center mt-5">Mascotas en el vuelo:</h5>
+                <div class="form-group mb-3">
+                    <label>Mascotas en el vuelo <span class="text-danger">*</span></label>
+                    <div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="mascotasVuelo" id="mascotasSi" value="si">
+                            <label class="form-check-label" for="mascotasSi">Sí</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="mascotasVuelo" id="mascotasNo" value="no" checked>
+                            <label class="form-check-label" for="mascotasNo">No</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="tablaMascotasSection" class="mb-3">
+                    <table class="table text-center">
+                        <thead>
+                            <tr>
+                                <th>Tipo</th>
+                                <th>Mi mascota</th>
+                                <th>Cantidad</th>
+                                <th>Apoyo Emocional</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Perro</td>
+                                <td><input type="checkbox" class="check" name="perro"></td>
+                                <td>
+                                    <select class="form-control" name="cantidadPerro">
+                                        <option value="0">0</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                    </select>
+                                </td>
+                                <td><input type="checkbox" class="check" name="perroApoyo"></td>
+                            </tr>
+                            <tr>
+                                <td>Gato</td>
+                                <td><input type="checkbox" class="check" name="gato"></td>
+                                <td>
+                                    <select class="form-control" name="cantidadGato">
+                                        <option value="0">0</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                    </select>
+                                </td>
+                                <td><input type="checkbox" class="check" name="gatoApoyo"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h5 class="card-title text-center mt-5">Equipaje:</h5>
+                <div id="tablaEquipajeSection" class="mb-3">
+                    <table class="table text-center">
+                        <thead>
+                            <tr>
+                                <th>Tipo maleta</th>
+                                <th>Mi maleta</th>
+                                <th>Cantidad</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Artículo personal</td>
+                                <td><input type="checkbox" class="check" name="articuloPersonal"></td>
+                                <td>
+                                    <select class="form-control" name="cantidadArticuloPersonal">
+                                        <option value="0">0</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Equipaje de mano</td>
+                                <td><input type="checkbox" class="check" name="equipajeMano"></td>
+                                <td>
+                                    <select class="form-control" name="cantidadEquipajeMano">
+                                        <option value="0">0</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Equipaje de bodega</td>
+                                <td><input type="checkbox" class="check" name="equipajeBodega"></td>
+                                <td>
+                                    <select class="form-control" name="cantidadEquipajeBodega">
+                                        <option value="0">0</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                    </select>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="d-flex justify-content-between">
+                    <button type="button" class="btn btn-secondary">Atrás</button>
+                    <button type="submit" class="btn btn-primary" name="siguiente">Siguiente</button>
+                </div>
+            </form>
+        </div>
     </div>
-</div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script>
@@ -329,25 +317,25 @@ include("header-log.php");
             });
 
             otros.addEventListener('change', function() {
-    document.querySelector('label[for="documentoPasajero"]').textContent = 'DUI del pasajero';
-    toggleVisibility(menorEdadSection, true);
-    menorEdadSection.querySelector('label').textContent = 'El pasajero es menor de edad?';
-    toggleVisibility(partidaNacimientoSection, menorEdadSi.checked);
-});
+                document.querySelector('label[for="documentoPasajero"]').textContent = 'DUI del pasajero';
+                toggleVisibility(menorEdadSection, true);
+                menorEdadSection.querySelector('label').textContent = 'El pasajero es menor de edad?';
+                toggleVisibility(partidaNacimientoSection, menorEdadSi.checked);
+            });
 
-menorEdadSi.addEventListener('change', function() {
-    if (miHijo.checked || otros.checked) {
-        document.querySelector('label[for="documentoPasajero"]').textContent = 'Carnet de menoridad del pasajero';
-    }
-    toggleVisibility(partidaNacimientoSection, true);
-});
+            menorEdadSi.addEventListener('change', function() {
+                if (miHijo.checked || otros.checked) {
+                    document.querySelector('label[for="documentoPasajero"]').textContent = 'Carnet de menoridad del pasajero';
+                }
+                toggleVisibility(partidaNacimientoSection, true);
+            });
 
-menorEdadNo.addEventListener('change', function() {
-    if (miHijo.checked || otros.checked) {
-        document.querySelector('label[for="documentoPasajero"]').textContent = 'DUI del pasajero';
-    }
-    toggleVisibility(partidaNacimientoSection, false);
-});
+            menorEdadNo.addEventListener('change', function() {
+                if (miHijo.checked || otros.checked) {
+                    document.querySelector('label[for="documentoPasajero"]').textContent = 'DUI del pasajero';
+                }
+                toggleVisibility(partidaNacimientoSection, false);
+            });
 
             // Set initial state based on pre-selected options
             toggleVisibility(partidaNacimientoSection, menorEdadSi.checked);
@@ -358,36 +346,95 @@ menorEdadNo.addEventListener('change', function() {
             toggleVisibility(partidaNacimientoSection, paraMi.checked ? false : menorEdadSi.checked);
 
             // Pre-fill the user's information
-            document.getElementById('nombreCompleto').value = "<?php echo $nomCliente;echo " "; echo $apeCliente?>";
-            document.getElementById('dui').value = "<?php echo $dui?>";
+            document.getElementById('nombreCompleto').value = "<?php echo $nomCliente;
+                                                                echo " ";
+                                                                echo $apeCliente ?>";
+            document.getElementById('dui').value = "<?php echo $dui ?>";
             document.getElementById('pasaporte').value = "<?php echo $pasaporte ?>";
         });
     </script>
 </body>
+
 </html>
 <?php
-include ("conex.php");
-$boton= isset($_POST['siguiente']);
-if ($boton){
+include("conex.php");
+$boton = isset($_POST['siguiente']);
+if ($boton) {
+    # estos datos son del propio usuario que ha iniciado sesión
     $idVuelo = $_GET['idVuelo'];
     $name = trim($_POST['name']);
     $dui = trim($_POST['dui']);
+    $pasaporte = trim($_POST['pasaporte']);
+    # fin datos de el usuario que ha iniciado sesión
+
+
+    # En caso que este la opcion de "PARA MI" tomar los siguientes datos
+    $nombrePasajero = trim($_POST['namePasajero']);
+    $duiPasa = trim($_POST['duiPasajero']);
+    # fin info de "PARA MI"
+
+
+    # Se toma los datos en caso de que se lleve un segundo acompañante
+    $acompanante = $_POST['acompanante'];
+    if ($acompanante == "si"){
+        $nomAcom = trim($_POST['nomAcom']);
+        $duiAcom = trim($_POST['duiAcom']);
+    } // si no hay segundo, simplemente no se toma el valor de el formulario
+
+    # se evalua si el pasajero es menor de edad
+    $menorEdad =  $_POST['menorEdad'];
+    if ($menorEdad == "no") {
+    # $nombrePasajero = trim($_POST['namePasajero']); se vuelve a reutilizar este dato
+    # $duiPasa = trim($_POST['duiPasajero']); Tambien se reutiliza este dato
+    } else {
+    # $nombrePasajero = trim($_POST['namePasajero']); se vuelve a reutilizar este dato
+    $menorDUI = $_POST['duiPasajero'];
+    } # en lugar de el dui sera el carnet de menoridad
+
+    $boletoPara = $_POST['boletoPara']; // se toma el valor de los ratios para tomar el valor
+    // datos obligatorios 
+    if ($boletoPara == "paraMi"){
+        // proceso de insertar datos en caso de que sea para mi 
+        $boletoPara = "Para mi";
+    }else if($boletoPara == "miHijo"){
+        $boletoPara = "Mi hijo";
+    } else {
+        $boletoPara = "Otro";
+    } 
+
+    # cantidad de maletas a llevar segun el usuario
     $tipoIncapacidad = trim($_POST['tipoIncapacidad']);
     $cantidadArticuloPersonal = trim($_POST['cantidadArticuloPersonal']);
     $cantidadEquipajeMano = trim($_POST['cantidadEquipajeMano']);
     $cantidadEquipajeBodega = trim($_POST['cantidadEquipajeBodega']);
+    // proceso obligatorio 
+    $insert = $conexion->query("INSERT INTO form(nombreUsu,duiUsu,pasaporteUsu, paraQuien)VALUES('$name', '$dui','$pasaporte','$boletoPara')");
+    // proceso para sacar el id de el formulario
+    $select = $conexion->query("SELECT * FROM form where nombreUsu='$name' and duiUsu='$dui' and pasaporteUsu='$pasaporte' and paraQuien='$boletoPara' ");
+    $row = $select->fetch_array();
+    $idForm = $row['idForm'];
+    echo $idForm;
+    // fin proceso 
+    if ($boletoPara == "Para mi"){
+        $update = $conexion->query("UPDATE ");
+    }
+ 
+    
 
-    $insertar = "INSERT INTO form(nombrePasajero,duiPasajero, tipoIncapacidad, artiPersona, equiMano, equiBodega) VALUES ('$name','$dui','$tipoIncapacidad','$cantidadArticuloPersonal','$cantidadEquipajeMano','$cantidadEquipajeBodega')";
+    // proceso para insertar los datos en la base de datos 
+ 
+   /* $insertar = "INSERT INTO form(nombrePasajero,duiPasajero, tipoIncapacidad, artiPersona, equiMano, equiBodega) VALUES ('$name','$dui','$tipoIncapacidad','$cantidadArticuloPersonal','$cantidadEquipajeMano','$cantidadEquipajeBodega')";
     $query = $conexion->query($insertar);
-    if ($query){
+    if ($query) {
+
         echo "<script>
             function redireccionar() {
-      window.location.href = 'seleccionDeAsientosVIP.php?idVuelo=".  $idVuelo ."';
+      window.location.href = 'seleccionDeAsientosVIP.php?idVuelo=" .  $idVuelo . "';
     }
       redireccionar();
         </script>";
+        
     }
-
-
+        */
 }
 ?>

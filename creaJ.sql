@@ -207,16 +207,41 @@ create table administradores(
     primary key (idAdmin)
 );
 
+
+-- formulario al momento de hacer un vuelo especial
 create table form(
-	idForm int auto_increment,
+	-- informacion de el usuario
+	idForm int auto_increment, -- id de el usuario
+	nombreUsu varchar(100), -- nombre completo de el usuario 
+    duiUsu varchar(15), -- dui de usuario
+    pasaporteUsu varchar(12),
+    -- fin info de usuario
+    -- info de el usuario con discapacidad
 	nombrePasajero varchar(100),
-    duiPasajero varchar(15),
+    duiPasa varchar(12), -- este dato solo se usa si el acompañante no es menor de edad
     tipoIncapacidad varchar(100),
+    -- info de segundo usuario EN CASO que haya acompañante
+    segundoNombre varchar(100),
+    segundoDui varchar(12),
+    -- info en caso de que sea menor de edad
+    pdf longblob,
+    carnetMino int(9), 
+    -- mascotas de el pasajero 
+    -- se toma el valor de quien es
+    paraQuien varchar(30),
+    miPerro varchar(10),
+    miGato varchar(10),
+    perro int,
+    gato int,
+    apoyoGato varchar(10),
+    apoyoPerro varchar(10),
+    -- articulos de pasajero
     artiPersona int,
     equiMano int,
     equiBodega int,
     primary key (idForm)
 );
+-- fin formulario
 
 CREATE TABLE mensajes (
     id INT AUTO_INCREMENT,
@@ -468,5 +493,9 @@ select * from vuelo;
 select * from asientos;
 select * from administradores;
 select * from form;
+truncate table form;
 select * from mensajes;
 use railway; 
+-- tener un usuario ya por defecto
+insert into usuario VALUES 
+("Edwin Gabriel","Medrano Yanes","$2y$10$C1OU5QbxIBKBJN0sRXpTNOrtIVvtnt0BkHEN.52wEKb37AmY8vnCG","edwin@gmail.com","123456789","12345678-9",null,null);
