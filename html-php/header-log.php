@@ -128,7 +128,7 @@ if ($conexion) {
             background-color: #4d86e3; 
             color: white;
 
-        }
+sd        }
 
         .nav-link.dropdown-toggle::after {
             display: none;
