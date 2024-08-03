@@ -55,8 +55,10 @@ if ($conexion) {
     <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/headerr.css">
+
+
     <style>
-        /* Diseño del buscador */
+        /*buscador */
         #search-bar {
             display: none;
             position: absolute;
@@ -99,22 +101,10 @@ if ($conexion) {
             background-color: #f1f1f1;
         }
 
-        /* Asegura que el estilo del botón no interfiera */
         .btn-primary-outline {
             background-color: transparent;
-            border: 1px solid #000000;
             color: #000000;
-            border-radius: 30px;
             padding: 5px 10px;
-        }
-
-        .btn-primary-outline:hover {
-            background-color: #e4e2e2;
-            color: rgb(0, 0, 0);
-        }
-
-        .btn-primary-outline img {
-            margin-right: 5px;
         }
 
         .fijo{
@@ -132,6 +122,18 @@ if ($conexion) {
         .nav-link.dropdown-toggle::after {
             display: none;
         }
+
+
+         /*PARA CAMBIAR EL COLOR DE LA LETRA DE EL NAV SEGUN LOS TEMAS DE OSCURO Y CLARO */
+        body[data-bs-theme='dark'] .nav-link {
+            color: #fff; /* Texto blanco en modo oscuro */
+        }
+    
+        body[data-bs-theme='light'] .nav-link {
+            color: #000; 
+        }
+   
+
 
 
     </style>
@@ -152,13 +154,15 @@ if ($conexion) {
         <div class="collapse navbar-collapse" id="navbarText">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="Reservarvuelos.php">Reserva tu vuelo</a>
+                    <a class="nav-link" id="reserveFlight" aria-current="page" href="Reservarvuelos.php">Reserva tu vuelo</a>
+                </li>
+                
+
+                <li class="nav-item">
+                    <a class="nav-link" id="offersAndDestinations" href="ofertasYDestinos.php">Ofertas y destinos</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="ofertasYDestinos.php">Ofertas y destinos</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="check-in.php">Check-in</a>
+                    <a class="nav-link" id="checkIn" href="check-in.php">Check-in</a>
                 </li>
             </ul>
 
@@ -168,11 +172,12 @@ if ($conexion) {
 
             <form class="d-flex" role="search">
 
-                <a href="../chat/chat_cliente.php" class="btn  " type="button">
+                <a href="../chat/chat_cliente.php" class="btn  " type="button"  id="tickets">
                     <img src="../imagen/header_ayudante/boleto.png" class="" id="" alt="" width="20"> Boletos
                 </a>
 
-                <a href="../chat/chat_cliente.php" class="btn  " type="button">
+
+                <a href="../chat/chat_cliente.php" class="btn  " id="chats" type="button">
                     <img src="../imagen/header_ayudante/chats.png" class="" id="" alt="" width="20"> Chats
                 </a>
                 
@@ -200,9 +205,9 @@ if ($conexion) {
 
                         <ul class="dropdown-menu">
                         <hr>
-                            <li><a class="dropdown-item fijo " type="">¡Hola, ' . htmlspecialchars($nomCliente) . '!</a></li><hr>
-                            <li><a class="dropdown-item" href="datos de cuenta.php">Ver perfil</a></li>
-                            <li><a class="dropdown-item" href="cerrar.php">Cerrar sesión</a></li>
+                            <li><a class="dropdown-item fijo " type="" id="hello">¡Hola, ' . htmlspecialchars($nomCliente) . '!</a></li><hr>
+                            <li><a class="dropdown-item" href="datos de cuenta.php" id="viewProfile" >Ver perfil</a></li>
+                            <li><a class="dropdown-item" href="cerrar.php" id="logout">Cerrar sesión</a></li>
                         </ul>
                     </div>';
                     }
@@ -221,12 +226,13 @@ if ($conexion) {
                 <button  onclick="cambiarTema()" class="btn rounded-fill  ms-1"><i id="dl-icon" class="bi bi-moon-fill"></i></button>
 
                 <div class="nav-item dropdown ms-2">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        <img src="../imagen/header/traductor.png" class="me-2" id="lupa" alt="" width="20">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" id="" data-bs-toggle="dropdown" aria-expanded="false">
+                        <img src="../imagen/header/traductor.png" class="me-2" id="" alt="" width="20">
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" onclick="setLanguage('es')" href="">Español</a></li>
-                        <li><a class="dropdown-item" onclick="setLanguage('en')" href="">Inglés</a></li>
+                        <li><a class="dropdown-item" onclick="setLanguage('es')" href="#">Español</a></li>
+                        <li><a class="dropdown-item" onclick="setLanguage('en')" href="#">Inglés</a></li>
+
                     </ul>
                 </div>
 
@@ -257,6 +263,45 @@ if ($conexion) {
 <script>
 
 /*////////////////////////TRADUCTOR//////////////////////////////////////////*/ 
+
+const translations = {
+    es: {
+        reserveFlight: "Reserva tu vuelo",
+        offersAndDestinations: "Ofertas y destinos",
+        checkIn: "Check-in",
+        search: "Buscar",
+        tickets: "Boletos",
+        chats: "Chats",
+        hello: "¡Hola,",
+        viewProfile: "Ver perfil",
+        logout: "Cerrar sesión"
+    },
+    en: {
+        reserveFlight: "Reserve your flight",
+        offersAndDestinations: "Offers and destinations",
+        checkIn: "Check-in",
+        search: "Search",
+        tickets: "Tickets",
+        chats: "Chats",
+        hello: "Hello,",
+        viewProfile: "View profile",
+        logout: "Logout"
+    }
+};
+
+function setLanguage(lang) {
+    document.getElementById('reserveFlight').textContent = translations[lang].reserveFlight;
+    document.getElementById('offersAndDestinations').textContent = translations[lang].offersAndDestinations;
+    document.getElementById('checkIn').textContent = translations[lang].checkIn;
+    document.getElementById('search-btn').innerHTML = `<img src="../imagen/header/lupa.png" class="" id="lupa" alt="" width="20"> ${translations[lang].search}`;
+    document.getElementById('tickets').innerHTML = `<img src="../imagen/header_ayudante/boleto.png" class="" id="" alt="" width="20"> ${translations[lang].tickets}`;
+    document.getElementById('chats').innerHTML = `<img src="../imagen/header_ayudante/chats.png" class="" id="" alt="" width="20"> ${translations[lang].chats}`;
+    document.getElementById('hello').innerHTML = `${translations[lang].hello} ${nomCliente}!`;
+    document.getElementById('viewProfile').textContent = translations[lang].viewProfile;
+    document.getElementById('logout').textContent = translations[lang].logout;
+}
+
+
 
 
 /*//////////////////////////////////////////////////////////////////*/ 
@@ -328,9 +373,6 @@ if ($conexion) {
                 temaClaro();
             }
         });
-
-
-
 </script>
 
 </body>
