@@ -255,6 +255,15 @@ CREATE TABLE mensajes (
     tipo_archivo varchar(255),
     PRIMARY KEY (id)
 );
+create table notiAsistente(
+	idNoti int auto_increment,
+    idAsistente int, 
+    idCliente int,
+    msj varchar(5),
+    primary key (idNoti),
+    foreign key (idAsistente) references asistente(idAsistente),
+    foreign key (idCliente) references usuario(idCliente)
+);
 /*
 -- TABLAS INTERMEDIAS:
 -- Tabla aerolineaAsistente
@@ -493,6 +502,7 @@ select * from vuelo;
 select * from asientos;
 select * from administradores;
 select * from form;
+select * from notiAsistente;
 truncate table form;
 select * from mensajes;
 use railway; 

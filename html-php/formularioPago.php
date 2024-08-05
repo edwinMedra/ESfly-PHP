@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,8 +15,26 @@
     <link rel="stylesheet" href="../css/headerr.css">
     <link rel="stylesheet" href="../css/pie.css">
     <title>Formulario de pago ESfly</title>
- 
 </head>
+<?php
+include("header-log.php");
+// llamar datos de el formulario anterior
+$idVuelo = $_GET['idVuelo'];
+$sql = $conexion->query("SELECT * FROM form where idVuelo='$idVuelo' and idUsuario='$id'");
+$row = $sql->fetch_array();
+$nombrePasajero = $row['nombrePasajero'];
+$duiPasajero = $row['duiPasajero'];
+
+// llamar datos de el vuelo en cuestion
+$vuelo = $conexion->query("SELECT * FROM vuelo where idVuelo='$idVuelo'");
+$rowVuelo = $vuelo->fetch_array();
+$origen = $rowVuelo['origen']; // origen de el vuelo
+$destino = $rowVuelo['destino']; // destino de el vuelo
+$fechaSalida = $rowVuelo['fechaSalida']; // fecha salida de el vuelo
+$fecha = strtotime($fechaSalida);
+$dia = date("Y-m-d",$fecha);
+$hora = date("H:i");
+?>
 <body>
     <div class="card-formu container d-flex justify-content-center align-items-center mt-5 mb-5">
         <div class="card p-4 custom-card    mt-5">
@@ -23,36 +42,35 @@
             <form>
                 <div class="form-group mb-3">
                     <label for="nombreCompleto">Nombre Completo de usuario</span></label>
-                    <input type="text" class="form-control" id="nombreCompleto" disabled selected value="Patito Juan Pérez Gonzales" readonly>
+                    <input type="text" class="form-control" id="nombreCompleto" disabled selected value="<?php echo $nombreCompleto ?>" readonly>
                 </div>
                 <div class="form-group mb-3">
                     <label for="dui">DUI de usuario </label>
-                    <input type="text" class="form-control" id="dui" disabled selected value="03387626-4" readonly>
+                    <input type="text" class="form-control" id="dui" disabled selected value="<?php echo $dui ?>" readonly>
                 </div>
                 <div class="form-group mb-3">
                     <label for="pasaporte">Pasaporte de usuario </label>
-                    <input type="text" class="form-control" id="pasaporte" disabled selected value="3818970" readonly>
+                    <input type="text" class="form-control" id="pasaporte" disabled selected value="<?php echo $pasaporte ?>" readonly>
                 </div>
 
                 <div class="form-group mb-3">
-                    <label for="nombrePasajero">Nombre completo del pasajero <span class="text-danger">*</span></label>
-                    <input type="text" class="form-control" id="nombrePasajero">
+                    <label for="nombrePasajero">Nombre completo del pasajero <span class="text-danger"></span></label>
+                    <input type="text" class="form-control" id="nombrePasajero" value="<?php echo $nombrePasajero ?>" disabled readonly>
                 </div>
-
 
                 <div class="form-group mb-3">
                     <label for="dui">DUI del pasajero </label>
-                    <input type="text" class="form-control" id="dui" >
+                    <input type="text" class="form-control" id="dui" disabled readonly value="<?php echo $duiPasajero ?>">
                 </div>
 
                 <div class="form-group mb-3">
                     <label for="dui">Tarjeta de crédito del pasajero </label>
-                    <input type="text" class="form-control" id="dui" >
+                    <input type="text" class="form-control" id="dui" required>
                 </div>
 
                 <div class="form-group mb-3">
                     <label for="dui">Número de teléfono</label>
-                    <input type="text" class="form-control" id="dui" >
+                    <input type="text" class="form-control" id="dui" required>
                 </div>
 
                 <label for="dui">Tipo de vuelo del pasajero</label><br>
@@ -65,12 +83,12 @@
 
                 <div class="form-group mb-3">
                     <label for="pasaporte">País de origen </label>
-                    <input type="text" class="form-control" id="pasaporte" disabled selected value="3818970" readonly>
+                    <input type="text" class="form-control" id="pasaporte" disabled selected value="<?php echo $origen?>" readonly>
                 </div>
 
                 <div class="form-group mb-3">
                     <label for="pasaporte">País de destino </label>
-                    <input type="text" class="form-control" id="pasaporte" disabled selected value="3818970" readonly>
+                    <input type="text" class="form-control" id="pasaporte" disabled selected value="<?php echo $destino?>" readonly>
                 </div>
 
                 <div class="form-group mb-3">
@@ -80,17 +98,17 @@
 
                 <div class="form-group mb-3">
                     <label for="pasaporte">Fecha de vuelo </label>
-                    <input type="date" class="form-control" id="pasaporte" disabled selected value="3818970" readonly>
+                    <input type="text" class="form-control" id="pasaporte" disabled selected value="<?php echo $dia?>" readonly>
                 </div>
 
 
                 <div class="form-group mb-3">
                     <label for="pasaporte">Hora de vuelo</label>
-                    <input type="time" class="form-control" id="pasaporte" disabled selected value="3818970" readonly>
+                    <input type="text" class="form-control" id="pasaporte" disabled selected value="<?php echo $hora?>" readonly>
                 </div>
 
-                
-               
+
+
                 <div class="d-flex justify-content-between">
                     <button type="button" class="btn btn-secondary">Atrás</button>
                     <button type="submit" class="btn btn-primary">Siguiente</button>
