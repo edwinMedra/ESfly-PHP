@@ -56,32 +56,32 @@
           <form class="mb-2 g-0" method="post" enctype="multipart/form-data">
             <div class="mb-2 g-0">
               <label for="exampleImputEmail" class="form-label font-weight-bold">
-                <img src="../imagen/login/nombre.png" class="img"> Nombres</label>
+                <img src="../imagen/registroLogin/nombre.png" class="img"> Nombres</label>
               <input type="username" class="form-control" placeholder="Ingresa tu nombre" id="nombre" aria-describedby="emailHelp" name="nombre" value="<?php echo isset($_POST['nombre']) ? htmlspecialchars($_POST['nombre']) : ''; ?>">
             </div>
 
             <div class="mb-2 ">
               <label for="exampleImputEmail" class="form-label font-weight-bold">
-                <img src="../imagen/login/apellido.png" class="img"> Apellidos</label>
+                <img src="../imagen/registroLogin/apellido.png" class="img"> Apellidos</label>
               <input type="lastname" class="form-control mb-2" placeholder="Ingresa tu apellido" id="apellido" name="apellido" value="<?php echo isset($_POST['apellido']) ? htmlspecialchars($_POST['apellido']) : ''; ?>">
             </div>
 
             <div class="mb-2">
               <label for="exampleImputEmail" class="form-label font-weight-bold">
-                <img src="../imagen/login/correo.png" class="img"> Correo</label>
+                <img src="../imagen/registroLogin/correo.png" class="img"> Correo</label>
               <input type="email" class="form-control mb-2" placeholder="Ingresa tu correo" id="correo" name="email" value="<?php echo isset($_POST['email']) ? htmlspecialchars($_POST['email']) : ''; ?>">
             </div>
 
             <div class="mb-2">
               <label for="exampleImputPassword" class="form-label font-weight-bold">
-                <img src="../imagen/login/contraseña.png" class="img"> Contraseña
+                <img src="../imagen/registroLogin/contraseña.png" class="img"> Contraseña
               </label><i class="ojo bx bx-show-alt  mt-2" id="togglePassword"></i>
               <input type="password" class="pass form-control mb-2" placeholder="Ingresa tu contraseña" id="pass" name="pass" value="">
             </div>
 
             <div class="mb-2">
               <label for="exampleImputPassword" class="form-label font-weight-bold">
-                <img src="../imagen/login/contraseña.png" class="img"> Validar Contraseña
+                <img src="../imagen/registroLogin/contraseña.png" class="img"> Validar Contraseña
               </label><i class="ojo bx bx-show-alt  mt-2" id="togglePassword"></i>
               <input type="password" class="pass form-control mb-2" placeholder="Ingresa tu contraseña" id="pass" name="validarPass" value="">
             </div>
@@ -89,17 +89,17 @@
 
             <div class="mb-2">
               <label for="exampleImputEmail" class="form-label font-weight-bold">
-                <img src="../imagen/login/pasaporte.png" class="img"> Pasaporte</label>
+                <img src="../imagen/registroLogin/pasaporte.png" class="img"> Pasaporte</label>
               <input type="text" class="form-control mb-2" placeholder="Ingresa tu pasaporte" id="pasaporte" name="passport" value="<?php echo isset($_POST['passport']) ? htmlspecialchars($_POST['passport']) : ''; ?>">
             </div>
 
             <div class="mb-2">
               <label for="exampleImputEmail" class="form-label font-weight-bold">
-                <img src="../imagen/login/dui.png" class="img"> DUI</label>
+                <img src="../imagen/registroLogin/dui.png" class="img"> DUI</label>
               <input type="text" class="form-control mb-2" placeholder="Ingresa tu dui" id="dui" name="dui" value="<?php echo isset($_POST['dui']) ? htmlspecialchars($_POST['dui']) : ''; ?>">
             </div>
             <label for="foto">
-              <a class="btn btn-primary w-100 mt-3" name="registro">Subir foto de perfil</a>
+              <a class="btn btn-primary w-100 mt-5" name="registro">Subir foto de perfil</a>
             </label>
             <button type="submit" class="btn btn-primary w-100 mt-3" name="registro">Crear</button>
             <input type="file" class="d-none" id="foto" name="foto" accept="image/*">

@@ -21,12 +21,21 @@
 
     <title>Inicio Asistente</title>
 </head>
-<?php include ("header_ayudante.php")?>
+<?php include("header_ayudante.php") ?>
 
 <!--HEADER DE AYUDANTE ESPECIAL-->
 </head>
 
-
+<style>
+ 
+    #perfil {
+    min-height: 180px;
+    max-height: 180px;
+    min-width:  180px;
+    max-width:  180px;
+    object-fit: cover;
+  }
+</style>
 
 
 
@@ -47,11 +56,21 @@
         </div>
 
         <div class="perfil-ayudante">
-            <img src="../imagen/datosCuenta/foto_usuario.png" alt="">
+            <?php
+            if ($foto == null) {
+                ?>
+                <img src="../imagen/datosCuenta/foto_usuario.png" alt="" class="rounded-circle border border-1 border-black mx-5" id="perfil">
+                <?php
+            }else{
+                ?>
+                <img src="data:image/jpg;base64,<?php echo base64_encode($foto)?>" alt="" id="perfil" class="rounded-circle border border-1 border-black mx-5"  height="35px" width="35px">
+                <?php
+            }
+            ?>
             <div>
-                <h5><?php echo $nombre?></h5>
+                <h5><?php echo $nombre ?></h5>
                 <p>Horas de servicio</p>
-                <?php echo $horario?>
+                <?php echo $horario ?>
                 <button class="btn btn-primary">Editar perfil</button>
             </div>
         </div>

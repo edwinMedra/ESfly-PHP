@@ -46,7 +46,7 @@
           <?php
           if ($foto == null) {
           ?>
-            <img src="https://cdn-icons-png.flaticon.com/512/9187/9187604.png" class="rounded-circle mb-5 border border-1 border-black mx-1 img-fluid" id="lupa" alt="" max="22px" min="22px">
+            <img src="../imagen/header_ayudante/logo_usuario.png" class="rounded-circle mb-5 border border-1 border-black mx-1 img-fluid" id="lupa" alt="" max="22px" min="22px">
           <?php
           } else {
           ?>
@@ -54,15 +54,16 @@
           <?php
           }
           ?>
-          <div class="card-body">
+          <div class="card-body text-center">
             <label for="foto">
               <a type="button" class="btn btn-primary mb-5 ">Agregar foto</a>
               <input type="file" id="foto" name="foto" class="d-none" accept="image*/">
             </label>
+            <button class="btn btn-danger mb-5" onclick={deleteFoto()} type="button">Eliminar foto</button>
             <p class="card-text">Requisitos para la foto: "Debe ser de frente, descubierta, sin accesorios, sin lentes o gafas de sol."</p>
           </div>
         </div>
-        <div class="col-lg-7 col-12 text-primary-emphasis bg-light-subtle border border-secondary-subtle rounded-3  p-5 ps-3">
+        <div class="col-lg-7  col-12 text-primary-emphasis bg-light-subtle border border-secondary-subtle rounded-3  p-5 ps-3">
           <div class="">
             <label for="InputEmail1" class="form-label">Nombre</label>
             <input type="text" name="nombre" class="form-control" id="InputEmail1" aria-describedby="emailHelp" value="<?php echo $nomCliente; ?>">
@@ -80,25 +81,43 @@
             <label for="InputCorreo1" class="form-label">Correo</label>
             <input disabled type="email" name="email" class="form-control" id="InputCorreo1" value="<?php echo $email ?>">
           </div>
-          <div class="mb-3">
-            <label for="InputCorreo1" class="form-label">Contraseña</label>
-            <input type="password" name="pass" class="form-control" id="InputCorreo1" placeholder="Ingresar nueva contraseña">
-          </div>
           <div class=" mb-3">
             <label for="InputEmail1" class="form-label">Pasaporte</label>
             <input disabled type="text" name="pasaporte" class="form-control" id="InputEmail1" aria-describedby="emailHelp" value="<?php echo $pasaporte ?>">
           </div>
           <div class="mb-3  text-center">
-            <button type="submit" class="btn btn-primary mx-auto" name="registro">Cambiar datos</button>
-            <button type="button" class="btn btn-primary mx-auto bg-danger border-0" onclick={eliminar()}>Eliminar cuenta</button>
+            <button type="submit" class="btn btn-primary " name="registro">Cambiar datos</button>
+            <button type="button" class="btn btn-primary  bg-danger border-0" onclick={eliminar()}>Eliminar cuenta</button>
+            <button type="button" class="btn btn-primary  bg-dark border-0" onclick={pass()}>Cambiar contraseña</button>
           </div>
-
         </div>
       </div>
     </div>
   </form>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+<script>
+  // cambiar contraseña 
+  function pass() {
+    var pass = confirm("¿Desea cambiar la contraseña?");
+    if (pass){
+      window.location.href = "../js/cambiarPass.php?rol=usuario&id=<?php echo $id?>";
+    }
+  }
+</script>
+<?php
+echo '
+<script>
+  // function para eliminar la foto de el propio usuario
+  function deleteFoto(){
+    var deler = confirm("¿Desea eliminar la foto de perfil?");
+    if (deler){
+      window.location.href = "../js/deleteFotoUsu.php?rol=usuario&id=' . $id . '";
+    }
+  }
+</script>
+';
+?>
 
 </html>
 <?php
@@ -119,41 +138,23 @@ if (isset($_POST['registro'])) {
   include("conex.php");
   $nombre = trim($_POST['nombre']);
   $apellido = trim($_POST['apellido']);
-  $pass = trim($_POST['pass']);
   $foto = $_FILES['foto']['error'];
   //empiezan validaciones para validar el dui, pasaporte y tambien el correo 
 
   if ($foto) {
-    if ($pass == null or $pass == "") {
-      $update = "UPDATE usuario set nomCliente='$nombre', apeCliente='$apellido' where idCliente='$id'";
-      $resul = $conexion->query($update);
-      if ($resul) {
-        echo '<script>alert("Datos modificados con exito")</script>';
-      }
-    } else {
-      $encriptada = password_hash($pass, PASSWORD_DEFAULT);
-      $update = "UPDATE usuario set nomCliente='$nombre', apeCliente='$apellido', pass='$encriptada',  where idCliente='$id'";
-      $resul = $conexion->query($update);
-      if ($resul) {
-        echo '<script>alert("Datos modificados con exito")</script>';
-      }
+    // en caso de que el usuario no coloque la foto
+    $update = "UPDATE usuario set nomCliente='$nombre', apeCliente='$apellido' where idCliente='$id'";
+    $resul = $conexion->query($update);
+    if ($resul) {
+      echo '<script>alert("Datos modificados con exito")</script>';
     }
   } else {
-    if ($pass == null or $pass == "") {
-      $foto = addslashes(file_get_contents($_FILES['foto']['tmp_name']));
-      $update = "UPDATE usuario set nomCliente='$nombre', apeCliente='$apellido',  foto='$foto' where idCliente='$id'";
-      $resul = $conexion->query($update);
-      if ($resul) {
-        echo '<script>alert("Datos modificados con exito")</script>';
-      }
-    } else {
-      $encriptada = password_hash($pass, PASSWORD_DEFAULT);
-      $foto = addslashes(file_get_contents($_FILES['foto']['tmp_name']));
-      $update = "UPDATE usuario set nomCliente='$nombre', apeCliente='$apellido', pass='$encriptada' , foto='$foto' where idCliente='$id'";
-      $resul = $conexion->query($update);
-      if ($resul) {
-        echo '<script>alert("Datos modificados con exito")</script>';
-      }
+    // aqui en caso de que el usuario si haya colocado la foto de perfil 
+    $foto = addslashes(file_get_contents($_FILES['foto']['tmp_name']));
+    $update = "UPDATE usuario set nomCliente='$nombre', apeCliente='$apellido',  foto='$foto' where idCliente='$id'";
+    $resul = $conexion->query($update);
+    if ($resul) {
+      echo '<script>alert("Datos modificados con exito")</script>';
     }
   }
   echo "
