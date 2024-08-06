@@ -185,7 +185,7 @@ include("header-log.php");
 
 
 <div class=" container-fluid texto-titulo  mt-5 ps-5">
-        <h5>Sugerencias de viajes ></h5>
+        <h5 id="sugerencias-travel">Sugerencias de viajes ></h5>
     </div>
 
 
@@ -535,8 +535,8 @@ include("header-log.php");
 <!-- /*////////////////////////TRADUCTOR INDEX //////////////////////////////////////////*/ 
  -->
 <script>    
-
-   const indextraduction /*variable q le puse, hay q tenes cuidado con ese nombre abajo en la funcion*/  = {
+/*variable q le puse, hay q tenes cuidado con ese nombre abajo en la funcion*/  
+   const indextraduction = {
     "es": {
         "text1": "Más que una aerolínea, somos tu puente al mundo.",/*aqui por ejemplo el text1 es el id de la frase y despues de punto es la traduccion en español de la palabra*/
         "search-flight-title": "Busca un vuelo >",
@@ -546,6 +546,7 @@ include("header-log.php");
         "destination-country": "País de Destino:",
         "passenger-number": "Número de Pasajeros:",
         "search-btn": "Buscar",
+        "sugerencias-travel": "Sugerencias de viajes >",
         "countries": {/*aqui se pone la llave para los selects q se hacen pero aun no funciona*/
             "Antigua y Barbuda": "Antigua y Barbuda",
             "Argentina": "Argentina",
@@ -593,6 +594,8 @@ include("header-log.php");
         "destination-country": "Destination Country:",
         "passenger-number": "Number of Passengers:",
         "search-btn": "Search",
+        "sugerencias-travel": "Travel Tips >",
+
         "countries": {
             "Antigua y Barbuda": "Antigua and Barbuda",
             "Argentina": "Argentina",
@@ -644,6 +647,10 @@ include("header-log.php");
     document.getElementById('destination-country').textContent = indextraduction[lang]["destination-country"];
     document.getElementById('passenger-number').textContent = indextraduction[lang]["passenger-number"];
     document.getElementById('search-btn').textContent = indextraduction[lang]["search-btn"];
+    document.getElementById('sugerencias-travel').textContent = indextraduction[lang]["sugerencias-travel"];
+
+    
+
     
     // AQUI ES APRA ACTUALIZAR LOS PAISES DEL IMPUT PQ ES DIFERENTE A TRADUCIR UNA PALABRA NORMAL con id pero igual no funciona
     const originSelect = document.getElementById('Origen');
@@ -681,9 +688,7 @@ window.addEventListener('load', () => {
 include("pie.php");
 ?>
 <!--Final Pie-->
-<!--Final Pie-->
 
-<!--Final Pie-->
 
 </body>
 </html>
