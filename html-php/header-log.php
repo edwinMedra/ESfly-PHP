@@ -9,9 +9,9 @@ if ($id == null || $id == '') {
 // hacer consulta en caso de que el usuario haya sido eliminado
 $delete = $conexion->query("SELECT * FROM usuario where idCliente='$id'");
 $resul = mysqli_num_rows($delete);
-if(!($resul)){
-session_destroy();
-echo "<script>
+if (!($resul)) {
+    session_destroy();
+    echo "<script>
 window.location.href = '../html/index.php';
 </script>";
 }
@@ -32,6 +32,7 @@ if ($conexion) {
             $foto = $row['foto'];
             $idCliente = $row['idCliente'];
             $pass = $row['pass'];
+            $nombreCompleto = $nomCliente ." ".$apeCliente;
         }
     } else {
         header("Location:../admin-php/index_admin.php");
@@ -42,6 +43,7 @@ if ($conexion) {
 
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -107,21 +109,41 @@ if ($conexion) {
             padding: 5px 10px;
         }
 
+<<<<<<< HEAD
         .fijo{
             background-color: #4d86e3; 
             color: white; 
+=======
+        .btn-primary-outline:hover {
+            background-color: #e4e2e2;
+            color: rgb(0, 0, 0);
+        }
+
+        .btn-primary-outline img {
+            margin-right: 5px;
+        }
+
+        .fijo {
+            background-color: #4d86e3;
+            color: white;
+>>>>>>> c25c389fc87aa51a7c69cf0d285fe81affbb2921
             cursor: default;
         }
 
         .fijo:hover {
             cursor: default;
-            background-color: #4d86e3; 
+            background-color: #4d86e3;
             color: white;
+<<<<<<< HEAD
+=======
+
+>>>>>>> c25c389fc87aa51a7c69cf0d285fe81affbb2921
         }
 
         .nav-link.dropdown-toggle::after {
             display: none;
         }
+<<<<<<< HEAD
 
 
          /*PARA CAMBIAR EL COLOR DE LA LETRA DE EL NAV SEGUN LOS TEMAS DE OSCURO Y CLARO */
@@ -133,23 +155,27 @@ if ($conexion) {
             color: #000; 
         }
    
+=======
+>>>>>>> c25c389fc87aa51a7c69cf0d285fe81affbb2921
     </style>
 
 
 </head>
+
 <body>
 
-<nav class="navbar navbar-expand-lg bg-body-tertiary shadow-navbar fixed-top">
-    <div class="container-fluid">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary shadow-navbar fixed-top">
+        <div class="container-fluid">
 
-        <a class="navbar-brand" href="index.php">
-            <img src="../imagen/estoyAnsioso/esflyInfo.png" class="" id="logo" alt="">
-        </a>
+            <a class="navbar-brand" href="index.php">
+                <img src="../imagen/estoyAnsioso/esflyInfo.png" class="" id="logo" alt="">
+            </a>
 
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
+<<<<<<< HEAD
         <div class="collapse navbar-collapse" id="navbarText">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
@@ -164,13 +190,26 @@ if ($conexion) {
                     <a class="nav-link" id="checkIn" href="check-in.php">Check-in</a>
                 </li>
             </ul>
+=======
+            <div class="collapse navbar-collapse" id="navbarText">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="Reservarvuelos.php">Reserva tu vuelo</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="ofertasYDestinos.php">Ofertas y destinos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="check-in.php">Check-in</a>
+                    </li>
+                </ul>
+>>>>>>> c25c389fc87aa51a7c69cf0d285fe81affbb2921
 
-            <span class="navbar-text"></span>
+                <span class="navbar-text"></span>
 
-            
 
-            <form class="d-flex" role="search">
 
+<<<<<<< HEAD
                 <a href="../chat/chat_cliente.php" class="btn  " type="button"  id="tickets">
                     <img src="../imagen/header_ayudante/boleto.png" class="" id="" alt="" width="20"> Boletos
                 </a>
@@ -184,6 +223,22 @@ if ($conexion) {
                     <?php
                     if ($foto == null) {
                         echo '<div class="nav-item dropdown">
+=======
+                <form class="d-flex" role="search">
+
+                    <a href="../chat/chat_cliente.php" class="btn  " type="button">
+                        <img src="../imagen/header_ayudante/boleto.png" class="" id="" alt="" width="20"> Boletos
+                    </a>
+
+                    <a href="../chat/chat_cliente.php" class="btn  " type="button">
+                        <img src="../imagen/header_ayudante/chats.png" class="" id="" alt="" width="20"> Chats
+                    </a>
+
+                    <label for="lupa">
+                        <?php
+                        if ($foto == null) {
+                            echo '<div class="nav-item dropdown">
+>>>>>>> c25c389fc87aa51a7c69cf0d285fe81affbb2921
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         <img src="../imagen/header_ayudante/logo_usuario.png" class="rounded-circle border ms-2 border-1 border-black mx-1" id="lupa" alt="" height="35px" width="35px">
                         </a>
@@ -194,9 +249,8 @@ if ($conexion) {
                             <li><a class="dropdown-item" href="cerrar.php">Cerrar sesión</a></li>
                         </ul>
                     </div>';
-                    
-                    } else {
-                        echo '
+                        } else {
+                            echo '
                         <div class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="datos de cuenta.php" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         <img src="data:image/jpg;base64,' . base64_encode($foto) . '" class="rounded-circle my-auto border border-1 border-black mx-1" id="lupa" alt="" height="35px" width="35px" style="object-fit: cover;">
@@ -209,18 +263,30 @@ if ($conexion) {
                             <li><a class="dropdown-item" href="cerrar.php" id="logout">Cerrar sesión</a></li>
                         </ul>
                     </div>';
-                    }
-                    ?>
-                </label>
+                        }
+                        ?>
+                    </label>
 
-                
 
+<<<<<<< HEAD
                 
  
             </form>
 
             <!--BOTON DE TEMAS  -->
                 <button  onclick="cambiarTema()" class="btn rounded-fill  ms-1"><i id="dl-icon" class="bi bi-moon-fill"></i></button>
+=======
+
+
+
+                </form>
+                <!--<a class="btn  ms-" href="datos de cuenta.php" type="submit"><?php //echo $nomCliente; 
+                                                                                    ?></a>-->
+
+
+                <!--BOTON DE TEMAS  -->
+                <button onclick="cambiarTema()" class="btn rounded-fill  ms-1"><i id="dl-icon" class="bi bi-moon-fill"></i></button>
+>>>>>>> c25c389fc87aa51a7c69cf0d285fe81affbb2921
 
                 <div class="nav-item dropdown ms-2">
                     <a class="nav-link dropdown-toggle" href="#" role="button" id="" data-bs-toggle="dropdown" aria-expanded="false">
@@ -234,22 +300,44 @@ if ($conexion) {
                 </div>
 
 
+<<<<<<< HEAD
             <form class="d-flex" role="search">
                 <button class="btn ms-1" type="button" id="search-btn">
                     <img src="../imagen/header/lupa.png" class="" id="lupa" alt="" width="20"> Buscar
                 </button>
             </form>
+=======
+                <form class="d-flex" role="search">
+                    <button class="btn ms-1" type="button" id="search-btn">
+                        <img src="../imagen/header/lupa.png" class="" id="lupa" alt="" width="20"> Buscar
+                    </button>
+                </form>
+
+
+
+
+
+
+            </div>
+
+
+>>>>>>> c25c389fc87aa51a7c69cf0d285fe81affbb2921
         </div>
+    </nav>
 
+<<<<<<< HEAD
+=======
+    <!-- Search Bar -->
+    <div id="search-bar" class="input-group mt-3 p-3">
+        <input type="text" class="form-control" id="search-input" placeholder="Buscar...">
+        <div class="search-suggestions" id="search-suggestions"></div>
+>>>>>>> c25c389fc87aa51a7c69cf0d285fe81affbb2921
     </div>
-</nav>
 
-<!-- Search Bar -->
-<div id="search-bar" class="input-group mt-3 p-3">
-    <input type="text" class="form-control" id="search-input" placeholder="Buscar...">
-    <div class="search-suggestions" id="search-suggestions"></div>
-</div>
+    <script>
+        /*////////////////////////TRADUCTOR//////////////////////////////////////////*/
 
+<<<<<<< HEAD
 <script>
 /*////////////////////////TRADUCTOR HEADER //////////////////////////////////////////*/ 
 
@@ -323,44 +411,96 @@ window.addEventListener('load', () => {
     const searchBar = document.getElementById('search-bar');
     const searchInput = document.getElementById('search-input');
     const searchSuggestions = document.getElementById('search-suggestions');
+=======
+        // Diccionario de traducción
+        const translations = {
+            "es": {
+                "text": "Hola, ¿cómo estás? Gracias por visitar mi página."
+            },
+            "en": {
+                "text": "Hello, how are you? Thank you for visiting my page."
+            }
+        };
 
-    const pages = [
-        { name: "Reserva tu vuelo", url: "Reservarvuelos.php" },
-        { name: "Ofertas y destinos", url: "ofertasYDestinos.php" },
-        { name: "Check-in", url: "check-in.php" },
-        { name: "Iniciar sesión", url: "login.php" },
-        { name: "Registrarse", url: "registro.php" }
-    ];
+        function setLanguage(language) {
+            // Obtener el texto traducido según el idioma seleccionado
+            const translatedText = translations[language].text;
 
-    searchBtn.addEventListener('click', () => {
-        searchBar.style.display = searchBar.style.display === 'none' ? 'block' : 'none';
-        searchInput.focus();
-    });
-
-    searchInput.addEventListener('input', () => {
-        const query = searchInput.value.toLowerCase();
-        searchSuggestions.innerHTML = '';
-
-        if (query) {
-            const filteredPages = pages.filter(page => page.name.toLowerCase().includes(query));
-            filteredPages.forEach(page => {
-                const suggestion = document.createElement('a');
-                suggestion.href = page.url;
-                suggestion.textContent = page.name;
-                searchSuggestions.appendChild(suggestion);
-            });
-            searchSuggestions.style.display = 'block'; // Mostrar sugerencias si hay resultados
-        } else {
-            searchSuggestions.style.display = 'none'; // Ocultar sugerencias si no hay resultados
+            // Actualizar el contenido del DOM
+            document.getElementById("textContent").textContent = translatedText;
         }
-    });
 
-    document.addEventListener('click', function(e) {
-        if (!searchBar.contains(e.target) && e.target !== searchBtn) {
-            searchBar.style.display = 'none'; // Ocultar el buscador si se hace clic fuera de él
+        // Configurar idioma inicial (opcional)
+        setLanguage('es'); // Cambia 'es' a 'en' si deseas comenzar en inglés
+
+
+        /*//////////////////////////////////////////////////////////////////*/
+        const searchBtn = document.getElementById('search-btn');
+        const searchBar = document.getElementById('search-bar');
+        const searchInput = document.getElementById('search-input');
+        const searchSuggestions = document.getElementById('search-suggestions');
+>>>>>>> c25c389fc87aa51a7c69cf0d285fe81affbb2921
+
+        const pages = [{
+                name: "Reserva tu vuelo",
+                url: "Reservarvuelos.php"
+            },
+            {
+                name: "Ofertas y destinos",
+                url: "ofertasYDestinos.php"
+            },
+            {
+                name: "Check-in",
+                url: "check-in.php"
+            },
+            {
+                name: "Iniciar sesión",
+                url: "login.php"
+            },
+            {
+                name: "Registrarse",
+                url: "registro.php"
+            }
+        ];
+
+        searchBtn.addEventListener('click', () => {
+            searchBar.style.display = searchBar.style.display === 'none' ? 'block' : 'none';
+            searchInput.focus();
+        });
+
+        searchInput.addEventListener('input', () => {
+            const query = searchInput.value.toLowerCase();
+            searchSuggestions.innerHTML = '';
+
+            if (query) {
+                const filteredPages = pages.filter(page => page.name.toLowerCase().includes(query));
+                filteredPages.forEach(page => {
+                    const suggestion = document.createElement('a');
+                    suggestion.href = page.url;
+                    suggestion.textContent = page.name;
+                    searchSuggestions.appendChild(suggestion);
+                });
+                searchSuggestions.style.display = 'block'; // Mostrar sugerencias si hay resultados
+            } else {
+                searchSuggestions.style.display = 'none'; // Ocultar sugerencias si no hay resultados
+            }
+        });
+
+        document.addEventListener('click', function(e) {
+            if (!searchBar.contains(e.target) && e.target !== searchBtn) {
+                searchBar.style.display = 'none'; // Ocultar el buscador si se hace clic fuera de él
+            }
+        });
+
+<<<<<<< HEAD
+=======
+        // MODO OSCURO Y CLARO DE LA PAGINA
+        const temaOscuro = () => {
+            document.querySelector("body").setAttribute("data-bs-theme", "dark");
+            document.querySelector("#dl-icon").setAttribute("class", "bi bi-sun-fill");
+            localStorage.setItem("theme", "dark");
         }
-    });
-
+>>>>>>> c25c389fc87aa51a7c69cf0d285fe81affbb2921
 
   /*////////////////////MODO OSCURO Y CLARO DE LA PAGINA////////////////////////*/
   const temaOscuro = () => {
@@ -375,6 +515,7 @@ const temaClaro = () => {
     localStorage.setItem("theme", "light");
 }
 
+<<<<<<< HEAD
 const cambiarTema = () => {
     document.querySelector("body").getAttribute("data-bs-theme") === "light" ? temaOscuro() : temaClaro();
 }
@@ -399,6 +540,19 @@ window.addEventListener('load', () => {
 
        
 </script>
+=======
+        // PARA GUARDAR EL COLOR DE LA PAGINA (tutorial 2)
+        window.addEventListener('load', () => {
+            const theme = localStorage.getItem("theme");
+            if (theme === "dark") {
+                temaOscuro();
+            } else {
+                temaClaro();
+            }
+        });
+    </script>
+>>>>>>> c25c389fc87aa51a7c69cf0d285fe81affbb2921
 
 </body>
+
 </html>

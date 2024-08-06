@@ -434,7 +434,7 @@ if ($boton) {
     $cantEquiMano = trim($_POST['cantidadEquipajeMano']);
     $cantEquiBodega = trim($_POST['cantidadEquipajeBodega']);
     $articulos = $conexion->query("UPDATE form SET tipoIncapacidad='$tipoIncapacidad', artiPersona='$cantArticPerso', equiMano='$cantEquiMano', equiBodega='$cantEquiBodega' where idVuelo='$idVuelo' and idUsuario='$id'");
-    /*echo "<script>
-      window.location.href = 'seleccionDeAsientosVIP.php?idVuelo=" .  $idVuelo . "'; </script>";*/
+    echo "<script>
+      window.location.href = 'seleccionDeAsientosVIP.php?idVuelo=" .  $idVuelo . "'; </script>";
 }
 ?>

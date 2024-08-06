@@ -90,7 +90,7 @@ error_reporting(0);
 echo '
 <script>
     function eliminar() {
-        let x = confirm("¿Esta seguro que desea eliminar este usuario?");
+        let x = confirm("¿Esta seguro que desea eliminar este Administrador?");
         if (x) {
             window.location.href = "eliminar-ad.php?idAdmin='.$idAdmin.'"
         }
