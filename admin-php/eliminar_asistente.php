@@ -89,7 +89,7 @@ error_reporting(0);
 echo '
 <script>
     function eliminar() {
-        let x = confirm("¿Esta seguro que desea eliminar este usuario?");
+        let x = confirm("¿Esta seguro que desea eliminar este Asistente?");
         if (x) {
             window.location.href = "eliminar-asis.php?idAsistente='.$idAsistente.'"
         }
