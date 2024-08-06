@@ -43,19 +43,7 @@
 include("header-log.php");
 ?>
 
-
-
-<!--______________________________________HEADER________________________________-->
-
 <!--______________________________________INDEX________________________________-->
-
-
-
-<!-- Botones para cambiar de idioma -->
-<div class="d-flex justify-content-end me-3 mt-3">
-    <button id="btn-es" class="btn btn-primary me-2">Español</button>
-    <button id="btn-en" class="btn btn-secondary">English</button>
-</div>
 
 <!-- imagenes de la pagina-->
 <div class="contenedor">
@@ -197,7 +185,7 @@ include("header-log.php");
 
 
 <div class=" container-fluid texto-titulo  mt-5 ps-5">
-        <h5 id="text2">Sugerencias de viajes ></h5>
+        <h5>Sugerencias de viajes ></h5>
     </div>
 
 
@@ -544,12 +532,13 @@ include("header-log.php");
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js"></script>
 
-<!-- Script de cambio de idioma -->
+<!-- /*////////////////////////TRADUCTOR INDEX //////////////////////////////////////////*/ 
+ -->
 <script>    
 
-const textTranslations = {
+   const indextraduction /*variable q le puse, hay q tenes cuidado con ese nombre abajo en la funcion*/  = {
     "es": {
-        "text1": "Más que una aerolínea, somos tu puente al mundo.",
+        "text1": "Más que una aerolínea, somos tu puente al mundo.",/*aqui por ejemplo el text1 es el id de la frase y despues de punto es la traduccion en español de la palabra*/
         "search-flight-title": "Busca un vuelo >",
         "search-flight": "Busca tu Vuelo:",
         "flight-date": "Fecha de Vuelo:",
@@ -557,8 +546,7 @@ const textTranslations = {
         "destination-country": "País de Destino:",
         "passenger-number": "Número de Pasajeros:",
         "search-btn": "Buscar",
-        "text2": "Sugerencias de viajes >",
-        "countries": {
+        "countries": {/*aqui se pone la llave para los selects q se hacen pero aun no funciona*/
             "Antigua y Barbuda": "Antigua y Barbuda",
             "Argentina": "Argentina",
             "Bahamas": "Bahamas",
@@ -597,7 +585,7 @@ const textTranslations = {
         }
     },
     "en": {
-        "text1": "More than an airline, we are your bridge to the world.",
+        "text1": "More than an airline, we are your bridge to the world.",/*aqui por ejemplo el text1 es el id de la frase y despues de punto es la traduccion en ingles de la palabra*/
         "search-flight-title": "Search for a flight >",
         "search-flight": "Search Your Flight:",
         "flight-date": "Flight Date:",
@@ -605,7 +593,6 @@ const textTranslations = {
         "destination-country": "Destination Country:",
         "passenger-number": "Number of Passengers:",
         "search-btn": "Search",
-        "text2": "Travel Tips >",
         "countries": {
             "Antigua y Barbuda": "Antigua and Barbuda",
             "Argentina": "Argentina",
@@ -647,36 +634,27 @@ const textTranslations = {
 };
 
 
-    document.getElementById('btn-es').addEventListener('click', () => {
-        setLanguage('es');
-    });
-
-    document.getElementById('btn-en').addEventListener('click', () => {
-        setLanguage('en');
-    });
-
-    function setLanguage(lang) {
-    document.getElementById('text1').textContent = textTranslations[lang]["text1"];
-    document.getElementById('search-flight-title').textContent = textTranslations[lang]["search-flight-title"];
-    document.getElementById('search-flight').textContent = textTranslations[lang]["search-flight"];
-    document.getElementById('flight-date').textContent = textTranslations[lang]["flight-date"];
-    document.getElementById('origin-country').textContent = textTranslations[lang]["origin-country"];
-    document.getElementById('destination-country').textContent = textTranslations[lang]["destination-country"];
-    document.getElementById('passenger-number').textContent = textTranslations[lang]["passenger-number"];
-    document.getElementById('search-btn').textContent = textTranslations[lang]["search-btn"];
-    document.getElementById('text2').textContent = textTranslations[lang]["text2"];
-
+    function setLanguage(lang) { /*funcion del lenguaje*/
+    /*elemento segun el id ,  id    , textcontent  igual a indextraduccion q es la variable q le puse , lenguaje, id, ;  */
+    document.getElementById('text1').textContent = indextraduction[lang]["text1"];
+    document.getElementById('search-flight-title').textContent = indextraduction[lang]["search-flight-title"];
+    document.getElementById('search-flight').textContent = indextraduction[lang]["search-flight"];
+    document.getElementById('flight-date').textContent = indextraduction[lang]["flight-date"];
+    document.getElementById('origin-country').textContent = indextraduction[lang]["origin-country"];
+    document.getElementById('destination-country').textContent = indextraduction[lang]["destination-country"];
+    document.getElementById('passenger-number').textContent = indextraduction[lang]["passenger-number"];
+    document.getElementById('search-btn').textContent = indextraduction[lang]["search-btn"];
     
-    // AQUI ES APRA ACTUALIZAR LOS PAISES DEL IMPUT PQ ES DIFERENTE A TRADUCIR UNA PALABRA NORMAL
+    // AQUI ES APRA ACTUALIZAR LOS PAISES DEL IMPUT PQ ES DIFERENTE A TRADUCIR UNA PALABRA NORMAL con id pero igual no funciona
     const originSelect = document.getElementById('Origen');
     Array.from(originSelect.options).forEach(option => {
-        option.textContent = textTranslations[lang]["countries"][option.value] || option.textContent;
+        option.textContent = indextraduction[lang]["countries"][option.value] || option.textContent;
     });
 }
 
 
 
-    /*GUARDAR EL IDIOMA Y COLOR*/
+    /*GUARDAR EL IDIOMA Y COLOR ESTO SI NO SE TOCA*/
 
 window.addEventListener('load', () => {
     const theme = localStorage.getItem("theme");
