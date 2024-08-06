@@ -1,5 +1,5 @@
-// MODO OSCURO Y CLARO DE LA PAGINA
-const temaOscuro = () => {
+  /*////////////////////MODO OSCURO Y CLARO DE LA PAGINA////////////////////////*/
+  const temaOscuro = () => {
     document.querySelector("body").setAttribute("data-bs-theme", "dark");
     document.querySelector("#dl-icon").setAttribute("class", "bi bi-sun-fill");
     localStorage.setItem("theme", "dark");
@@ -18,9 +18,17 @@ const cambiarTema = () => {
 // PARA GUARDAR EL COLOR DE LA PAGINA (tutorial 2)
 window.addEventListener('load', () => {
     const theme = localStorage.getItem("theme");
+    const language = localStorage.getItem("language"); 
+
     if (theme === "dark") {
         temaOscuro();
     } else {
         temaClaro();
+    }
+
+    if (language) {
+        setLanguage(language); 
+    } else {
+        setLanguage('es'); 
     }
 });

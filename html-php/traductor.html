@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selector de Idioma</title>
+    <style>
+        button {
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Texto en Diferentes Idiomas</h1>
+    <p id="textContent1">Hola, ¿cómo estás? Gracias por visitar mi página.</p>
+    <p id="textContent2">Más que una aerolínea, somos tu puente al mundo.</p>
+    <p id="textContent3">Bienvenido a ESfly.</p>
+
+    <button onclick="setLanguage('es')">Español</button>
+    <button onclick="setLanguage('en')">Inglés</button>
+
+    <script>
+        // Diccionario de traducción
+        const translations = {
+            "es": {
+                "text1": "Hola, ¿cómo estás? Gracias por visitar mi página.",
+                "text2": "Más que una aerolínea, somos tu puente al mundo.",
+                "text3": "Bienvenido a ESfly."
+
+            },
+            "en": {
+                "text1": "Hello, how are you? Thank you for visiting my page.",
+                "text2": "More than an airline, we are your bridge to the world.",
+                "text3": "Welcome to ESfly."
+
+            }
+        };
+
+        function setLanguage(language) {
+            // Obtener los textos traducidos según el idioma seleccionado
+            const translatedText1 = translations[language].text1;
+            const translatedText2 = translations[language].text2;
+            const translatedText3 = translations[language].text3;
+
+            
+            // Actualizar el contenido del DOM
+            document.getElementById("textContent1").textContent = translatedText1;
+            document.getElementById("textContent2").textContent = translatedText2;
+            document.getElementById("textContent3").textContent = translatedText3;
+
+        }
+
+        // Configurar idioma inicial (opcional)
+        setLanguage('es');  // Cambia 'es' a 'en' si deseas comenzar en inglés
+    </script>
+</body>
+</html>

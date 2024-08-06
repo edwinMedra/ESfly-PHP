@@ -126,17 +126,16 @@ if ($conexion) {
 
          /*PARA CAMBIAR EL COLOR DE LA LETRA DE EL NAV SEGUN LOS TEMAS DE OSCURO Y CLARO */
         body[data-bs-theme='dark'] .nav-link {
-            color: #fff; /* Texto blanco en modo oscuro */
+            color: #fff; 
         }
     
         body[data-bs-theme='light'] .nav-link {
             color: #000; 
         }
    
-
-
-
     </style>
+
+
 </head>
 <body>
 
@@ -206,7 +205,7 @@ if ($conexion) {
                         <ul class="dropdown-menu">
                         <hr>
                             <li><a class="dropdown-item fijo " type="" id="hello">¡Hola, ' . htmlspecialchars($nomCliente) . '!</a></li><hr>
-                            <li><a class="dropdown-item" href="datos de cuenta.php" id="viewProfile" >Ver perfil</a></li>
+                            <li><a class="dropdown-item" href="datos de cuenta.php" id="verperfil" >Ver perfil</a></li>
                             <li><a class="dropdown-item" href="cerrar.php" id="logout">Cerrar sesión</a></li>
                         </ul>
                     </div>';
@@ -219,10 +218,8 @@ if ($conexion) {
                 
  
             </form>
-                <!--<a class="btn  ms-" href="datos de cuenta.php" type="submit"><?php //echo $nomCliente; ?></a>-->
 
-          
-                 <!--BOTON DE TEMAS  -->
+            <!--BOTON DE TEMAS  -->
                 <button  onclick="cambiarTema()" class="btn rounded-fill  ms-1"><i id="dl-icon" class="bi bi-moon-fill"></i></button>
 
                 <div class="nav-item dropdown ms-2">
@@ -242,14 +239,7 @@ if ($conexion) {
                     <img src="../imagen/header/lupa.png" class="" id="lupa" alt="" width="20"> Buscar
                 </button>
             </form>
-
-            
-
-
-
-            
         </div>
-
 
     </div>
 </nav>
@@ -261,10 +251,9 @@ if ($conexion) {
 </div>
 
 <script>
+/*////////////////////////TRADUCTOR HEADER //////////////////////////////////////////*/ 
 
-/*////////////////////////TRADUCTOR//////////////////////////////////////////*/ 
-
-const translations = {
+const headertraduction = {
     es: {
         reserveFlight: "Reserva tu vuelo",
         offersAndDestinations: "Ofertas y destinos",
@@ -273,8 +262,10 @@ const translations = {
         tickets: "Boletos",
         chats: "Chats",
         hello: "¡Hola,",
-        viewProfile: "Ver perfil",
-        logout: "Cerrar sesión"
+        verperfil: "Ver perfil",
+        logout: "Cerrar sesión",
+        text1: "Más que una aerolínea, somos tu puente al mundo."
+
     },
     en: {
         reserveFlight: "Reserve your flight",
@@ -284,27 +275,50 @@ const translations = {
         tickets: "Tickets",
         chats: "Chats",
         hello: "Hello,",
-        viewProfile: "View profile",
-        logout: "Logout"
+        verperfil: "View profile",
+        logout: "Logout",
+        text1: "More than an airline, we are your bridge to the world."
+
     }
 };
 
 function setLanguage(lang) {
-    document.getElementById('reserveFlight').textContent = translations[lang].reserveFlight;
-    document.getElementById('offersAndDestinations').textContent = translations[lang].offersAndDestinations;
-    document.getElementById('checkIn').textContent = translations[lang].checkIn;
-    document.getElementById('search-btn').innerHTML = `<img src="../imagen/header/lupa.png" class="" id="lupa" alt="" width="20"> ${translations[lang].search}`;
-    document.getElementById('tickets').innerHTML = `<img src="../imagen/header_ayudante/boleto.png" class="" id="" alt="" width="20"> ${translations[lang].tickets}`;
-    document.getElementById('chats').innerHTML = `<img src="../imagen/header_ayudante/chats.png" class="" id="" alt="" width="20"> ${translations[lang].chats}`;
-    document.getElementById('hello').innerHTML = `${translations[lang].hello} ${nomCliente}!`;
-    document.getElementById('viewProfile').textContent = translations[lang].viewProfile;
-    document.getElementById('logout').textContent = translations[lang].logout;
+    localStorage.setItem('language', lang); 
+    document.getElementById('reserveFlight').textContent = headertraduction[lang].reserveFlight;
+    document.getElementById('offersAndDestinations').textContent = headertraduction[lang].offersAndDestinations;
+    document.getElementById('checkIn').textContent = headertraduction[lang].checkIn;
+    document.getElementById('search-btn').innerHTML = `<img src="../imagen/header/lupa.png" class="" id="lupa" alt="" width="20"> ${headertraduction[lang].search}`;
+    document.getElementById('tickets').innerHTML = `<img src="../imagen/header_ayudante/boleto.png" class="" id="" alt="" width="20"> ${headertraduction[lang].tickets}`;
+    document.getElementById('chats').innerHTML = `<img src="../imagen/header_ayudante/chats.png" class="" id="" alt="" width="20"> ${headertraduction[lang].chats}`;
+    document.getElementById('hello').innerHTML = `${headertraduction[lang].hello} ${nomCliente}!`;
+    document.getElementById('viewProfile').textContent = headertraduction[lang].viewProfile;
+    document.getElementById('logout').textContent = headertraduction[lang].logout;
+    document.getElementById('text1').textContent = headertraduction[lang].text1;
+
 }
 
 
+/*GUARDAR EL IDIOMA Y COLOR*/
 
+window.addEventListener('load', () => {
+    const theme = localStorage.getItem("theme");
+    const language = localStorage.getItem("language"); 
 
+    if (theme === "dark") {
+        temaOscuro();
+    } else {
+        temaClaro();
+    }
+
+    if (language) {
+        setLanguage(language); 
+    } else {
+        setLanguage('es'); 
+    }
+});
 /*//////////////////////////////////////////////////////////////////*/ 
+/*//////////////////////////////////BUSCADOR////////////////////////////////////// */
+
     const searchBtn = document.getElementById('search-btn');
     const searchBar = document.getElementById('search-bar');
     const searchInput = document.getElementById('search-input');
@@ -347,32 +361,43 @@ function setLanguage(lang) {
         }
     });
 
-    // MODO OSCURO Y CLARO DE LA PAGINA
-    const temaOscuro = () => {
-            document.querySelector("body").setAttribute("data-bs-theme", "dark");
-            document.querySelector("#dl-icon").setAttribute("class", "bi bi-sun-fill");
-            localStorage.setItem("theme", "dark");
-        }
 
-        const temaClaro = () => {
-            document.querySelector("body").setAttribute("data-bs-theme", "light");
-            document.querySelector("#dl-icon").setAttribute("class", "bi bi-moon-fill");
-            localStorage.setItem("theme", "light");
-        }
+  /*////////////////////MODO OSCURO Y CLARO DE LA PAGINA////////////////////////*/
+  const temaOscuro = () => {
+    document.querySelector("body").setAttribute("data-bs-theme", "dark");
+    document.querySelector("#dl-icon").setAttribute("class", "bi bi-sun-fill");
+    localStorage.setItem("theme", "dark");
+}
 
-        const cambiarTema = () => {
-            document.querySelector("body").getAttribute("data-bs-theme") === "light" ? temaOscuro() : temaClaro();
-        }
+const temaClaro = () => {
+    document.querySelector("body").setAttribute("data-bs-theme", "light");
+    document.querySelector("#dl-icon").setAttribute("class", "bi bi-moon-fill");
+    localStorage.setItem("theme", "light");
+}
 
-        // PARA GUARDAR EL COLOR DE LA PAGINA (tutorial 2)
-        window.addEventListener('load', () => {
-            const theme = localStorage.getItem("theme");
-            if (theme === "dark") {
-                temaOscuro();
-            } else {
-                temaClaro();
-            }
-        });
+const cambiarTema = () => {
+    document.querySelector("body").getAttribute("data-bs-theme") === "light" ? temaOscuro() : temaClaro();
+}
+
+// PARA GUARDAR EL COLOR DE LA PAGINA (tutorial 2)
+window.addEventListener('load', () => {
+    const theme = localStorage.getItem("theme");
+    const language = localStorage.getItem("language"); 
+
+    if (theme === "dark") {
+        temaOscuro();
+    } else {
+        temaClaro();
+    }
+
+    if (language) {
+        setLanguage(language); 
+    } else {
+        setLanguage('es'); 
+    }
+});
+
+       
 </script>
 
 </body>
