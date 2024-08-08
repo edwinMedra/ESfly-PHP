@@ -169,7 +169,7 @@
     <!--CUADRO DE BUSCAR VUELOS-->
     <div class="centered-card mt-4">
         <div class=" card-buscar card p-4">
-            <div class="card-body">
+            <div class="card-body ">
                 <h5 class="card-title text-center text-formu ">Busca tu Vuelo: </h5>
                 <form class="form-inline justify-content-center" action="Reservarvuelos.html">
 
@@ -262,7 +262,7 @@
                         </select>
                     </div>
                     <!--AHI EL BOTON DE ABAJO TIENE Q DIRIGIT A DONDE DECIDA EL USUARIO (PAIS) -->
-                    <a href="login.php" class=" mt-5  d-flex flex-column align-items-center btn btn-primary">Buscar Vuelo</a>
+                    <a href="login.php" class=" mt-5  d-flex flex-column align-items-center btn btn-outline-primary" role="button">Buscar Vuelo</a>
                 </form>
             </div>
         </div>
