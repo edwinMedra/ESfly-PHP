@@ -10,12 +10,13 @@ $conexion = mysqli_connect(
 );
 */
 $conexion = mysqli_connect(
-    "localhost",
+    "127.0.0.1",
     "root",
     "root",
-    "railway",
+    "railway"
 );
 if ($conexion){
 
 }
+
 ?>
