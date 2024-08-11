@@ -42,7 +42,7 @@ $hora = date("H:i");
             <form>
                 <div class="form-group mb-3">
                     <label for="nombreCompleto">Nombre Completo de usuario</span></label>
-                    <input type="text" class="form-control" id="nombreCompleto" disabled selected value="<?php echo $nombreCompleto ?>" readonly>
+                    <input type="text" class="form-control" id="nombreCompleto" disabled selected value="<?php echo $nombrePasajero ?>" readonly>
                 </div>
                 <div class="form-group mb-3">
                     <label for="dui">DUI de usuario </label>
