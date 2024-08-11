@@ -34,12 +34,13 @@ $fechaSalida = $rowVuelo['fechaSalida']; // fecha salida de el vuelo
 $fecha = strtotime($fechaSalida);
 $dia = date("Y-m-d",$fecha);
 $hora = date("H:i");
+$nombreCompleto = $nomCliente . " " . $apeCliente;
 ?>
 <body>
     <div class="card-formu container d-flex justify-content-center align-items-center mt-5 mb-5">
         <div class="card p-4 custom-card    mt-5">
             <h3 class="card-title text-center mt-5 mb-5"><img src="../imagen/header/favicon.png" class="img-fluid me-3" width="35"></a> Formulario de pago ESfly</h3>
-            <form>
+            <form action="infoAsistentes_disponibles.php?idVuelo<?php echo $idVuelo?>">
                 <div class="form-group mb-3">
                     <label for="nombreCompleto">Nombre Completo de usuario</span></label>
                     <input type="text" class="form-control" id="nombreCompleto" disabled selected value="<?php echo $nombrePasajero ?>" readonly>
