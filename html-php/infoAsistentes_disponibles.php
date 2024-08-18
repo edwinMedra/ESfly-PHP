@@ -1,5 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
+  <?php 
+  $idVuelo = $_GET['idVuelo'];
+  ?>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -35,7 +38,7 @@
             </ul>
             <div class=" mt-5 d-flex justify-content-between">
                 <a href="index.php"   class="btn btn-option btn-secondary ">No quiero ayudante, gracias</button></a>
-                <a href="asistentesDisponibles.php"  class="btn btn-option btn-primary  ">Siguiente</button></a>
+                <a href="asistentesDisponibles.php?idVuelo=<?php echo $idVuelo?>"  class="btn btn-option btn-primary  ">Siguiente</button></a>
             </div>
           </div>
         </div>
