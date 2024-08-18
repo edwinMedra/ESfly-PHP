@@ -60,8 +60,10 @@
     <?php
     include("conex.php");
     // llamar datos de la base de datos 
+    $idVuelo = $_GET['idVuelo'];
     $resul = $conexion->query("SELECT * FROM asistente");
     while ($row = $resul->fetch_assoc()) {
+        $idAsis = $row['idAsistente'];        
         $nomAsistente = $row['nomAsistente'];
         $apeAsistente = $row['apeAsistente'];
         $numTelefono = $row['numTelefono'];
@@ -113,19 +115,16 @@
 <?php
 error_reporting(0);
 echo
-
 '
 <script>
 // proceso a realizar para la selección de el asistente
 function alerta(){
     var res = confirm("Ha seleccionado a ' . $nomAsistente . ' como asistente, esta seguro que desea este asistente ");
     if (res){
-    window.location.href = "../js/insertAsis.php"
+    window.location.href = "../js/insertAsis.php?idVuelo='.$idVuelo.'&idAsis='.$idAsis.'"
     }
     }
 </script>
 ';
 ?>
-
-
 </html>

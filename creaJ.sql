@@ -264,6 +264,16 @@ create table notiAsistente(
     foreign key (idAsistente) references asistente(idAsistente),
     foreign key (idCliente) references usuario(idCliente)
 );
+
+create table vueloUsuarioAsistente(
+	id int auto_increment,
+    idUsuario int,
+    idVuelo int,
+    idAsistente int,
+    estado int,
+    primary key(id)
+);
+
 /*
 -- TABLAS INTERMEDIAS:
 -- Tabla aerolineaAsistente
@@ -498,6 +508,7 @@ insert into aerolineaAlianza values
 --  select * from avion;
 select * from usuario;
 select * from asistente;
+select * from vueloUsuarioAsistente;
 select * from vuelo;
 select * from asientos;
 select * from administradores;
