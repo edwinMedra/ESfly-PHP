@@ -132,7 +132,24 @@ if ($conexion) {
         body[data-bs-theme='light'] .nav-link {
             color: #000; 
         }
+        
+        .skiptranslate{
+            opacity: 0;
+        }
    
+
+        /* TRADUCTOR */
+     /* Ocultar el header del widget de Google Translate */
+     .goog-te-banner-frame.skiptranslate {
+            display: none !important;
+            opacity: 0;
+        }
+
+        body {  
+        top: 0px !important;
+        
+        }
+    
     </style>
 
 
@@ -227,8 +244,8 @@ if ($conexion) {
                         <img src="../imagen/header/traductor.png" class="me-2" id="" alt="" width="20">
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" onclick="setLanguage('es')" href="#">Español</a></li>
-                        <li><a class="dropdown-item" onclick="setLanguage('en')" href="#">Inglés</a></li>
+                        <li>Selecciona idioma</li>
+                        <li><div id="google_translate_element"></div></li>
 
                     </ul>
                 </div>
@@ -252,7 +269,7 @@ if ($conexion) {
 
 <script>
 
-/*////////////////////////TRADUCTOR HEADER//////////////////////////////////////////*/ 
+/*////////////////////////TRADUCTOR HEADER////////////////////////////////////////// 
 
 const headertraduction = {
     es: {
@@ -296,27 +313,10 @@ function setLanguage(lang) {
     document.getElementById('logout').textContent = headertraduction[lang].logout;
     document.getElementById('text1').textContent = headertraduction[lang].text1;
 
-}
+}*/
 
 
-/*GUARDAR EL IDIOMA Y COLOR*/
 
-window.addEventListener('load', () => {
-    const theme = localStorage.getItem("theme");
-    const language = localStorage.getItem("language"); 
-
-    if (theme === "dark") {
-        temaOscuro();
-    } else {
-        temaClaro();
-    }
-
-    if (language) {
-        setLanguage(language); 
-    } else {
-        setLanguage('es'); 
-    }
-});
 /*//////////////////////////////////////////////////////////////////*/ 
 
 
@@ -379,8 +379,39 @@ window.addEventListener('load', () => {
             document.querySelector("body").getAttribute("data-bs-theme") === "light" ? temaOscuro() : temaClaro();
         }
 
-       
+        /*GUARDAR EL IDIOMA Y COLOR*/
+
+    window.addEventListener('load', () => {
+    const theme = localStorage.getItem("theme");
+    const language = localStorage.getItem("language"); 
+
+    if (theme === "dark") {
+        temaOscuro();
+    } else {
+        temaClaro();
+    }
+
+    /*if (language) {
+        setLanguage(language); 
+    } else {
+        setLanguage('es'); 
+    }*/
+});
 </script>
+
+<!-- TRADUCTOR-->
+
+
+
+<script type="text/javascript">
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({pageLanguage: 'es', includedLanguajes: 'en,es'}, 'google_translate_element');
+}
+</script>
+
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+
 
 </body>
 </html>

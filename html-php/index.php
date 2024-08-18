@@ -22,6 +22,7 @@
 
 <body>
 <style>
+
 #espacio {
   display: none;
 }
@@ -38,15 +39,54 @@
   .full-width-btn {
     width: 100%;
   }
+
+.contenedor {
+    position: relative;
+}
+
+.texto-superpuesto {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 45px;
+    text-align: center;
+    padding: 10px;
+    border-radius: 10px;
+    z-index: 2;
+    width: 80%;
+}
+
+
+
+.center-button {
+    display: flex;
+    justify-content: center;
+  }
+  .full-width-btn {
+    width: 100%;
+  }
+
+
+  /*TRADUCTOR  */
+
+
+
+
+
 </style>
 <?php
 include("header-log.php");
 ?>
 
-<!--______________________________________INDEX________________________________-->
-
 <!-- imagenes de la pagina-->
 <div class="contenedor">
+
+    <div class="texto-superpuesto">
+        <p>"Más que una aerolínea, somos tu <br> puente al mundo."</p>
+    </div>
+
     <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
             <div class="carousel-item active" data-bs-interval="3000">
@@ -68,9 +108,8 @@ include("header-log.php");
             <span class="visually-hidden">Next</span>
         </button>
     </div>
-    <div class="texto-superpuesto">
-        <p id="text1">"Más que una aerolínea, somos tu puente al mundo."</p>
-    </div>
+    
+    
 </div>
 
 <!-- Seccion de vuelos de pagina web -->
@@ -192,7 +231,7 @@ include("header-log.php");
 <!-- Carrusel de Promociones de Viajes -->
 
 
-<div class="container-fluid mt-5 mb-5">
+<div class="container-fluid mt-3 mb-5">
     <div id="carrusel1" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-indicators">
             <button type="button" data-bs-target="#carrusel1" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -496,12 +535,19 @@ include("header-log.php");
             <a class="card-prep card card-hover-effect text-center mb-3 " style="width: 22rem;" href="centroAyuda.php">
                 <div>
                     <div class="card-body">
-                        <h5 class="card-title mt-5">CENTRO DE AYUDA </h5>
-                        <p class="card-text">Encuentra ayuda sobre la información que necesites.</p>
+                        <h5 class="card-title mt-5">CRITICAS Y SUGERENCIAS</h5>
+                        <p class="card-text">Puedes comentarnos tu opinión del viaje.</p>
                     </div>
                 </div>
             </a>
-
+            <a class="card-prep card card-hover-effect text-center mb-3 " style="width: 22rem;" href="centroAyuda.php">
+                <div>
+                    <div class="card-body">
+                        <h5 class="card-title mt-5">PROCESO DE DEVOLUCIONES</h5>
+                        <p class="card-text">Proceso de devoluciones ESfly.</p>
+                    </div>
+                </div>
+            </a>
 
             <a class="card-prep card card-hover-effect text-center mb-3 " style="width: 22rem;" href="requisitos para viajar.php">
                 <div class="">
@@ -531,156 +577,6 @@ include("header-log.php");
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js"></script>
-
-<!-- /*////////////////////////TRADUCTOR INDEX //////////////////////////////////////////*/ 
- -->
-<script>    
-/*variable q le puse, hay q tenes cuidado con ese nombre abajo en la funcion*/  
-   const indextraduction = {
-    "es": {
-        "text1": "Más que una aerolínea, somos tu puente al mundo.",/*aqui por ejemplo el text1 es el id de la frase y despues de punto es la traduccion en español de la palabra*/
-        "search-flight-title": "Busca un vuelo >",
-        "search-flight": "Busca tu Vuelo:",
-        "flight-date": "Fecha de Vuelo:",
-        "origin-country": "País de Origen:",
-        "destination-country": "País de Destino:",
-        "passenger-number": "Número de Pasajeros:",
-        "search-btn": "Buscar",
-        "sugerencias-travel": "Sugerencias de viajes >",
-        "countries": {/*aqui se pone la llave para los selects q se hacen pero aun no funciona*/
-            "Antigua y Barbuda": "Antigua y Barbuda",
-            "Argentina": "Argentina",
-            "Bahamas": "Bahamas",
-            "Barbados": "Barbados",
-            "Belice": "Belice",
-            "Bolivia": "Bolivia",
-            "Brasil": "Brasil",
-            "Canada": "Canadá",
-            "Chile": "Chile",
-            "Colombia": "Colombia",
-            "Costa Rica": "Costa Rica",
-            "Cuba": "Cuba",
-            "Dominica": "Dominica",
-            "Ecuador": "Ecuador",
-            "El Salvador": "El Salvador",
-            "Estados-Unidos": "Estados Unidos",
-            "Granada": "Granada",
-            "Guatemala": "Guatemala",
-            "Guyana": "Guyana",
-            "Haiti": "Haití",
-            "Honduras": "Honduras",
-            "Jamaica": "Jamaica",
-            "Mexico": "México",
-            "Nicaragua": "Nicaragua",
-            "Panama": "Panamá",
-            "Paraguay": "Paraguay",
-            "Peru": "Perú",
-            "Republica Dominicana": "República Dominicana",
-            "San Cristobal y Nieves": "San Cristóbal y Nieves",
-            "San Vicente y las Granadinas": "San Vicente y las Granadinas",
-            "Santa Lucia": "Santa Lucía",
-            "Surinam": "Surinam",
-            "Trinidad y Tobago": "Trinidad y Tobago",
-            "Uruguay": "Uruguay",
-            "Venezuela": "Venezuela"
-        }
-    },
-    "en": {
-        "text1": "More than an airline, we are your bridge to the world.",/*aqui por ejemplo el text1 es el id de la frase y despues de punto es la traduccion en ingles de la palabra*/
-        "search-flight-title": "Search for a flight >",
-        "search-flight": "Search Your Flight:",
-        "flight-date": "Flight Date:",
-        "origin-country": "Country of Origin:",
-        "destination-country": "Destination Country:",
-        "passenger-number": "Number of Passengers:",
-        "search-btn": "Search",
-        "sugerencias-travel": "Travel Tips >",
-
-        "countries": {
-            "Antigua y Barbuda": "Antigua and Barbuda",
-            "Argentina": "Argentina",
-            "Bahamas": "Bahamas",
-            "Barbados": "Barbados",
-            "Belice": "Belize",
-            "Bolivia": "Bolivia",
-            "Brasil": "Brazil",
-            "Canada": "Canada",
-            "Chile": "Chile",
-            "Colombia": "Colombia",
-            "Costa Rica": "Costa Rica",
-            "Cuba": "Cuba",
-            "Dominica": "Dominica",
-            "Ecuador": "Ecuador",
-            "El Salvador": "El Salvador",
-            "Estados-Unidos": "United States",
-            "Granada": "Grenada",
-            "Guatemala": "Guatemala",
-            "Guyana": "Guyana",
-            "Haiti": "Haiti",
-            "Honduras": "Honduras",
-            "Jamaica": "Jamaica",
-            "Mexico": "Mexico",
-            "Nicaragua": "Nicaragua",
-            "Panama": "Panama",
-            "Paraguay": "Paraguay",
-            "Peru": "Peru",
-            "Republica Dominicana": "Dominican Republic",
-            "San Cristobal y Nieves": "Saint Kitts and Nevis",
-            "San Vicente y las Granadinas": "Saint Vincent and the Grenadines",
-            "Santa Lucia": "Saint Lucia",
-            "Surinam": "Suriname",
-            "Trinidad y Tobago": "Trinidad and Tobago",
-            "Uruguay": "Uruguay",
-            "Venezuela": "Venezuela"
-        }
-    }
-};
-
-
-    function setLanguage(lang) { /*funcion del lenguaje*/
-    /*elemento segun el id ,  id    , textcontent  igual a indextraduccion q es la variable q le puse , lenguaje, id, ;  */
-    document.getElementById('text1').textContent = indextraduction[lang]["text1"];
-    document.getElementById('search-flight-title').textContent = indextraduction[lang]["search-flight-title"];
-    document.getElementById('search-flight').textContent = indextraduction[lang]["search-flight"];
-    document.getElementById('flight-date').textContent = indextraduction[lang]["flight-date"];
-    document.getElementById('origin-country').textContent = indextraduction[lang]["origin-country"];
-    document.getElementById('destination-country').textContent = indextraduction[lang]["destination-country"];
-    document.getElementById('passenger-number').textContent = indextraduction[lang]["passenger-number"];
-    document.getElementById('search-btn').textContent = indextraduction[lang]["search-btn"];
-    document.getElementById('sugerencias-travel').textContent = indextraduction[lang]["sugerencias-travel"];
-
-    
-
-    
-    // AQUI ES APRA ACTUALIZAR LOS PAISES DEL IMPUT PQ ES DIFERENTE A TRADUCIR UNA PALABRA NORMAL con id pero igual no funciona
-    const originSelect = document.getElementById('Origen');
-    Array.from(originSelect.options).forEach(option => {
-        option.textContent = indextraduction[lang]["countries"][option.value] || option.textContent;
-    });
-}
-
-
-
-    /*GUARDAR EL IDIOMA Y COLOR ESTO SI NO SE TOCA*/
-
-window.addEventListener('load', () => {
-    const theme = localStorage.getItem("theme");
-    const language = localStorage.getItem("language"); 
-
-    if (theme === "dark") {
-        temaOscuro();
-    } else {
-        temaClaro();
-    }
-
-    if (language) {
-        setLanguage(language); 
-    } else {
-        setLanguage('es'); 
-    }
-});
-</script>
-
 
 
 <!--Pie de pagina-->
