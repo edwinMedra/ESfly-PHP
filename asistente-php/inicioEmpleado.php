@@ -22,7 +22,18 @@
     <title>Inicio Asistente</title>
 </head>
 <?php include("header_ayudante.php") ?>
-
+<?php
+// consultar si hay notificaciones de parte de un usuarip=o
+$noti = $conexion->query("SELECT * FROM vueloUsuarioAsistente WHERE idAsistente = '$sesion'");
+$resul = mysqli_num_rows($noti);
+if ($resul){
+   $ban = "bg-danger";
+   $texto = 'Tienes una cita pendiente';
+}else{
+    $ban = "bg-primary";
+    $texto = "";
+}
+?>
 <!--HEADER DE AYUDANTE ESPECIAL-->
 </head>
 
@@ -91,11 +102,11 @@
                 </div>
             </div>
             <div class="col-md-6">
-                <div class="citas-boton card p-4  mt-2 mb-5">
+                <div class="citas-boton <?php echo $ban?> card p-4  mt-2 mb-5">
                     <div class="card-body">
                         <h5 class="text-white">Citas</h5>
                         <img src="../imagen/inicioAsistente/citas.png" alt="" />
-
+                        <h5 class="text-white"><?php echo $texto?></h5>
                     </div>
                 </div>
             </div>
