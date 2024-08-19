@@ -170,7 +170,7 @@ if ($conexion) {
         <div class="collapse navbar-collapse" id="navbarText">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link" id="reserveFlight" aria-current="page" href="../httml-php/Reservarvuelos.php">Reserva tu vuelo</a>
+                    <a class="nav-link" id="reserveFlight" aria-current="page" href="../html-php/Reservarvuelos.php">Reserva tu vuelo</a>
                 </li>
                 
 
