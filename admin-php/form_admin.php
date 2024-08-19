@@ -88,13 +88,13 @@
 
                     <div class="mb-4">
                         <label for="exampleImputEmail" class="form-label font-weight-bold">
-                            <img src="../imagen/login/nombre.png" class="img"> Nombre</label>
+                            <img src="../imagen/registroLogin/nombre.png" class="img"> Nombre</label>
                         <input type="text" class="form-control mb-2 rounded-5  w-75" placeholder="Ingresar nombre" id="correo" name="name" value="<?php echo $name ?>">
                     </div>
 
                     <div class="mb-4">
                         <label for="exampleImputEmail" class="form-label font-weight-bold">
-                            <img src="../imagen/login/apellido.png" class="img"> Apellido</label>
+                            <img src="../imagen/registroLogin/apellido.png" class="img"> Apellido</label>
                         <input type="text" class="form-control mb-2 rounded-5  w-75" placeholder="Ingresar apellido" id="correo" name="lastname" value="<?php echo $lastname ?>">
                     </div>
 
@@ -102,19 +102,19 @@
 
                     <div class="mb-4">
                         <label for="exampleImputEmail" class="form-label font-weight-bold">
-                            <img src="../imagen/login/correo.png" class="img"> Correo</label>
+                            <img src="../imagen/registroLogin/correo.png" class="img"> Correo</label>
                         <input type="email" class="form-control mb-2 rounded-5  w-75" placeholder="Ingresar apellido" id="correo" name="email" value="<?php echo $email ?>">
                     </div>
 
                     <div class="mb-4">
                         <label for="exampleImputEmail" class="form-label font-weight-bold">
-                            <img src="../imagen/login/dui.png" class="img"> Pasaporte</label>
+                            <img src="../imagen/registroLogin/dui.png" class="img"> Pasaporte</label>
                         <input type="text" class="form-control mb-2 rounded-5 border border-1 w-75" placeholder="Ingresar pasaporte" id="correo" name="pasaporte" value="<?php echo $pasaporte ?>">
                     </div>
 
                     <div class="mb-4">
                         <label for="exampleImputEmail" class="form-label font-weight-bold">
-                            <img src="../imagen/login/dui.png" class="img"> DUI</label>
+                            <img src="../imagen/registroLogin/dui.png" class="img"> DUI</label>
                         <input type="text" class="form-control mb-2 rounded-5 border border-1 w-75" placeholder="Ingresar apellido" id="correo" name="dui" value="<?php echo $dui ?>">
                     </div>
 
@@ -123,7 +123,7 @@
                 <div class="col-lg-6 col-12">
                     <div class="mb-4">
                         <label for="exampleImputEmail" class="form-label font-weight-bold">
-                            <img src="../imagen/login/nombre.png" class="img"> Cargo</label>
+                            <img src="../imagen/registroLogin/nombre.png" class="img"> Cargo</label>
                         <select name="cargo" class="form-control w-75 rounded-5 mb-2" id="correo">
                             <option value="">Elige el cargo</option>
                             <option value="Administrador de Operaciones" <?php select1($cargo) ?>>Administrador de Operaciones</option>
@@ -135,7 +135,7 @@
 
                     <div class="mb-4">
                         <label for="exampleImputEmail" class="form-label font-weight-bold">
-                            <img src="../imagen/login/pasaporte.png" class="img"> Descripcion</label>
+                            <img src="../imagen/registroLogin/pasaporte.png" class="img"> Descripcion</label>
                         <div class="form-floating">
                             <textarea class="form-control w-75" id="floatingTextarea" style="height: 200px;" name="descri"><?php echo $descri ?></textarea>
                         </div>

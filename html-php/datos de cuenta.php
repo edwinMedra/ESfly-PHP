@@ -88,7 +88,6 @@
           <div class="mb-3  text-center">
             <button type="submit" class="btn btn-primary " name="registro">Cambiar datos</button>
             <button type="button" class="btn btn-primary  bg-danger border-0" onclick={eliminar()}>Eliminar cuenta</button>
-            <button type="button" class="btn btn-primary  bg-dark border-0" onclick={pass()}>Cambiar contraseña</button>
           </div>
         </div>
       </div>

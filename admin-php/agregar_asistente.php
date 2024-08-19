@@ -38,43 +38,43 @@
 
                     <div class="mb-4">
                         <label for="exampleImputEmail" class="form-label font-weight-bold">
-                            <img src="../imagen/login/nombre.png" class="img"> Nombre</label>
+                            <img src="../imagen/registroLogin/nombre.png" class="img"> Nombre</label>
                         <input required type="text" class="form-control mb-2 rounded-5  w-75" placeholder="Ingresar nombre" id="correo" name="name" value="<?php echo isset($_POST['name']) ? $_POST['name'] : ""; ?>">
                     </div>
 
                     <div class="mb-4">
                         <label for="exampleImputEmail" class="form-label font-weight-bold">
-                            <img src="../imagen/login/apellido.png" class="img"> Apellido</label>
+                            <img src="../imagen/registroLogin/apellido.png" class="img"> Apellido</label>
                         <input required type="text" class="form-control mb-2 rounded-5  w-75" placeholder="Ingresar apellido" id="correo" name="lastname" value="<?php echo isset($_POST['lastname']) ? $_POST['lastname'] : ""; ?>">
                     </div>
 
                     <div class="mb-4">
                         <label for="exampleImputEmail" class="form-label font-weight-bold">
-                            <img src="../imagen/login/contraseña.png" class="img"> Contraseña</label>
+                            <img src="../imagen/registroLogin/contraseña.png" class="img"> Contraseña</label>
                         <input required type="password" class="form-control mb-2 rounded-5  w-75" placeholder="Ingresar contraseña" id="correo" name="pass">
                     </div>
 
                     <div class="mb-4">
                         <label for="exampleImputEmail" class="form-label font-weight-bold">
-                            <img src="../imagen/login/correo.png" class="img"> Correo</label>
+                            <img src="../imagen/registroLogin/correo.png" class="img"> Correo</label>
                         <input required type="email" class="form-control mb-2 rounded-5  w-75" placeholder="Ingresar correo" id="correo" name="email" value="<?php echo isset($_POST['email']) ? $_POST['email'] : ""; ?>">
                     </div>
 
                     <div class="mb-4">
                         <label for="exampleImputEmail" class="form-label font-weight-bold">
-                            <img src="../imagen/login/pasaporte.png" class="img"> Número de teléfono</label>
+                            <img src="../imagen/registroLogin/pasaporte.png" class="img"> Número de teléfono</label>
                         <input required type="text" class="form-control mb-2  rounded-5  w-75" placeholder="Ingresar tu número de teléfono" id="correo" name="numero" value="<?php echo isset($_POST['numero']) ? $_POST['numero'] : ""; ?>">
                     </div>
 
                     <div class="mb-4">
                         <label for="exampleImputEmail" class="form-label font-weight-bold">
-                            <img src="../imagen/login/dui.png" class="img"> Pasaporte</label>
+                            <img src="../imagen/registroLogin/dui.png" class="img"> Pasaporte</label>
                         <input required type="text" class="form-control mb-2 rounded-5 border border-1 w-75" placeholder="Ingresar pasaporte" id="correo" name="pasaporte" value="<?php echo isset($_POST['pasaporte']) ? $_POST['pasaporte'] : ""; ?>">
                     </div>
 
                     <div class="mb-4">
                         <label for="exampleImputEmail" class="form-label font-weight-bold">
-                            <img src="../imagen/login/dui.png" class="img"> DUI</label>
+                            <img src="../imagen/registroLogin/dui.png" class="img"> DUI</label>
                         <input required type="text" class="form-control mb-2 rounded-5 border border-1 w-75" placeholder="Ingresar DUI del Asistente" id="correo" name="dui" value="<?php echo isset($_POST['dui']) ? $_POST['dui'] : ""; ?>">
                     </div>
 
@@ -84,12 +84,12 @@
 
                     <div class="mb-4">
                         <label for="exampleImputEmail" class="form-label font-weight-bold">
-                            <img src="../imagen/login/dui.png" class="img"> Horario de trabajo</label>
+                            <img src="../imagen/registroLogin/dui.png" class="img"> Horario de trabajo</label>
                         <input required type="text" class="form-control mb-2 rounded-5 border border-1 w-75" placeholder="Ingresar horario de trabajo" id="correo" name="date" >
                     </div>
                     <div class="mb-4">
                         <label for="exampleImputEmail" class="form-label font-weight-bold">
-                            <img src="../imagen/login/nombre.png" class="img"> Género</label>
+                            <img src="../imagen/registroLogin/nombre.png" class="img"> Género</label>
                         <select name="genero" class="form-control w-75 rounded-5 mb-2" id="correo">
                             <option value="">Elige el género</option>
                             <option value="Masculino">Maculino</option>
@@ -100,13 +100,13 @@
 
                     <div class="mb-4">
                         <label for="exampleImputEmail" class="form-label font-weight-bold">
-                            <img src="../imagen/login/dui.png" class="img"> Servicios</label>
+                            <img src="../imagen/registroLogin/dui.png" class="img"> Servicios</label>
                         <input required type="text" class="form-control mb-2 rounded-5 border border-1 w-75" placeholder="Ingresar servicio" id="correo" name="servicio" value="<?php echo isset($_POST['servicio']) ? $_POST['servicio'] : ""; ?>">
                     </div>
 
                     <div class="mb-4">
                         <label for="exampleImputEmail" class="form-label font-weight-bold">
-                            <img src="../imagen/login/pasaporte.png" class="img"> Descripción</label>
+                            <img src="../imagen/registroLogin/pasaporte.png" class="img"> Descripción</label>
                         <div class="form-floating">
                             <textarea class="form-control w-75" id="floatingTextarea" style="height: 200px;" name="descri"><?php echo isset($_POST['descri']) ? $_POST['descri'] : ""; ?></textarea>
                         </div>
