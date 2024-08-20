@@ -142,7 +142,7 @@ if ($conexion) {
 <nav class="navbar navbar-expand-lg bg-body-tertiary shadow-navbar fixed-top">
     <div class="container-fluid">
 
-        <a class="navbar-brand" href="index.php">
+        <a class="navbar-brand" href="../html-php/index.php">
             <img src="../imagen/estoyAnsioso/esflyInfo.png" class="" id="logo" alt="">
         </a>
 
@@ -153,15 +153,15 @@ if ($conexion) {
         <div class="collapse navbar-collapse" id="navbarText">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link" id="reserveFlight" aria-current="page" href="Reservarvuelos.php">Reserva tu vuelo</a>
+                    <a class="nav-link" id="reserveFlight" aria-current="page" href="../html-php/Reservarvuelos.php">Reserva tu vuelo</a>
                 </li>
                 
 
                 <li class="nav-item">
-                    <a class="nav-link" id="offersAndDestinations" href="ofertasYDestinos.php">Ofertas y destinos</a>
+                    <a class="nav-link" id="offersAndDestinations" href="../html-php/ofertasYDestinos.php">Ofertas y destinos</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" id="checkIn" href="check-in.php">Check-in</a>
+                    <a class="nav-link" id="checkIn" href="../html-php/check-in.php">Check-in</a>
                 </li>
             </ul>
 
@@ -190,23 +190,23 @@ if ($conexion) {
 
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item fijo " type="">¡Hola, ' . htmlspecialchars($nomCliente) . '!</a></li><hr>
-                            <li><a class="dropdown-item" href="datos de cuenta.php">Ver perfil</a></li>
-                            <li><a class="dropdown-item" href="cerrar.php">Cerrar sesión</a></li>
+                            <li><a class="dropdown-item" href="../html-php/datos de cuenta.php">Ver perfil</a></li>
+                            <li><a class="dropdown-item" href="../html-php/cerrar.php">Cerrar sesión</a></li>
                         </ul>
                     </div>';
                     
                     } else {
                         echo '
                         <div class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="datos de cuenta.php" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle" href="../html-php/datos de cuenta.php" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         <img src="data:image/jpg;base64,' . base64_encode($foto) . '" class="rounded-circle my-auto border border-1 border-black mx-1" id="lupa" alt="" height="35px" width="35px" style="object-fit: cover;">
                         </a>
 
                         <ul class="dropdown-menu">
                         <hr>
                             <li><a class="dropdown-item fijo " type="" id="hello">¡Hola, ' . htmlspecialchars($nomCliente) . '!</a></li><hr>
-                            <li><a class="dropdown-item" href="datos de cuenta.php" id="viewProfile" >Ver perfil</a></li>
-                            <li><a class="dropdown-item" href="cerrar.php" id="logout">Cerrar sesión</a></li>
+                            <li><a class="dropdown-item" href="../html-php/datos de cuenta.php" id="viewProfile" >Ver perfil</a></li>
+                            <li><a class="dropdown-item" href="../html-php/cerrar.php" id="logout">Cerrar sesión</a></li>
                         </ul>
                     </div>';
                     }

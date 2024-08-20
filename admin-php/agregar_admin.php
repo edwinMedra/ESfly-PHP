@@ -127,37 +127,37 @@ if (isset($_POST['crear'])) {
 
                     <div class="mb-4">
                         <label for="exampleImputEmail" class="form-label font-weight-bold">
-                            <img src="../imagen/login/nombre.png" class="img"> Nombres</label>
+                            <img src="../imagen/registroLogin/nombre.png" class="img"> Nombres</label>
                         <input type="text" class="form-control mb-2 rounded-5  w-75" placeholder="Ingresar nombre" id="correo" name="name" value="<?php echo isset($_POST['name']) ? $_POST['name'] : ""; ?>">
                     </div>
 
                     <div class="mb-4">
                         <label for="exampleImputEmail" class="form-label font-weight-bold">
-                            <img src="../imagen/login/apellido.png" class="img"> Apellidos</label>
+                            <img src="../imagen/registroLogin/apellido.png" class="img"> Apellidos</label>
                         <input type="text" class="form-control mb-2 rounded-5  w-75" placeholder="Ingresar apellido" id="correo" name="lastname" value="<?php echo isset($_POST['lastname']) ? $_POST['lastname'] : ""; ?>">
                     </div>
 
                     <div class="mb-4">
                         <label for="exampleImputEmail" class="form-label font-weight-bold">
-                            <img src="../imagen/login/contraseña.png" class="img"> Contraseña</label>
+                            <img src="../imagen/registroLogin/contraseña.png" class="img"> Contraseña</label>
                         <input type="password" class="form-control mb-2 rounded-5  w-75" placeholder="Ingresar contraseña" id="correo" name="pass">
                     </div>
 
                     <div class="mb-4">
                         <label for="exampleImputEmail" class="form-label font-weight-bold">
-                            <img src="../imagen/login/correo.png" class="img"> Correo</label>
+                            <img src="../imagen/registroLogin/correo.png" class="img"> Correo</label>
                         <input type="email" class="form-control mb-2 rounded-5  w-75" placeholder="Ingresar correo" id="correo" name="email" value="<?php echo isset($_POST['email']) ? $_POST['email'] : ""; ?>">
                     </div>
 
                     <div class="mb-4">
                         <label for="exampleImputEmail" class="form-label font-weight-bold">
-                            <img src="../imagen/login/pasaporte.png" class="img"> Pasaporte</label>
+                            <img src="../imagen/registroLogin/pasaporte.png" class="img"> Pasaporte</label>
                         <input type="text" class="form-control mb-2 rounded-5  w-75" placeholder="Ingresar pasaporte" id="correo" name="pasporte" value="<?php echo isset($_POST['pasporte']) ? $_POST['pasporte'] : ""; ?>">
                     </div>
 
                     <div class="mb-4">
                         <label for="exampleImputEmail" class="form-label font-weight-bold">
-                            <img src="../imagen/login/dui.png" class="img"> DUI</label>
+                            <img src="../imagen/registroLogin/dui.png" class="img"> DUI</label>
                         <input type="text" class="form-control mb-2 rounded-5 border border-1 w-75" placeholder="Ingresar DUI" id="correo" name="dui" value="<?php echo isset($_POST['dui']) ? $_POST['dui'] : ""; ?>">
                     </div>
 
@@ -166,7 +166,7 @@ if (isset($_POST['crear'])) {
                 <div class="col-lg-6 col-12">
                     <div class="mb-4">
                         <label for="exampleImputEmail" class="form-label font-weight-bold">
-                            <img src="../imagen/login/nombre.png" class="img"> Cargo</label>
+                            <img src="../imagen/registroLogin/nombre.png" class="img"> Cargo</label>
                         <select name="cargo" class="form-control w-75 rounded-5 mb-2" id="correo">
                             <option value="">Elige el cargo</option>
                             <option <?php echo select($cargo, "Administrador de Operaciones" );?> value="Administrador de Operaciones">Administrador de Operaciones</option>
@@ -178,7 +178,7 @@ if (isset($_POST['crear'])) {
 
                     <div class="mb-4">
                         <label for="exampleImputEmail" class="form-label font-weight-bold">
-                            <img src="../imagen/login/pasaporte.png" class="img"> Descripcion</label>
+                            <img src="../imagen/registroLogin/pasaporte.png" class="img"> Descripcion</label>
                         <div class="form-floating">
                             <textarea class="form-control w-75" id="floatingTextarea" style="height: 200px;" name="descri"><?php echo isset($_POST['descri']) ? $_POST['descri'] : ""; ?></textarea>
                         </div>

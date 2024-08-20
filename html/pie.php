@@ -3,7 +3,7 @@
         </div>
         <div class="container-fluid text-white">
             <div class="row">
-                <div class="col-6 col-sm-6 col-md-3">
+                <div class="col-12 col-sm-12 col-md-3">
                     <ul class="">
                         <hr>
                         <li>
@@ -16,7 +16,7 @@
                         <li><a href="../html/.php" class="link-light link-offset-2 link-underline link-underline-opacity-0 link-underline-opacity-75-hover">Promociones</a></li>
                     </ul>
                 </div>
-                <div class="col-6 col-sm-6 col-md-3">
+                <div class="col-12 col-sm-12 col-md-3">
                     <ul class="">
                         <hr>
                         <li>
@@ -25,7 +25,7 @@
                         <li><a href="../html/.php" class="link-light link-offset-2 link-underline link-underline-opacity-0 link-underline-opacity-75-hover">Ubicación</a></li>
                         <li><a href="../html/.php" class="link-light link-offset-2 link-underline link-underline-opacity-0 link-underline-opacity-75-hover">Redes</a></li>
                 </div>
-                <div class="col-6 col-sm-6 col-md-3">
+                <div class="col-12 col-sm-12 col-md-3">
                     <ul class="">
                         <hr>
                         <li>
@@ -35,7 +35,7 @@
                         <li><a href="../html/.php" class="link-light link-offset-2 link-underline link-underline-opacity-0 link-underline-opacity-75-hover">Alianzas y Beneficios</a></li>
                         <li><a href="../html/.php" class="link-light link-offset-2 link-underline link-underline-opacity-0 link-underline-opacity-75-hover">Accecibilidad</a></li>
                 </div>
-                <div class="col-6 col-sm-6 col-md-3">
+                <div class="col-12 col-sm-12 col-md-3">
                     <ul class="">
                         <hr>
                         <li>

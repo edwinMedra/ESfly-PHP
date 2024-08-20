@@ -12,6 +12,7 @@ pasaporte varchar(15),
 dui varchar(10),
 idCliente int auto_increment,
 foto longblob,
+notificacion TINYINT(1) DEFAULT 0,
 constraint primary key (idCliente)
 );
 /*

@@ -29,15 +29,15 @@
 
           <div class="carousel-inner">
             <div class="carousel-item img-1 min-vh-100 active" data-bs-interval="6000">
-              <img src="../imagen/login/fondo2.jpg" class="d-block w-100" alt="...">
+              <img src="../imagen/registroLogin/fondo2.jpg" class="d-block w-100" alt="...">
             </div>
 
             <div class="carousel-item img-2 min-vh-100" data-bs-interval="7000">
-              <img src="../imagen/login/fondo3.png" class="d-block w-100" alt="...">
+              <img src="../imagen/registroLogin/fondo3.png" class="d-block w-100" alt="...">
             </div>
 
             <div class="carousel-item img-3 min-vh-100" data-bs-interval="7000">
-              <img src="../imagen/login/fondo4.png" class="d-block w-100" alt="...">
+              <img src="../imagen/registroLogin/fondo4.png" class="d-block w-100" alt="...">
             </div>
           </div>
 
@@ -66,45 +66,45 @@
           <form class="mb-2 g-0" method="post" enctype="multipart/form-data">
             <div class="mb-2 g-0">
               <label for="exampleImputEmail" class="form-label font-weight-bold">
-                <img src="../imagen/login/nombre.png" class="img"> Nombres</label>
+                <img src="../imagen/registroLogin/nombre.png" class="img"> Nombres</label>
               <input type="username" class="form-control" placeholder="Nombres" id="nombre" aria-describedby="emailHelp" value="<?php echo isset($_POST['name']) ? htmlspecialchars($_POST['name']) : ''; ?>" name="name">
             </div>
 
             <div class="mb-2 ">
               <label for="exampleImputEmail" class="form-label font-weight-bold">
-                <img src="../imagen/login/apellido.png" class="img"> Apellidos</label>
+                <img src="../imagen/registroLogin/apellido.png" class="img"> Apellidos</label>
               <input type="lastname" class="form-control mb-2" placeholder="Apellidos" id="apellido" name="lastname" value="<?php echo isset($_POST['lastname']) ? htmlspecialchars($_POST['lastname']) : ''; ?>">
             </div>
 
             <div class="mb-2">
               <label for="exampleImputPassword" class="form-label font-weight-bold">
-                <img src="../imagen/login/contraseña.png" class="img"> Contraseña
+                <img src="../imagen/registroLogin/contraseña.png" class="img"> Contraseña
               </label><i class="ojo bx bx-show-alt  mt-2" id="togglePassword"></i>
               <input type="password" class="pass form-control mb-2" placeholder="Contraseña" id="pass" name="pass">
             </div>
 
             <div class="mb-2">
               <label for="exampleImputPassword" class="form-label font-weight-bold">
-                <img src="../imagen/login/contraseña.png" class="img">Validar Contraseña
+                <img src="../imagen/registroLogin/contraseña.png" class="img">Validar Contraseña
               </label><i class="ojo bx bx-show-alt  mt-2" id="togglePassword"></i>
               <input type="password" class="pass form-control mb-2" placeholder="Contraseña" id="pass" name="validarPass">
             </div>
 
             <div class="mb-2">
               <label for="exampleImputEmail" class="form-label font-weight-bold">
-                <img src="../imagen/login/correo.png" class="img"> Correo</label>
+                <img src="../imagen/registroLogin/correo.png" class="img"> Correo</label>
               <input type="email" class="form-control mb-2" placeholder="Correo" id="correo" name="email" value="<?php echo isset($_POST['email']) ? htmlspecialchars($_POST['email']) : ''; ?>">
             </div>
 
             <div class="mb-2">
               <label for="exampleImputEmail" class="form-label font-weight-bold">
-                <img src="../imagen/login/pasaporte.png" class="img"> Pasaporte</label>
+                <img src="../imagen/registroLogin/pasaporte.png" class="img"> Pasaporte</label>
               <input type="text" class="form-control mb-2" placeholder="Pasaporte" id="pasaporte" name="pasaporte" value="<?php echo isset($_POST['pasaporte']) ? htmlspecialchars($_POST['pasaporte']) : ''; ?>">
             </div>
 
             <div class="mb-2">
               <label for="exampleImputEmail" class="form-label font-weight-bold">
-                <img src="../imagen/login/dui.png" class="img"> DUI</label>
+                <img src="../imagen/registroLogin/dui.png" class="img"> DUI</label>
               <input type="text" class="form-control mb-2" placeholder="Dui" id="dui" name="dui" value="<?php echo isset($_POST['dui']) ? htmlspecialchars($_POST['dui']) : ''; ?>">
             </div>
             <label for="foto" class=" ">
