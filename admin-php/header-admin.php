@@ -17,6 +17,14 @@ if ($conexion) {
         }
     }
 }
+$delete = $conexion->query("SELECT * FROM administradores where idAdmin='$sesion'");
+$resul = mysqli_num_rows($delete);
+if (!($resul)) {
+    session_destroy();
+    echo "<script>
+window.location.href = '../html/index.php';
+</script>";
+}
 ?>
 <!DOCTYPE html>
 <html lang="es">
