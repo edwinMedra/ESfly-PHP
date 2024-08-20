@@ -68,13 +68,6 @@
     width: 100%;
   }
 
-
-  /*TRADUCTOR  */
-
-
-
-
-
 </style>
 <?php
 include("header-log.php");

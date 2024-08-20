@@ -32,41 +32,23 @@
                 display: flex;
             }
         }
+        .contenedor {
+    position: relative;
+}
 
-        .custom-carousel-control {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 5%;
-            height: 5%;
-            background-color: rgba(0, 0, 0, 0.5);
-            border-radius: 50%;
-            z-index: 1;
-        }
-
-        .custom-carousel-control:hover {
-            background-color: rgba(0, 0, 0, 1);
-        } 
-        
-        .custom-carousel-control.prev {
-            left: -2%;
-        }
-
-        .custom-carousel-control.next {
-            right: -2%;
-        }
-
-        .carousel-control-prev-icon,
-        .carousel-control-next-icon {
-            background-color: rgba(0, 0, 0, 0.5);
-            border-radius: 50%;
-            width: 30px;
-            height: 30px;
-        }
-
-        #carouselExampleIndicators {
-            position: relative;
-        }
+.texto-superpuesto {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 45px;
+    text-align: center;
+    padding: 10px;
+    border-radius: 10px;
+    z-index: 2;
+    width: 80%;
+}
 
         /*EFECTO DE CARGAR DE LA PAGINA (2)*/
 
@@ -129,36 +111,37 @@
 
     <!--Fin header-->
 
+<!-- imagenes de la pagina-->
+<div class="contenedor">
 
-    <!-- imagenes de la pagina-->
-    <div class="contenedor spinner">
-
-        <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
-            <div class="carousel-inner">
-                <div class="carousel-item active" data-bs-interval="3000">
-                    <img src="../imagen/index/fondo1.png" class="d-block w-100 h-200" alt="...">
-                </div>
-                <div class="carousel-item" data-bs-interval="3000">
-                    <img src="../imagen/index/fondo2.png" class="d-block w-100 h-200" alt="...">
-                </div>
-                <div class="carousel-item" data-bs-interval="3000">
-                    <img src="../imagen/index/fondo4.png" class="d-block w-100 h-200" alt="...">
-                </div>
-            </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-            </button>
-        </div>
-
-        <div class="texto-superpuesto">
-            <p>"Más que una aerolínea, somos tu puente al mundo."</p>
-        </div>
+    <div class="texto-superpuesto">
+        <p>"Más que una aerolínea, somos tu <br> puente al mundo."</p>
     </div>
+
+    <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active" data-bs-interval="3000">
+                <img src="../imagen/index/fondo1.png" class="d-block w-100 h-200" alt="...">
+            </div>
+            <div class="carousel-item" data-bs-interval="3000">
+                <img src="../imagen/index/fondo2.png" class="d-block w-100 h-200" alt="...">
+            </div>
+            <div class="carousel-item" data-bs-interval="3000">
+                <img src="../imagen/index/fondo4.png" class="d-block w-100 h-200" alt="...">
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+    
+    
+</div>
 
     <!--Seccion de vuelos de pagina web-->
 

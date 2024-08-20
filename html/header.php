@@ -90,6 +90,41 @@ if (!($sesion == null || $sesion == '')){
 
         }
 
+        .nav-link.dropdown-toggle::after {
+            display: none;
+        }
+
+        /* Ajusta el posicionamiento del menú desplegable */
+        .dropdown-menu {
+            position: absolute; 
+            left: -50%; 
+            transform: translateX(-50%); 
+        }
+
+        /* TRADUCTOR */
+        /* Ocultar el header de Google Translate */
+
+        .VIpgJd-ZVi9od-ORHb-OEVmcd {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .VIpgJd-ZVi9od-l4eHX-hSRGPd{
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .goog-te-banner-frame.skiptranslate {
+            display: none !important;
+            opacity: 0;
+        }
+
+        .goog-te-combo{
+            opacity: 100;
+            font-family: "Be Vietnam Pro";
+            size: 65px;
+        }
+
     </style>
 </head>
 <body data-bs-theme="light">
@@ -128,8 +163,17 @@ if (!($sesion == null || $sesion == '')){
                 <!--BOTON DE TEMAS  -->
                 <button  onclick="cambiarTema()" class="btn rounded-fill"><i id="dl-icon" class="bi bi-moon-fill"></i></button>
 
-                <img src="../imagen/header/traductor.png" class="" id="lupa" alt="" width="20"> 
-                
+                <!--Traductor-->
+                <div class="nav-item dropdown ms-2">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                    <img src="../imagen/header/traductor.png" class="me-2" alt="Traductor" width="20">
+                    </a>
+                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <button class="goog-te-combo" id="google_translate_element">Seleccione el idioma</button>
+                    </ul>
+                </div>
+
+                <!-- Imagen search Bar -->
                 <button class="btn ms-1" type="button" id="search-btn">
                     <img src="../imagen/header/lupa.png" class="" id="lupa" alt="" width="20"> Buscar
                 </button>
@@ -217,4 +261,13 @@ if (!($sesion == null || $sesion == '')){
         });
 
     </script>
+
+    <!-- ////////////////////TRADUCTOR/////////////////////////////////-->
+
+<script type="text/javascript">
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({pageLanguage: 'es', includedLanguajes: 'en,es'}, 'google_translate_element');
+}
+</script>
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </body

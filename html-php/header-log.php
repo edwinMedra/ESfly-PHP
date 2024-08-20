@@ -125,9 +125,9 @@ if ($conexion) {
 
          /* Ajusta el posicionamiento del menú desplegable */
          .dropdown-menu {
-            position: absolute; /* Permite posicionar el menú de forma precisa */
-            left: -50%; /* Ajusta este valor según sea necesario */
-            transform: translateX(-50%); /* Centra el menú a la izquierda del botón */
+            position: absolute; 
+            left: -50%; 
+            transform: translateX(-50%); 
         }
 
 
@@ -163,6 +163,7 @@ if ($conexion) {
             font-family: "Be Vietnam Pro";
             size: 65px;
         }
+        
 </style>
 
 
@@ -245,21 +246,21 @@ if ($conexion) {
  
             </form>
 
-            <!--////////////BOTON DE TEMAS////////////////////  -->
+            <!--BOTON DE TEMAS-->
                 <button  onclick="cambiarTema()" class="btn rounded-fill  ms-1"><i id="dl-icon" class="bi bi-moon-fill"></i></button>
 
+            <!--Traductor-->
                 <div class="nav-item dropdown ms-2">
                     <a class="nav-link dropdown-toggle" href="#" role="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
                     <img src="../imagen/header/traductor.png" class="me-2" alt="Traductor" width="20">
                     </a>
                      <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                         <button class="goog-te-combo" id="google_translate_element">Seleccione el idioma</button>
-                        
                     </ul>
                 </div>
 
 
-
+            <!-- Imagen search Bar -->
             <form class="d-flex" role="search">
                 <button class="btn ms-1" type="button" id="search-btn">
                     <img src="../imagen/header/lupa.png" class="" id="lupa" alt="" width="20"> Buscar
