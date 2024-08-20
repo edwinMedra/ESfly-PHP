@@ -25,26 +25,26 @@
    <link rel="stylesheet" href="../css/inicioAyudanteEspecial.css">
    <title>Inicio Asistente</title>
 
- 
+
    <style>
-      .fijo {
-            background-color: #4d86e3;
-            color: white;
-            cursor: default;
-        }
+       .fijo {
+           background-color: #4d86e3;
+           color: white;
+           cursor: default;
+       }
 
-        .fijo:hover {
-            cursor: default;
-            background-color: #4d86e3;
-            color: white;
+       .fijo:hover {
+           cursor: default;
+           background-color: #4d86e3;
+           color: white;
 
-        }
+       }
    </style>
    <nav class="navbar navbar-expand-lg bg-body-tertiary shadow-navbar fixed-top">
        <div class="container-fluid">
 
            <a class="navbar-brand" href="inicioEmpleado.php">
-               <img src="../imagen/estoyAnsioso/esflyInfo.png" class="" id="logo" alt="">
+               <img src="../imagen/estoyAnsioso/esflyInfo.png" class="w-" id="logo" alt="">
            </a>
 
            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
@@ -58,10 +58,7 @@
                    </li>
 
                    <li class="nav-item">
-                       <a class="nav-link" href="check-in.php">Citas</a>
-                   </li>
-                   <li class="nav-item">
-                       <a class="nav-link" href="ofertasYDestinos.php">Todas las citas</a>
+                       <a class="nav-link" href="usuNoti.php">Citas</a>
                    </li>
                </ul>
 
@@ -85,9 +82,9 @@
                    <?php
                     } else {
                     ?>
-                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                       <img src="data:image/jpg;base64,<?php echo base64_encode($foto)?>" class="rounded-circle border border-1 border-black mx-1" id="lupa" alt="" height="35px" width="35px">
-                   </a>
+                       <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                           <img src="data:image/jpg;base64,<?php echo base64_encode($foto) ?>" class="rounded-circle border border-1 border-black mx-1" id="lupa" alt="" height="35px" width="35px" style="object-fit: cover;">
+                       </a>
                    <?php
                     }
                     ?>
