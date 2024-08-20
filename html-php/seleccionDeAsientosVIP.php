@@ -295,7 +295,7 @@ function validar($numAsiento)
         </div>
       </div>
     </div>
-    <form method="post" id="prueba" action="formularioPago.php?idVuelo=<?php echo $idvuelo?>">
+    <form method="post" id="prueba" action="insert-asientos.php?idVuelo=<?php echo $idvuelo?>">
       <div class="seating" id="seating">
 
         <!-- Asientos del Avion-->

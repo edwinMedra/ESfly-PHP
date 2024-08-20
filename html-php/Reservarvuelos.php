@@ -97,7 +97,7 @@
             <div class="container-fluid my-5">
               <h2 class="text-center">Vuelos seleccionados</h2>
             </div>
-            <div class="container rounded-4 border border-1 border-black w-100 p-0 my-5 bg-white">
+            <div class="container rounded-4 border border-1 border-black w-100 p-0 my-5">
               <div class="row ">
                 <div class="col-8 mt-4">
                   <div class="row d-flex mx-auto my-4 w-75 border border-black border-1 rounded-5">
@@ -247,7 +247,7 @@
       $foto = $rowOrigen['foto'];
   ?>
 
-      <div class="container-fluid bg-white border border-black rounded-5 w-75 mx-auto p-3">
+      <div class="container-fluid border border-black rounded-5 w-75 mx-auto p-3">
         <!--origen y destino de el vuelo-->
         <div class="row">
           <div class="col-lg-6 text-center"><strong>Origen: </strong><?php echo $origen1 ?></div>
