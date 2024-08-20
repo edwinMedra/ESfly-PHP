@@ -17,13 +17,24 @@
   <link rel="stylesheet" href="../css/headerr.css" />
   <link rel="stylesheet" href="../css/pie.css" />
   <title>Reserva de vuelos</title>
+
+  <style>
+    .body{
+      
+
+    }
+
+    .text-formu{
+      font-weight: bold;
+      font-family: "Be Vietnam Pro";
+    }
+  </style>
 </head>
 
 <body>
 
   <?php
   include("header-log.php");
-  // se inicia proceso para poder llamar a los vuelos el cual ese usuario ha reservad
 
   ?>
   <!--Fin header-->
@@ -58,13 +69,52 @@
       <p>Reserva</p>
     </div>
   </div>
-  <div class="container-fluid my-5">
-    <h2 class="text-center">Reservas realizadas anteriormente</h2>
-    <div class="container-fluid">
+
+
+<!-- Seccion de vuelos de pagina web -->
+<div class=" texto-titulo container mt-5">
+    <h5 id="search-flight-title">Busca un vuelo ></h5>
+</div>
+
+<!-- CUADRO DE BUSCAR VUELOS -->
+<div class="container mt-4 d-flex justify-content-center">
+    <div class="card card-buscar p-4" style="width: 100%; max-width: 900px;">
+        <div class="card-body">
+            <h5 id="search-flight" class="card-title text-center text-formu" style="font-size: 24px;">Busca tu Vuelo:</h5>
+            <form class="form-inline justify-content-center" method="get" action="Reservarvuelos.php">
+                <div class="form-group mt-4 d-flex align-items-center" style="width: 100%;">
+                    <label id="flight-date" class="text-formu font-weight-bold" style="flex: 0 0 150px;">Fecha de Vuelo:</label>
+                    <input type="date" class="form-control" id="fechaVuelo" placeholder="Fecha de Vuelo" name="fecha" style="flex: 1;">
+                </div>
+                <div class="form-group mt-4 d-flex align-items-center" style="width: 100%;">
+                    <label id="origin-country" class="text-formu font-weight-bold" style="flex: 0 0 150px;">País de Origen:</label>
+                    <select class="form-control" id="Origen" name="origen" style="flex: 1;">
+                        <!-- Opciones de país aquí -->
+                    </select>
+                </div>
+                <div class="form-group mt-4 d-flex align-items-center" style="width: 100%;">
+                    <label id="destination-country" for="Destino" class="text-titulo text-formu font-weight-bold" style="flex: 0 0 150px;">País de Destino:</label>
+                    <select class="form-control" id="Destino" name="destino" style="flex: 1;">
+                        <!-- Opciones de país aquí -->
+                    </select>
+                </div>
+                <div class="text-center mt-4">
+                    <button id="search-btn" type="submit" class="btn btn-primary mb-4 mt-3" style="width: 100%;">Buscar Vuelo</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+
+<div class=" texto-titulo container mt-5">
+  <h5 id="search-flight-title">Reservas realizadas anteriormente ></h5>
+</div>
+
 <!--Informacion de los vuelos donde el usuario ha seleccionado un asiento-->
 
-    </div>
-  </div>
   <?php
   include("conex.php");
 ?>

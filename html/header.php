@@ -90,8 +90,17 @@ if (!($sesion == null || $sesion == '')){
 
         }
 
+        /*Quitar la flechita de el men]u */
         .nav-link.dropdown-toggle::after {
             display: none;
+        }
+      /*PARA CAMBIAR EL COLOR DE LA LETRA DE EL NAV SEGUN LOS TEMAS DE OSCURO Y CLARO */
+      body[data-bs-theme='dark'] .nav-link {
+            color: #fff; 
+        }
+    
+        body[data-bs-theme='light'] .nav-link {
+            color: #000; 
         }
 
         /* Ajusta el posicionamiento del menú desplegable */

@@ -16,6 +16,30 @@
   <link rel="stylesheet" href="..//css/header.css">
   <link rel="stylesheet" href="../css/registro.css">
   <title>Registro</title>
+  <style>
+      /* TRADUCTOR */
+        /* Ocultar el header de Google Translate */
+        .VIpgJd-ZVi9od-ORHb-OEVmcd {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .VIpgJd-ZVi9od-l4eHX-hSRGPd{
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .goog-te-banner-frame.skiptranslate {
+            display: none !important;
+            opacity: 0;
+        }
+
+        .goog-te-combo{
+            opacity: 100;
+            font-family: "Be Vietnam Pro";
+            size: 65px;
+        }
+    </style>
 </head>
 
 <body>
@@ -163,6 +187,15 @@ window.addEventListener('load', () => {
     }
 });
 </script>
+
+<!-- ////////////////////TRADUCTOR/////////////////////////////////-->
+
+<script type="text/javascript">
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({pageLanguage: 'es', includedLanguajes: 'en,es'}, 'google_translate_element');
+}
+</script>
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
 </html>
 

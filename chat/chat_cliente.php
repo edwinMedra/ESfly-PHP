@@ -44,10 +44,13 @@
         }
     </style>
 </head>
+
+
 <body>
 <?php
-    include("header-log.php");
-    ?>
+include("header-log.php");
+?>
+
 <div class="container extra-margin-top">
     <div class="row">
         <div class="col-md-4">

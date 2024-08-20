@@ -23,6 +23,7 @@
 
     <title>ESFLY</title>
     <style>
+
         #espacio {
             display: none;
         }
@@ -32,23 +33,24 @@
                 display: flex;
             }
         }
-        .contenedor {
-    position: relative;
-}
 
-.texto-superpuesto {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: white;
-    font-size: 45px;
-    text-align: center;
-    padding: 10px;
-    border-radius: 10px;
-    z-index: 2;
-    width: 80%;
-}
+        .contenedor {
+            position: relative;
+        }
+
+        .texto-superpuesto {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-size: 45px;
+            text-align: center;
+            padding: 10px;
+            border-radius: 10px;
+            z-index: 2;
+            width: 80%;
+        }
 
         /*EFECTO DE CARGAR DE LA PAGINA (2)*/
 
@@ -564,12 +566,19 @@
             <a class="card-prep card card-hover-effect text-center mb-3 " style="width: 22rem;" href="centroAyuda.php">
                 <div>
                     <div class="card-body">
-                        <h5 class="card-title mt-5">CENTRO DE AYUDA </h5>
-                        <p class="card-text">Encuentra ayuda sobre la información que necesites.</p>
+                        <h5 class="card-title mt-5">CRITICAS Y SUGERENCIAS</h5>
+                        <p class="card-text">Puedes comentarnos tu opinión del viaje.</p>
                     </div>
                 </div>
             </a>
-
+            <a class="card-prep card card-hover-effect text-center mb-3 " style="width: 22rem;" href="centroAyuda.php">
+                <div>
+                    <div class="card-body">
+                        <h5 class="card-title mt-5">PROCESO DE DEVOLUCIONES</h5>
+                        <p class="card-text">Proceso de devoluciones ESfly.</p>
+                    </div>
+                </div>
+            </a>
 
             <a class="card-prep card card-hover-effect text-center mb-3 " style="width: 22rem;" href="requisitos para viajar.php">
                 <div class="">
@@ -590,7 +599,6 @@
             </a>
         </div>
     </div>
-
 
     <!--FIN DE PREPARAR PARA VIAJAR (CLIENTE)-->
 

@@ -123,6 +123,13 @@ if ($conexion) {
             display: none;
         }
 
+         /* Ajusta el posicionamiento del menú desplegable */
+         .dropdown-menu {
+            position: absolute; 
+            left: -50%; 
+            transform: translateX(-50%); 
+        }
+
 
          /*PARA CAMBIAR EL COLOR DE LA LETRA DE EL NAV SEGUN LOS TEMAS DE OSCURO Y CLARO */
         body[data-bs-theme='dark'] .nav-link {
@@ -132,8 +139,32 @@ if ($conexion) {
         body[data-bs-theme='light'] .nav-link {
             color: #000; 
         }
-   
-    </style>
+        
+       
+        /* TRADUCTOR */
+        /* Ocultar el header de Google Translate */
+        .VIpgJd-ZVi9od-ORHb-OEVmcd {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .VIpgJd-ZVi9od-l4eHX-hSRGPd{
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .goog-te-banner-frame.skiptranslate {
+            display: none !important;
+            opacity: 0;
+        }
+
+        .goog-te-combo{
+            opacity: 100;
+            font-family: "Be Vietnam Pro";
+            size: 65px;
+        }
+        
+</style>
 
 
 </head>
@@ -205,40 +236,38 @@ if ($conexion) {
                         <ul class="dropdown-menu">
                         <hr>
                             <li><a class="dropdown-item fijo " type="" id="hello">¡Hola, ' . htmlspecialchars($nomCliente) . '!</a></li><hr>
-                            <li><a class="dropdown-item" href="../html-php/datos de cuenta.php" id="viewProfile" >Ver perfil</a></li>
-                            <li><a class="dropdown-item" href="../html-php/cerrar.php" id="logout">Cerrar sesión</a></li>
+                            <li><a class="dropdown-item" href="datos de cuenta.php" id="verperfil" >Ver perfil</a></li>
+                            <li><a class="dropdown-item" href="cerrar.php" id="logout">Cerrar sesión</a></li>
                         </ul>
                     </div>';
                     }
                     ?>
                 </label>
-
-                
-
-                
  
             </form>
 
-            <!--BOTON DE TEMAS  -->
+            <!--BOTON DE TEMAS-->
                 <button  onclick="cambiarTema()" class="btn rounded-fill  ms-1"><i id="dl-icon" class="bi bi-moon-fill"></i></button>
 
+            <!--Traductor-->
                 <div class="nav-item dropdown ms-2">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" id="" data-bs-toggle="dropdown" aria-expanded="false">
-                        <img src="../imagen/header/traductor.png" class="me-2" id="" alt="" width="20">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                    <img src="../imagen/header/traductor.png" class="me-2" alt="Traductor" width="20">
                     </a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" onclick="setLanguage('es')" href="#">Español</a></li>
-                        <li><a class="dropdown-item" onclick="setLanguage('en')" href="#">Inglés</a></li>
-
+                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <button class="goog-te-combo" id="google_translate_element">Seleccione el idioma</button>
                     </ul>
                 </div>
 
 
+            <!-- Imagen search Bar -->
             <form class="d-flex" role="search">
                 <button class="btn ms-1" type="button" id="search-btn">
                     <img src="../imagen/header/lupa.png" class="" id="lupa" alt="" width="20"> Buscar
                 </button>
             </form>
+
+
         </div>
 
     </div>
@@ -250,11 +279,9 @@ if ($conexion) {
     <div class="search-suggestions" id="search-suggestions"></div>
 </div>
 
-<script src="../js/traductorHeaderCliente.js"></script>
-
 <script>
 
-/*//////////////////////////////////////////////////////////////////*/ 
+/*/////////// BARRA DE BUSCAR //////////////*/ 
 
 
     const searchBtn = document.getElementById('search-btn');
@@ -287,19 +314,19 @@ if ($conexion) {
                 suggestion.textContent = page.name;
                 searchSuggestions.appendChild(suggestion);
             });
-            searchSuggestions.style.display = 'block'; // Mostrar sugerencias si hay resultados
+            searchSuggestions.style.display = 'block'; 
         } else {
-            searchSuggestions.style.display = 'none'; // Ocultar sugerencias si no hay resultados
+            searchSuggestions.style.display = 'none'; 
         }
     });
 
     document.addEventListener('click', function(e) {
         if (!searchBar.contains(e.target) && e.target !== searchBtn) {
-            searchBar.style.display = 'none'; // Ocultar el buscador si se hace clic fuera de él
+            searchBar.style.display = 'none'; 
         }
     });
 
-    // MODO OSCURO Y CLARO DE LA PAGINA
+    // /////////////MODO OSCURO Y CLARO DE LA PAGINA////////////////////
     const temaOscuro = () => {
             document.querySelector("body").setAttribute("data-bs-theme", "dark");
             document.querySelector("#dl-icon").setAttribute("class", "bi bi-sun-fill");
@@ -316,18 +343,25 @@ if ($conexion) {
             document.querySelector("body").getAttribute("data-bs-theme") === "light" ? temaOscuro() : temaClaro();
         }
 
-        // PARA GUARDAR EL COLOR DE LA PAGINA (tutorial 2)
-        window.addEventListener('load', () => {
-            const theme = localStorage.getItem("theme");
-            if (theme === "dark") {
-                temaOscuro();
-            } else {
-                temaClaro();
-            }
-        });
-</script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz4fnFO9gybBogGzTsl7p60HHRH5m2mTt1El2x60S6K97nwpT+0X5MgDkP" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-qI1X+968sKDkBxhrSLPjARQiQPLVuQQ0OzN7X3I6ZGzBp5y0G4Z81CNRw5rk4ZiC" crossorigin="anonymous"></script>
+        /*GUARDAR EL IDIOMA Y COLOR*/
 
+    window.addEventListener('load', () => {
+    const theme = localStorage.getItem("theme");
+    if (theme === "dark") {
+        temaOscuro();
+    } else {
+        temaClaro();
+    }
+});
+</script>
+
+<!-- ////////////////////TRADUCTOR/////////////////////////////////-->
+
+<script type="text/javascript">
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({pageLanguage: 'es', includedLanguajes: 'en,es'}, 'google_translate_element');
+}
+</script>
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </body>
 </html>

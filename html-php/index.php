@@ -218,12 +218,10 @@ include("header-log.php");
 
 <div class=" container-fluid texto-titulo  mt-5 ps-5">
         <h5 id="sugerencias-travel">Sugerencias de viajes ></h5>
-    </div>
+</div>
 
 
 <!-- Carrusel de Promociones de Viajes -->
-
-
 <div class="container-fluid mt-3 mb-5">
     <div id="carrusel1" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-indicators">
