@@ -121,7 +121,7 @@ $nombreCompleto = $nomCliente . " " . $apeCliente;
 </body>
 </html>
 <?php
-/*
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $id = $_SESSION['$id']; // Supone que el ID del usuario está en la sesión
     // Actualiza la base de datos para indicar que hay una notificación
@@ -129,5 +129,5 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $stmt = $conexion->prepare($sql);
     $stmt->bind_param('i', $id);
     $stmt->execute();
-}*/
+}
 ?>
