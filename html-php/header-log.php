@@ -123,6 +123,13 @@ if ($conexion) {
             display: none;
         }
 
+         /* Ajusta el posicionamiento del menú desplegable */
+         .dropdown-menu {
+            position: absolute; /* Permite posicionar el menú de forma precisa */
+            left: -50%; /* Ajusta este valor según sea necesario */
+            transform: translateX(-50%); /* Centra el menú a la izquierda del botón */
+        }
+
 
          /*PARA CAMBIAR EL COLOR DE LA LETRA DE EL NAV SEGUN LOS TEMAS DE OSCURO Y CLARO */
         body[data-bs-theme='dark'] .nav-link {
@@ -133,24 +140,30 @@ if ($conexion) {
             color: #000; 
         }
         
-        .skiptranslate{
-            opacity: 0;
-        }
-   
-
+       
         /* TRADUCTOR */
-     /* Ocultar el header del widget de Google Translate */
-     .goog-te-banner-frame.skiptranslate {
+        /* Ocultar el header de Google Translate */
+        .VIpgJd-ZVi9od-ORHb-OEVmcd {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .VIpgJd-ZVi9od-l4eHX-hSRGPd{
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .goog-te-banner-frame.skiptranslate {
             display: none !important;
             opacity: 0;
         }
 
-        body {  
-        top: 0px !important;
-        
+        .goog-te-combo{
+            opacity: 100;
+            font-family: "Be Vietnam Pro";
+            size: 65px;
         }
-    
-    </style>
+</style>
 
 
 </head>
@@ -229,26 +242,22 @@ if ($conexion) {
                     }
                     ?>
                 </label>
-
-                
-
-                
  
             </form>
 
-            <!--BOTON DE TEMAS  -->
+            <!--////////////BOTON DE TEMAS////////////////////  -->
                 <button  onclick="cambiarTema()" class="btn rounded-fill  ms-1"><i id="dl-icon" class="bi bi-moon-fill"></i></button>
 
                 <div class="nav-item dropdown ms-2">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" id="" data-bs-toggle="dropdown" aria-expanded="false">
-                        <img src="../imagen/header/traductor.png" class="me-2" id="" alt="" width="20">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                    <img src="../imagen/header/traductor.png" class="me-2" alt="Traductor" width="20">
                     </a>
-                    <ul class="dropdown-menu">
-                        <li>Selecciona idioma</li>
-                        <li><div id="google_translate_element"></div></li>
-
+                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <button class="goog-te-combo" id="google_translate_element">Seleccione el idioma</button>
+                        
                     </ul>
                 </div>
+
 
 
             <form class="d-flex" role="search">
@@ -256,6 +265,8 @@ if ($conexion) {
                     <img src="../imagen/header/lupa.png" class="" id="lupa" alt="" width="20"> Buscar
                 </button>
             </form>
+
+
         </div>
 
     </div>
@@ -269,55 +280,7 @@ if ($conexion) {
 
 <script>
 
-/*////////////////////////TRADUCTOR HEADER////////////////////////////////////////// 
-
-const headertraduction = {
-    es: {
-        reserveFlight: "Reserva tu vuelo",
-        offersAndDestinations: "Ofertas y destinos",
-        checkIn: "Check-in",
-        search: "Buscar",
-        tickets: "Boletos",
-        chats: "Chats",
-        hello: "¡Hola,",
-        verperfil: "Ver perfil",
-        logout: "Cerrar sesión",
-        text1: "Más que una aerolínea, somos tu puente al mundo."
-
-    },
-    en: {
-        reserveFlight: "Reserve your flight",
-        offersAndDestinations: "Offers and destinations",
-        checkIn: "Check-in",
-        search: "Search",
-        tickets: "Tickets",
-        chats: "Chats",
-        hello: "Hello,",
-        verperfil: "View profile",
-        logout: "Logout",
-        text1: "More than an airline, we are your bridge to the world."
-
-    }
-};
-
-function setLanguage(lang) {
-    localStorage.setItem('language', lang); 
-    document.getElementById('reserveFlight').textContent = headertraduction[lang].reserveFlight;
-    document.getElementById('offersAndDestinations').textContent = headertraduction[lang].offersAndDestinations;
-    document.getElementById('checkIn').textContent = headertraduction[lang].checkIn;
-    document.getElementById('search-btn').innerHTML = `<img src="../imagen/header/lupa.png" class="" id="lupa" alt="" width="20"> ${headertraduction[lang].search}`;
-    document.getElementById('tickets').innerHTML = `<img src="../imagen/header_ayudante/boleto.png" class="" id="" alt="" width="20"> ${headertraduction[lang].tickets}`;
-    document.getElementById('chats').innerHTML = `<img src="../imagen/header_ayudante/chats.png" class="" id="" alt="" width="20"> ${headertraduction[lang].chats}`;
-    document.getElementById('hello').innerHTML = `${headertraduction[lang].hello} ${nomCliente}!`;
-    document.getElementById('viewProfile').textContent = headertraduction[lang].viewProfile;
-    document.getElementById('logout').textContent = headertraduction[lang].logout;
-    document.getElementById('text1').textContent = headertraduction[lang].text1;
-
-}*/
-
-
-
-/*//////////////////////////////////////////////////////////////////*/ 
+/*/////////// BARRA DE BUSCAR //////////////*/ 
 
 
     const searchBtn = document.getElementById('search-btn');
@@ -350,19 +313,19 @@ function setLanguage(lang) {
                 suggestion.textContent = page.name;
                 searchSuggestions.appendChild(suggestion);
             });
-            searchSuggestions.style.display = 'block'; // Mostrar sugerencias si hay resultados
+            searchSuggestions.style.display = 'block'; 
         } else {
-            searchSuggestions.style.display = 'none'; // Ocultar sugerencias si no hay resultados
+            searchSuggestions.style.display = 'none'; 
         }
     });
 
     document.addEventListener('click', function(e) {
         if (!searchBar.contains(e.target) && e.target !== searchBtn) {
-            searchBar.style.display = 'none'; // Ocultar el buscador si se hace clic fuera de él
+            searchBar.style.display = 'none'; 
         }
     });
 
-    // MODO OSCURO Y CLARO DE LA PAGINA
+    // /////////////MODO OSCURO Y CLARO DE LA PAGINA////////////////////
     const temaOscuro = () => {
             document.querySelector("body").setAttribute("data-bs-theme", "dark");
             document.querySelector("#dl-icon").setAttribute("class", "bi bi-sun-fill");
@@ -383,35 +346,21 @@ function setLanguage(lang) {
 
     window.addEventListener('load', () => {
     const theme = localStorage.getItem("theme");
-    const language = localStorage.getItem("language"); 
-
     if (theme === "dark") {
         temaOscuro();
     } else {
         temaClaro();
     }
-
-    /*if (language) {
-        setLanguage(language); 
-    } else {
-        setLanguage('es'); 
-    }*/
 });
 </script>
 
-<!-- TRADUCTOR-->
-
-
+<!-- ////////////////////TRADUCTOR/////////////////////////////////-->
 
 <script type="text/javascript">
 function googleTranslateElementInit() {
   new google.translate.TranslateElement({pageLanguage: 'es', includedLanguajes: 'en,es'}, 'google_translate_element');
 }
 </script>
-
 <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-
-
-
 </body>
 </html>
