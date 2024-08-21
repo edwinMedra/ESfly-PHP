@@ -30,11 +30,23 @@
     }
   </style>
 </head>
-
+<style>
+  .texto-superpuesto {
+  font-family: "Be Vietnam Pro";
+  color: white;
+  text-align: center;
+  font-size: 80px;
+  position: absolute;
+  padding: 10px;
+  border-radius: 5px;
+}
+</style>
 <body>
 
   <?php
   include("header-log.php");
+  // se inicia proceso para poder llamar a los vuelos el cual ese usuario ha reservad
+  error_reporting(0);
 
   ?>
   <!--Fin header-->
@@ -65,69 +77,24 @@
       </button>
     </div>
 
-    <div class="texto-superpuesto">
-      <p>Reserva</p>
-    </div>
   </div>
-
-
-<!-- Seccion de vuelos de pagina web -->
-<div class=" texto-titulo container mt-5">
-    <h5 id="search-flight-title">Busca un vuelo ></h5>
-</div>
-
-<!-- CUADRO DE BUSCAR VUELOS -->
-<div class="container mt-4 d-flex justify-content-center">
-    <div class="card card-buscar p-4" style="width: 100%; max-width: 900px;">
-        <div class="card-body">
-            <h5 id="search-flight" class="card-title text-center text-formu" style="font-size: 24px;">Busca tu Vuelo:</h5>
-            <form class="form-inline justify-content-center" method="get" action="Reservarvuelos.php">
-                <div class="form-group mt-4 d-flex align-items-center" style="width: 100%;">
-                    <label id="flight-date" class="text-formu font-weight-bold" style="flex: 0 0 150px;">Fecha de Vuelo:</label>
-                    <input type="date" class="form-control" id="fechaVuelo" placeholder="Fecha de Vuelo" name="fecha" style="flex: 1;">
-                </div>
-                <div class="form-group mt-4 d-flex align-items-center" style="width: 100%;">
-                    <label id="origin-country" class="text-formu font-weight-bold" style="flex: 0 0 150px;">País de Origen:</label>
-                    <select class="form-control" id="Origen" name="origen" style="flex: 1;">
-                        <!-- Opciones de país aquí -->
-                    </select>
-                </div>
-                <div class="form-group mt-4 d-flex align-items-center" style="width: 100%;">
-                    <label id="destination-country" for="Destino" class="text-titulo text-formu font-weight-bold" style="flex: 0 0 150px;">País de Destino:</label>
-                    <select class="form-control" id="Destino" name="destino" style="flex: 1;">
-                        <!-- Opciones de país aquí -->
-                    </select>
-                </div>
-                <div class="text-center mt-4">
-                    <button id="search-btn" type="submit" class="btn btn-primary mb-4 mt-3" style="width: 100%;">Buscar Vuelo</button>
-                </div>
-            </form>
-        </div>
-    </div>
-</div>
-
-
-
-
-<div class=" texto-titulo container mt-5">
-  <h5 id="search-flight-title">Reservas realizadas anteriormente ></h5>
-</div>
-
+  <div class="container-fluid my-5">
+    <h2 class="text-center">Reservas realizadas anteriormente</h2>
+    <div class="container-fluid">
 <!--Informacion de los vuelos donde el usuario ha seleccionado un asiento-->
 
   <?php
   include("conex.php");
-?>
+  ?>
 
   <div class="container-fluid">
     <?php
-  error_reporting(0);
+
     $fechaEntrada = $_GET['fecha'];
     $origen = $_GET['origen'];
     $destino = $_GET['destino'];
     // funcion para llamar a los datos de vuelo para poder colocarlos en la pagina web
     if ($fechaEntrada == null or $origen == null or $destino == null) {
-
     } else {
 
 
@@ -172,7 +139,7 @@
                     </div>
                   </div>
                   <div class="d-flex " id="boton">
-                  <a href="formularioVueloEspecial.php?idVuelo=<?php echo $idVuelo ?>" class="text-decoration-none text-white btn-primary btn mx-auto">Tomar vuelo</a>
+                    <a href="formularioVueloEspecial.php?idVuelo=<?php echo $idVuelo ?>" class="text-decoration-none text-white btn-primary btn mx-auto">Tomar vuelo</a>
                   </div>
                 </div>
                 <!---->
@@ -188,6 +155,229 @@
     }
     ?>
   </div>
+  <!--informacion de los vuelos q ha reservado este usuario-->
+  <?php
+
+  $misVuelos = $conexion->query("SELECT * FROM asientos WHERE 
+  clienteA1 = '$id' OR 
+  clienteA2 = '$id' OR 
+  clienteA3 = '$id' OR 
+  clienteA4 = '$id' OR 
+  clienteA5 = '$id' OR 
+  clienteA6 = '$id' OR 
+  clienteB1 = '$id' OR 
+  clienteB2 = '$id' OR 
+  clienteB3 = '$id' OR 
+  clienteB4 = '$id' OR 
+  clienteB5 = '$id' OR 
+  clienteB6 = '$id' OR 
+  clienteC1 = '$id' OR 
+  clienteC2 = '$id' OR 
+  clienteC3 = '$id' OR 
+  clienteC4 = '$id' OR 
+  clienteC5 = '$id' OR 
+  clienteC6 = '$id' OR 
+  clienteD1 = '$id' OR 
+  clienteD2 = '$id' OR 
+  clienteD3 = '$id' OR 
+  clienteD4 = '$id' OR 
+  clienteD5 = '$id' OR 
+  clienteD6 = '$id' OR 
+  clienteE1 = '$id' OR 
+  clienteE2 = '$id' OR 
+  clienteE3 = '$id' OR 
+  clienteE4 = '$id' OR 
+  clienteE5 = '$id' OR 
+  clienteE6 = '$id' OR 
+  clienteF1 = '$id' OR 
+  clienteF2 = '$id' OR 
+  clienteF3 = '$id' OR 
+  clienteF4 = '$id' OR 
+  clienteF5 = '$id' OR 
+  clienteF6 = '$id' OR 
+  clienteG1 = '$id' OR 
+  clienteG2 = '$id' OR 
+  clienteG3 = '$id' OR 
+  clienteG4 = '$id' OR 
+  clienteG5 = '$id' OR 
+  clienteG6 = '$id' OR 
+  clienteH1 = '$id' OR 
+  clienteH2 = '$id' OR 
+  clienteH3 = '$id' OR 
+  clienteH4 = '$id' OR 
+  clienteH5 = '$id' OR 
+  clienteH6 = '$id' OR 
+  clienteI1 = '$id' OR 
+  clienteI2 = '$id' OR 
+  clienteI3 = '$id' OR 
+  clienteI4 = '$id' OR 
+  clienteI5 = '$id' OR 
+  clienteI6 = '$id' OR 
+  clienteJ1 = '$id' OR 
+  clienteJ2 = '$id' OR 
+  clienteJ3 = '$id' OR 
+  clienteJ4 = '$id' OR 
+  clienteJ5 = '$id' OR 
+  clienteJ6 = '$id' OR 
+  clienteK1 = '$id' OR 
+  clienteK2 = '$id' OR 
+  clienteK3 = '$id' OR 
+  clienteK4 = '$id' OR 
+  clienteK5 = '$id' OR 
+  clienteK6 = '$id'");
+
+  function idAsiento($id, $asiento)
+  {
+    include("conex.php");
+    $asientoCon = $conexion->query("SELECT * FROM asientos where cliente$asiento = '$id'");
+    $filAsiento = mysqli_num_rows($asientoCon);
+    if ($filAsiento) {
+    ?>
+    <button class="bg-primary text-white border-0 p-2 rounded-3"><?php echo $asiento?></button>
+    <?php
+    }
+  }
+
+  // mostrar solo los que esten con el propio
+  $fila = mysqli_num_rows($misVuelos);
+  if (!($fila)) {
+    echo "<h4 class='text-center'>No hay vuelos reservados</h4>";
+  } else {
+    echo '  <div class="container-fluid my-5">
+    <h2 class="text-center">Reservas realizadas anteriormente</h2>
+    <div class="container-fluid">
+      <!--Informacion de los vuelos donde el usuario ha seleccionado un asiento-->
+    </div>
+  </div>';
+    // proceso de los div para mostrar todos los vuelos con su id de vuelo 
+    while ($rowVuelo = $misVuelos->fetch_array()) {
+      $idVuelo2 = $rowVuelo['idVuelo'];
+      $destino1 = $rowVuelo['destino'];
+      $idVuelo1 = $rowVuelo['idVuelo'];
+      // consulta para tener información de vuelo
+      $conVuelo = $conexion->query("SELECT * FROM vuelo WHERE idVuelo = '$idVuelo1'");
+      // consulta de el origen de el vuelo
+      $rowOrigen = $conVuelo->fetch_assoc();
+      $origen1 = $rowOrigen['origen'];
+      $fechaSalida1 = $rowOrigen['fechaSalida'];
+      $fechaEntrada1 = $rowOrigen['fechaEntrada'];
+      $foto = $rowOrigen['foto'];
+  ?>
+
+      <div class="container-fluid bg-white border border-black rounded-5 w-75 mx-auto p-3">
+        <!--origen y destino de el vuelo-->
+        <div class="row">
+          <div class="col-lg-6 text-center"><strong>Origen: </strong><?php echo $origen1 ?></div>
+          <div class="col-lg-6 text-center"><strong>Destino: </strong><?php echo $destino1 ?></div>
+        </div>
+        <!--hora y fecha de ese vuelo-->
+        <div class="row mx-auto">
+          <div class="col-lg-6 text-center"><strong>Fecha de entrada: </strong><?php echo $fechaEntrada1 ?></div>
+          <div class="col-lg-6 text-center"><strong>Fecha de salida: </strong><?php echo $fechaSalida1 ?></div>
+        </div>
+        <div class="row">
+          <div class="col-12 text-center">
+            <img src="data:image/jpg;base64,<?php echo base64_encode($foto) ?>" alt="" class="w-50 rounded-4 mx-auto m-2">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12 text-center">
+            <h5>Asientos Reservados:</h5>
+            <?php 
+            echo idAsiento($id, 'A1');
+            echo idAsiento($id, 'A2');
+            echo idAsiento($id, 'A3');
+            echo idAsiento($id, 'A4');
+            echo idAsiento($id, 'A5');
+            echo idAsiento($id, 'A6');
+            echo idAsiento($id, 'B1');
+            echo idAsiento($id, 'B2');
+            echo idAsiento($id, 'B3');
+            echo idAsiento($id, 'B4');
+            echo idAsiento($id, 'B5');
+            echo idAsiento($id, 'B6');
+            echo idAsiento($id, 'C1');
+            echo idAsiento($id, 'C2');
+            echo idAsiento($id, 'C3');
+            echo idAsiento($id, 'C4');
+            echo idAsiento($id, 'C5');
+            echo idAsiento($id, 'C6');
+            echo idAsiento($id, 'D1');
+            echo idAsiento($id, 'D2');
+            echo idAsiento($id, 'D3');
+            echo idAsiento($id, 'D4');
+            echo idAsiento($id, 'D5');
+            echo idAsiento($id, 'D6');
+            echo idAsiento($id, 'E1');
+            echo idAsiento($id, 'E2');
+            echo idAsiento($id, 'E3');
+            echo idAsiento($id, 'E4');
+            echo idAsiento($id, 'E5');
+            echo idAsiento($id, 'E6');
+            echo idAsiento($id, 'F1');
+            echo idAsiento($id, 'F2');
+            echo idAsiento($id, 'F3');
+            echo idAsiento($id, 'F4');
+            echo idAsiento($id, 'F5');
+            echo idAsiento($id, 'F6');
+            echo idAsiento($id, 'G1');
+            echo idAsiento($id, 'G2');
+            echo idAsiento($id, 'G3');
+            echo idAsiento($id, 'G4');
+            echo idAsiento($id, 'G5');
+            echo idAsiento($id, 'G6');
+            echo idAsiento($id, 'H1');
+            echo idAsiento($id, 'H2');
+            echo idAsiento($id, 'H3');
+            echo idAsiento($id, 'H4');
+            echo idAsiento($id, 'H5');
+            echo idAsiento($id, 'H6');
+            echo idAsiento($id, 'I1');
+            echo idAsiento($id, 'I2');
+            echo idAsiento($id, 'I3');
+            echo idAsiento($id, 'I4');
+            echo idAsiento($id, 'I5');
+            echo idAsiento($id, 'I6');
+            echo idAsiento($id, 'J1');
+            echo idAsiento($id, 'J2');
+            echo idAsiento($id, 'J3');
+            echo idAsiento($id, 'J4');
+            echo idAsiento($id, 'J5');
+            echo idAsiento($id, 'J6');
+            echo idAsiento($id, 'K1');
+            echo idAsiento($id, 'K2');
+            echo idAsiento($id, 'K3');
+            echo idAsiento($id, 'K4');
+            echo idAsiento($id, 'K5');
+            echo idAsiento($id, 'K6'); 
+            //  verificar si en este vuelo a reservado un asistente
+            $sqlAsistente = $conexion->query("SELECT * FROM vueloUsuarioAsistente WHERE idUsuario = '$id' and idVuelo = '$idVuelo2' ");
+            $rowAsis = $sqlAsistente->fetch_array();
+            if($rowAsis['estado'] == 1){
+              # echo "Usted tiene asistente";
+              $idAsis = $rowAsis['idAsistente'];
+              $takeAsis = $conexion->query("SELECT * FROM asistente WHERE idAsistente = '$idAsis'");
+              $roAsis = $takeAsis->fetch_assoc();
+              $nomAsis = $roAsis['nomAsistente'];
+              $apeAsistente = $roAsis['apeAsistente'];
+              $foto2 = $roAsis['foto'];
+              ?>
+              <div class="row">
+                <div class="col-12">
+                  <strong>Nombre de Asistente: <br></strong><?php echo $nomAsis . " " . $apeAsistente?><br>
+                  <img src="data:image/jpg;base64,<?php echo base64_encode($foto2)?>" alt="" class="w-25 rounded-circle" style="object-fit: cover; min-width:100px; max-width:100px; min-height:100px; max-height:100px;" >
+                </div>
+              </div>
+              <?php
+            }
+            ?>
+          </div>
+        </div>
+      </div>
+  <?php
+    }
+  }
+  ?>
   <?php
   include("pie.php")
   ?>

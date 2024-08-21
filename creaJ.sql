@@ -274,7 +274,6 @@ create table vueloUsuarioAsistente(
     estado int,
     primary key(id)
 );
-
 /*
 -- TABLAS INTERMEDIAS:
 -- Tabla aerolineaAsistente
@@ -510,6 +509,7 @@ insert into aerolineaAlianza values
 select * from usuario;
 select * from asistente;
 select * from vueloUsuarioAsistente;
+insert into vueloUsuarioAsistente values (null,4,1,2,1);
 select * from vuelo;
 select * from asientos;
 select * from administradores;
@@ -518,6 +518,7 @@ select * from notiAsistente;
 truncate table form;
 select * from mensajes;
 use railway; 
+select * from asientos where clienteA1 = 4 or clienteA2 = 4;
 -- tener un usuario ya por defecto
 insert into usuario VALUES 
 ("Edwin Gabriel","Medrano Yanes","$2y$10$C1OU5QbxIBKBJN0sRXpTNOrtIVvtnt0BkHEN.52wEKb37AmY8vnCG","edwin@gmail.com","123456789","12345678-9",null,null);

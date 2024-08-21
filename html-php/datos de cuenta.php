@@ -33,10 +33,6 @@
   }
 </style>
 <?php include("header-log.php") ?>
-<?php
-
-?>
-
 <body>
   <form class="my-auto" method="post" enctype="multipart/form-data">
 

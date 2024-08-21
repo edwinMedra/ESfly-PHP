@@ -128,13 +128,5 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $stmt = $conexion->prepare($sql);
     $stmt->bind_param('i', $id);
     $stmt->execute();
-
-    // Redirige al usuario al index.php
-    echo "
-    <script>
-    window.location.href = 'index.php'
-    </script>
-    ";
-    exit();
 }
 ?>
