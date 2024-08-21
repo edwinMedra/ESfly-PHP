@@ -37,14 +37,6 @@ if ($conexion) {
         header("Location:../admin-php/index_admin.php");
     }
 }
-//Código para mostrar el punto rojo en la imagen
-$id = $_SESSION['$id'];
-$sql = "SELECT notificacion FROM usuario WHERE idCliente = ?";
-$stmt = $conexion->prepare($sql);
-$stmt->bind_param('i', $id);
-$stmt->execute();
-$stmt->bind_result($notificacion);
-$stmt->fetch();
 ?>
 <!--Inicio header-->
 
@@ -181,7 +173,7 @@ $stmt->fetch();
         }
 
         .notification-link img {
-            display: inline;
+            display: inline-block;
         }
 
         .notification-dot {
@@ -192,7 +184,7 @@ $stmt->fetch();
             height: 10px;
             background-color: red;
             border-radius: 50%;
-            display: <?php echo $notificacion ? 'block' : 'none'; ?>;
+            display: inline;
         }
         
 </style>
