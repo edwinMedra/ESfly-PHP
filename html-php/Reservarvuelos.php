@@ -19,28 +19,38 @@
   <title>Reserva de vuelos</title>
 
   <style>
-    .body{
-      
-
+    body{
+      font-family: "Be Vietnam Pro";
     }
 
     .text-formu{
       font-weight: bold;
       font-family: "Be Vietnam Pro";
     }
+
+    .texto-superpuesto {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 50px;
+    text-align: center;
+    padding: 10px;
+    border-radius: 10px;
+    z-index: 2;
+    width: 80%;
+  }
+  .contenedor {
+    position: relative;
+  }
+
+  .carousel-item img {
+    filter: brightness(40%); 
+  }
   </style>
 </head>
-<style>
-  .texto-superpuesto {
-  font-family: "Be Vietnam Pro";
-  color: white;
-  text-align: center;
-  font-size: 80px;
-  position: absolute;
-  padding: 10px;
-  border-radius: 5px;
-}
-</style>
+
 <body>
 
   <?php
@@ -54,16 +64,20 @@
   <!-- Estructura principal de pagina principal -->
   <div class="contenedor">
 
+  <div class="texto-superpuesto">
+        <p>Reserva tu vuelo</p>
+    </div>
+
     <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
       <div class="carousel-inner">
         <div class="carousel-item active" data-bs-interval="3000">
-          <img src="../imagen/index/fondo1.png" class="d-block w-100 h-200" alt="...">
+          <img src="../imagen/reservadevuelos/fondo1.png" class="d-block w-100 h-200" alt="...">
         </div>
         <div class="carousel-item" data-bs-interval="3000">
-          <img src="../imagen/index/fondo2.png" class="d-block w-100 h-200" alt="...">
+          <img src="../imagen/reservadevuelos/fondo2.png" class="d-block w-100 h-200" alt="...">
         </div>
         <div class="carousel-item" data-bs-interval="3000">
-          <img src="../imagen/index/fondo4.png" class="d-block w-100 h-200" alt="...">
+          <img src="../imagen/reservadevuelos/fondo3.png" class="d-block w-100 h-200" alt="...">
         </div>
       </div>
       <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
@@ -81,6 +95,112 @@
   <?php
   include("conex.php");
   ?>
+
+<div class=" texto-titulo container mt-5">
+    <h5 id="search-flight-title">Busca un vuelo ></h5>
+</div>
+<!-- CUADRO DE BUSCAR VUELOS -->
+<div class="container mt-4 d-flex justify-content-center">
+    <div class="card card-buscar p-4" style="width: 100%; max-width: 900px;">
+        <div class="card-body">
+            <h5 id="search-flight" class="card-title text-center text-formu" style="font-size: 24px;">Busca tu Vuelo:</h5>
+            <form class="form-inline justify-content-center" method="get" action="Reservarvuelos.php">
+                <div class="form-group mt-4 d-flex align-items-center" style="width: 100%;">
+                    <label id="flight-date" class="text-formu font-weight-bold" style="flex: 0 0 150px;">Fecha de Vuelo:</label>
+                    <input type="date" class="form-control" id="fechaVuelo" placeholder="Fecha de Vuelo" name="fecha" style="flex: 1;">
+                </div>
+                <div class="form-group mt-4 d-flex align-items-center" style="width: 100%;">
+                    <label id="origin-country" class="text-formu font-weight-bold" style="flex: 0 0 150px;">País de Origen:</label>
+                    <select class="form-control" id="Origen" name="origen" style="flex: 1;">
+                    <option value="Antigua y Barbuda">Antigua y Barbuda</option>
+                        <option value="Argentina">Argentina</option>
+                        <option value="Bahamas">Bahamas</option>
+                        <option value="Barbados">Barbados</option>
+                        <option value="Belice">Belice</option>
+                        <option value="Bolivia">Bolivia</option>
+                        <option value="Brasil">Brasil</option>
+                        <option value="Canada">Canadá</option>
+                        <option value="Chile">Chile</option>
+                        <option value="Colombia">Colombia</option>
+                        <option value="Costa Rica">Costa Rica</option>
+                        <option value="Cuba">Cuba</option>
+                        <option value="Dominica">Dominica</option>
+                        <option value="Ecuador">Ecuador</option>
+                        <option value="El Salvador">El Salvador</option>
+                        <option value="Estados-Unidos">Estados Unidos</option>
+                        <option value="Granada">Granada</option>
+                        <option value="Guatemala">Guatemala</option>
+                        <option value="Guyana">Guyana</option>
+                        <option value="Haiti">Haití</option>
+                        <option value="Honduras">Honduras</option>
+                        <option value="Jamaica">Jamaica</option>
+                        <option value="Mexico">México</option>
+                        <option value="Nicaragua">Nicaragua</option>
+                        <option value="Panama">Panamá</option>
+                        <option value="Paraguay">Paraguay</option>
+                        <option value="Peru">Perú</option>
+                        <option value="Republica Dominicana">República Dominicana</option>
+                        <option value="San Cristobal y Nieves">San Cristóbal y Nieves</option>
+                        <option value="San Vicente y las Granadinas">San Vicente y las Granadinas</option>
+                        <option value="Santa Lucia">Santa Lucía</option>
+                        <option value="Surinam">Surinam</option>
+                        <option value="Trinidad y Tobago">Trinidad y Tobago</option>
+                        <option value="Uruguay">Uruguay</option>
+                        <option value="Venezuela">Venezuela</option>
+                    </select>
+                </div>
+                <div class="form-group mt-4 d-flex align-items-center" style="width: 100%;">
+                    <label id="destination-country" for="Destino" class="text-titulo text-formu font-weight-bold" style="flex: 0 0 150px;">País de Destino:</label>
+                    <select class="form-control" id="Destino" name="destino" style="flex: 1;">
+                    <option value="Antigua y Barbuda">Antigua y Barbuda</option>
+                        <option value="Argentina">Argentina</option>
+                        <option value="Bahamas">Bahamas</option>
+                        <option value="Barbados">Barbados</option>
+                        <option value="Belice">Belice</option>
+                        <option value="Bolivia">Bolivia</option>
+                        <option value="Brasil">Brasil</option>
+                        <option value="Canada">Canadá</option>
+                        <option value="Chile">Chile</option>
+                        <option value="Colombia">Colombia</option>
+                        <option value="Costa Rica">Costa Rica</option>
+                        <option value="Cuba">Cuba</option>
+                        <option value="Dominica">Dominica</option>
+                        <option value="Ecuador">Ecuador</option>
+                        <option value="El Salvador">El Salvador</option>
+                        <option value="Estados-Unidos">Estados Unidos</option>
+                        <option value="Granada">Granada</option>
+                        <option value="Guatemala">Guatemala</option>
+                        <option value="Guyana">Guyana</option>
+                        <option value="Haiti">Haití</option>
+                        <option value="Honduras">Honduras</option>
+                        <option value="Jamaica">Jamaica</option>
+                        <option value="Mexico">México</option>
+                        <option value="Nicaragua">Nicaragua</option>
+                        <option value="Panama">Panamá</option>
+                        <option value="Paraguay">Paraguay</option>
+                        <option value="Peru">Perú</option>
+                        <option value="Republica Dominicana">República Dominicana</option>
+                        <option value="San Cristobal y Nieves">San Cristóbal y Nieves</option>
+                        <option value="San Vicente y las Granadinas">San Vicente y las Granadinas</option>
+                        <option value="Santa Lucia">Santa Lucía</option>
+                        <option value="Surinam">Surinam</option>
+                        <option value="Trinidad y Tobago">Trinidad y Tobago</option>
+                        <option value="Uruguay">Uruguay</option>
+                        <option value="Venezuela">Venezuela</option>
+                    </select>
+                </div>
+                <div class="text-center mt-4">
+                    <button id="search-btn" type="submit" class="btn btn-primary" style="width: 100%;">Buscar Vuelo</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<div class=" texto-titulo container mt-5">
+    <h5 id="search-flight-title">Vuelos que he reservado ></h5>
+</div>
 
   <div class="container-fluid">
     <?php
@@ -373,6 +493,8 @@
     }
   }
   ?>
+  <div class="col-md-3 mt-5 mb-5"></div>
+  
   <?php
   include("pie.php")
   ?>
