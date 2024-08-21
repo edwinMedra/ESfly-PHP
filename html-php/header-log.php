@@ -37,6 +37,15 @@ if ($conexion) {
         header("Location:../admin-php/index_admin.php");
     }
 }
+//Código para mostrar el punto rojo en la imagen
+$id = $_SESSION['$id'];
+$sql = "SELECT notificacion FROM usuario WHERE idCliente = ?";
+$stmt = $conexion->prepare($sql);
+$stmt->bind_param('i', $id);
+$stmt->execute();
+$stmt->bind_result($notificacion);
+$stmt->fetch();
+$stmt->close();
 ?>
 <!--Inicio header-->
 
@@ -173,7 +182,7 @@ if ($conexion) {
         }
 
         .notification-link img {
-            display: inline-block;
+            display: inline;
         }
 
         .notification-dot {
@@ -184,7 +193,7 @@ if ($conexion) {
             height: 10px;
             background-color: red;
             border-radius: 50%;
-            display: inline;
+            display: <?php echo $notificacion ? 'none' : 'block'; ?>;
         }
         
 </style>
@@ -389,13 +398,5 @@ function googleTranslateElementInit() {
 </body>
 </html>
 <?php
-//Código para mostrar el punto rojo en la imagen
-$id = $_SESSION['$id'];
-$sql = "SELECT notificacion FROM usuario WHERE idCliente = ?";
-$stmt = $conexion->prepare($sql);
-$stmt->bind_param('i', $id);
-$stmt->execute();
-$stmt->bind_result($notificacion);
-$stmt->fetch();
-$stmt->close();
+
 ?>
