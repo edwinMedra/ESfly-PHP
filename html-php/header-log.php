@@ -45,7 +45,6 @@ $stmt->bind_param('i', $id);
 $stmt->execute();
 $stmt->bind_result($notificacion);
 $stmt->fetch();
-$stmt->close();
 ?>
 <!--Inicio header-->
 
@@ -193,7 +192,7 @@ $stmt->close();
             height: 10px;
             background-color: red;
             border-radius: 50%;
-            display: <?php echo $notificacion ? 'none' : 'block'; ?>;
+            display: <?php echo $notificacion ? 'block' : 'none'; ?>;
         }
         
 </style>
@@ -397,6 +396,3 @@ function googleTranslateElementInit() {
 <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </body>
 </html>
-<?php
-
-?>
