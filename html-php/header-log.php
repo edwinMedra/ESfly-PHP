@@ -163,6 +163,29 @@ if ($conexion) {
             font-family: "Be Vietnam Pro";
             size: 65px;
         }
+
+        /*PUNTO NOTIFICACION EN BOLETOS*/
+        .notification-link {
+            position: relative;
+            display: inline-block;
+            text-decoration: none;
+            color: black;
+        }
+
+        .notification-link img {
+            display: inline-block;
+        }
+
+        .notification-dot {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 10px;
+            height: 10px;
+            background-color: red;
+            border-radius: 50%;
+            display: inline;
+        }
         
 </style>
 
@@ -202,8 +225,8 @@ if ($conexion) {
 
             <form class="d-flex" role="search">
 
-                <a href="../chat/chat_cliente.php" class="btn  " type="button"  id="tickets">
-                    <img src="../imagen/header_ayudante/boleto.png" class="" id="" alt="" width="20"> Boletos
+                <a href="../chat/chat_cliente.php" class="btn notification-link" type="button"  id="tickets">
+                    <img src="../imagen/header_ayudante/boleto.png" class="" id="" alt="" width="20"> Boletos<div class="notification-dot"></div>
                 </a>
 
 
@@ -365,3 +388,14 @@ function googleTranslateElementInit() {
 <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </body>
 </html>
+<?php
+//Código para mostrar el punto rojo en la imagen
+$id = $_SESSION['$id'];
+$sql = "SELECT notificacion FROM usuario WHERE idCliente = ?";
+$stmt = $conexion->prepare($sql);
+$stmt->bind_param('i', $id);
+$stmt->execute();
+$stmt->bind_result($notificacion);
+$stmt->fetch();
+$stmt->close();
+?>

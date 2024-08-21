@@ -149,7 +149,7 @@ function insert($asiento,$num, $sesion, $idVuelo)
     if (!($asiento == null or $asiento == "")) {
         $resul = $conexion->query("UPDATE asientos set $num='ocupado', cliente$num='$sesion' where idVuelo='$idVuelo'");
         if ($resul) {
-            echo "hola mundo";
+            echo "";
         }
     }
 }
@@ -258,7 +258,7 @@ insert($K6,$K6N,$sesion,$idVuelo);
 
 
 echo "<script>
-window.location.href = 'infoAsistentes_disponibles.php?idVuelo=" . $idVuelo . "'
+window.location.href = 'formularioPago.php?idVuelo=" . $idVuelo . "'
 </script>";
 
 // sigo mañana en modulo

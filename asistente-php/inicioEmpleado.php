@@ -23,8 +23,8 @@
 </head>
 <?php include("header_ayudante.php") ?>
 <?php
-// consultar si hay notificaciones de parte de un usuarip=o
-$noti = $conexion->query("SELECT * FROM vueloUsuarioAsistente WHERE idAsistente = '$sesion'");
+// consultar si hay notificaciones de parte de un usuario
+$noti = $conexion->query("SELECT * FROM vueloUsuarioAsistente WHERE idAsistente = '$sesion' and estado=1");
 $resul = mysqli_num_rows($noti);
 if ($resul){
    $ban = "bg-danger";
@@ -82,7 +82,7 @@ if ($resul){
                 <h5><?php echo $nombre ?></h5>
                 <p>Horas de servicio</p>
                 <?php echo $horario ?>
-                <button class="btn btn-primary">Editar perfil</button>
+                <a class="btn btn-primary" href="datos de cuenta.php">Editar perfil</a>
             </div>
         </div>
 
@@ -102,13 +102,13 @@ if ($resul){
                 </div>
             </div>
             <div class="col-md-6">
-                <div class="citas-boton <?php echo $ban?> card p-4  mt-2 mb-5">
+               <a href="usuNoti.php" style="text-decoration: none;"> <div class="citas-boton <?php echo $ban?> card p-4  mt-2 mb-5">
                     <div class="card-body">
                         <h5 class="text-white">Citas</h5>
                         <img src="../imagen/inicioAsistente/citas.png" alt="" />
                         <h5 class="text-white"><?php echo $texto?></h5>
                     </div>
-                </div>
+                </div></a>
             </div>
         </div>
     </div>
