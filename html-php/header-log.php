@@ -32,6 +32,7 @@ if ($conexion) {
             $foto = $row['foto'];
             $idCliente = $row['idCliente'];
             $pass = $row['pass'];
+            $nombreCompleto = $nomCliente . " ". $apeCliente;
         }
     } else {
         header("Location:../admin-php/index_admin.php");
