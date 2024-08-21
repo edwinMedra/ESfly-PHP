@@ -173,7 +173,7 @@ if ($conexion) {
         }
 
         .notification-link img {
-            display: block;
+            display: inline-block;
         }
 
         .notification-dot {
@@ -184,7 +184,7 @@ if ($conexion) {
             height: 10px;
             background-color: red;
             border-radius: 50%;
-            display: inline-block;
+            display: inline;
         }
         
 </style>
@@ -226,7 +226,7 @@ if ($conexion) {
             <form class="d-flex" role="search">
 
                 <a href="../chat/chat_cliente.php" class="btn notification-link" type="button"  id="tickets">
-                    <img src="../imagen/header_ayudante/boleto.png" class="" id="" alt="" width="20"> Boletos <div class="notification-dot"></div>
+                    <img src="../imagen/header_ayudante/boleto.png" class="" id="" alt="" width="20"> Boletos<div class="notification-dot"></div>
                 </a>
 
 
