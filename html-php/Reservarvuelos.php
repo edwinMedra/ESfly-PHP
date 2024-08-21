@@ -45,12 +45,9 @@
 
   <?php
   include("header-log.php");
-<<<<<<< HEAD
 
-=======
   // se inicia proceso para poder llamar a los vuelos el cual ese usuario ha reservad
   error_reporting(0);
->>>>>>> d1b3d5134868a02ab99fdfbf2b0e20dd75a1d674
   ?>
   <!--Fin header-->
 
@@ -81,7 +78,6 @@
     </div>
 
   </div>
-<<<<<<< HEAD
 
 
 <!-- Seccion de vuelos de pagina web -->
@@ -127,8 +123,6 @@
 </div>
 
 <!--Informacion de los vuelos donde el usuario ha seleccionado un asiento-->
-=======
->>>>>>> d1b3d5134868a02ab99fdfbf2b0e20dd75a1d674
 
   <?php
   include("conex.php");

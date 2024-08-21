@@ -388,14 +388,3 @@ function googleTranslateElementInit() {
 <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </body>
 </html>
-<?php
-//Código para mostrar el punto rojo en la imagen
-$id = $_SESSION['$id'];
-$sql = "SELECT notificacion FROM usuario WHERE idCliente = ?";
-$stmt = $conexion->prepare($sql);
-$stmt->bind_param('i', $id);
-$stmt->execute();
-$stmt->bind_result($notificacion);
-$stmt->fetch();
-$stmt->close();
-?>
