@@ -397,9 +397,6 @@ function googleTranslateElementInit() {
 <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </body>
 </html>
-<<<<<<< HEAD
-=======
 <?php
 
 ?>
->>>>>>> 863a58f7da6cdcd9a5fb8fe5776039b2bea162bd
