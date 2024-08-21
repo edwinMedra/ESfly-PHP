@@ -45,9 +45,9 @@
 
   <?php
   include("header-log.php");
+
   // se inicia proceso para poder llamar a los vuelos el cual ese usuario ha reservad
   error_reporting(0);
-
   ?>
   <!--Fin header-->
 
@@ -78,9 +78,50 @@
     </div>
 
   </div>
-  <div class="container-fluid my-5">
-    <h2 class="text-center">Reservas realizadas anteriormente</h2>
-    <div class="container-fluid">
+
+
+<!-- Seccion de vuelos de pagina web -->
+<div class=" texto-titulo container mt-5">
+    <h5 id="search-flight-title">Busca un vuelo ></h5>
+</div>
+
+<!-- CUADRO DE BUSCAR VUELOS -->
+<div class="container mt-4 d-flex justify-content-center">
+    <div class="card card-buscar p-4" style="width: 100%; max-width: 900px;">
+        <div class="card-body">
+            <h5 id="search-flight" class="card-title text-center text-formu" style="font-size: 24px;">Busca tu Vuelo:</h5>
+            <form class="form-inline justify-content-center" method="get" action="Reservarvuelos.php">
+                <div class="form-group mt-4 d-flex align-items-center" style="width: 100%;">
+                    <label id="flight-date" class="text-formu font-weight-bold" style="flex: 0 0 150px;">Fecha de Vuelo:</label>
+                    <input type="date" class="form-control" id="fechaVuelo" placeholder="Fecha de Vuelo" name="fecha" style="flex: 1;">
+                </div>
+                <div class="form-group mt-4 d-flex align-items-center" style="width: 100%;">
+                    <label id="origin-country" class="text-formu font-weight-bold" style="flex: 0 0 150px;">País de Origen:</label>
+                    <select class="form-control" id="Origen" name="origen" style="flex: 1;">
+                        <!-- Opciones de país aquí -->
+                    </select>
+                </div>
+                <div class="form-group mt-4 d-flex align-items-center" style="width: 100%;">
+                    <label id="destination-country" for="Destino" class="text-titulo text-formu font-weight-bold" style="flex: 0 0 150px;">País de Destino:</label>
+                    <select class="form-control" id="Destino" name="destino" style="flex: 1;">
+                        <!-- Opciones de país aquí -->
+                    </select>
+                </div>
+                <div class="text-center mt-4">
+                    <button id="search-btn" type="submit" class="btn btn-primary mb-4 mt-3" style="width: 100%;">Buscar Vuelo</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+
+<div class=" texto-titulo container mt-5">
+  <h5 id="search-flight-title">Reservas realizadas anteriormente ></h5>
+</div>
+
 <!--Informacion de los vuelos donde el usuario ha seleccionado un asiento-->
 
   <?php
@@ -114,7 +155,7 @@
             <div class="container-fluid my-5">
               <h2 class="text-center">Vuelos seleccionados</h2>
             </div>
-            <div class="container rounded-4 border border-1 border-black w-100 p-0 my-5">
+            <div class="container rounded-4 border border-1 border-black w-100 p-0 my-5 bg-white">
               <div class="row ">
                 <div class="col-8 mt-4">
                   <div class="row d-flex mx-auto my-4 w-75 border border-black border-1 rounded-5">
@@ -264,7 +305,7 @@
       $foto = $rowOrigen['foto'];
   ?>
 
-      <div class="container-fluid border border-black rounded-5 w-75 mx-auto p-3">
+      <div class="container-fluid bg-white border border-black rounded-5 w-75 mx-auto p-3">
         <!--origen y destino de el vuelo-->
         <div class="row">
           <div class="col-lg-6 text-center"><strong>Origen: </strong><?php echo $origen1 ?></div>
