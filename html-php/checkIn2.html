@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Check-In Aerolínea</title>
+    <!-- Enlace a Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css"> <!-- Enlace a tu CSS -->
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center mb-4">Check-In de Aerolínea</h1>
+        <form id="checkin-form">
+            <div class="form-group">
+                <label for="booking-number">Número de Reserva</label>
+                <input type="text" class="form-control" id="booking-number" required>
+            </div>
+            <div class="form-group">
+                <label for="last-name">Usuario</label>
+                <input type="text" class="form-control" id="last-name" required>
+            </div>
+            <div class="form-group">
+                <label for="last-name">Cantidad de equipajes</label>
+                <input type="text" class="form-control" id="last-name" required>
+            </div>
+            <div class="form-group">
+                <label for="last-name">Cantidad de mascotas</label>
+                <input type="text" class="form-control" id="last-name" required>
+            </div>
+            <div class="form-group">
+                <label for="last-name">Tipo de vuelo</label>
+                <select class="custom-select">
+                    <option value="normal">Vuelo Normal</option>
+                    <option value="vip">Vuelo VIP</option>
+                    <option value="especial">Vuelo Especial</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="flight-date">Fecha de Vuelo</label>
+                <input type="date" class="form-control" id="flight-date" required>
+            </div>
+            <div class="form-group">
+                <label for="last-name">País de destino</label>
+                <input type="text" class="form-control" id="last-name" required>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Buscar Reserva</button>
+        </form>
+
+        <!-- Sección de detalles del vuelo -->
+        <div id="flight-details" class="mt-5 d-none">
+            <h2 class="text-center">Detalles del Vuelo</h2>
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Vuelo: <span id="flight-number">1234</span></h5>
+                    <p class="card-text">Fecha: <span id="flight-date-details">01/01/2024</span></p>
+                    <p class="card-text">Hora de Salida: <span id="departure-time">10:00 AM</span></p>
+                    <button id="checkin-button" class="btn btn-success btn-block">Check-In</button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Confirmación de Check-In -->
+        <div id="checkin-confirmation" class="mt-5 d-none">
+            <h2 class="text-center">Confirmación de Check-In</h2>
+            <p class="text-center">¡Tu check-in ha sido exitoso! Puedes dirigirte a la puerta de embarque.</p>
+        </div>
+    </div>
+
+    <!-- Enlace a Bootstrap JS y dependencias -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="script.js"></script> <!-- Enlace a tu JavaScript -->
+</body>
+</html>

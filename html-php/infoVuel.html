@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Información del Vuelo</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .tarjeta-comida {
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px;
+        }
+        .tarjeta-comida img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 15px;
+            transition: 0.3s ease;
+        }
+        .tarjeta-comida:hover img {
+            filter: brightness(30%);
+        }
+        .tarjeta-comida .cuerpo-tarjeta {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            text-align: center;
+            width: 100%;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .tarjeta-comida:hover .cuerpo-tarjeta {
+            opacity: 1;
+        }
+        .imagen-empleado {
+            width: 50px;
+            height: 50px;
+            object-fit: cover;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+        .tarjeta-empleado {
+            display: flex;
+            align-items: center;
+        }
+        .tarjeta-empleado .cuerpo-tarjeta {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+        }
+        .tarjeta-empleado .cuerpo-tarjeta h6 {
+            margin: 0;
+        }
+        .info-vuelo .col-md-3 {
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="card">
+
+            <h3 class="titulo-tarjeta text-center mt-5 mb-5">
+                <img src="../imagen/header/favicon.png" class="img-fluid me-3" width="35" alt="Logo"> Información de tu vuelo:
+            </h3>
+
+            <div class="card-body">                
+
+                <div class="mb-4">
+                   
+                    <div class="row info-vuelo">
+                        <div class="col-md-3 text-center">
+                            <p><strong>Minutos para Aterrizar:</strong></p>
+                            <p id="minutos-para-aterrizar">1h:00:00</p>
+                        </div>
+                        <div class="col-md-3 text-center">
+                            <p><strong>Hora de Llegada:</strong></p>
+                            <p id="hora-llegada">10 am</p>
+                        </div>
+                        <div class="col-md-3 text-center">
+                            <p><strong>País de Origen:</strong></p>
+                            <p>España</p>
+                        </div>
+                        <div class="col-md-3 text-center">
+                            <p><strong>País de Llegada:</strong></p>
+                            <p>Francia</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mb-5">
+                    <h6>Tipo de Vuelo:</h6>
+                    <select class="custom-select">
+                        <option value="normal">Vuelo Normal</option>
+                        <option value="vip">Vuelo VIP</option>
+                        <option value="especial">Vuelo Especial</option>
+                    </select>
+                </div>
+                
+                <div class="mb-5">
+                    <h6>Asientos Reservados:</h6>
+                    <button class="btn btn-primary btn-pequeno">A1</button>
+                    <button class="btn btn-primary btn-pequeno">A2</button>
+                </div>
+
+                <!-- Empleados -->
+                <div class="mb-4">
+                    <h6>Empleado Especial:</h6>
+                    <div class="row">
+                        <div class="col-md-4 mb-5">
+                            <div class="card tarjeta-empleado">
+                                <div class="cuerpo-tarjeta">
+                                    <img src="../imagen/index/fondo4.png" alt="Empleado 1" class="imagen-empleado">
+                                    <h6>Juan Pérez</h6>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mb-4">
+                    <h6>Servicio en el Vuelo:</h6>
+                    <div class="row">
+                        <div class="col-md-4 mb-3">
+                            <div class="card tarjeta-comida">
+                                <img src="../imagen/index/fondo4.png" alt="Comida Aburrido">
+                                <div class="cuerpo-tarjeta">
+                                    <h4>¿Estás ansioso?</h4>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <div class="card tarjeta-comida">
+                                <img src="../imagen/index/fondo4.png" alt="Comida Ansioso">
+                                <div class="cuerpo-tarjeta">
+                                    <h4>¿Estás aburrido?</h4>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <div class="card tarjeta-comida">
+                                <img src="../imagen/index/fondo4.png" alt="Comida">
+                                <div class="cuerpo-tarjeta">
+                                    <h4>Comida</h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+  
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
