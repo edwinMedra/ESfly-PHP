@@ -577,7 +577,7 @@ error_reporting(0);
               <div class="row">
                 <div class="col-md-4 mb-3">
                   <div class="card tarjeta-comida">
-                    <img src="../imagen/index/fondo4.png" alt="Comida Aburrido">
+                    <img src="data:image/jpg;base64,<?php echo base64_encode($foto)?>" alt="Comida Aburrido">
                     <div class="cuerpo-tarjeta">
                       <h4>¿Estás ansioso?</h4>
                     </div>
@@ -585,7 +585,7 @@ error_reporting(0);
                 </div>
                 <div class="col-md-4 mb-3">
                   <div class="card tarjeta-comida">
-                    <img src="../imagen/index/fondo4.png" alt="Comida Ansioso">
+                    <img src="data:image/jpg;base64,<?php echo base64_encode($foto)?>" alt="Comida Ansioso">
                     <div class="cuerpo-tarjeta">
                       <h4>¿Estás aburrido?</h4>
                     </div>
@@ -593,7 +593,7 @@ error_reporting(0);
                 </div>
                 <div class="col-md-4 mb-3">
                   <div class="card tarjeta-comida">
-                    <img src="../imagen/index/fondo4.png" alt="Comida">
+                    <img src="data:image/jpg;base64,<?php echo base64_encode($foto)?>" alt="Comida">
                     <div class="cuerpo-tarjeta">
                       <h4>Comida</h4>
                     </div>
