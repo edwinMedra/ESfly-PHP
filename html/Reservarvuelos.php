@@ -49,9 +49,7 @@
           </button>
         </div>
   
-          <div class="texto-superpuesto">
-              <p>Reserva</p>
-          </div>
+        
   </div>
   <div class="container-fluid w-75 my-5 text-center">
     <h4>Primero tiene que iniciar sesión para poder ver sus vuelos y también reservar vuelos</h4>

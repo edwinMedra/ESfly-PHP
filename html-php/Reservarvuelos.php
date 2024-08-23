@@ -19,35 +19,84 @@
   <title>Reserva de vuelos</title>
 
   <style>
-    body{
+    body {
       font-family: "Be Vietnam Pro";
     }
 
-    .text-formu{
+    .text-formu {
       font-weight: bold;
       font-family: "Be Vietnam Pro";
     }
 
-    .texto-superpuesto {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: white;
-    font-size: 50px;
-    text-align: center;
-    padding: 10px;
-    border-radius: 10px;
-    z-index: 2;
-    width: 80%;
-  }
-  .contenedor {
-    position: relative;
-  }
 
-  .carousel-item img {
-    filter: brightness(40%); 
-  }
+    .contenedor {
+      position: relative;
+    }
+
+    .carousel-item img {
+      filter: brightness(40%);
+    }
+
+    .tarjeta-comida {
+      position: relative;
+      overflow: hidden;
+      border-radius: 15px;
+    }
+
+    .tarjeta-comida img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 15px;
+      transition: 0.3s ease;
+    }
+
+    .tarjeta-comida:hover img {
+      filter: brightness(30%);
+    }
+
+    .tarjeta-comida .cuerpo-tarjeta {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: white;
+      text-align: center;
+      width: 100%;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .tarjeta-comida:hover .cuerpo-tarjeta {
+      opacity: 1;
+    }
+
+    .imagen-empleado {
+      width: 50px;
+      height: 50px;
+      object-fit: cover;
+      border-radius: 50%;
+      margin-right: 10px;
+    }
+
+    .tarjeta-empleado {
+      display: flex;
+      align-items: center;
+    }
+
+    .tarjeta-empleado .cuerpo-tarjeta {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+    }
+
+    .tarjeta-empleado .cuerpo-tarjeta h6 {
+      margin: 0;
+    }
+
+    .info-vuelo .col-md-3 {
+      padding: 10px;
+    }
   </style>
 </head>
 
@@ -56,7 +105,7 @@
   <?php
   include("header-log.php");
   // se inicia proceso para poder llamar a los vuelos el cual ese usuario ha reservad
-  error_reporting(0);
+
   ?>
   <!--Fin header-->
 
@@ -64,8 +113,8 @@
   <!-- Estructura principal de pagina principal -->
   <div class="contenedor">
 
-  <div class="texto-superpuesto">
-        <p>Reserva tu vuelo</p>
+    <div class="texto-superpuesto">
+      <p>Reserva tu vuelo</p>
     </div>
 
     <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
@@ -94,113 +143,114 @@
 
   <?php
   include("conex.php");
+error_reporting(0);
   ?>
 
-<div class=" texto-titulo container mt-5">
+  <div class=" texto-titulo container mt-5">
     <h5 id="search-flight-title">Busca un vuelo ></h5>
-</div>
-<!-- CUADRO DE BUSCAR VUELOS -->
-<div class="container mt-4 d-flex justify-content-center">
+  </div>
+  <!-- CUADRO DE BUSCAR VUELOS -->
+  <div class="container mt-4 d-flex justify-content-center">
     <div class="card card-buscar p-4" style="width: 100%; max-width: 900px;">
-        <div class="card-body">
-            <h5 id="search-flight" class="card-title text-center text-formu" style="font-size: 24px;">Busca tu Vuelo:</h5>
-            <form class="form-inline justify-content-center" method="get" action="Reservarvuelos.php">
-                <div class="form-group mt-4 d-flex align-items-center" style="width: 100%;">
-                    <label id="flight-date" class="text-formu font-weight-bold" style="flex: 0 0 150px;">Fecha de Vuelo:</label>
-                    <input type="date" class="form-control" id="fechaVuelo" placeholder="Fecha de Vuelo" name="fecha" style="flex: 1;">
-                </div>
-                <div class="form-group mt-4 d-flex align-items-center" style="width: 100%;">
-                    <label id="origin-country" class="text-formu font-weight-bold" style="flex: 0 0 150px;">País de Origen:</label>
-                    <select class="form-control" id="Origen" name="origen" style="flex: 1;">
-                    <option value="Antigua y Barbuda">Antigua y Barbuda</option>
-                        <option value="Argentina">Argentina</option>
-                        <option value="Bahamas">Bahamas</option>
-                        <option value="Barbados">Barbados</option>
-                        <option value="Belice">Belice</option>
-                        <option value="Bolivia">Bolivia</option>
-                        <option value="Brasil">Brasil</option>
-                        <option value="Canada">Canadá</option>
-                        <option value="Chile">Chile</option>
-                        <option value="Colombia">Colombia</option>
-                        <option value="Costa Rica">Costa Rica</option>
-                        <option value="Cuba">Cuba</option>
-                        <option value="Dominica">Dominica</option>
-                        <option value="Ecuador">Ecuador</option>
-                        <option value="El Salvador">El Salvador</option>
-                        <option value="Estados-Unidos">Estados Unidos</option>
-                        <option value="Granada">Granada</option>
-                        <option value="Guatemala">Guatemala</option>
-                        <option value="Guyana">Guyana</option>
-                        <option value="Haiti">Haití</option>
-                        <option value="Honduras">Honduras</option>
-                        <option value="Jamaica">Jamaica</option>
-                        <option value="Mexico">México</option>
-                        <option value="Nicaragua">Nicaragua</option>
-                        <option value="Panama">Panamá</option>
-                        <option value="Paraguay">Paraguay</option>
-                        <option value="Peru">Perú</option>
-                        <option value="Republica Dominicana">República Dominicana</option>
-                        <option value="San Cristobal y Nieves">San Cristóbal y Nieves</option>
-                        <option value="San Vicente y las Granadinas">San Vicente y las Granadinas</option>
-                        <option value="Santa Lucia">Santa Lucía</option>
-                        <option value="Surinam">Surinam</option>
-                        <option value="Trinidad y Tobago">Trinidad y Tobago</option>
-                        <option value="Uruguay">Uruguay</option>
-                        <option value="Venezuela">Venezuela</option>
-                    </select>
-                </div>
-                <div class="form-group mt-4 d-flex align-items-center" style="width: 100%;">
-                    <label id="destination-country" for="Destino" class="text-titulo text-formu font-weight-bold" style="flex: 0 0 150px;">País de Destino:</label>
-                    <select class="form-control" id="Destino" name="destino" style="flex: 1;">
-                    <option value="Antigua y Barbuda">Antigua y Barbuda</option>
-                        <option value="Argentina">Argentina</option>
-                        <option value="Bahamas">Bahamas</option>
-                        <option value="Barbados">Barbados</option>
-                        <option value="Belice">Belice</option>
-                        <option value="Bolivia">Bolivia</option>
-                        <option value="Brasil">Brasil</option>
-                        <option value="Canada">Canadá</option>
-                        <option value="Chile">Chile</option>
-                        <option value="Colombia">Colombia</option>
-                        <option value="Costa Rica">Costa Rica</option>
-                        <option value="Cuba">Cuba</option>
-                        <option value="Dominica">Dominica</option>
-                        <option value="Ecuador">Ecuador</option>
-                        <option value="El Salvador">El Salvador</option>
-                        <option value="Estados-Unidos">Estados Unidos</option>
-                        <option value="Granada">Granada</option>
-                        <option value="Guatemala">Guatemala</option>
-                        <option value="Guyana">Guyana</option>
-                        <option value="Haiti">Haití</option>
-                        <option value="Honduras">Honduras</option>
-                        <option value="Jamaica">Jamaica</option>
-                        <option value="Mexico">México</option>
-                        <option value="Nicaragua">Nicaragua</option>
-                        <option value="Panama">Panamá</option>
-                        <option value="Paraguay">Paraguay</option>
-                        <option value="Peru">Perú</option>
-                        <option value="Republica Dominicana">República Dominicana</option>
-                        <option value="San Cristobal y Nieves">San Cristóbal y Nieves</option>
-                        <option value="San Vicente y las Granadinas">San Vicente y las Granadinas</option>
-                        <option value="Santa Lucia">Santa Lucía</option>
-                        <option value="Surinam">Surinam</option>
-                        <option value="Trinidad y Tobago">Trinidad y Tobago</option>
-                        <option value="Uruguay">Uruguay</option>
-                        <option value="Venezuela">Venezuela</option>
-                    </select>
-                </div>
-                <div class="text-center mt-4">
-                    <button id="search-btn" type="submit" class="btn btn-primary" style="width: 100%;">Buscar Vuelo</button>
-                </div>
-            </form>
-        </div>
+      <div class="card-body">
+        <h5 id="search-flight" class="card-title text-center text-formu" style="font-size: 24px;">Busca tu Vuelo:</h5>
+        <form class="form-inline justify-content-center" method="get" action="Reservarvuelos.php">
+          <div class="form-group mt-4 d-flex align-items-center" style="width: 100%;">
+            <label id="flight-date" class="text-formu font-weight-bold" style="flex: 0 0 150px;">Fecha de Vuelo:</label>
+            <input type="date" class="form-control" id="fechaVuelo" placeholder="Fecha de Vuelo" name="fecha" style="flex: 1;">
+          </div>
+          <div class="form-group mt-4 d-flex align-items-center" style="width: 100%;">
+            <label id="origin-country" class="text-formu font-weight-bold" style="flex: 0 0 150px;">País de Origen:</label>
+            <select class="form-control" id="Origen" name="origen" style="flex: 1;">
+              <option value="Antigua y Barbuda">Antigua y Barbuda</option>
+              <option value="Argentina">Argentina</option>
+              <option value="Bahamas">Bahamas</option>
+              <option value="Barbados">Barbados</option>
+              <option value="Belice">Belice</option>
+              <option value="Bolivia">Bolivia</option>
+              <option value="Brasil">Brasil</option>
+              <option value="Canada">Canadá</option>
+              <option value="Chile">Chile</option>
+              <option value="Colombia">Colombia</option>
+              <option value="Costa Rica">Costa Rica</option>
+              <option value="Cuba">Cuba</option>
+              <option value="Dominica">Dominica</option>
+              <option value="Ecuador">Ecuador</option>
+              <option value="El Salvador">El Salvador</option>
+              <option value="Estados-Unidos">Estados Unidos</option>
+              <option value="Granada">Granada</option>
+              <option value="Guatemala">Guatemala</option>
+              <option value="Guyana">Guyana</option>
+              <option value="Haiti">Haití</option>
+              <option value="Honduras">Honduras</option>
+              <option value="Jamaica">Jamaica</option>
+              <option value="Mexico">México</option>
+              <option value="Nicaragua">Nicaragua</option>
+              <option value="Panama">Panamá</option>
+              <option value="Paraguay">Paraguay</option>
+              <option value="Peru">Perú</option>
+              <option value="Republica Dominicana">República Dominicana</option>
+              <option value="San Cristobal y Nieves">San Cristóbal y Nieves</option>
+              <option value="San Vicente y las Granadinas">San Vicente y las Granadinas</option>
+              <option value="Santa Lucia">Santa Lucía</option>
+              <option value="Surinam">Surinam</option>
+              <option value="Trinidad y Tobago">Trinidad y Tobago</option>
+              <option value="Uruguay">Uruguay</option>
+              <option value="Venezuela">Venezuela</option>
+            </select>
+          </div>
+          <div class="form-group mt-4 d-flex align-items-center" style="width: 100%;">
+            <label id="destination-country" for="Destino" class="text-titulo text-formu font-weight-bold" style="flex: 0 0 150px;">País de Destino:</label>
+            <select class="form-control" id="Destino" name="destino" style="flex: 1;">
+              <option value="Antigua y Barbuda">Antigua y Barbuda</option>
+              <option value="Argentina">Argentina</option>
+              <option value="Bahamas">Bahamas</option>
+              <option value="Barbados">Barbados</option>
+              <option value="Belice">Belice</option>
+              <option value="Bolivia">Bolivia</option>
+              <option value="Brasil">Brasil</option>
+              <option value="Canada">Canadá</option>
+              <option value="Chile">Chile</option>
+              <option value="Colombia">Colombia</option>
+              <option value="Costa Rica">Costa Rica</option>
+              <option value="Cuba">Cuba</option>
+              <option value="Dominica">Dominica</option>
+              <option value="Ecuador">Ecuador</option>
+              <option value="El Salvador">El Salvador</option>
+              <option value="Estados-Unidos">Estados Unidos</option>
+              <option value="Granada">Granada</option>
+              <option value="Guatemala">Guatemala</option>
+              <option value="Guyana">Guyana</option>
+              <option value="Haiti">Haití</option>
+              <option value="Honduras">Honduras</option>
+              <option value="Jamaica">Jamaica</option>
+              <option value="Mexico">México</option>
+              <option value="Nicaragua">Nicaragua</option>
+              <option value="Panama">Panamá</option>
+              <option value="Paraguay">Paraguay</option>
+              <option value="Peru">Perú</option>
+              <option value="Republica Dominicana">República Dominicana</option>
+              <option value="San Cristobal y Nieves">San Cristóbal y Nieves</option>
+              <option value="San Vicente y las Granadinas">San Vicente y las Granadinas</option>
+              <option value="Santa Lucia">Santa Lucía</option>
+              <option value="Surinam">Surinam</option>
+              <option value="Trinidad y Tobago">Trinidad y Tobago</option>
+              <option value="Uruguay">Uruguay</option>
+              <option value="Venezuela">Venezuela</option>
+            </select>
+          </div>
+          <div class="text-center mt-4">
+            <button id="search-btn" type="submit" class="btn btn-primary" style="width: 100%;">Buscar Vuelo</button>
+          </div>
+        </form>
+      </div>
     </div>
-</div>
+  </div>
 
 
-<div class=" texto-titulo container mt-5">
+  <div class=" texto-titulo container mt-5">
     <h5 id="search-flight-title">Vuelos que he reservado ></h5>
-</div>
+  </div>
 
   <div class="container-fluid">
     <?php
@@ -211,8 +261,6 @@
     // funcion para llamar a los datos de vuelo para poder colocarlos en la pagina web
     if ($fechaEntrada == null or $origen == null or $destino == null) {
     } else {
-
-
       include("conex.php");
       if ($conexion) {
         $consul = "SELECT * FROM vuelo where origen='$origen' or destino='$destino' or fechaEntrada='$fechaEntrada%'";
@@ -347,8 +395,8 @@
     $asientoCon = $conexion->query("SELECT * FROM asientos where cliente$asiento = '$id'");
     $filAsiento = mysqli_num_rows($asientoCon);
     if ($filAsiento) {
-    ?>
-    <button class="bg-primary text-white border-0 p-2 rounded-3"><?php echo $asiento?></button>
+  ?>
+      <button class="btn btn-primary btn-pequeno"><?php echo $asiento ?></button>
     <?php
     }
   }
@@ -377,28 +425,52 @@
       $fechaSalida1 = $rowOrigen['fechaSalida'];
       $fechaEntrada1 = $rowOrigen['fechaEntrada'];
       $foto = $rowOrigen['foto'];
-  ?>
+    ?>
+      <!---->
+      <div class="container mt-5">
+        <div class="card">
 
-      <div class="container-fluid  border border-black rounded-5 w-75 mx-auto p-3">
-        <!--origen y destino de el vuelo-->
-        <div class="row">
-          <div class="col-lg-6 text-center"><strong>Origen: </strong><?php echo $origen1 ?></div>
-          <div class="col-lg-6 text-center"><strong>Destino: </strong><?php echo $destino1 ?></div>
-        </div>
-        <!--hora y fecha de ese vuelo-->
-        <div class="row mx-auto">
-          <div class="col-lg-6 text-center"><strong>Fecha de entrada: </strong><?php echo $fechaEntrada1 ?></div>
-          <div class="col-lg-6 text-center"><strong>Fecha de salida: </strong><?php echo $fechaSalida1 ?></div>
-        </div>
-        <div class="row">
-          <div class="col-12 text-center">
-            <img src="data:image/jpg;base64,<?php echo base64_encode($foto) ?>" alt="" class="w-50 rounded-4 mx-auto m-2">
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-12 text-center">
-            <h5>Asientos Reservados:</h5>
-            <?php 
+          <h3 class="titulo-tarjeta text-center mt-5 mb-5">
+            <img src="../imagen/header/favicon.png" class="img-fluid me-3" width="35" alt="Logo"> Información de tu vuelo:
+          </h3>
+
+          <div class="card-body">
+
+            <div class="mb-4">
+
+              <div class="row info-vuelo">
+                <div class="col-md-3 text-center">
+                  <p><strong>Minutos para Aterrizar:</strong></p>
+                  <p id="minutos-para-aterrizar">1h:00:00</p>
+                </div>
+                <div class="col-md-3 text-center">
+                  <p><strong>Hora de Llegada:</strong></p>
+                  <p id="hora-llegada"><?php echo $fechaEntrada1 ?></p>
+                </div>
+                <div class="col-md-3 text-center">
+                  <p><strong>País de Origen:</strong></p>
+                  <p><?php echo $origen1 ?></p>
+                </div>
+                <div class="col-md-3 text-center">
+                  <p><strong>País de Llegada:</strong></p>
+                  <p><?php echo $destino1 ?></p>
+                </div>
+              </div>
+            </div>
+
+            <div class="mb-5">
+              <h6>Tipo de Vuelo:</h6>
+              <select class="custom-select">
+                <option value="normal">Vuelo Normal</option>
+                <option value="vip">Vuelo VIP</option>
+                <option value="especial">Vuelo Especial</option>
+              </select>
+            </div>
+            <div class="mt-5">
+              <h6>Asientos Reservados:</h6>
+            </div>
+            <?php
+            // proceso para los asientos de ese vuelo 
             echo idAsiento($id, 'A1');
             echo idAsiento($id, 'A2');
             echo idAsiento($id, 'A3');
@@ -464,11 +536,13 @@
             echo idAsiento($id, 'K3');
             echo idAsiento($id, 'K4');
             echo idAsiento($id, 'K5');
-            echo idAsiento($id, 'K6'); 
+            echo idAsiento($id, 'K6');
+
+
             //  verificar si en este vuelo a reservado un asistente
             $sqlAsistente = $conexion->query("SELECT * FROM vueloUsuarioAsistente WHERE idUsuario = '$id' and idVuelo = '$idVuelo2' ");
             $rowAsis = $sqlAsistente->fetch_array();
-            if($rowAsis['estado'] == 1){
+            if ($rowAsis['estado'] == 1) {
               # echo "Usted tiene asistente";
               $idAsis = $rowAsis['idAsistente'];
               $takeAsis = $conexion->query("SELECT * FROM asistente WHERE idAsistente = '$idAsis'");
@@ -476,28 +550,72 @@
               $nomAsis = $roAsis['nomAsistente'];
               $apeAsistente = $roAsis['apeAsistente'];
               $foto2 = $roAsis['foto'];
-              ?>
-              <div class="row">
-                <div class="col-12">
-                  <strong>Nombre de Asistente: <br></strong><?php echo $nomAsis . " " . $apeAsistente?><br>
-                  <img src="data:image/jpg;base64,<?php echo base64_encode($foto2)?>" alt="" class="w-25 rounded-circle" style="object-fit: cover; min-width:100px; max-width:100px; min-height:100px; max-height:100px;" >
+              $nomCompleto = $nomAsis . " " . $apeAsistente;
+
+
+            ?>
+              <!-- Empleados -->
+              <div class="mb-4">
+                <h6>Empleado Especial:</h6>
+                <div class="row">
+                  <div class="col-md-4 mb-5">
+                    <div class="card tarjeta-empleado">
+                      <div class="cuerpo-tarjeta">
+                        <img src="data:image/jpg;base64,<?php echo base64_encode($foto2) ?>" alt="Empleado 1" class="imagen-empleado">
+                        <h6><?php echo $nomCompleto ?></h6>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
-              <?php
+
+            <?php
             }
             ?>
+            <div class="mb-4">
+              <h6>Servicio en el Vuelo:</h6>
+              <div class="row">
+                <div class="col-md-4 mb-3">
+                  <div class="card tarjeta-comida">
+                    <img src="../imagen/index/fondo4.png" alt="Comida Aburrido">
+                    <div class="cuerpo-tarjeta">
+                      <h4>¿Estás ansioso?</h4>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                  <div class="card tarjeta-comida">
+                    <img src="../imagen/index/fondo4.png" alt="Comida Ansioso">
+                    <div class="cuerpo-tarjeta">
+                      <h4>¿Estás aburrido?</h4>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                  <div class="card tarjeta-comida">
+                    <img src="../imagen/index/fondo4.png" alt="Comida">
+                    <div class="cuerpo-tarjeta">
+                      <h4>Comida</h4>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
           </div>
         </div>
       </div>
-  <?php
+    <?php
     }
   }
-  ?>
-  <div class="col-md-3 mt-5 mb-5"></div>
-  
-  <?php
-  include("pie.php")
-  ?>
+    ?>
+    <div class="col-md-3 mt-5 mb-5"></div>
+
+    <?php
+    include("pie.php")
+    ?>
+
+
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
