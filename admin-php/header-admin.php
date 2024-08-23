@@ -34,12 +34,17 @@ window.location.href = '../html/index.php';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/header-admin.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+<!--Link de los iconos de boostrap admin --> 
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
     <style>
-        #search-bar {
+/*buscador */
+#search-bar {
             display: none;
             position: absolute;
             top: 70px;
-            /* Ajusta según tu diseño */
             right: 10px;
             width: 300px;
             z-index: 1000;
@@ -80,40 +85,105 @@ window.location.href = '../html/index.php';
 
         .btn-primary-outline {
             background-color: transparent;
-            border: 1px solid #000000;
             color: #000000;
-            border-radius: 30px;
             padding: 5px 10px;
         }
 
-        .btn-primary-outline:hover {
-            background-color: #e4e2e2;
-            color: rgb(0, 0, 0);
+        .fijo{
+            background-color: #4d86e3; 
+            color: white; 
+            cursor: default;
         }
 
-        .btn-primary-outline img {
-            margin-right: 5px;
+        .fijo:hover {
+            cursor: default;
+            background-color: #4d86e3; 
+            color: white;
         }
+
+        .nav-link.dropdown-toggle::after {
+            display: none;
+        }
+
+         .dropdown-menu {
+            position: absolute; 
+            left: -50%; 
+            transform: translateX(-50%); 
+        }
+
+
+          /* Colores del texto según el tema */
+        body[data-bs-theme='dark'] .nav-link {
+            color: #fff !important; 
+        }
+
+        body[data-bs-theme='light'] .nav-link {
+            color: #000 !important; 
+        }
+
+        /* TRADUCTOR */
+        /* Ocultar el header de Google Translate */
+        .VIpgJd-ZVi9od-ORHb-OEVmcd {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .VIpgJd-ZVi9od-l4eHX-hSRGPd{
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .goog-te-banner-frame.skiptranslate {
+            display: none !important;
+            opacity: 0;
+        }
+
+        .goog-te-combo{
+            opacity: 100;
+            font-family: "Be Vietnam Pro";
+            size: 65px;
+        }
+
+        .goog-te-banner-frame {
+            display: none !important;
+            opacity: 0;
+            height: 0;
+        }
+
+        body {
+            top: 0px !important;
+        }
+
+        /* Ocultar el logo de Google Translate */
+        .goog-logo-link {
+            display: none !important;
+        }
+
+        .goog-te-gadget {
+            font-size: 0px;
+        }    
     </style>
 </head>
 
 <body>
     <nav class="navbar navbar-expand-lg bg-body-tertiary >
-    <div class=" container-fluid">
+    <div  class= "container-fluid">
         <a class="navbar-brand" href="index_admin.php"><img src="../imagen/admin/Logo.png" alt="" id="logo"></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+            
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Administrador
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="agregar_admin.php">Agregar</a></li>
-                        <li><a class="dropdown-item" href="editar_admin.php">Editar</a></li>
-                        <li><a class="dropdown-item" href="eliminar_admin.php">Eliminar</a></li>
+                        <li><a class="dropdown-item nav-link" href="agregar_admin.php">Agregar</a></li>
+                        <li><a class="dropdown-item nav-link" href="editar_admin.php">Editar</a></li>
+                        <li><a class="dropdown-item nav-link" href="eliminar_admin.php">Eliminar</a></li>
                     </ul>
                 </li>
                 <li class="nav-item dropdown">
@@ -121,9 +191,9 @@ window.location.href = '../html/index.php';
                         Asistente
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="agregar_asistente.php">Agregar</a></li>
-                        <li><a class="dropdown-item" href="editar_asistente.php">Editar</a></li>
-                        <li><a class="dropdown-item" href="eliminar_asistente.php">Eliminar</a></li>
+                        <li><a class="dropdown-item nav-link" href="agregar_asistente.php">Agregar</a></li>
+                        <li><a class="dropdown-item nav-link" href="editar_asistente.php">Editar</a></li>
+                        <li><a class="dropdown-item nav-link" href="eliminar_asistente.php">Eliminar</a></li>
                     </ul>
                 </li>
                 <li class="nav-item dropdown">
@@ -146,35 +216,82 @@ window.location.href = '../html/index.php';
                     </ul>
                 </li>
             </ul>
-            <a href="../chat/chat_admin.php" class="btn btn-outline-success ms-1" type="button">
-                <i class="bi bi-chat"></i> Chat
-            </a>
-            <a class="btn btn-registro ms-1" href="cerrar.php" type="button">Cerrar Sesión</a>
-            <?php
-            // codigo para imprimir la foto de perfil o en caso de que se si tenga
-            if (!($foto == null)) {
-                 ?>
-                <img src="data:image/jpg;base64,<?php echo base64_encode($foto) ?>" class="rounded-circle mx-1 my-auto border border-1 border-black" id="lupa" alt="" height="35px" width="35px">
 
-            <?php ;
-            } else {
-                 ?>
-                      <img src="https://cdn-icons-png.flaticon.com/512/9187/9187604.png" class="rounded-circle mx-1 my-auto border border-1 border-black" id="lupa" alt="" height="35px" width="35px">
-                 <?php
-            }
-            ?>
-            <button class="btn btn-primary-outline ms-1" type="button" id="search-btn">
-                <img src="../imagen/header/lupa.png" id="lupa" alt="" width="30"> Buscar
-            </button>
-        </div>
-        </div>
-    </nav>
 
-    <!-- Search Bar -->
-    <div id="search-bar" class="input-group mt-3 p-3">
-        <input type="text" class="form-control" id="search-input" placeholder="Buscar...">
-        <div class="search-suggestions" id="search-suggestions"></div>
-    </div>
+    <!--////////////////////////DEMAS BOTONES ////////////////////////////////////////--> 
+
+
+    <form class="d-flex" role="search">
+
+    <button class="btn ms-1" type="button" id="chats">
+    <img src="../imagen/header_ayudante/chats.png" class="me-2" id="" alt="" width="20"> Chats
+</button>
+</form>
+  
+
+<label for="lupa">
+    <?php
+    if ($foto == null) {
+        echo '<div class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        <img src="../imagen/header_ayudante/logo_usuario.png" class="rounded-circle border ms-2 border-1 border-black mx-1" id="lupa" alt="" height="35px" width="35px">
+        </a>
+
+        <ul class="dropdown-menu">
+            <li><a class="dropdown-item fijo " type="">¡Hola, ' . htmlspecialchars( $nomAdmin) . '!</a></li><hr>
+            <li><a class="dropdown-item" href="datos de cuenta.php">Ver perfil</a></li>
+            <li><a class="dropdown-item" href="cerrar.php">Cerrar sesión</a></li>
+        </ul>
+    </div>';
+    
+    } else {
+        echo '
+        <div class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="datos de cuenta.php" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        <img src="data:image/jpg;base64,' . base64_encode($foto) . '" class="rounded-circle my-auto border border-1 border-black mx-1" id="lupa" alt="" height="35px" width="35px" style="object-fit: cover;">
+        </a>
+
+        <ul class="dropdown-menu">
+        <hr>
+            <li><a class="dropdown-item fijo " type="" id="hello">¡Hola, ' . htmlspecialchars($nomAdmin) . '!</a></li><hr>
+            <li><a class="dropdown-item" href="datos de cuenta.php" id="verperfil" >Ver perfil</a></li>
+            <li><a class="dropdown-item" href="cerrar.php" id="logout">Cerrar sesión</a></li>
+        </ul>
+    </div>';
+    }
+    ?>
+</label>
+
+</form>
+
+<!--BOTON DE TEMAS-->
+<button  onclick="cambiarTema()" class="btn rounded-fill  ms-1"><i id="dl-icon" class="bi bi-moon-fill"></i></button>
+
+<!--Traductor-->
+<div class="nav-item dropdown ms-2">
+    <a class="nav-link dropdown-toggle" href="#" role="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+    <img src="../imagen/header/traductor.png" class="me-2" alt="Traductor" width="20">
+    </a>
+     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <button class="goog-te-combo" id="google_translate_element">Seleccione el idioma</button>
+    </ul>
+</div>
+
+
+<!-- Imagen search Bar -->
+<form class="d-flex" role="search">
+<button class="btn ms-1" type="button" id="search-btn">
+    <img src="../imagen/header/lupa.png" class="" id="lupa" alt="" width="20"> Buscar
+</button>
+</form>
+
+
+</div>
+
+</div>
+</nav>
+        <!--///////////////////////termina DEMAS BOTONES ////////////////////////////////////////--> 
+
 
     <script>
         const searchBtn = document.getElementById('search-btn');
@@ -266,6 +383,46 @@ window.location.href = '../html/index.php';
             }
         });
     </script>
+    <script>
+// /////////////MODO OSCURO Y CLARO DE LA PAGINA////////////////////
+    const temaOscuro = () => {
+            document.querySelector("body").setAttribute("data-bs-theme", "dark");
+            document.querySelector("#dl-icon").setAttribute("class", "bi bi-sun-fill");
+            localStorage.setItem("theme", "dark");
+        }
+
+        const temaClaro = () => {
+            document.querySelector("body").setAttribute("data-bs-theme", "light");
+            document.querySelector("#dl-icon").setAttribute("class", "bi bi-moon-fill");
+            localStorage.setItem("theme", "light");
+        }
+
+        const cambiarTema = () => {
+            document.querySelector("body").getAttribute("data-bs-theme") === "light" ? temaOscuro() : temaClaro();
+        }
+
+        /*GUARDAR EL IDIOMA Y COLOR*/
+
+    window.addEventListener('load', () => {
+    const theme = localStorage.getItem("theme");
+    if (theme === "dark") {
+        temaOscuro();
+    } else {
+        temaClaro();
+    }
+});
+</script>
+
+<!-- ////////////////////TRADUCTOR/////////////////////////////////-->
+
+<script type="text/javascript">
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({pageLanguage: 'es', includedLanguajes: 'en,es'}, 'google_translate_element');
+}
+</script>
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</body>
+</html>
 </body>
 
 </html>
