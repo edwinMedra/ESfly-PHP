@@ -165,7 +165,7 @@
                                     <span class="fa fa-star"></span>
                                     <span class="fa fa-star"></span>
                                         ';
-                                }
+                                }else
                                 if ($estrellaCritica == 1) {
                                     echo '
                                 <span class="fa fa-star checked"></span>

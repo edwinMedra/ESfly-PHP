@@ -21,7 +21,7 @@
     <title>Reserva de vuelos</title>
   </head>
   <body>
-    
+ 
     <div class="container mt-5">
         <div class="card">
           <div class="card-body">
@@ -37,7 +37,7 @@
               <li class=" mt-4"><strong>Asistencia en tierra:</strong> Al llegar a su destino, el asistente puede ayudar a la persona discapacitada a desembarcar del avión y navegar por el aeropuerto para llegar a su destino final. Esto puede incluir el uso de equipos de asistencia y la coordinación con servicios terrestres, como transporte desde el aeropuerto.</li>
             </ul>
             <div class=" mt-5 d-flex justify-content-between">
-                <a href="index.php"   class="btn btn-option btn-secondary ">No quiero ayudante, gracias</button></a>
+                <a href="Reservarvuelos.php"   class="btn btn-option btn-secondary ">No quiero ayudante, gracias</button></a>
                 <a href="asistentesDisponibles.php?idVuelo=<?php echo $idVuelo?>"  class="btn btn-option btn-primary  ">Siguiente</button></a>
             </div>
           </div>

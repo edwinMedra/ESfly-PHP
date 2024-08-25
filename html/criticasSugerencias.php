@@ -87,7 +87,7 @@
         <!-- Formulario para agregar críticas -->
 
         <div class="mt-2 p-5" id="espacio"> </div>
-      
+
 
         <div class=" texto-titulo container mt-5">
             <h5 id="search-flight-title">Todos los comentarios ></h5>
@@ -112,7 +112,7 @@
                     $estrellaCritica = $rowCriticas['estrella'];
                     $nomCliente = $rowCriticas['nomCliente'];
                     $apeCliente = $rowCriticas['apeCliente'];
-                    $nombreCompleto = $nomCliente . " ". $apeCliente;
+                    $nombreCompleto = $nomCliente . " " . $apeCliente;
                     // funcion para establecer cuantas estrellas poner en la critica seleccionada
 
 
@@ -147,7 +147,7 @@
                                     <span class="fa fa-star"></span>
                                     <span class="fa fa-star"></span>
                                         ';
-                                    }
+                                    }else 
                                     if ($estrellaCritica == 1) {
                                         echo '
                                 <span class="fa fa-star checked"></span>
@@ -271,7 +271,6 @@
 </body>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"></script>
 
 </html>
 <?php

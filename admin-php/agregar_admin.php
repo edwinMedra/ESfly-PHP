@@ -16,7 +16,7 @@ if (isset($_POST['crear'])) {
     // establecer funcion para resumir codigo
 
     # logica para mantener el select colocado
-  
+
     // empieza validaciones de parte de el agregar usuario 
     if (preg_match("/[0-9]/", $name)) {
         echo "<script>alert('Nombre no valido, Intente de nuevo')</script>";
@@ -100,13 +100,14 @@ if (isset($_POST['crear'])) {
 
 
 <body>
-<?php
+    <?php
     include("header-admin.php");
     error_reporting(0);
-    function select($cargo, $car){
-        if ($cargo == $car){
+    function select($cargo, $car)
+    {
+        if ($cargo == $car) {
             return "selected";
-        }else{
+        } else {
             return "";
         }
     }
@@ -141,7 +142,7 @@ if (isset($_POST['crear'])) {
                         </div>
                         <div class="col-md-6 mb-3">
                             <label for="" class="form-label">Contraseña</label>
-                            <input type="" class="form-control"  placeholder="Ingresar contraseña" id="" name="pass" value="<?php echo isset($_POST['pass']) ? $_POST['pass'] : ""; ?>">
+                            <input type="" class="form-control" placeholder="Ingresar contraseña" id="" name="pass" value="<?php echo isset($_POST['pass']) ? $_POST['pass'] : ""; ?>">
                         </div>
                         <div class="col-md-6 mb-3">
                             <label for="email" class="form-label">Correo</label>
@@ -150,24 +151,24 @@ if (isset($_POST['crear'])) {
                         <div class="col-md-6 mb-3">
                             <label for="pasaporte" class="form-label">Pasaporte</label>
                             <input type="text" class="form-control" id="pasaporte" name="pasaporte" placeholder="Ingresar pasaporte" value="<?php echo isset($_POST['pasaporte']) ? $_POST['pasaporte'] : ""; ?>">
-                            </div>
+                        </div>
                         <div class="col-md-6 mb-3">
                             <label for="dui" class="form-label">DUI</label>
                             <input type="text" class="form-control" id="dui" name="dui" value="<?php echo isset($_POST['dui']) ? $_POST['dui'] : ""; ?>">
                         </div>
 
-                        
+
                         <div class="col-md-6 mb-3">
                             <label for="cargo" class="form-label">Cargo</label>
                             <select class="form-control" id="correo" name="cargo">
-                            <option value="">Elige el cargo</option>
-                            <option <?php echo select($cargo, "Administrador de Operaciones" );?> value="Administrador de Operaciones">Administrador de Operaciones</option>
-                            <option <?php echo select($cargo, "Administrador de gestión" );?> value="Administrador de gestión">Administrador de gestión</option>
-                            <option <?php echo select($cargo, "Administrador de Proyectos" );?> value="Administrador de Proyectos">Administrador de Proyectos</option>
-                            <option <?php echo select($cargo, "Administrador de Ventas y Marketing" );?> value="Administrador de Ventas y Marketing">Administrador de Ventas y Marketing</option>
-                        </select>
+                                <option value="">Elige el cargo</option>
+                                <option <?php echo select($cargo, "Administrador de Operaciones"); ?> value="Administrador de Operaciones">Administrador de Operaciones</option>
+                                <option <?php echo select($cargo, "Administrador de gestión"); ?> value="Administrador de gestión">Administrador de gestión</option>
+                                <option <?php echo select($cargo, "Administrador de Proyectos"); ?> value="Administrador de Proyectos">Administrador de Proyectos</option>
+                                <option <?php echo select($cargo, "Administrador de Ventas y Marketing"); ?> value="Administrador de Ventas y Marketing">Administrador de Ventas y Marketing</option>
+                            </select>
                         </div>
-                        
+
                         <div class="col-md-12 mb-3">
                             <label for="descri" class="form-label">Descripción</label>
                             <textarea class="form-control" id="descri" name="descri" rows="4" placeholder="Ingresar descripción"><?php echo isset($_POST['descri']) ? $_POST['descri'] : ""; ?></textarea>
@@ -175,11 +176,11 @@ if (isset($_POST['crear'])) {
 
 
                         <div class="mb-4 w-75 text-center">
-                        <label for="fotito">
-                            <a class="btn btn-primary">Subir foto de perfil</a>
-                        </label>
-                        <input type="file" id="fotito" class="d-none" name="foto" accept="image/*">
-                        <input class="btn btn-primary my-3" type="submit" value="Crear Administrador" name="crear">
+                            <label for="fotito">
+                                <a class="btn btn-primary">Subir foto de perfil</a>
+                            </label>
+                            <input type="file" id="fotito" class="d-none" name="foto" accept="image/*">
+                            <input class="btn btn-primary my-3" type="submit" value="Crear Administrador" name="crear">
                         </div>
 
 
@@ -188,8 +189,9 @@ if (isset($_POST['crear'])) {
             </div>
         </div>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
-    
-</body> 
+
+</body>
 
 </html>

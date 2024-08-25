@@ -201,7 +201,7 @@ window.location.href = '../html/index.php';
                         Usuario
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="agregar_usuario.php">Agregar</a></li>
+                        <li><a class="dropdown-item" href="agregar-usuario.php">Agregar</a></li>
                         <li><a class="dropdown-item" href="eliminar_usuario.php">Eliminar</a></li>
                     </ul>
                 </li>
@@ -214,6 +214,11 @@ window.location.href = '../html/index.php';
                         <li><a class="dropdown-item" href="editar_vuelo.php">Editar</a></li>
                         <li><a class="dropdown-item" href="eliminar_vuelo.php">Eliminar</a></li>
                     </ul>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="menu_admin_criticas.php"  aria-expanded="false">
+                        Críticas
+                    </a>
                 </li>
             </ul>
 

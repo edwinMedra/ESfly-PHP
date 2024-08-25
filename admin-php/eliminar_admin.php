@@ -183,7 +183,7 @@
                                     <td><?php echo htmlspecialchars($rol); ?></td>
                                     <td><?php echo htmlspecialchars($dui); ?></td>
                                     <td><?php echo htmlspecialchars($cargo); ?></td>
-                                    <td><img src="data:image/jpg;base64,<?php echo base64_encode($foto); ?>" class="rounded-circle mx-1 my-auto border border-1 border-black" alt="" height="35px" width="35px"></td>
+                                    <td><img src="data:image/jpg;base64,<?php echo base64_encode($foto); ?>" class="rounded-circle mx-1 my-auto border border-1 border-black" alt="" style="object-fit: cover;" height="35px" width="35px"></td>
                                     <td><?php echo htmlspecialchars($idAdmin); ?></td>
                                     <td><a href="#" role="button" class="btn btn-danger" onclick="eliminar(<?php echo $idAdmin; ?>)">Eliminar</a></td>
                                 </tr>

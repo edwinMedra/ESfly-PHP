@@ -94,7 +94,7 @@ $nombreCompleto = $nomCliente . " " . $apeCliente;
 
                 <div class="form-group mb-3">
                     <label for="pasaporte">Cantidad de boletos</label>
-                    <input type="text" class="form-control" id="pasaporte" disabled selected value="3818970" readonly>
+                    <input type="text" class="form-control" id="pasaporte" disabled selected value="2" readonly>
                 </div>
 
                 <div class="form-group mb-3">
