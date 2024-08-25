@@ -563,7 +563,7 @@
     <div class="container-fluid mt-5">
         <div class="row justify-content-center ">
 
-            <a class="card-prep card card-hover-effect text-center mb-3 " style="width: 22rem;" href="centroAyuda.php">
+            <a class="card-prep card card-hover-effect text-center mb-3 " style="width: 22rem;" href="criticasSugerencias.php">
                 <div>
                     <div class="card-body">
                         <h5 class="card-title mt-5">CRITICAS Y SUGERENCIAS</h5>
