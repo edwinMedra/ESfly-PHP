@@ -38,6 +38,15 @@ if ($conexion) {
         header("Location:../admin-php/index_admin.php");
     }
 }
+
+$id = $_SESSION['$id'];
+$sql = "SELECT notificacion FROM usuario WHERE idCliente = ?";
+$stmt = $conexion->prepare($sql);
+$stmt->bind_param('i', $id);
+$stmt->execute();
+$stmt->bind_result($notificacion);
+$stmt->fetch();
+$stmt->close();
 ?>
 <!--Inicio header-->
 
@@ -185,7 +194,7 @@ if ($conexion) {
             height: 10px;
             background-color: red;
             border-radius: 50%;
-            display: inline;
+            display: <?php echo $notificacion ? 'block' : 'none'; ?>;
         }
         
 </style>
