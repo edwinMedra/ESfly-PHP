@@ -279,7 +279,7 @@
                     <div class="col-md-3 mt-5 mb-5">
                         <a href="login.php" class="d-block">
                             <div class="image-container">
-                            <img src="../imagen/index/argentina.png" alt="Argentina" class="d-block w-100">
+                            <img src="../imagen/index/Argentina.png" alt="Argentina" class="d-block w-100">
                                 <div class="overlay">
                                     <div class="overlay-content">
                                     <h4>Argentina</h4>
@@ -451,7 +451,7 @@
                     <div class="col-md-3 mt-5 mb-5">
                         <a href="login.php" class="d-block">
                             <div class="image-container">
-                            <img src="../imagen/index/argentina.png" alt="Argentina" class="d-block w-100">
+                            <img src="../imagen/index/cuba.png" alt="Argentina" class="d-block w-100">
                                 <div class="overlay">
                                     <div class="overlay-content">
                                     <h4>Cuba</h4>
@@ -467,7 +467,7 @@
                     <div class="col-md-3 mt-5 mb-5">
                         <a href="login.php" class="d-block">
                             <div class="image-container">
-                            <img src="../imagen/index/jamaica.png" alt="Argentina" class="d-block w-100">
+                            <img src="../imagen/index/Jamaica.png" alt="Argentina" class="d-block w-100">
                                 <div class="overlay">
                                     <div class="overlay-content">
                                     <h4>Jamaica</h4>
@@ -563,7 +563,7 @@
     <div class="container-fluid mt-5">
         <div class="row justify-content-center ">
 
-            <a class="card-prep card card-hover-effect text-center mb-3 " style="width: 22rem;" href="centroAyuda.php">
+            <a class="card-prep card card-hover-effect text-center mb-3 " style="width: 22rem;" href="criticasSugerencias.php">
                 <div>
                     <div class="card-body">
                         <h5 class="card-title mt-5">CRITICAS Y SUGERENCIAS</h5>

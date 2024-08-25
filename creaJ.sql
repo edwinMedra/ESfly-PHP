@@ -15,6 +15,8 @@ foto longblob,
 notificacion TINYINT(1) DEFAULT 0,
 constraint primary key (idCliente)
 );
+select * from usuario;
+UPDATE usuario SET notificacion = 0 WHERE idCliente = 3;
 /*
 -- Tabla aerolinea
 create table aerolinea(
