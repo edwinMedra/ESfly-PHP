@@ -276,6 +276,19 @@ create table vueloUsuarioAsistente(
     estado int,
     primary key(id)
 );
+create table criticas(
+	id int auto_increment,
+    idUsuario int, 
+    fecha date,
+    estrella int, 
+    msj varchar(500),
+    likes int, 
+    msjAdmin varchar(500),
+    idAdmin int,
+    estado int,
+    primary key(id),
+    foreign key (idUsuario)references usuario(idCliente)
+);
 /*
 -- TABLAS INTERMEDIAS:
 -- Tabla aerolineaAsistente
@@ -517,6 +530,7 @@ select * from administradores;
 select * from form;
 select * from notiAsistente;
 select * from mensajes;
+select * from criticas;
 use railway; 
 -- script para truncar las tablas de información
 truncate table vuelo;

@@ -14,7 +14,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/admin3.css">
     <style>
-            .rating {
+        .rating {
             margin-bottom: 10px;
         }
 
@@ -25,6 +25,7 @@
         .rating span {
             cursor: pointer;
         }
+
         .texto-titulo {
             font-family: "Be Vietnam Pro";
         }
@@ -169,12 +170,14 @@
         <!-- Card 1 -->
         <?php
         // imprimir todos los comentarios que ha hecho este usuario 
-        $misCriticas = $conexion->query("SELECT nomCliente, apeCliente ,foto, fecha, estrella, msj 
+        $misCriticas = $conexion->query("SELECT id,nomCliente, apeCliente ,foto, fecha, estrella, msj,estado,msjAdmin
         from usuario inner join criticas on idCliente = idUsuario");
 
         $filasCriticas = mysqli_num_rows($misCriticas);
         if ($filasCriticas) {
             while ($rowCriticas = $misCriticas->fetch_array()) {
+                $idCritica = $rowCriticas['id'];
+                $msjAdmin = $rowCriticas['msjAdmin'];
                 $miFoto = $rowCriticas['foto'];
                 $fechaCritica = $rowCriticas['fecha'];
                 $msjCritica = $rowCriticas['msj'];
@@ -182,7 +185,7 @@
                 $nomCliente = $rowCriticas['nomCliente'];
                 $apeCliente = $rowCriticas['apeCliente'];
                 $nombreCompleto = $nomCliente . " " . $apeCliente;
-
+                $estado = $rowCriticas['estado'];
                 // funcion para establecer cuantas estrellas poner en la critica seleccionada
 
 
@@ -217,7 +220,7 @@
                                     <span class="fa fa-star"></span>
                                     <span class="fa fa-star"></span>
                                         ';
-                                }else 
+                                } else 
                                 if ($estrellaCritica == 1) {
                                     echo '
                                 <span class="fa fa-star checked"></span>
@@ -234,7 +237,7 @@
                                 <span class="fa fa-star"></span>
                                 <span class="fa fa-star"></span>
                                     ';
-                                } else if ($estrellaCritica == 3 ) {
+                                } else if ($estrellaCritica == 3) {
                                     echo '
                                 <span class="fa fa-star checked"></span>
                                 <span class="fa fa-star checked"></span>
@@ -267,6 +270,19 @@
                                 <span class="fa fa-heart like-button" data-likes="0"></span>
                                 <span class="ml-2" data-likes="0">0 Likes</span>
                             </div>
+
+                            <?php
+                            if ($estado == null) {
+                                echo '<form action="../js/responderCriticaAdmin.php?id=' . $idCritica . '" method="POST" class="text-center my-2">
+                                <input type="text" class="form-control" name="msjAdmin" placeholder="Reponder como administrador"><button type="submit" class="btn btn-primary p-1">Responder</button>
+                            </form>';
+                            } else {
+                                echo '
+                                <span class="ml-2" data-likes="0">Critica ya contestada</span>
+                                <input type="text" class="form-control" disabled value="' . $msjAdmin . '">';
+                            }
+                            ?>
+
                         </div>
                     </div>
                 </div>
@@ -277,7 +293,8 @@
         ?>
     </div>
 
-  
+    
+
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             // Funcionalidad de estrellas
