@@ -274,6 +274,16 @@ create table vueloUsuarioAsistente(
     estado int,
     primary key(id)
 );
+create table criticas(
+	id int auto_increment,
+    idUsuario int,
+    fecha date,
+    estrella int, 
+    msj varchar(150),
+    likes int, 
+    primary key(id),
+    foreign key (idUsuario)references usuario(idCliente)
+);
 /*
 -- TABLAS INTERMEDIAS:
 -- Tabla aerolineaAsistente
@@ -515,8 +525,8 @@ select * from asientos;
 select * from administradores;
 select * from form;
 select * from notiAsistente;
-truncate table form;
 select * from mensajes;
+select * from criticas;
 use railway; 
 select * from vueloUsuarioAsistente where idUsuario = 4 and idVuelo = 1;
 -- tener un usuario ya por defecto
