@@ -146,7 +146,7 @@
 
     <!--CUADRO DE LAS OPCIONES-->
     <div class=" card-text container-fluid mt-5 ps-5 ">
-        <h5>¿Qué deseas editar? ></h5>
+        <h5>Tipos de cuentas ></h5>
     </div>
 
     <div class="container-fluid mt-5">
