@@ -231,34 +231,33 @@ window.location.href = '../html/index.php';
 
 <label for="lupa">
     <?php
-    if ($foto == null) {
-        echo '<div class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-        <img src="../imagen/header_ayudante/logo_usuario.png" class="rounded-circle border ms-2 border-1 border-black mx-1" id="lupa" alt="" height="35px" width="35px">
-        </a>
+        if ($foto == null) {
+            echo '<div class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <img src="../imagen/header_ayudante/logo_usuario.png" class="rounded-circle border ms-2 border-1 border-black mx-1" id="lupa" alt="" height="35px" width="35px">
+            </a>
 
-        <ul class="dropdown-menu">
-            <li><a class="dropdown-item fijo " type="">¡Hola, ' . htmlspecialchars( $nomAdmin) . '!</a></li><hr>
-            <li><a class="dropdown-item" href="datos de cuenta.php">Ver perfil</a></li>
-            <li><a class="dropdown-item" href="cerrar.php">Cerrar sesión</a></li>
-        </ul>
-    </div>';
-    
-    } else {
-        echo '
-        <div class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="datos de cuenta.php" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-        <img src="data:image/jpg;base64,' . base64_encode($foto) . '" class="rounded-circle my-auto border border-1 border-black mx-1" id="lupa" alt="" height="35px" width="35px" style="object-fit: cover;">
-        </a>
+            <ul class="dropdown-menu">
+                <li><a class="dropdown-item fijo" type="">¡Hola, ' . htmlspecialchars($nomAdmin) . '!</a></li><hr>
+                <li><a class="dropdown-item" href="http://localhost/Esfly-creaj/admin-php/form_admin.php?idAdmin=' . $sesion . '">Ver perfil</a></li>
+                <li><a class="dropdown-item" href="cerrar.php">Cerrar sesión</a></li>
+            </ul>
+            </div>';
+        } else {
+            echo '
+            <div class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <img src="data:image/jpg;base64,' . base64_encode($foto) . '" class="rounded-circle my-auto border border-1 border-black mx-1" id="lupa" alt="" height="35px" width="35px" style="object-fit: cover;">
+            </a>
 
-        <ul class="dropdown-menu">
-        <hr>
-            <li><a class="dropdown-item fijo " type="" id="hello">¡Hola, ' . htmlspecialchars($nomAdmin) . '!</a></li><hr>
-            <li><a class="dropdown-item" href="datos de cuenta.php" id="verperfil" >Ver perfil</a></li>
-            <li><a class="dropdown-item" href="cerrar.php" id="logout">Cerrar sesión</a></li>
-        </ul>
-    </div>';
-    }
+            <ul class="dropdown-menu">
+            <hr>
+                <li><a class="dropdown-item fijo" type="">¡Hola, ' . htmlspecialchars($nomAdmin) . '!</a></li><hr>
+                <li><a class="dropdown-item" href="http://localhost/Esfly-creaj/admin-php/form_admin.php?idAdmin=' . $sesion . '">Ver perfil</a></li>
+                <li><a class="dropdown-item" href="cerrar.php">Cerrar sesión</a></li>
+            </ul>
+            </div>';
+        }
     ?>
 </label>
 

@@ -174,17 +174,17 @@
 include("conex.php");
 if (isset($_POST['crear'])) {
     // variables tomadas de el formulario
-    $name =  trim($_POST['name']); // validado
-    $lastname =  trim($_POST['lastname']); // validado
-    $email =  trim($_POST['email']); // validado
-    $numero =  trim($_POST['numero']); // validado
-    $pasaporte = trim($_POST['pasaporte']); // validado
-    $dui = trim($_POST['dui']); // validado
-    $date =  $_POST['date']; // validado
-    $genero =  trim($_POST['genero']); // validado
-    $servicio = trim($_POST['servicio']); // validado
-    $descri =  trim($_POST['descri']); // validado
-    $foto = $_FILES['foto']['error']; // validado
+    $name =  trim($_POST['name']); 
+    $lastname =  trim($_POST['lastname']);
+    $email =  trim($_POST['email']); 
+    $numero =  trim($_POST['numero']); 
+    $pasaporte = trim($_POST['pasaporte']); 
+    $dui = trim($_POST['dui']); 
+    $date =  $_POST['date']; 
+    $genero =  trim($_POST['genero']); 
+    $servicio = trim($_POST['servicio']); /
+    $descri =  trim($_POST['descri']);
+    $foto = $_FILES['foto']['error']; 
 
 
         if ($foto) {

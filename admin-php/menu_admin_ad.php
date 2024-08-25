@@ -13,8 +13,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/admin3.css">
     <style>
-        .texto-titulo {
-            font-family: "Be Vietnam Pro";
+        .texto-titulo{
+            font-family:"Be Vietnam Pro";
         }
         .back {
             position: relative;
@@ -134,6 +134,9 @@
                 font-size: 1.5rem; 
             }
         }
+
+        
+        
     </style>
 </head>
 
@@ -141,99 +144,58 @@
     <?php include("header-admin.php"); ?>
     <div class="back">
         <img src="../imagen/admin/back.png" alt="" class="img-fondo">
-        <div class="titulo text-center">Bienvenid@ <?php echo $nomAdmin?></div>
+        <div class="titulo text-center">Bienvenido <?php echo $nomAdmin?></div>
     </div>
 
-    <!--CUADRO DE LAS OPCIONES-->
+
+
+
+  <!--CUADRO DE LAS OPCIONES-->
+
     <div class=" card-text container-fluid mt-5 ps-5 ">
-        <h5>¿Qué deseas editar? ></h5>
+        <h5>¿Qué deseas hacer? ></h5>
     </div>
 
     <div class="container-fluid mt-5">
-        <div class="row justify-content-center">
-            <a class="card-prep card card-hover-effect text-center me-5 mb-3" style="width: 22rem; text-decoration: none;" href="menu_admin_ad.php">
-                <div class="card-body mb-3">
-                    <h6 class="card-title mt-5">ADMINISTRADORES</h6>
-                </div>
-            </a>
+    <div class="row justify-content-center">
+        <a class="card-prep card card-hover-effect text-center me-5 mb-3" style="width: 22rem; text-decoration: none;" href="agregar_admin.php">
+            <div class="card-body mb-3">
+                <h6 class="card-title mt-5">Agregar </h6>
+            </div>
+        </a>
 
-            <a class="card-prep card card-hover-effect text-center me-5 mb-3" style="width: 22rem; text-decoration: none;" href="menu_admin_cli.php">
-                <div class="card-body mb-3">
-                    <h6 class="card-title mt-5">USUARIOS</h6>
-                </div>
-            </a>
+        <a class="card-prep card card-hover-effect text-center me-5 mb-3" style="width: 22rem; text-decoration: none;" href="editar_admin.php">
+            <div class="card-body mb-3">
+                <h6 class="card-title mt-5">Editar</h6>
+            </div>
+        </a>
 
-            <a class="card-prep card card-hover-effect text-center me-5 mb-3" style="width: 22rem; text-decoration: none;" href="menu_admin_ayu.php">
-                <div class="card-body mb-3">
-                    <h6 class="card-title mt-5">AYUDANTES ESPECIALES</h6>
-                </div>
-            </a>
-        </div>
+        <a class="card-prep card card-hover-effect text-center me-5 mb-3" style="width: 22rem; text-decoration: none;" href="eliminar_admin.php">
+            <div class="card-body mb-3">
+                <h6 class="card-title mt-5">Eliminar</h6>
+            </div>
+        </a>
     </div>
+</div>
 
-    <!--TODAS LAS TABLAS DE LOS USUARIOS REGISTRADOS-->
+
+
+
+
+
+
+
+  <!--TODAS LAS TABLAS DE LOS USUARIOS REGISTRADOS-->
     <div class=" texto-titulo container-fluid mt-5 ps-5 ">
         <h5>Cuentas registradas ></h5>
     </div>
 
-    <!--TABAL DE USUARIO-->
-    <div class="container table-container">
-        <div class="title-border text-center">
-            <h5>USUARIOS</h5>
-        </div>
-        <div class="table-responsive mb-5">
-            <table class="table table-bordered table-hover">
-                <thead>
-                    <tr>
-                        <th>Nombre</th>
-                        <th>Apellido</th>
-                        <th>Contraseña</th>
-                        <th>Correo</th>
-                        <th>Pasaporte</th>
-                        <th>Dui</th>
-                        <th>Imagen</th>
-                        <th>ID</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php
-                    $inc = include("conex.php");
-                    if ($inc){
-                        $select = "SELECT * FROM usuario";
-                        $query = mysqli_query($conexion,$select);
-                        if ($query){
-                            while ($row = $query->fetch_array()){
-                                $nombre = $row['nomCliente'];
-                                $apellido = $row['apeCliente'];
-                                $pass = $row['pass'];
-                                $correo = $row['correo'];
-                                $pasaporte = $row['pasaporte'];
-                                $dui = $row['dui'];
-                                $foto = $row['foto'];
-                                $idCliente = $row['idCliente'];
-                    ?>
-                    <tr>
-                        <td><?php echo $nombre?></td>
-                        <td><?php echo $apellido?></td>
-                        <td>-</td>
-                        <td><?php echo $correo?></td>
-                        <td><?php echo $pasaporte?></td>
-                        <td><?php echo $dui?></td>
-                        <td><img src="data:image/jpg;base64,<?php echo base64_encode($foto)?>" alt="" class="img-perfil"></td>
-                        <td><?php echo $idCliente?></td>
-                    </tr>
-                    <?php
-                            }
-                        }
-                    }
-                    ?>
-                </tbody>
-            </table>
-        </div>
-    </div>
 
-    <!--TABLA DE ADMIN-->
-    <div class="container table-container">
+   
+
+
+ <!--TABLA DE ADMIN-->
+ <div class="container table-container">
         <div class="title-border text-center">
             <h5>ADMINISTRADORES</h5>
         </div>
@@ -282,61 +244,6 @@
         </div>
     </div>
 
-    <!--TABLA DE EMPLEADOS ESPECIALES-->
-    <div class="container table-container">
-        <div class="title-border text-center">
-            <h5>ASISTENTES ESPECIALES</h5>
-        </div>
-        <div class="table-responsive mb-5">
-            <table class="table table-bordered table-hover">
-                <thead>
-                    <tr>
-                        <th>Nombre</th>
-                        <th>Apellido</th>
-                        <th>Contraseña</th>
-                        <th>Correo</th>
-                        <th>Pasaporte</th>
-                        <th>Dui</th>
-                        <th>Imagen</th>
-                        <th>ID</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php
-                    $inc = include("conex.php");
-                    if ($inc){
-                        $select = "SELECT * FROM asistente";
-                        $query = mysqli_query($conexion,$select);
-                        if ($query){
-                            while ($row = $query->fetch_array()){
-                                $nombre = $row['nomAsistente'];
-                                $apellido = $row['apeAsistente'];
-                                $pass = $row['passAsisten'];
-                                $correo = $row['correoAsisten'];
-                                $pasaporte = $row['pasaporte'];
-                                $dui = $row['dui'];
-                                $foto = $row['foto'];
-                                $idAsistente = $row['idAsistente'];
-                    ?>
-                    <tr>
-                        <td><?php echo $nombre?></td>
-                        <td><?php echo $apellido?></td>
-                        <td>-</td>
-                        <td><?php echo $correo?></td>
-                        <td><?php echo $pasaporte?></td>
-                        <td><?php echo $dui?></td>
-                        <td><img src="data:image/jpg;base64,<?php echo base64_encode($foto)?>" alt="" class="img-perfil"></td>
-                        <td><?php echo $idAsistente?></td>
-                    </tr>
-                    <?php
-                            }
-                        }
-                    }
-                    ?>
-                </tbody>
-            </table>
-        </div>
-    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
