@@ -125,7 +125,7 @@
         from usuario inner join criticas on idCliente = idUsuario where idCliente = '$id'");
 
         $filasCriticas = mysqli_num_rows($misCriticas);
-        if ($filas) {
+        if ($filasCriticas) {
             while ($rowCriticas = $misCriticas->fetch_array()) {
                 $miFoto = $rowCriticas['foto'];
                 $fechaCritica = $rowCriticas['fecha'];
@@ -142,7 +142,7 @@
                             <div class="user-info">
 
                                 <?php
-                                if (!($foto == null)) {
+                                if (!($miFoto == null)) {
                                     echo '<img src="data:image/jpg;base64,' . base64_encode($miFoto) . '" class="rounded-circle my-auto border border-1 border-black mx-1" id="lupa" alt="" height="35px" width="35px" style="object-fit: cover;">';
                                 } else {
                                     echo '<img src="../imagen/header_ayudante/logo_usuario.png" class="rounded-circle my-auto border border-1 border-black mx-1" id="lupa" alt="" height="35px" width="35px" style="object-fit: cover;">';
@@ -239,7 +239,7 @@
         from usuario inner join criticas on idCliente = idUsuario where idCliente != '$id'");
 
         $filasCriticas = mysqli_num_rows($misCriticas);
-        if ($filas) {
+        if ($filasCriticas) {
             while ($rowCriticas = $misCriticas->fetch_array()) {
                 $miFoto = $rowCriticas['foto'];
                 $fechaCritica = $rowCriticas['fecha'];
