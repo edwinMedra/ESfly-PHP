@@ -3,7 +3,7 @@ session_start();
 include("conex.php");
 $sesion = $_SESSION['$id'];
 if ($sesion == null || $sesion == '') {
-    header("Location:../html/index.php");
+   header("Location:../html/index.php");
 }
 
 // Proceso para mostrar el nombre de usuario y no el correo del usuario
@@ -244,7 +244,7 @@ window.location.href = '../html/index.php';
 
             <ul class="dropdown-menu">
                 <li><a class="dropdown-item fijo" type="">¡Hola, ' . htmlspecialchars($nomAdmin) . '!</a></li><hr>
-                <li><a class="dropdown-item" href="http://localhost/Esfly-creaj/admin-php/form_admin.php?idAdmin=' . $sesion . '">Ver perfil</a></li>
+                <li><a class="dropdown-item" href="../ESfly-PHP/admin-php/form_admin.php?idAdmin=' . $sesion . '">Ver perfil</a></li>
                 <li><a class="dropdown-item" href="cerrar.php">Cerrar sesión</a></li>
             </ul>
             </div>';
@@ -258,7 +258,7 @@ window.location.href = '../html/index.php';
             <ul class="dropdown-menu">
             <hr>
                 <li><a class="dropdown-item fijo" type="">¡Hola, ' . htmlspecialchars($nomAdmin) . '!</a></li><hr>
-                <li><a class="dropdown-item" href="http://localhost/Esfly-creaj/admin-php/form_admin.php?idAdmin=' . $sesion . '">Ver perfil</a></li>
+                <li><a class="dropdown-item" href="form_admin.php?idAdmin=' . $sesion . '">Ver perfil</a></li>
                 <li><a class="dropdown-item" href="cerrar.php">Cerrar sesión</a></li>
             </ul>
             </div>';

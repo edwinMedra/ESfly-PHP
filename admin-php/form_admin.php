@@ -34,7 +34,7 @@
         }
     }
 ?>
-<h3 class="card-title text-center mt-5 mb-5"><img src="../imagen/header/favicon.png" class="img-fluid me-3" width="35"></a> Formulario de pago ESfly</h3>
+<h3 class="card-title text-center mt-5 mb-5"><img src="../imagen/header/favicon.png" class="img-fluid me-3" width="35"></a> Editar Administrador</h3>
 <div class="container mt-5">
     <div class="card card-custom shadow-sm">
         <div class="card-body card-body-custom">
