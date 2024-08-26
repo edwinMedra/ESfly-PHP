@@ -30,11 +30,13 @@ $vuelo = $conexion->query("SELECT * FROM vuelo where idVuelo='$idVuelo'");
 $rowVuelo = $vuelo->fetch_array();
 $origen = $rowVuelo['origen']; // origen de el vuelo
 $destino = $rowVuelo['destino']; // destino de el vuelo
+$precio = $rowVuelo['precio'];
 $fechaSalida = $rowVuelo['fechaSalida']; // fecha salida de el vuelo
 $fecha = strtotime($fechaSalida);
 $dia = date("Y-m-d",$fecha);
 $hora = date("H:i");
 $nombreCompleto = $nomCliente . " " . $apeCliente;
+$total = 2 * $precio;
 ?>
 <body>
     <div class="card-formu container d-flex justify-content-center align-items-center mt-5 mb-5">
@@ -72,6 +74,11 @@ $nombreCompleto = $nomCliente . " " . $apeCliente;
                 <div class="form-group mb-3">
                     <label for="dui">Número de teléfono</label>
                     <input type="text" class="form-control" id="dui" required>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label for="dui">Costo total del vuelo</label>
+                    <input type="text" class="form-control" id="precioTotal" value="$ <?php echo $total?>" disabled>
                 </div>
 
                 <label for="dui">Tipo de vuelo del pasajero</label><br>
