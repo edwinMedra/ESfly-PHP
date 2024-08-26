@@ -67,7 +67,7 @@ if (isset($_POST['crear'])) {
         } else {
             include("conex.php");
             $incriptada = password_hash($pass, PASSWORD_DEFAULT);
-            $foto = addslashes(file_get_contents($_FILES['foto']['name']));
+            $foto = addslashes(file_get_contents($_FILES['foto']['tmp_name']));
             $sql = "INSERT INTO administradores(nomAdmin,apeAdmin,pass,email,dui,cargo,descri,foto,rol,pasaporte) VALUES('$name','$lastname','$incriptada','$email','$dui','$cargo','$descri','$foto','admin','$pasporte')";
             $resul = $conexion->query($sql);
             if ($resul) {
@@ -142,7 +142,7 @@ if (isset($_POST['crear'])) {
                         </div>
                         <div class="col-md-6 mb-3">
                             <label for="" class="form-label">Contraseña</label>
-                            <input type="" class="form-control" placeholder="Ingresar contraseña" id="" name="pass" value="<?php echo isset($_POST['pass']) ? $_POST['pass'] : ""; ?>">
+                            <input type="password" class="form-control" placeholder="Ingresar contraseña" id="" name="pass" value="<?php echo isset($_POST['pass']) ? $_POST['pass'] : ""; ?>">
                         </div>
                         <div class="col-md-6 mb-3">
                             <label for="email" class="form-label">Correo</label>
