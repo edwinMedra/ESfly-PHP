@@ -136,8 +136,8 @@
 <body>
     <?php include("header-admin.php"); ?>
     <div class="back">
-        <div><img src="../imagen/admin/back.png" alt=""></div>
-        <div class="titulo text-white text-center">VUELOS</div>
+        <img src="../imagen/admin/back.png" alt="" class="img-fondo">
+        <div class="titulo text-center">VUELOS</div>
     </div>
 
 

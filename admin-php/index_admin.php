@@ -173,7 +173,7 @@
         <div class="col-lg-2 col-md-3 col-sm-6 col-12 mb-3">
             <a class="card-prep card card-hover-effect text-center" style="text-decoration: none; height: 250px;" href="menu_admin_ayu.php">
                 <div class="card-body d-flex flex-column justify-content-center">
-                    <h6 class="card-title mt-5">AYUDANTES ESPECIALES</h6>
+                    <h6 class="card-title mt-5">ASISTENTES ESPECIALES</h6>
                 </div>
             </a>
         </div>
@@ -181,7 +181,7 @@
         <div class="col-lg-2 col-md-3 col-sm-6 col-12 mb-3">
             <a class="card-prep card card-hover-effect text-center" style="text-decoration: none; height: 250px;" href="menu_admin_criticas.php">
                 <div class="card-body d-flex flex-column justify-content-center">
-                    <h6 class="card-title mt-5">CRÍTICAS</h6>
+                    <h6 class="card-title mt-5">COMENTARIOS Y CRÍTICAS</h6>
                 </div>
             </a>
         </div>
@@ -383,8 +383,8 @@
                     <tr>
                         <th>Origen</th>
                         <th>Destino</th>
-                        <th>Fecha de salida</th>
-                        <th>Fecha de entrada</th>
+                        <th>Fecha y hora de salida</th>
+                        <th>Fecha y hora de entrada</th>
                         <th>Precio</th>
                         <th>Foto</th>
                         <th>ID</th>

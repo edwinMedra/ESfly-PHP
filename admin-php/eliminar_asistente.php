@@ -126,7 +126,7 @@
     <?php include("header-admin.php"); ?>
     <div class="back">
         <div><img src="../imagen/admin/back.png" alt="" class="img-fondo"></div>
-        <div class="titulo text-white text-center">Editar asistente</div>
+        <div class="titulo text-white text-center">Eliminar asistente</div>
     </div>
 
     <div class="texto-titulo container-fluid mt-5 ps-5">
