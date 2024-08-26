@@ -131,6 +131,20 @@
       background-color: transparent;
       cursor: default;
     }
+
+    /* Estilo para el botón */
+    .seat-group button {
+      font-size: 18px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    /* Estilo cuando el checkbox está seleccionado */
+    .seat-group button.selected {
+      background-color: #344c92;
+      color: white;
+    }
+
   </style>
 </head>
 <?php
@@ -759,9 +773,12 @@ function validar($numAsiento)
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   <script>
+
+
     function redirect() {
-      window.location.href = 'insert-asientos.php';
+        window.location.href = 'insert-asientos.php';
     }
+
     const totalBoletos = 2; // Cambia esto si el límite de boletos cambia
 
     const checkboxes = document.querySelectorAll('input[type="checkbox"]');
@@ -771,53 +788,61 @@ function validar($numAsiento)
 
     let asientosReservados = 0;
 
+    // el cambio en los checkboxes
     checkboxes.forEach(checkbox => {
-      checkbox.addEventListener('change', (event) => {
-        const checkbox = event.target;
-        const isChecked = checkbox.checked;
-        if (isChecked) {
-          asientosReservados++;
-        } else {
-          asientosReservados--;
-        }
-        updateUI();
-      });
+        checkbox.addEventListener('change', (event) => {
+            const checkbox = event.target;
+            const isChecked = checkbox.checked;
+            if (isChecked) {
+                asientosReservados++;
+            } else {
+                asientosReservados--;
+            }
+            updateUI();
+        });
     });
 
     function updateUI() {
-      asientosReservadosElement.textContent = asientosReservados;
-      if (asientosReservados >= totalBoletos) {
-        checkboxes.forEach(checkbox => {
-          if (!checkbox.checked) {
-            checkbox.disabled = true;
-          }
-        });
-      } else {
-        checkboxes.forEach(checkbox => {
-          checkbox.disabled = false;
-        });
-      }
+        asientosReservadosElement.textContent = asientosReservados;
+        if (asientosReservados >= totalBoletos) {
+            checkboxes.forEach(checkbox => {
+                if (!checkbox.checked) {
+                    checkbox.disabled = true;
+                }
+            });
+        } else {
+            checkboxes.forEach(checkbox => {
+                checkbox.disabled = false;
+            });
+        }
     }
 
     function toggleCheckbox(id) {
-      const checkbox = document.getElementById(id);
-      checkbox.checked = !checkbox.checked;
-      const event = new Event('change');
-      checkbox.dispatchEvent(event);
+        const checkbox = document.getElementById(id);
+        checkbox.checked = !checkbox.checked;
+        const event = new Event('change');
+        checkbox.dispatchEvent(event);
+
+        // para cambiar el estilo del boton  (UNICO NUEVO)
+        const button = document.getElementById(id.replace('d', '')); //este es para leer y encontrar el id quitandole la letra d
+        if (checkbox.checked) {
+            button.classList.add("selected"); // si es verdadero se va seleccionar ahi en el boton
+        } else {
+            button.classList.remove("selected");// pero si es falso lo va quitar
+        }
     }
 
-    function redirect() {
-      document.getElementById('redirect-form').submit();
-      window.location = ('insert-asientos.php');
-    }
+    // parte del codigo q ya estaba 
     reserveButton.addEventListener('click', () => {
-      if (asientosReservados < totalBoletos) {} else {
-        // Aquí puedes manejar el envío del formulario o la lógica de reserva
-        redirect()
-        alert("")
-      }
+        if (asientosReservados >= totalBoletos) {
+            redirect(); 
+        } else {
+            alert("Debes seleccionar todos los boletos necesarios.");
+        }
     });
-  </script>
+</script>
+
+
 </body>
 
 </html>
