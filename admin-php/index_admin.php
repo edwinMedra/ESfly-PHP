@@ -152,30 +152,51 @@
     </div>
 
     <div class="container-fluid mt-5">
-        <div class="row justify-content-center">
-            <a class="card-prep card card-hover-effect text-center me-5 mb-3" style="width: 18rem; text-decoration: none;" href="menu_admin_ad.php">
-                <div class="card-body mb-3">
+    <div class="container">
+    <div class="row justify-content-center">
+        <div class="col-lg-2 col-md-3 col-sm-6 col-12 mb-3">
+            <a class="card-prep card card-hover-effect text-center" style="text-decoration: none; height: 250px;" href="menu_admin_ad.php">
+                <div class="card-body d-flex flex-column justify-content-center">
                     <h6 class="card-title mt-5">ADMINISTRADORES</h6>
                 </div>
             </a>
+        </div>
 
-            <a class="card-prep card card-hover-effect text-center me-5 mb-3" style="width: 18rem; text-decoration: none;" href="menu_admin_cli.php">
-                <div class="card-body mb-3">
+        <div class="col-lg-2 col-md-3 col-sm-6 col-12 mb-3">
+            <a class="card-prep card card-hover-effect text-center" style="text-decoration: none; height: 250px;" href="menu_admin_cli.php">
+                <div class="card-body d-flex flex-column justify-content-center">
                     <h6 class="card-title mt-5">USUARIOS</h6>
                 </div>
             </a>
+        </div>
 
-            <a class="card-prep card card-hover-effect text-center me-5 mb-3" style="width: 18rem; text-decoration: none;" href="menu_admin_ayu.php">
-                <div class="card-body mb-3">
+        <div class="col-lg-2 col-md-3 col-sm-6 col-12 mb-3">
+            <a class="card-prep card card-hover-effect text-center" style="text-decoration: none; height: 250px;" href="menu_admin_ayu.php">
+                <div class="card-body d-flex flex-column justify-content-center">
                     <h6 class="card-title mt-5">AYUDANTES ESPECIALES</h6>
                 </div>
             </a>
+        </div>
 
-            <a class="card-prep card card-hover-effect text-center me-5 mb-3" style="width: 18rem; text-decoration: none;" href="menu_admin_criticas.php">
-                <div class="card-body mb-3">
+        <div class="col-lg-2 col-md-3 col-sm-6 col-12 mb-3">
+            <a class="card-prep card card-hover-effect text-center" style="text-decoration: none; height: 250px;" href="menu_admin_criticas.php">
+                <div class="card-body d-flex flex-column justify-content-center">
                     <h6 class="card-title mt-5">CRÍTICAS</h6>
                 </div>
             </a>
+        </div>
+
+        <div class="col-lg-2 col-md-3 col-sm-6 col-12 mb-3">
+            <a class="card-prep card card-hover-effect text-center" style="text-decoration: none; height: 250px;" href="menu_admin_vuelos.php">
+                <div class="card-body d-flex flex-column justify-content-center">
+                    <h6 class="card-title mt-5">VUELOS</h6>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>
+
+
         </div>
     </div>
 
