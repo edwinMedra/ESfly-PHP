@@ -114,9 +114,6 @@
             
         }
 
-        .card-title{
-            
-        }
 
         /* EL RESPONSIVE DE LAS TALBAS*/
         @media (max-width: 768px) {

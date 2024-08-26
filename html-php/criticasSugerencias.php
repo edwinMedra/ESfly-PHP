@@ -165,7 +165,7 @@
                                     <span class="fa fa-star"></span>
                                     <span class="fa fa-star"></span>
                                         ';
-                                }
+                                }else
                                 if ($estrellaCritica == 1) {
                                     echo '
                                 <span class="fa fa-star checked"></span>
@@ -235,16 +235,22 @@
             <!-- Card 1 -->
         <?php
         // imprimir todos los comentarios que ha hecho este usuario 
-        $misCriticas = $conexion->query("SELECT nomCliente, apeCliente ,foto, fecha, estrella, msj 
-        from usuario inner join criticas on idCliente = idUsuario where idCliente != '$id'");
+        $misCriticas = $conexion->query("SELECT nomCliente, apeCliente ,foto, fecha, estrella, msj,idAdmin, msjAdmin, idAdmin,estado 
+        from usuario inner join criticas on idCliente = idUsuario where idCliente != '$id' ");
 
         $filasCriticas = mysqli_num_rows($misCriticas);
         if ($filasCriticas) {
             while ($rowCriticas = $misCriticas->fetch_array()) {
+                $estado = $rowCriticas['estado'];
+                $msjAdmin = $rowCriticas['msjAdmin'];
+                $idAdmin = $rowCriticas['idAdmin'];
                 $miFoto = $rowCriticas['foto'];
                 $fechaCritica = $rowCriticas['fecha'];
                 $msjCritica = $rowCriticas['msj'];
                 $estrellaCritica = $rowCriticas['estrella'];
+                $nomCliente = $rowCriticas['nomCliente'];
+                $apeCliente = $rowCriticas['apeCliente'];
+                $nombreCompleto = $nomCliente . " " . $apeCliente;
                 // funcion para establecer cuantas estrellas poner en la critica seleccionada
 
 
@@ -327,8 +333,26 @@
                             <p class="card-text"><?php echo $msjCritica ?></p>
                             <div class="d-flex align-items-center">
                                 <span class="fa fa-heart like-button" data-likes="0"></span>
-                                <span class="ml-2" data-likes="0">0 Likes</span>
+                                <span class="ml-       $idAdmin = $rowCriticas['idAdmin'];
+                    $msjAdmin = $rowCriticas['msjAdmin'];
+                    $idAdmin = $rowCriticas['idAdmin'];2" data-likes="0">0 Likes</span>
                             </div>
+                            <?php
+                                // proceso en caso de que el mensaje haya sido contestado
+                                if (!($estado == null)) {
+                                    $sqlCritica = $conexion->query("SELECT * FROM administradores where idAdmin = $idAdmin");
+                                    $rowCriticaAdmin = $sqlCritica->fetch_array();
+                                    $nomCompleto = $rowCriticaAdmin['nomAdmin'] . " " . $rowCriticaAdmin['apeAdmin'];
+                                    echo '
+                                          <span>
+                                        <p><b>Critica contestada por</b>:<br> ' . $nomCompleto . '<p>
+                                        <p>
+                                         <b>Mensaje:</b><br>
+                                        '. $msjAdmin .'</p>
+                                    </span>
+                                        ';
+                                }
+                                ?>
                         </div>
                     </div>
                 </div>
@@ -414,7 +438,7 @@ if ($enviar) {
     $fecha_actual = date('Y-m-d'); // tomar fecha para guardarla a la base de datos 
     $critica = trim($_POST['msj']);
     $stars = $_POST['stars'];
-    $sql = $conexion->query("INSERT INTO criticas VALUES (null, '$id', '$fecha_actual', '$stars','$critica',null)");
+    $sql = $conexion->query("INSERT INTO criticas VALUES (null, '$id', '$fecha_actual', '$stars','$critica',null,null,null,null)");
     if ($sql) {
         echo "<script>alert('Critica publicada exitosamente')
         window.location.href = 'criticasSugerencias.php'

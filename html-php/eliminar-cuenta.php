@@ -49,7 +49,10 @@ if ($boton) {
     $row = $sql->fetch_assoc();
     $passVery = $row['pass'];
     if (password_verify($pass, $passVery)) {
-        $delete = $conexion->query("DELETE FROM usuario where idCliente='$id'");
+        $delete1 = $conexion->query("
+        DELETE FROM criticas where idUsuario='$id'");
+        $delete = $conexion->query("
+        DELETE FROM usuario where idCliente='$id'");
         session_destroy();
         header("location:../html/index.php");
     } else {

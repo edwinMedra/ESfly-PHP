@@ -276,6 +276,19 @@ create table vueloUsuarioAsistente(
     estado int,
     primary key(id)
 );
+create table criticas(
+	id int auto_increment,
+    idUsuario int, 
+    fecha date,
+    estrella int, 
+    msj varchar(500),
+    likes int, 
+    msjAdmin varchar(500),
+    idAdmin int,
+    estado int,
+    primary key(id),
+    foreign key (idUsuario)references usuario(idCliente)
+);
 /*
 -- TABLAS INTERMEDIAS:
 -- Tabla aerolineaAsistente
@@ -511,19 +524,24 @@ insert into aerolineaAlianza values
 select * from usuario;
 select * from asistente;
 select * from vueloUsuarioAsistente;
-insert into vueloUsuarioAsistente values (null,4,1,2,1);
 select * from vuelo;
 select * from asientos;
 select * from administradores;
 select * from form;
 select * from notiAsistente;
-truncate table form;
 select * from mensajes;
+select * from criticas;
 use railway; 
-select * from vueloUsuarioAsistente where idUsuario = 4 and idVuelo = 1;
+-- script para truncar las tablas de información
+truncate table vuelo;
+truncate table vueloUsuarioAsistente;
+truncate table asientos;
+truncate table usuario;
+truncate table criticas;
+SET FOREIGN_KEY_CHECKS = 1;
 -- tener un usuario ya por defecto
 insert into usuario VALUES 
-("Edwin Gabriel","Medrano Yanes","$2y$10$C1OU5QbxIBKBJN0sRXpTNOrtIVvtnt0BkHEN.52wEKb37AmY8vnCG","edwin@gmail.com","123456789","12345678-9",null,null);
+("Edwin Gabriel","Medrano Yanes","$2y$10$C1OU5QbxIBKBJN0sRXpTNOrtIVvtnt0BkHEN.52wEKb37AmY8vnCG","edwin@gmail.com","123456789","12345678-9",null,null,null);
 -- tener un administrador por defecto
 insert into administradores values
 (null,"Edwin Gabriel","Medrano Yanes","$2y$10$VtGH0Tnc92OJ7UTI5XIvc.n0bdpGjEoYIqtWSvYArr8OdGawdrQpO","admin@gmail.com","123456789","12345678-9","Administrador de Operaciones",null,"Hola mundo","admin");

@@ -87,7 +87,7 @@
         <!-- Formulario para agregar críticas -->
 
         <div class="mt-2 p-5" id="espacio"> </div>
-      
+
 
         <div class=" texto-titulo container mt-5">
             <h5 id="search-flight-title">Todos los comentarios ></h5>
@@ -100,19 +100,23 @@
             <!-- Card 1 -->
             <?php
             // imprimir todos los comentarios que ha hecho este usuario 
-            $misCriticas = $conexion->query("SELECT nomCliente, apeCliente ,foto, fecha, estrella, msj 
+            $misCriticas = $conexion->query("SELECT nomCliente, apeCliente ,foto, fecha, estrella, msj,idAdmin, msjAdmin, idAdmin,estado 
         from usuario inner join criticas on idCliente = idUsuario");
 
             $filasCriticas = mysqli_num_rows($misCriticas);
             if ($filasCriticas) {
                 while ($rowCriticas = $misCriticas->fetch_array()) {
+                    $idAdmin = $rowCriticas['idAdmin'];
+                    $msjAdmin = $rowCriticas['msjAdmin'];
+                    $idAdmin = $rowCriticas['idAdmin'];
+                    $estado = $rowCriticas['estado'];
                     $miFoto = $rowCriticas['foto'];
                     $fechaCritica = $rowCriticas['fecha'];
                     $msjCritica = $rowCriticas['msj'];
                     $estrellaCritica = $rowCriticas['estrella'];
                     $nomCliente = $rowCriticas['nomCliente'];
                     $apeCliente = $rowCriticas['apeCliente'];
-                    $nombreCompleto = $nomCliente . " ". $apeCliente;
+                    $nombreCompleto = $nomCliente . " " . $apeCliente;
                     // funcion para establecer cuantas estrellas poner en la critica seleccionada
 
 
@@ -147,7 +151,7 @@
                                     <span class="fa fa-star"></span>
                                     <span class="fa fa-star"></span>
                                         ';
-                                    }
+                                    } else 
                                     if ($estrellaCritica == 1) {
                                         echo '
                                 <span class="fa fa-star checked"></span>
@@ -197,6 +201,24 @@
                                     <span class="fa fa-heart like-button" data-likes="0"></span>
                                     <span class="ml-2" data-likes="0">0 Likes</span>
                                 </div>
+                                <?php
+                                // proceso en caso de que el mensaje haya sido contestado
+                                if (!($estado == null)) {
+                                    $sqlCritica = $conexion->query("SELECT * FROM administradores where idAdmin = $idAdmin");
+                                    $rowCriticaAdmin = $sqlCritica->fetch_array();
+                                    $nomCompleto = $rowCriticaAdmin['nomAdmin'] . " " . $rowCriticaAdmin['apeAdmin'];
+                                    echo '
+                                          <span>
+                                        <p><b>Critica contestada por</b>:<br> ' . $nomCompleto . '<p>
+                                        <p>
+                                         <b>Mensaje:</b><br>
+                                        '. $msjAdmin .'</p>
+                                    </span>
+                                        ';
+                                }
+                                ?>
+
+
                             </div>
                         </div>
                     </div>
@@ -266,12 +288,11 @@
 
 
 
-    <div class="mt-2 p-5" id="espacio"> </div>
+    <div class="mt-2 p-5 mb-5" id="espacio"> </div>
     <?php include("pie.php"); ?>
 </body>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"></script>
 
 </html>
 <?php

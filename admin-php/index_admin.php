@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,10 +17,11 @@
         .texto-titulo {
             font-family: "Be Vietnam Pro";
         }
+
         .back {
             position: relative;
             width: 100%;
-            height: 400px; 
+            height: 400px;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -42,12 +44,13 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.5); 
+            background-color: rgba(0, 0, 0, 0.5);
             z-index: 0;
         }
 
         .titulo {
-            font-size: 2.5rem; /* Responsive font size */
+            font-size: 2.5rem;
+            /* Responsive font size */
             z-index: 1;
             color: white;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
@@ -55,18 +58,20 @@
 
         .table-container {
             margin: 20px auto;
-            padding: 0 15px; /* Responsive padding */
+            padding: 0 15px;
+            /* Responsive padding */
         }
 
         .table {
-            border-collapse: collapse; 
-            width: 100%; 
+            border-collapse: collapse;
+            width: 100%;
         }
 
         /*esto es lo de de reducir la barrita de las tablas*/
-        .table th, .table td {
-            border: 1px solid #dee2e6; 
-            padding: 8px; 
+        .table th,
+        .table td {
+            border: 1px solid #dee2e6;
+            padding: 8px;
             text-align: center;
         }
 
@@ -84,7 +89,7 @@
         }
 
         .img-perfil {
-            width: 50px; 
+            width: 50px;
             height: 50px;
             object-fit: cover;
             border-radius: 50%;
@@ -105,33 +110,30 @@
         }
 
         .card-hover-effect {
-            transition: transform 0.3s , box-shadow 0.3s ;
+            transition: transform 0.3s, box-shadow 0.3s;
         }
 
         .card-hover-effect:hover {
             transform: translateY(-10px);
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-            
+
         }
 
-        .card-title{
-            
-        }
-
-        /* EL RESPONSIVE DE LAS TALBAS*/
+        /* EL RESPONSIVE DE LAS TABLAS*/
         @media (max-width: 768px) {
             .titulo {
-                font-size: 1.75rem; 
+                font-size: 1.75rem;
             }
 
-            .table th, .table td {
-                padding: 6px; 
+            .table th,
+            .table td {
+                padding: 6px;
             }
         }
 
         @media (max-width: 576px) {
             .titulo {
-                font-size: 1.5rem; 
+                font-size: 1.5rem;
             }
         }
     </style>
@@ -141,7 +143,7 @@
     <?php include("header-admin.php"); ?>
     <div class="back">
         <img src="../imagen/admin/back.png" alt="" class="img-fondo">
-        <div class="titulo text-center">Bienvenid@ <?php echo $nomAdmin?></div>
+        <div class="titulo text-center">Bienvenid@ <?php echo $nomAdmin ?></div>
     </div>
 
     <!--CUADRO DE LAS OPCIONES-->
@@ -151,21 +153,27 @@
 
     <div class="container-fluid mt-5">
         <div class="row justify-content-center">
-            <a class="card-prep card card-hover-effect text-center me-5 mb-3" style="width: 22rem; text-decoration: none;" href="menu_admin_ad.php">
+            <a class="card-prep card card-hover-effect text-center me-5 mb-3" style="width: 18rem; text-decoration: none;" href="menu_admin_ad.php">
                 <div class="card-body mb-3">
                     <h6 class="card-title mt-5">ADMINISTRADORES</h6>
                 </div>
             </a>
 
-            <a class="card-prep card card-hover-effect text-center me-5 mb-3" style="width: 22rem; text-decoration: none;" href="menu_admin_cli.php">
+            <a class="card-prep card card-hover-effect text-center me-5 mb-3" style="width: 18rem; text-decoration: none;" href="menu_admin_cli.php">
                 <div class="card-body mb-3">
                     <h6 class="card-title mt-5">USUARIOS</h6>
                 </div>
             </a>
 
-            <a class="card-prep card card-hover-effect text-center me-5 mb-3" style="width: 22rem; text-decoration: none;" href="menu_admin_ayu.php">
+            <a class="card-prep card card-hover-effect text-center me-5 mb-3" style="width: 18rem; text-decoration: none;" href="menu_admin_ayu.php">
                 <div class="card-body mb-3">
                     <h6 class="card-title mt-5">AYUDANTES ESPECIALES</h6>
+                </div>
+            </a>
+
+            <a class="card-prep card card-hover-effect text-center me-5 mb-3" style="width: 18rem; text-decoration: none;" href="menu_admin_criticas.php">
+                <div class="card-body mb-3">
+                    <h6 class="card-title mt-5">CRÍTICAS</h6>
                 </div>
             </a>
         </div>
@@ -198,11 +206,11 @@
                 <tbody>
                     <?php
                     $inc = include("conex.php");
-                    if ($inc){
+                    if ($inc) {
                         $select = "SELECT * FROM usuario";
-                        $query = mysqli_query($conexion,$select);
-                        if ($query){
-                            while ($row = $query->fetch_array()){
+                        $query = mysqli_query($conexion, $select);
+                        if ($query) {
+                            while ($row = $query->fetch_array()) {
                                 $nombre = $row['nomCliente'];
                                 $apellido = $row['apeCliente'];
                                 $pass = $row['pass'];
@@ -212,16 +220,16 @@
                                 $foto = $row['foto'];
                                 $idCliente = $row['idCliente'];
                     ?>
-                    <tr>
-                        <td><?php echo $nombre?></td>
-                        <td><?php echo $apellido?></td>
-                        <td>-</td>
-                        <td><?php echo $correo?></td>
-                        <td><?php echo $pasaporte?></td>
-                        <td><?php echo $dui?></td>
-                        <td><img src="data:image/jpg;base64,<?php echo base64_encode($foto)?>" alt="" class="img-perfil"></td>
-                        <td><?php echo $idCliente?></td>
-                    </tr>
+                                <tr>
+                                    <td><?php echo $nombre ?></td>
+                                    <td><?php echo $apellido ?></td>
+                                    <td>-</td>
+                                    <td><?php echo $correo ?></td>
+                                    <td><?php echo $pasaporte ?></td>
+                                    <td><?php echo $dui ?></td>
+                                    <td><img src="data:image/jpg;base64,<?php echo base64_encode($foto) ?>" alt="" class="img-perfil"></td>
+                                    <td><?php echo $idCliente ?></td>
+                                </tr>
                     <?php
                             }
                         }
@@ -252,11 +260,11 @@
                 <tbody>
                     <?php
                     $inc = include("conex.php");
-                    if ($inc){
+                    if ($inc) {
                         $select = "SELECT * FROM administradores";
-                        $query = mysqli_query($conexion,$select);
-                        if ($query){
-                            while ($row = $query->fetch_array()){
+                        $query = mysqli_query($conexion, $select);
+                        if ($query) {
+                            while ($row = $query->fetch_array()) {
                                 $nombre = $row['nomAdmin'];
                                 $apellido = $row['apeAdmin'];
                                 $pass = $row['pass'];
@@ -264,14 +272,14 @@
                                 $foto = $row['foto'];
                                 $idAdmin = $row['idAdmin'];
                     ?>
-                    <tr>
-                        <td><?php echo $nombre?></td>
-                        <td><?php echo $apellido?></td>
-                        <td>-</td>
-                        <td><?php echo $correo?></td>
-                        <td><img src="data:image/jpg;base64,<?php echo base64_encode($foto)?>" alt="" class="img-perfil"></td>
-                        <td><?php echo $idAdmin?></td>
-                    </tr>
+                                <tr>
+                                    <td><?php echo $nombre ?></td>
+                                    <td><?php echo $apellido ?></td>
+                                    <td>-</td>
+                                    <td><?php echo $correo ?></td>
+                                    <td><img src="data:image/jpg;base64,<?php echo base64_encode($foto) ?>" alt="" class="img-perfil"></td>
+                                    <td><?php echo $idAdmin ?></td>
+                                </tr>
                     <?php
                             }
                         }
@@ -304,11 +312,11 @@
                 <tbody>
                     <?php
                     $inc = include("conex.php");
-                    if ($inc){
+                    if ($inc) {
                         $select = "SELECT * FROM asistente";
-                        $query = mysqli_query($conexion,$select);
-                        if ($query){
-                            while ($row = $query->fetch_array()){
+                        $query = mysqli_query($conexion, $select);
+                        if ($query) {
+                            while ($row = $query->fetch_array()) {
                                 $nombre = $row['nomAsistente'];
                                 $apellido = $row['apeAsistente'];
                                 $pass = $row['passAsisten'];
@@ -318,16 +326,16 @@
                                 $foto = $row['foto'];
                                 $idAsistente = $row['idAsistente'];
                     ?>
-                    <tr>
-                        <td><?php echo $nombre?></td>
-                        <td><?php echo $apellido?></td>
-                        <td>-</td>
-                        <td><?php echo $correo?></td>
-                        <td><?php echo $pasaporte?></td>
-                        <td><?php echo $dui?></td>
-                        <td><img src="data:image/jpg;base64,<?php echo base64_encode($foto)?>" alt="" class="img-perfil"></td>
-                        <td><?php echo $idAsistente?></td>
-                    </tr>
+                                <tr>
+                                    <td><?php echo $nombre ?></td>
+                                    <td><?php echo $apellido ?></td>
+                                    <td>-</td>
+                                    <td><?php echo $correo ?></td>
+                                    <td><?php echo $pasaporte ?></td>
+                                    <td><?php echo $dui ?></td>
+                                    <td><img src="data:image/jpg;base64,<?php echo base64_encode($foto) ?>" alt="" class="img-perfil"></td>
+                                    <td><?php echo $idAsistente ?></td>
+                                </tr>
                     <?php
                             }
                         }
@@ -340,4 +348,5 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>

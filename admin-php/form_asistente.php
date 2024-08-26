@@ -182,7 +182,7 @@ if (isset($_POST['crear'])) {
     $dui = trim($_POST['dui']); 
     $date =  $_POST['date']; 
     $genero =  trim($_POST['genero']); 
-    $servicio = trim($_POST['servicio']); /
+    $servicio = trim($_POST['servicio']); 
     $descri =  trim($_POST['descri']);
     $foto = $_FILES['foto']['error']; 
 

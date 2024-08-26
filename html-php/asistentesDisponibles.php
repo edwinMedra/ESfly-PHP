@@ -22,6 +22,9 @@
 </head>
 
 <body>
+<?php 
+    include ("header-log.php");
+    ?>
     <!-- imagenes de la pagina-->
     <div class="contenedor">
 
@@ -47,9 +50,6 @@
             </button>
         </div>
 
-        <div class="texto-superpuesto">
-            <p>Asistentes Disponibles</p>
-        </div>
     </div>
 
     <!--Seccion de asistentes de pagina web-->

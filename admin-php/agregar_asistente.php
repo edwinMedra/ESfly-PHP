@@ -85,7 +85,7 @@
                     <div class="mb-4">
                         <label for="exampleImputEmail" class="form-label font-weight-bold">
                             <img src="../imagen/registroLogin/dui.png" class="img"> Horario de trabajo</label>
-                        <input required type="text" class="form-control mb-2 rounded-5 border border-1 w-75" placeholder="Ingresar horario de trabajo" id="correo" name="date" >
+                        <input required type="text" class="form-control mb-2 rounded-5 border border-1 w-75" value="<?php echo isset($_POST['date']) ? $_POST['date'] : ""; ?>" placeholder="Ingresar horario de trabajo" id="correo" name="date" >
                     </div>
                     <div class="mb-4">
                         <label for="exampleImputEmail" class="form-label font-weight-bold">
@@ -115,7 +115,7 @@
                         <label for="fotito">
                             <a class="btn btn-primary">Subir foto de perfil</a>
                         </label>
-                        <input required type="file" id="fotito" class="d-none" name="foto" accept="image/*"><br>
+                        <input  type="file" id="fotito" class="d-none" name="foto" accept="image/*"><br>
                         <input class="btn btn-primary my-3" type="submit" value="Crear Asistente" name="crear">
                     </div>
 
