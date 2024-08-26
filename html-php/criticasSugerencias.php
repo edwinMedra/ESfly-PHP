@@ -236,7 +236,7 @@
         <?php
         // imprimir todos los comentarios que ha hecho este usuario 
         $misCriticas = $conexion->query("SELECT nomCliente, apeCliente ,foto, fecha, estrella, msj,idAdmin, msjAdmin, idAdmin,estado 
-        from usuario inner join criticas on idCliente = idUsuario  ");
+        from usuario inner join criticas on idCliente = idUsuario where idCliente != '$id' ");
 
         $filasCriticas = mysqli_num_rows($misCriticas);
         if ($filasCriticas) {
