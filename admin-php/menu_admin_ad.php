@@ -144,7 +144,7 @@
     <?php include("header-admin.php"); ?>
     <div class="back">
         <img src="../imagen/admin/back.png" alt="" class="img-fondo">
-        <div class="titulo text-center">Bienvenido <?php echo $nomAdmin?></div>
+        <div class="titulo text-center">ADMINISTRADORES</div>
     </div>
 
 

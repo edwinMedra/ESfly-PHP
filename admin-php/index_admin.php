@@ -367,6 +367,65 @@
         </div>
     </div>
 
+    <div class=" texto-titulo container-fluid mt-5 ps-5 ">
+        <h5>Vuelos registrados ></h5>
+    </div>
+
+
+         <!--TABLA DE VUELO-->
+    <div class="container table-container">
+        <div class="title-border text-center">
+            <h5>VUELOS</h5>
+        </div>
+        <div class="table-responsive mb-5">
+            <table class="table table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th>Origen</th>
+                        <th>Destino</th>
+                        <th>Fecha de salida</th>
+                        <th>Fecha de entrada</th>
+                        <th>Precio</th>
+                        <th>Foto</th>
+                        <th>ID</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                    $inc = include("conex.php");
+                    if ($inc) {
+                        $select = "SELECT * FROM vuelo";
+                        $query = mysqli_query($conexion, $select);
+                        if ($query) {
+                            while ($row = $query->fetch_array()) {
+                                $origen = $row['origen'];
+                                $destino = $row['destino'];
+                                $fechaSalida = $row['fechaSalida'];
+                                $fechaEntrada = $row['fechaEntrada'];
+                                $precio = $row['precio'];
+                                $foto = $row['foto'];
+                                $idVuelo = $row['idVuelo'];
+                    ?>
+                                <tr>
+                                    <td><?php echo $origen ?></td>
+                                    <td><?php echo $destino ?></td>
+                                    <td><?php echo $fechaSalida ?></td>
+                                    <td><?php echo $fechaEntrada ?></td>
+                                    <td><?php echo $precio ?></td>
+                                    <td><img src="data:image/jpg;base64,<?php echo base64_encode($foto) ?>" class="mx-1 my-auto" alt="" height="50px" width="85px"></td>
+                                    <td><?php echo $idVuelo ?></td>
+                                </tr>
+                    <?php
+                            }
+                        }
+                    }
+                    ?>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
