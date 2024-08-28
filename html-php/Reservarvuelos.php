@@ -247,11 +247,6 @@
     </div>
   </div>
 
-
-  <div class=" texto-titulo container mt-5">
-    <h5 id="search-flight-title">Vuelos que he reservado ></h5>
-  </div>
-
   <div class="container-fluid">
     <?php
 
