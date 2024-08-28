@@ -102,7 +102,7 @@
 <body>
 
 <!--Inicio header-->
-<?php include("header.php"); ?>
+<?php include("header-log.php"); ?>
 <!--Fin header-->
 
 <div class="container">
