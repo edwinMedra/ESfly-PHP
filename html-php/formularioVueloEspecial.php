@@ -40,6 +40,11 @@
                 </div>
 
                 <div class="form-group mb-3">
+                    <label for="pasaporte">Cantidad de asientos</label>
+                    <input type="number"  class="form-control" id="pasaporte" name="cantidadAsientos">
+                </div>
+
+                <div class="form-group mb-3">
                     <label>Boleto para:</label>
                     <div>
                         <div class="form-check form-check-inline mb-3">
@@ -433,8 +438,9 @@ if ($boton) {
     $cantArticPerso = trim($_POST['cantidadArticuloPersonal']);
     $cantEquiMano = trim($_POST['cantidadEquipajeMano']);
     $cantEquiBodega = trim($_POST['cantidadEquipajeBodega']);
+    $asientos = $_POST['cantidadAsientos'];
     $articulos = $conexion->query("UPDATE form SET tipoIncapacidad='$tipoIncapacidad', artiPersona='$cantArticPerso', equiMano='$cantEquiMano', equiBodega='$cantEquiBodega' where idVuelo='$idVuelo' and idUsuario='$id'");
     echo "<script>
-      window.location.href = 'seleccionDeAsientosVIP.php?idVuelo=" .  $idVuelo . "'; </script>";
+      window.location.href = 'seleccionDeAsientosVIP.php?idVuelo=" .  $idVuelo . "&asientos=".$asientos."'; </script>";
 }
 ?>

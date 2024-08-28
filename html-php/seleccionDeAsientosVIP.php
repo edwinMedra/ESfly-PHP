@@ -183,6 +183,7 @@ if ($conexion) {
 
 ?>
 <?php
+  $cantidad = $_GET['asientos'];
 // proceso para ver los asientos disponibles de este vuelo 
 if ($conexion) {
   $asientos = "SELECT * FROM asientos where idVuelo='$id'";
@@ -299,7 +300,7 @@ function validar($numAsiento)
       <div class="row">
         <div class="col-md-6 text-center">
           <div class="counter">
-            <p>Total de Boletos: <span id="total-boletos">2</span></p>
+            <p>Total de Boletos: <span id="total-boletos"><?php echo $cantidad?></span></p>
           </div>
         </div>
         <div class="col-md-6 text-center">
@@ -772,6 +773,7 @@ function validar($numAsiento)
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  
   <script>
 
 
@@ -779,7 +781,7 @@ function validar($numAsiento)
         window.location.href = 'insert-asientos.php';
     }
 
-    const totalBoletos = 2; // Cambia esto si el límite de boletos cambia
+    const totalBoletos = <?php echo $cantidad?>; // Cambia esto si el límite de boletos cambia
 
     const checkboxes = document.querySelectorAll('input[type="checkbox"]');
     const totalBoletosElement = document.getElementById('total-boletos');
