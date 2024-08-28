@@ -121,7 +121,7 @@
          <div class="row">
         <?php
         // imprimir todos los comentarios que ha hecho este usuario 
-        $misCriticas = $conexion->query("SELECT nomCliente, apeCliente ,foto, fecha, estrella, msj 
+        $misCriticas = $conexion->query("SELECT nomCliente, apeCliente ,foto, fecha, estrella, msj,msjAdmin,estado,idAdmin 
         from usuario inner join criticas on idCliente = idUsuario where idCliente = '$id'");
 
         $filasCriticas = mysqli_num_rows($misCriticas);
@@ -131,6 +131,9 @@
                 $fechaCritica = $rowCriticas['fecha'];
                 $msjCritica = $rowCriticas['msj'];
                 $estrellaCritica = $rowCriticas['estrella'];
+                $estadoMio = $rowCriticas['estado'];
+                $idAdminMio = $rowCriticas['idAdmin'];
+                $msjAdminMio = $rowCriticas['msjAdmin'];
                 // funcion para establecer cuantas estrellas poner en la critica seleccionada
 
 
@@ -215,6 +218,22 @@
                                 <span class="fa fa-heart like-button" data-likes="0"></span>
                                 <span class="ml-2" data-likes="0">0 Likes</span>
                             </div>
+                            <?php
+                                // proceso en caso de que el mensaje haya sido contestado
+                                if (!($estadoMio == null)) {
+                                    $sqlCritica = $conexion->query("SELECT * FROM administradores where idAdmin = $idAdminMio");
+                                    $rowCriticaAdmin = $sqlCritica->fetch_array();
+                                    $nomCompleto = $rowCriticaAdmin['nomAdmin'] . " " . $rowCriticaAdmin['apeAdmin'];
+                                    echo '
+                                          <span>
+                                        <p><b>Critica contestada por</b>:<br> ' . $nomCompleto . '<p>
+                                        <p>
+                                         <b>Mensaje:</b><br>
+                                        '. $msjAdminMio .'</p>
+                                    </span>
+                                        ';
+                                }
+                                ?>
                         </div>
                     </div>
                 </div>

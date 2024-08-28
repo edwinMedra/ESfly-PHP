@@ -11,5 +11,5 @@ $query = $conexion->query("INSERT INTO vueloUsuarioAsistente () VALUES (null,'$i
 ?>
 <script>
     alert ('Se ha enviado solicitud a este asistente');
-    window.location.href = "../html-php/index.php";
+    window.location.href = "../html-php/boletos.php";
 </script>

@@ -247,7 +247,7 @@ if ( 'tickets') {
 
             <form class="d-flex" role="search">
 
-                <a href="../chat/chat_cliente.php" class="btn notification-link" type="button"  id="tickets">
+                <a href="boletos.php" class="btn notification-link" type="button"  id="tickets">
                     <img src="../imagen/header_ayudante/boleto.png" class="" id="" alt="" width="20"> Boletos<div class="notification-dot"></div>
                 </a>
 

@@ -1917,7 +1917,7 @@ include("header-log.php");
                         <h5 class="card-title">Experiencia ESfly</h5>
                         <p class="card-text">Descubre los servicios a bordo que te ofrecemos al volar con nosotros,
                             escribe reseñas.</p>
-                        <a href="experienciasESfly.php" class=" b-info d-flex flex-column align-items-center btn btn-primary">Ver información</a>
+                        <a href="criticasSugerencias.php" class=" b-info d-flex flex-column align-items-center btn btn-primary">Ver información</a>
                     </div>
                 </div>
             </div>
