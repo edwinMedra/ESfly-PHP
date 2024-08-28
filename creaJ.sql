@@ -1,4 +1,5 @@
 -- CREACION DE LA BASE DE DATOS:
+
 create database railway;
 Use railway;
 -- CREACION DE TABLAS: 
@@ -15,8 +16,6 @@ foto longblob,
 notificacion TINYINT(1) DEFAULT 0,
 constraint primary key (idCliente)
 );
-select * from usuario;
-UPDATE usuario SET notificacion = 0 WHERE idCliente = 3;
 /*
 -- Tabla aerolinea
 create table aerolinea(
@@ -533,12 +532,14 @@ select * from mensajes;
 select * from criticas;
 use railway; 
 -- script para truncar las tablas de información
+/*
 truncate table vuelo;
 truncate table vueloUsuarioAsistente;
 truncate table asientos;
 truncate table usuario;
 truncate table criticas;
 SET FOREIGN_KEY_CHECKS = 1;
+*/
 -- tener un usuario ya por defecto
 insert into usuario VALUES 
 ("Edwin Gabriel","Medrano Yanes","$2y$10$C1OU5QbxIBKBJN0sRXpTNOrtIVvtnt0BkHEN.52wEKb37AmY8vnCG","edwin@gmail.com","123456789","12345678-9",null,null,null);

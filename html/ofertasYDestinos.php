@@ -113,7 +113,7 @@
                     <div class="col-md-3 mt-5 mb-5">
                         <a href="login.php" class="d-block">
                             <div class="image-container">
-                            <img src="../imagen/index/argentina.png" alt="Argentina" class="d-block w-100">
+                            <img src="../imagen/index/Argentina.png" alt="Argentina" class="d-block w-100">
                                 <div class="overlay">
                                     <div class="overlay-content">
                                     <h4>Argentina</h4>
@@ -285,7 +285,7 @@
                     <div class="col-md-3 mt-5 mb-5">
                         <a href="login.php" class="d-block">
                             <div class="image-container">
-                            <img src="../imagen/index/argentina.png" alt="Argentina" class="d-block w-100">
+                            <img src="../imagen/index/cuba.png" alt="Argentina" class="d-block w-100">
                                 <div class="overlay">
                                     <div class="overlay-content">
                                     <h4>Cuba</h4>
@@ -301,7 +301,7 @@
                     <div class="col-md-3 mt-5 mb-5">
                         <a href="login.php" class="d-block">
                             <div class="image-container">
-                            <img src="../imagen/index/jamaica.png" alt="Argentina" class="d-block w-100">
+                            <img src="../imagen/index/Jamaica.png" alt="Argentina" class="d-block w-100">
                                 <div class="overlay">
                                     <div class="overlay-content">
                                     <h4>Jamaica</h4>

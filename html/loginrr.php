@@ -75,7 +75,7 @@ if (!($sesion == null || $sesion == '')){
           <div class="mb-5">
             <label for="exampleImputEmail" class="form-label font-weight-bold">
               <img src="../imagen/registroLogin/correo.png" class="img"> Correo</label>
-            <input type="email" class="form-control mb-2" placeholder="Ingresa tu correo" id="correo" name="correo">
+            <input type="email" class="form-control mb-2" placeholder="Ingresa tu correo" id="correo" name="correo" required>
           </div>
     
           <div class="mb-3">
@@ -83,7 +83,7 @@ if (!($sesion == null || $sesion == '')){
               <img src="../imagen/registroLogin/contraseña.png" class="img"> Contraseña
             </label>
             <i class="ojo bx bx-show-alt mt-2" id="togglePassword"></i>
-            <input type="password" class="pass form-control mb-2" placeholder="Ingresa tu contraseña" id="pass" name="pass">
+            <input type="password" class="pass form-control mb-2" placeholder="Ingresa tu contraseña" id="pass" required name="pass">
           </div>
           <button type="submit" class="btn btn-primary w-100 mt-3" name="ingreso">Ingresar</button>
         </form>
