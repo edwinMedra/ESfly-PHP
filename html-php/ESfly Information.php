@@ -104,10 +104,9 @@
 </head>
 <body>
 
-<!--Inicio header-->
-<?php include("header.php"); ?>
-
-<!--Fin header-->
+<?php
+include("header-log.php");
+?>
 
 <div class="container">
     <div class="info-title">
@@ -138,11 +137,11 @@
                 </h2>
                 <p>Viajar con ESFLY ofrece varios beneficios únicos:</p>
                 <ul>
-                    <li><strong>Compromiso con la Accesibilidad:</strong> Somos una aerolínea que entiende la importancia de la accesibilidad. Nuestro servicio está diseñado para asegurar que todas las personas, especialmente aquellas con discapacidades, puedan viajar con facilidad y dignidad.</li>
-                    <li><strong>Asistencia Personalizada:</strong> Ofrecemos diversas opciones de asistencia que se pueden seleccionar al momento de la reserva, garantizando que cada pasajero reciba el apoyo necesario durante su viaje, desde el check-in hasta el desembarque.</li>
-                    <li><strong>Proceso de Reserva Sencillo:</strong> Nuestro sistema de reservas está diseñado para ser intuitivo y fácil de usar, permitiendo a todos los pasajeros reservar sus vuelos de manera rápida y sin complicaciones.</li>
-                    <li><strong>Información Clara y Precisa:</strong> Proporcionamos información detallada y actualizada sobre nuestros servicios y vuelos, para que nuestros pasajeros puedan planificar su viaje con total confianza.</li>
-                    <li><strong>Experiencia de Viaje Inclusiva:</strong> En ESFLY, cada pasajero es importante. Nos aseguramos de que todos, sin importar sus necesidades específicas, tengan acceso a una experiencia de vuelo segura, cómoda y placentera.</li>
+                    <li><strong>Compromiso con la Accesibilidad:</strong> Somos una aerolínea que entiende la importancia de la accesibilidad. Nuestro servicio está diseñado para asegurar que todas las personas, especialmente aquellas con discapacidades, puedan viajar con facilidad y dignidad.</li><br>
+                    <li><strong>Asistencia Personalizada:</strong> Ofrecemos diversas opciones de asistencia que se pueden seleccionar al momento de la reserva, garantizando que cada pasajero reciba el apoyo necesario durante su viaje, desde el check-in hasta el desembarque.</li><br>
+                    <li><strong>Proceso de Reserva Sencillo:</strong> Nuestro sistema de reservas está diseñado para ser intuitivo y fácil de usar, permitiendo a todos los pasajeros reservar sus vuelos de manera rápida y sin complicaciones.</li><br>
+                    <li><strong>Información Clara y Precisa:</strong> Proporcionamos información detallada y actualizada sobre nuestros servicios y vuelos, para que nuestros pasajeros puedan planificar su viaje con total confianza.</li><br>
+                    <li><strong>Experiencia de Viaje Inclusiva:</strong> En ESFLY, cada pasajero es importante. Nos aseguramos de que todos, sin importar sus necesidades específicas, tengan acceso a una experiencia de vuelo segura, cómoda y placentera.</li><br>
                 </ul>
                 <p>ESFLY es más que una aerolínea; somos un socio comprometido con hacer que cada viaje sea una experiencia positiva para todos nuestros pasajeros, asegurando que puedan disfrutar de sus vuelos sin preocupaciones, con toda la asistencia que necesiten.</p>
             </div>
@@ -151,6 +150,8 @@
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-<?php include("pie.php"); ?>
+<?php
+include("pie.php");
+?>
 </body>
 </html>
