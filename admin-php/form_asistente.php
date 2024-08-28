@@ -12,7 +12,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Bayon&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../css/editar-admin.css">
     <link rel="stylesheet" href="../css/header-admin.css">
 </head>
 
@@ -68,103 +67,69 @@
         }
     }
     ?>
-    <!--Estructura principal de pagina web-->
-    <div class="container-fluid">
-        <div class="row text-center w-25 mx-auto my-5">
-            <DIV class="col-lg-9 col-12 my-auto">
-                <p class="fs-4">EDITAR ASISTENTE</p>
-            </DIV>
-            <DIV class="col-lg-3 col-12"><img src="../imagen/datosCuenta/logito.png" alt="" class="w-75"></DIV>
-        </div>
-    </div>
-    <!--Div padre de toda la tabla-->
-    <div class="container-fluid w-75 ps-5 pt-5 rounded-5" id="form">
-        <form action="" method="post" enctype="multipart/form-data">
-            <div class="row">
-                <div class="col-lg-6 col-12 ">
-
-                    <div class="mb-4">
-                        <label for="exampleImputEmail" class="form-label font-weight-bold">
-                            <img src="../imagen/registroLogin/nombre.png" class="img"> Nombre</label>
-                        <input type="text" class="form-control mb-2 rounded-5  w-75" placeholder="Ingresar nombre" id="correo" name="name" value="<?php echo $name ?>">
-                    </div>
-
-                    <div class="mb-4">
-                        <label for="exampleImputEmail" class="form-label font-weight-bold">
-                            <img src="../imagen/registroLogin/apellido.png" class="img"> Apellido</label>
-                        <input type="text" class="form-control mb-2 rounded-5  w-75" placeholder="Ingresar apellido" id="correo" name="lastname" value="<?php echo $lastname ?>">
-                    </div>
-
-
-                    <div class="mb-4">
-                        <label for="exampleImputEmail" class="form-label font-weight-bold">
-                            <img src="../imagen/registroLogin/correo.png" class="img"> Correo</label>
-                        <input type="email" class="form-control mb-2 rounded-5  w-75" placeholder="Ingresar correo" id="correo" name="email" value="<?php echo $email ?>">
-                    </div>
-
-                    <div class="mb-4">
-                        <label for="exampleImputEmail" class="form-label font-weight-bold">
-                            <img src="../imagen/registroLogin/pasaporte.png" class="img"> Número de teléfono</label>
-                        <input type="text" class="form-control mb-2 rounded-5  w-75" placeholder="Ingresar número de teléfono" id="correo" name="numero" value="<?php echo $numero ?>">
-                    </div>
-
-
-                    <div class="mb-4">
-                        <label for="exampleImputEmail" class="form-label font-weight-bold">
-                            <img src="../imagen/registroLogin/dui.png" class="img"> Pasaporte</label>
-                        <input type="text" class="form-control mb-2 rounded-5 border border-1 w-75" placeholder="Ingresar pasaporte" id="correo" name="pasaporte" value="<?php echo $pasaporte?>">
-                    </div>
-
-                    <div class="mb-4">
-                        <label for="exampleImputEmail" class="form-label font-weight-bold">
-                            <img src="../imagen/registroLogin/dui.png" class="img"> DUI</label>
-                        <input type="text" class="form-control mb-2 rounded-5 border border-1 w-75" placeholder="Ingresar DUI del Asistente" id="correo" name="dui" value="<?php echo $dui ?>">
-                    </div>
-
-                </div>
-
-                <div class="col-lg-6 col-12">
-                    <div class="mb-4">
-                        <label for="exampleImputEmail" class="form-label font-weight-bold">
-                            <img src="../imagen/registroLogin/dui.png" class="img"> Horario de trabajo</label>
-                        <input type="text" class="form-control mb-2 rounded-5 border border-1 w-75" placeholder="Ingresar horario de trabajo" id="correo" name="date" value="<?php echo $date ?>">
-                    </div>
-                    <div class="mb-4">
-                        <label for="exampleImputEmail" class="form-label font-weight-bold">
-                            <img src="../imagen/registroLogin/nombre.png" class="img"> Género</label>
-                        <select name="genero" class="form-control w-75 rounded-5 mb-2" id="correo">
-                            <option value="">Elige el género</option>
-                            <option value="Masculino" <?php select1($genero) ?>>Masculino</option>
-                            <option value="Femenino" <?php select2($genero) ?>>Femenino</option>
-                            <option value="Otro" <?php select3($genero) ?>>Otro</option>
-                        </select>
-                    </div>
-
-                    <div class="mb-4">
-                        <label for="exampleImputEmail" class="form-label font-weight-bold">
-                            <img src="../imagen/registroLogin/dui.png" class="img"> Servicios</label>
-                        <input type="text" class="form-control mb-2 rounded-5 border border-1 w-75" placeholder="Ingresar servicio" id="correo" name="servicio" value="<?php echo $servicios ?>">
-                    </div>
-
-                    <div class="mb-4">
-                        <label for="exampleImputEmail" class="form-label font-weight-bold">
-                            <img src="../imagen/registroLogin/pasaporte.png" class="img"> Descripcion</label>
-                        <div class="form-floating">
-                            <textarea class="form-control w-75" id="floatingTextarea" style="height: 200px;" name="descri"><?php echo $descri ?></textarea>
+    <div class="container mt-5">
+        <h3 class="text-center mb-4"><img src="../imagen/header/favicon.png" class="img-fluid me-3" width="35"> Editar Asistente</h3>
+        <div class="card shadow-sm">
+            <div class="card-body">
+                <form action="" method="post" enctype="multipart/form-data">
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="name" class="form-label">Nombre</label>
+                            <input type="text" class="form-control rounded-3" id="name" name="name" value="<?php echo $name; ?>" placeholder="Ingresar nombre">
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="lastname" class="form-label">Apellido</label>
+                            <input type="text" class="form-control rounded-3" id="lastname" name="lastname" value="<?php echo $lastname; ?>" placeholder="Ingresar apellido">
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="email" class="form-label">Correo</label>
+                            <input type="email" class="form-control rounded-3" id="email" name="email" value="<?php echo $email; ?>" placeholder="Ingresar correo">
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="numero" class="form-label">Número de teléfono</label>
+                            <input type="text" class="form-control rounded-3" id="numero" name="numero" value="<?php echo $numero; ?>" placeholder="Ingresar número de teléfono">
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="pasaporte" class="form-label">Pasaporte</label>
+                            <input type="text" class="form-control rounded-3" id="pasaporte" name="pasaporte" value="<?php echo $pasaporte; ?>" placeholder="Ingresar pasaporte">
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="dui" class="form-label">DUI</label>
+                            <input type="text" class="form-control rounded-3" id="dui" name="dui" value="<?php echo $dui; ?>" placeholder="Ingresar DUI">
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="date" class="form-label">Horario de trabajo</label>
+                            <input type="text" class="form-control rounded-3" id="date" name="date" value="<?php echo $date; ?>" placeholder="Ingresar horario de trabajo">
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="genero" class="form-label">Género</label>
+                            <select name="genero" class="form-control rounded-3" id="genero">
+                                <option value="">Elige el género</option>
+                                <option value="Masculino" <?php select1($genero); ?>>Masculino</option>
+                                <option value="Femenino" <?php select2($genero); ?>>Femenino</option>
+                                <option value="Otro" <?php select3($genero); ?>>Otro</option>
+                            </select>
+                        </div>
+                        <div class="col-md-12 mb-3">
+                            <label for="servicio" class="form-label">Servicios</label>
+                            <input type="text" class="form-control rounded-3" id="servicio" name="servicio" value="<?php echo $servicios; ?>" placeholder="Ingresar servicio">
+                        </div>
+                        <div class="col-md-12 mb-3">
+                            <label for="descri" class="form-label">Descripción</label>
+                            <textarea class="form-control rounded-3" id="descri" name="descri" rows="4" placeholder="Ingresar descripción"><?php echo $descri; ?></textarea>
+                        </div>
+                        <div class="col-md-12 text-center">
+                            <label for="foto" class="form-label">Foto de perfil</label>
+                            <input type="file" class="d-none" id="foto" name="foto" accept="image/*">
+                            <button type="button" class="btn btn-primary rounded-3" onclick="document.getElementById('foto').click();">Subir foto de perfil</button>
+                        </div>
+                        <div class="col-md-12 text-center mt-3">
+                            <input class="btn btn-success rounded-3" type="submit" value="Actualizar Asistente" name="crear">
                         </div>
                     </div>
-                    <div class="mb-4 w-75 text-center">
-                        <label for="fotito">
-                            <a class="btn btn-primary">Subir foto de perfil</a>
-                        </label>
-                        <input type="file" id="fotito" class="d-none" name="foto" accept="image/*"><br>
-                        <input class="btn btn-primary my-3" type="submit" value="Actualizar Asistente" name="crear">
-                    </div>
-
-                </div>
-
+                </form>
             </div>
-        </form>
+        </div>
     </div>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
