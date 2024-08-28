@@ -571,15 +571,6 @@
                     </div>
                 </div>
             </a>
-            <a class="card-prep card card-hover-effect text-center mb-3 " style="width: 22rem;" href="centroAyuda.php">
-                <div>
-                    <div class="card-body">
-                        <h5 class="card-title mt-5">PROCESO DE DEVOLUCIONES</h5>
-                        <p class="card-text">Proceso de devoluciones ESfly.</p>
-                    </div>
-                </div>
-            </a>
-
             <a class="card-prep card card-hover-effect text-center mb-3 " style="width: 22rem;" href="requisitos para viajar.php">
                 <div class="">
                     <div class="card-body">

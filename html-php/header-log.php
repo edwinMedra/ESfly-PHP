@@ -251,10 +251,6 @@ if ( 'tickets') {
                     <img src="../imagen/header_ayudante/boleto.png" class="" id="" alt="" width="20"> Boletos<div class="notification-dot"></div>
                 </a>
 
-
-                <a href="../chat/chat_cliente.php" class="btn  " id="chats" type="button">
-                    <img src="../imagen/header_ayudante/chats.png" class="" id="" alt="" width="20"> Chats
-                </a>
                 
                 <label for="lupa">
                     <?php

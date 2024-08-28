@@ -83,9 +83,6 @@
         <span class="text-white fw-bold" style="font-size: 70px;">LIBERTY</span>
     </div>
 
-    <div class="position-absolute bottom-0 start-50 translate-middle-x mb-4">
-        <a href="newyork.php" class="btn btn-primary btn-lg" style="font-size: 20px; font-family: Be Vietnam Pro">Tomar vuelos</a>
-    </div>
 </div>
 
 <div class=" container-fluid texto-titulo  mt-5 ps-5">
@@ -347,7 +344,7 @@
                 <div class="card-body">
                     <h5 class="card-title"><b>Cataratas de Iguazú (Brasil/Argentina)</b></h5>
                     <p class="card-text">Este sistema de cascadas es el más grande del mundo, con hasta 275 cataratas. La Garganta del Diablo es la más impresionante y se extiende a ambos lados de la frontera entre Brasil y Argentina.</p>
-                    <a href="iguazu.php" class="btn btn-primary border-0">Tomar vuelo</a>
+                    <a href="login.php" class="btn btn-primary border-0">Tomar vuelo</a>
                 </div>
             </div>
         </div>
@@ -357,7 +354,7 @@
                 <div class="card-body">
                     <h5 class="card-title"><b>Salar de Uyuni (Bolivia)</b></h5>
                     <p class="card-text">El salar más grande del mundo, ubicado en los Andes bolivianos, es un inmenso desierto de sal que se convierte en un espejo natural durante la temporada de lluvias.</p>
-                    <a href="uyuni.php" class="btn btn-primary border-0">Tomar vuelo</a>
+                    <a href="login.php" class="btn btn-primary border-0">Tomar vuelo</a>
                 </div>
             </div>
         </div>
@@ -367,7 +364,7 @@
                 <div class="card-body">
                     <h5 class="card-title"><b>Torres del Paine (Chile)</b></h5>
                     <p class="card-text">Ubicado en la Patagonia chilena, este parque nacional es famoso por sus montañas, glaciares y lagos. Es un destino de ensueño para los amantes de la naturaleza y el senderismo.</p>
-                    <a href="torresdelpaine.php" class="btn btn-primary border-0">Tomar vuelo</a>
+                    <a href="login.php" class="btn btn-primary border-0">Tomar vuelo</a>
                 </div>
             </div>
         </div>
@@ -381,7 +378,7 @@
                 <div class="card-body">
                     <h5 class="card-title"><b>Centro Histórico de Quito (Ecuador)</b></h5>
                     <p class="card-text">El centro histórico de Quito es uno de los mejor conservados y menos alterados de América Latina. Es un lugar lleno de historia y cultura, con numerosas iglesias y edificios coloniales.</p>
-                    <a href="quito.php" class="btn btn-primary border-0">Tomar vuelo</a>
+                    <a href="login.php" class="btn btn-primary border-0">Tomar vuelo</a>
                 </div>
             </div>
         </div>
@@ -391,7 +388,7 @@
                 <div class="card-body">
                     <h5 class="card-title"><b>Parque Nacional Los Glaciares (Argentina)</b></h5>
                     <p class="card-text">Este parque nacional alberga el famoso glaciar Perito Moreno y otros 47 glaciares, todos alimentados por la capa de hielo más grande fuera de las áreas polares.</p>
-                    <a href="glaciares.php" class="btn btn-primary border-0">Tomar vuelo</a>
+                    <a href="login.php" class="btn btn-primary border-0">Tomar vuelo</a>
                 </div>
             </div>
         </div>
@@ -401,7 +398,7 @@
                 <div class="card-body">
                     <h5 class="card-title"><b>Chichén Itzá (México)</b></h5>
                     <p class="card-text">Este sitio arqueológico maya es una de las nuevas siete maravillas del mundo. Destaca por su pirámide de Kukulkán y sus otros templos y monumentos antiguos.</p>
-                    <a href="chichenitza.php" class="btn btn-primary border-0">Tomar vuelo</a>
+                    <a href="login.php" class="btn btn-primary border-0">Tomar vuelo</a>
                 </div>
             </div>
         </div>
@@ -415,7 +412,7 @@
                 <div class="card-body">
                     <h5 class="card-title"><b>La Habana Vieja (Cuba)</b></h5>
                     <p class="card-text">La Habana Vieja es el corazón histórico de la capital cubana, con su arquitectura colonial bien conservada, plazas históricas y una vibrante vida cultural.</p>
-                    <a href="habana.php" class="btn btn-primary border-0">Tomar vuelo</a>
+                    <a href="login.php" class="btn btn-primary border-0">Tomar vuelo</a>
                 </div>
             </div>
         </div>
@@ -425,7 +422,7 @@
                 <div class="card-body">
                     <h5 class="card-title"><b>Machu Picchu (Perú)</b></h5>
                     <p class="card-text">La ciudadela inca de Machu Picchu es uno de los destinos más emblemáticos del mundo, situada en lo alto de los Andes y rodeada de impresionantes paisajes montañosos.</p>
-                    <a href="machupicchu.php" class="btn btn-primary border-0">Tomar vuelo</a>
+                    <a href="login.php" class="btn btn-primary border-0">Tomar vuelo</a>
                 </div>
             </div>
         </div>
@@ -435,7 +432,7 @@
                 <div class="card-body">
                     <h5 class="card-title"><b>Cartagena de Indias (Colombia)</b></h5>
                     <p class="card-text">Cartagena de Indias, con su ciudad amurallada y su rica historia colonial, es uno de los destinos turísticos más populares de Colombia y un tesoro cultural de América Latina.</p>
-                    <a href="cartagena.php" class="btn btn-primary border-0">Tomar vuelo</a>
+                    <a href="login.php" class="btn btn-primary border-0">Tomar vuelo</a>
                 </div>
             </div>
         </div>

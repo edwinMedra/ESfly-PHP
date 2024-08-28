@@ -228,8 +228,6 @@ window.location.href = '../html/index.php';
 
     <form class="d-flex" role="search">
 
-    <button class="btn ms-1" type="button" id="chats">
-    <img src="../imagen/header_ayudante/chats.png" class="me-2" id="" alt="" width="20"> Chats
 </button>
 </form>
   
