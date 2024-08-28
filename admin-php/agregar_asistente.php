@@ -90,7 +90,7 @@
                                 <a class="btn btn-primary">Subir foto de perfil</a>
                             </label>
                             <input type="file" id="fotito" class="d-none" name="foto" accept="image/*">
-                            <input class="btn btn-primary my-3" type="submit" value="Crear Administrador" name="crear">
+                            <input class="btn btn-primary my-3" type="submit" value="Crear Asistente" name="crear">
                         </div>
                     </div>
                 </form>
