@@ -23,7 +23,6 @@
 
     <title>ESFLY</title>
     <style>
-
         #espacio {
             display: none;
         }

@@ -38,7 +38,8 @@
             opacity: 100;
             font-family: "Be Vietnam Pro";
             size: 65px;
-        }
+        }   
+        
     </style>
 </head>
 
@@ -99,16 +100,19 @@
             <div class="mb-2">
               <label for="exampleImputPassword" class="form-label font-weight-bold">
                 <img src="../imagen/registroLogin/contraseña.png" class="img"> Contraseña
-              </label><i class="ojo bx bx-show-alt  mt-2" id="togglePassword"></i>
-              <input type="password" class="pass form-control mb-2" placeholder="Ingresa tu contraseña" id="pass" name="pass" value="">
+              </label>
+              <i class="ojo bx bx-show-alt mt-2" id="togglePassword1"></i>
+              <input type="password" class="pass form-control mb-2" placeholder="Ingresa tu contraseña" id="pass1" name="pass" value="">
             </div>
 
             <div class="mb-2">
               <label for="exampleImputPassword" class="form-label font-weight-bold">
                 <img src="../imagen/registroLogin/contraseña.png" class="img"> Validar Contraseña
-              </label><i class="ojo bx bx-show-alt  mt-2" id="togglePassword"></i>
-              <input type="password" class="pass form-control mb-2" placeholder="Ingresa tu contraseña" id="pass" name="validarPass" value="">
+              </label>
+              <i class="ojo bx bx-show-alt mt-2" id="togglePassword2"></i>
+              <input type="password" class="pass form-control mb-2" placeholder="Ingresa tu contraseña" id="pass2" name="validarPass" value="">
             </div>
+
 
 
             <div class="mb-2">
@@ -122,9 +126,7 @@
                 <img src="../imagen/registroLogin/dui.png" class="img"> DUI</label>
               <input type="text" class="form-control mb-2" placeholder="Ingresa tu dui" id="dui" name="dui" value="<?php echo isset($_POST['dui']) ? htmlspecialchars($_POST['dui']) : ''; ?>">
             </div>
-            <label for="foto">
-              <a class="btn btn-primary w-100 mt-5" name="registro">Subir foto de perfil</a>
-            </label>
+
             <button type="submit" class="btn btn-primary w-100 mt-3" name="registro">Crear</button>
             <input type="file" class="d-none" id="foto" name="foto" accept="image/*">
           </form>
@@ -144,20 +146,25 @@
 
 <!--OJO DE CONTRASEÑA INTENTO 4-->
 <script>
-  const pass = document.getElementById("pass");
-  const icon = document.getElementById("togglePassword");
+const pass1 = document.getElementById("pass1");
+const pass2 = document.getElementById("pass2");
+const icon1 = document.getElementById("togglePassword1");
+const icon2 = document.getElementById("togglePassword2");
 
-  icon.addEventListener("click", e => {
-    if (pass.type === "password") {
-      pass.type = "text";
-      icon.classList.remove("bx-show-alt");
-      icon.classList.add("bx-hide");
-    } else {
-      pass.type = "password";
-      icon.classList.add("bx-show-alt");
-      icon.classList.remove("bx-hide");
-    }
-  });
+icon1.addEventListener("click", () => {
+  const isPasswordVisible = pass1.type === "password";
+  pass1.type = isPasswordVisible ? "text" : "password";
+  icon1.classList.toggle("bx-show-alt");
+  icon1.classList.toggle("bx-hide");
+});
+
+icon2.addEventListener("click", () => {
+  const isPasswordVisible = pass2.type === "password";
+  pass2.type = isPasswordVisible ? "text" : "password";
+  icon2.classList.toggle("bx-show-alt");
+  icon2.classList.toggle("bx-hide");
+});
+
 
 
   // MODO OSCURO Y CLARO DE LA PAGINA
