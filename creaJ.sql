@@ -538,6 +538,7 @@ truncate table vueloUsuarioAsistente;
 truncate table asientos;
 truncate table usuario;
 truncate table criticas;
+truncate table form;
 SET FOREIGN_KEY_CHECKS = 1;
 
 -- tener un usuario ya por defecto
