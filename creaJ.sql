@@ -241,6 +241,7 @@ create table form(
     artiPersona int,
     equiMano int,
     equiBodega int,
+    tipoVuelo varchar(15),
     primary key (idForm)
 );
 -- fin formulario
@@ -540,7 +541,6 @@ truncate table usuario;
 truncate table criticas;
 truncate table form;
 SET FOREIGN_KEY_CHECKS = 1;
-
 -- tener un usuario ya por defecto
 insert into usuario VALUES 
 ("Edwin Gabriel","Medrano Yanes","$2y$10$C1OU5QbxIBKBJN0sRXpTNOrtIVvtnt0BkHEN.52wEKb37AmY8vnCG","edwin@gmail.com","123456789","12345678-9",null,null,null);

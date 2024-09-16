@@ -256,6 +256,7 @@
     // funcion para llamar a los datos de vuelo para poder colocarlos en la pagina web
     if ($fechaEntrada == null or $origen == null or $destino == null) {
     } else {
+      echo '<h2 class="text-center mt-5">Vuelos seleccionados</h2>';
       include("conex.php");
       if ($conexion) {
         $consul = "SELECT * FROM vuelo where origen='$origen' or destino='$destino' or fechaEntrada='$fechaEntrada%'";
@@ -270,7 +271,6 @@
             $idVuelo = $row['idVuelo'];
     ?>
             <div class="container-fluid my-5">
-              <h2 class="text-center">Vuelos seleccionados</h2>
             </div>
             <div class="container rounded-4 border border-1 border-black w-100 p-0 my-5 ">
               <div class="row ">
@@ -297,7 +297,7 @@
                     </div>
                   </div>
                   <div class="d-flex " id="boton">
-                    <a href="formularioVueloEspecial.php?idVuelo=<?php echo $idVuelo ?>" class="text-decoration-none text-white btn-primary btn mx-auto">Tomar vuelo</a>
+                    <a href="botones_tipoVuelo.php?idVuelo=<?php echo $idVuelo?>" class="text-decoration-none text-white btn-primary btn mx-auto">Tomar vuelo</a>
                   </div>
                 </div>
                 <!---->
