@@ -82,7 +82,7 @@
                                 <td>Cantidad de asientos:</td>
                                 <td><input type="checkbox" class="check" name="equipajeBodega"></td>
                                 <td>
-                                    <select class="form-control" name="cantidadEquipajeBodega">
+                                    <select class="form-control" name="cantidadAsientos">
                                         <option value="0">0</option>
                                         <option value="1">1</option>
                                         <option value="2">2</option>
@@ -225,33 +225,21 @@ if ($boton) {
     $idVuelo = $_GET['idVuelo'];
 
     // proceso obligatorio 
-    $insert = $conexion->query("INSERT INTO form(nombreUsu,duiUsu,pasaporteUsu, paraQuien,idVuelo,idUsuario)VALUES('$name', '$dui','$pasaporte','$boletoPara','$idVuelo','$id')");
+    $insert = $conexion->query("INSERT INTO form(nombreUsu,duiUsu,pasaporteUsu,idVuelo,idUsuario)VALUES('$nombreCompleto', '$dui','$pasaporte','$idVuelo','$id')");
     // proceso para sacar el id de el formulario
     $select = $conexion->query("SELECT * FROM form where idUsuario='$id' and idVuelo='$idVuelo'");
     $row = $select->fetch_array();
     $idForm = $row['idForm'];
     echo $idForm;
 
-    # proceso para guardar todos los objetos en la base de datos
-    # mascotas en caso de que lleve
-    $mascotasVuelo = $_POST['mascotasVuelo'];
-    if ($mascotasVuelo == "si") {
-        # tomar el valor de la cantidad de mascotas
-        $cantidadPerro = $_POST['cantidadPerro'];
-        $cantidadGato = $_POST['cantidadGato'];
-        # tomar el datella de la mascota
-        $perroApoyo = $_POST['perroApoyo'];
-        $gatoApoyo = $_POST['gatoApoyo'];
-        # proceso para guardar los informacion en base de datos
-        $sql = $conexion->query("UPDATE form SET perro='$cantidadPerro', gato='$cantidadGato', apoyoGato='$gatoApoyo', apoyoPerro='$perroApoyo'");
-    }
+
     # equipaje de el usuario
-    $tipoIncapacidad = trim($_POST['tipoIncapacidad']);
     $cantArticPerso = trim($_POST['cantidadArticuloPersonal']);
     $cantEquiMano = trim($_POST['cantidadEquipajeMano']);
     $cantEquiBodega = trim($_POST['cantidadEquipajeBodega']);
     $asientos = $_POST['cantidadAsientos'];
-    $articulos = $conexion->query("UPDATE form SET tipoIncapacidad='$tipoIncapacidad', artiPersona='$cantArticPerso', equiMano='$cantEquiMano', equiBodega='$cantEquiBodega' where idVuelo='$idVuelo' and idUsuario='$id'");
+    $articulos = $conexion->query("UPDATE form SET tipoVuelo='Vuelo Común', artiPersona='$cantArticPerso', equiMano='$cantEquiMano', equiBodega='$cantEquiBodega' where idVuelo='$idVuelo' and idUsuario='$id' and idForm ='$idForm'");
+    
     echo "<script>
       window.location.href = 'seleccionDeAsientosVIP.php?idVuelo=" .  $idVuelo . "&asientos=" . $asientos . "'; </script>";
 }

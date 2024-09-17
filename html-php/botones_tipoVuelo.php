@@ -31,6 +31,7 @@
      $idVuelo = $_GET['idVuelo'];
     ?>
     <div class="d-flex justify-content-center align-items-center vh-100">
+        
         <div class="row text-center">
             <div class="col-md-4">
                 <a href="formComun.php?idVuelo=<?php echo $idVuelo?>" style="text-decoration: none;" ><div class="option-box">Normal</div></a>
