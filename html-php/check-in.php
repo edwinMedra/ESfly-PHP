@@ -73,7 +73,6 @@
             <p class="card-text">Haz tu check-in de manera rápida y sencilla en línea. Evita largas filas en el aeropuerto y obtén tu pase de abordar con anticipación.</p>
             <p class="card-text">El check-in en línea te permite seleccionar tu asiento con mayor comodidad y asegurarte de que todo esté en orden antes de llegar al aeropuerto.</p>
             <p class="card-text mb-5">No olvides tener a la mano tu código de reserva y documento de identidad para completar el proceso. ¡Tu viaje comienza aquí!</p>
-            <a href="#" class="btn btn-primary px-4 py-2">CHECK-IN</a>
           </div>
         </div>
       </div>
