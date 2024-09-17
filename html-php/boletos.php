@@ -359,9 +359,7 @@
             <div class="mb-5">
               <h6>Tipo de Vuelo:</h6>
               <select class="custom-select">
-                <option value="normal">Vuelo Normal</option>
-                <option value="vip">Vuelo VIP</option>
-                <option value="especial">Vuelo Especial</option>
+                <option value="normal">Vuelo Común</option>
               </select>
             </div>
             <div class="mt-5">
@@ -464,7 +462,7 @@
                         if ($foto2 == null) {
                           echo '<img src="../imagen/header_ayudante/logo_usuario.png"  alt="Empleado 1" class="imagen-empleado">';
                         } else {
-                          echo '<img src="data:image/jpg;base64,' .base64_encode($foto2).'" alt="Empleado 1" class="imagen-empleado">
+                          echo '<img src="data:image/jpg;base64,' . base64_encode($foto2) . '" alt="Empleado 1" class="imagen-empleado">
 ';
                         }
                         ?>

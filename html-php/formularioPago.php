@@ -24,6 +24,7 @@ $sql = $conexion->query("SELECT * FROM form where idVuelo='$idVuelo' and idUsuar
 $row = $sql->fetch_array();
 $nombrePasajero = $row['nombrePasajero'];
 $duiPasajero = $row['duiPasajero'];
+$tipoVuelo = $row['tipoVuelo'];
 
 // llamar datos de el vuelo en cuestion
 $vuelo = $conexion->query("SELECT * FROM vuelo where idVuelo='$idVuelo'");
@@ -58,22 +59,35 @@ $total = 2 * $precio;
                     <input type="text" class="form-control" id="pasaporte" disabled selected value="<?php echo $pasaporte ?>" readonly>
                 </div>
 
-                <div class="form-group mb-3">
+
+
+                <?php
+                if (!($tipoVuelo == 'Vuelo Común')) {
+                    echo '
+                     <div class="form-group mb-3">
                     <label for="nombrePasajero">Nombre completo del pasajero <span class="text-danger"></span></label>
                     <input type="text" class="form-control" id="nombrePasajero" value="<?php echo $nombrePasajero ?>" disabled readonly>
                 </div>
+                    
 
-                <div class="form-group mb-3">
+                  <div class="form-group mb-3">
                     <label for="dui">DUI del pasajero </label>
                     <input type="text" class="form-control" id="dui" disabled readonly value="<?php echo $duiPasajero ?>">
                 </div>
+                    ';
+                }
+                ?>
+
+
+
+
+
+
 
 
                 <label for="dui">Tipo de vuelo del pasajero</label><br>
                 <select class="form-group form-control mb-3 " disabled selected>
-                    <option value="comun">Vuelo Común</option>
-                    <option value="especial">Vuelo Especial</option>
-                    <option value="vip">Vuelo VIP</option>
+                    <option value="comun"><?php echo $tipoVuelo ?></option>
                 </select>
 
 
@@ -198,13 +212,13 @@ if (isset($_POST['pagar'])) {
         echo "<script>alert('Nombre de propietario no valido')</script>";
     } else if (preg_match("/[a-zA-Z]/", $cvv) || !(strlen($cvv) == 3)) {
         echo "<script>alert('CVV no valido')</script>";
-    } else if ($mes1 < $mes || $año < $year || empty($mes1) || empty($year) ) {
-        echo "<script>alert('Fecha de vencimiento de targeta no valida')</script>";
+    } else if ($mes1 < $mes || $año < $year || empty($mes1) || empty($year)) {
+        echo "<script>alert('Fecha de vencimiento de tarjeta no valida')</script>";
     } else if (preg_match("/[a-zA-Z]/", $numTelefono) || !(strlen($numTelefono) == 8)) {
         echo "<script>alert('Número de telefono no valido')</script>";
     } else {
-       # header("");
-       echo "<script>
+        # header("");
+        echo "<script>
        alert('Pago realizado con exito')
        window.location.href = 'infoAsistentes_disponibles.php?idVuelo=$idVuelo';
        </script>";
