@@ -16,6 +16,8 @@
   <link rel="stylesheet" href="../css/reservarVuelos1.css" />
   <link rel="stylesheet" href="../css/headerr.css" />
   <link rel="stylesheet" href="../css/pie.css" />
+  <link rel="stylesheet" href="../css/index1.css">
+
   <title>Reserva de vuelos</title>
 
   <style>
@@ -33,7 +35,7 @@
       position: relative;
     }
 
-    .carousel-item img {
+    .filtro img {
       filter: brightness(40%);
     }
 
@@ -51,9 +53,7 @@
       transition: 0.3s ease;
     }
 
-    .tarjeta-comida:hover img {
-      filter: brightness(30%);
-    }
+
 
     .tarjeta-comida .cuerpo-tarjeta {
       position: absolute;
@@ -67,9 +67,7 @@
       transition: opacity 0.3s ease;
     }
 
-    .tarjeta-comida:hover .cuerpo-tarjeta {
-      opacity: 1;
-    }
+ 
 
     .imagen-empleado {
       width: 50px;
@@ -97,17 +95,67 @@
     .info-vuelo .col-md-3 {
       padding: 10px;
     }
-  </style>
+
+    .texto-superpuesto {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 2rem;
+    font-weight: bold;
+    z-index: 10;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); 
+}
+
+.carousel-container {
+    position: relative;
+}
+
+/* TARJETAS DE VUELO */
+
+.flight-card {
+    max-width: 1900px; 
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    border-radius: 10px; 
+}
+
+.info-container {
+    flex: 3; 
+}
+
+.imagen-pais {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.imagen-pais img {
+    max-width: 350px; 
+    height: auto; 
+    border-radius: 10px; 
+}
+
+.info-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.info-row div {
+    flex: 1;
+}
+</style>
 </head>
 
 <body>
 
   <?php
-  include("header-log.php");
-  // se inicia proceso para poder llamar a los vuelos el cual ese usuario ha reservad
-
+  include("header-log.php");  
   ?>
-  <!--Fin header-->
 
 
   <!-- Estructura principal de pagina principal -->
@@ -119,13 +167,13 @@
 
     <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
       <div class="carousel-inner">
-        <div class="carousel-item active" data-bs-interval="3000">
+        <div class="carousel-item active filtro" data-bs-interval="3000">
           <img src="../imagen/reservadevuelos/fondo1.png" class="d-block w-100 h-200" alt="...">
         </div>
-        <div class="carousel-item" data-bs-interval="3000">
+        <div class="carousel-item filtro" data-bs-interval="3000">
           <img src="../imagen/reservadevuelos/fondo2.png" class="d-block w-100 h-200" alt="...">
         </div>
-        <div class="carousel-item" data-bs-interval="3000">
+        <div class="carousel-item filtro" data-bs-interval="3000">
           <img src="../imagen/reservadevuelos/fondo3.png" class="d-block w-100 h-200" alt="...">
         </div>
       </div>
@@ -138,8 +186,9 @@
         <span class="visually-hidden">Next</span>
       </button>
     </div>
-
   </div>
+
+  
 
   <?php
   include("conex.php");
@@ -240,12 +289,15 @@
             </select>
           </div>
           <div class="text-center mt-4">
+          <a href="relacionados.php" class="d-block">            
             <button id="search-btn" type="submit" class="btn btn-primary" style="width: 100%;">Buscar Vuelo</button>
+        </a>
           </div>
         </form>
       </div>
     </div>
   </div>
+
 
   <div class="container-fluid">
     <?php
@@ -256,7 +308,8 @@
     // funcion para llamar a los datos de vuelo para poder colocarlos en la pagina web
     if ($fechaEntrada == null or $origen == null or $destino == null) {
     } else {
-      echo '<h2 class="text-center mt-5">Vuelos seleccionados</h2>';
+    echo ' <h5 class="ms-5 mt-5 mb-5"id="search-flight-title">Vuelos relacionados ></h5>';
+      echo '<h2 class="text-center mt-5 mb-5">¡Escoge el vuelo que quieras!</h2>';
       include("conex.php");
       if ($conexion) {
         $consul = "SELECT * FROM vuelo where origen='$origen' or destino='$destino' or fechaEntrada='$fechaEntrada%'";
@@ -270,42 +323,53 @@
             $foto = $row['foto'];
             $idVuelo = $row['idVuelo'];
     ?>
-            <div class="container-fluid my-5">
-            </div>
-            <div class="container rounded-4 border border-1 border-black w-100 p-0 my-5 ">
-              <div class="row ">
-                <div class="col-8 mt-4">
-                  <div class="row d-flex mx-auto my-4 w-75 border border-black border-1 rounded-5">
-                    <div class="col py-1 d-flex py-1" id="origen">
-                      <img src="../imagen/argentina/plane.png" alt="" class="">
-                      <x class="mt-2"> <b>ORIGEN:</b> <?php echo $origen ?></x>
+
+
+            <!-- CUADRO DE DETALLES DEL VUELO -->
+<div class="container mt-4 mb-5">
+    <div class="row d-flex justify-content-center">
+        <div class="col-12 col-md-10 col-lg-8">
+            <div class="card card-buscar p-4 flight-card d-flex flex-column flex-md-row">
+                <!-- Contenido a la izquierda -->
+                <div class="info-container mb-4 mb-md-0 me-md-4">
+                    <!-- Información del vuelo -->
+                    <div class="info-row mt-4">
+                        <div>
+                            <p><strong>País de Origen:</strong></p>
+                            <p><?php echo $origen ?></p>
+                        </div>
+                        <div>
+                            <p><strong>Fecha y hora de vuelo :</strong></p>
+                            <p><?php echo $fechaEntrada ?></p>
+                        </div>
                     </div>
-                    <div class="col d-flex border border-top-0 border-end-0 border-bottom-0 border-black" id="origen">
-                      <img src="../imagen/argentina/end.png" alt="" class="mt-2">
-                      <x class="mt-3"> <b>DESTINO:</b> <?php echo $destino ?></x>
+
+                    <div class="info-row mt-4">
+                        <div>
+                            <p><strong>País de Destino:</strong></p>
+                            <p><?php echo $destino ?></p>
+                        </div>
+                        <div>
+                            <p><strong>Fecha y hora de llegada a destino:</strong></p>
+                            <p><?php echo $fechaSalida ?></p>
+                        </div>
                     </div>
-                  </div>
-                  <!---->
-                  <div class="row d-flex mx-auto my-4 w-75 border border-black border-1 rounded-5">
-                    <div class="col py-1 d-flex py-1" id="origen">
-                      <img src="../imagen/argentina/calendar.png" alt="" class="" id="calendar">
-                      <x class="mt-2"> <b>IDA:</b> <?php echo $fechaSalida ?></x>
+                    <!-- Botón -->
+                    <div class="text-center mt-4" id="boton">
+                    <a href="botones_tipoVuelo.php?idVuelo=<?php echo $idVuelo?>">
+                        <button id="view-info-btn" type="button" class="btn btn-primary" style="width: 100%;">Tomar Vuelo</button>
+                    </a>
                     </div>
-                    <div class="col d-flex border border-top-0 border-end-0 border-bottom-0 border-black" id="origen">
-                      <img src="../imagen/argentina/calendar.png" alt="" class="mt-1" id="calendar">
-                      <x class="mt-2"> <b>VUELTA:</b> <?php echo $fechaEntrada ?></x>
-                    </div>
-                  </div>
-                  <div class="d-flex " id="boton">
-                    <a href="botones_tipoVuelo.php?idVuelo=<?php echo $idVuelo?>" class="text-decoration-none text-white btn-primary btn mx-auto">Tomar vuelo</a>
-                  </div>
                 </div>
-                <!---->
-                <div class="col-4">
-                  <img src="data:image/jpg;base64,<?php echo base64_encode($foto) ?>" alt="" class="w-100 rounded-4 pe-0">
+
+                <!-- Imagen a la derecha -->
+                <div class="imagen-pais">
+                    <img src="data:image/jpg;base64,<?php echo base64_encode($foto) ?>" alt="Vuelo Imagen" class="img-fluid">
                 </div>
-              </div>
             </div>
+        </div>
+    </div>
+</div>
     <?php
           }
         }
@@ -314,6 +378,482 @@
     ?>
   </div>
   <div class="col-md-3 mt-5 mb-5"></div>
+
+
+
+  <div class=" container-fluid texto-titulo mt-5 ps-5">
+    <h5 class=" me-5">Sugerencias de viajes ></h5>
+  </div>
+
+
+<!-- Carrusel de Promociones de Viajes -->
+<div class="container-fluid mt-5 mb-2">
+    <div id="carrusel1" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carrusel1" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carrusel1" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carrusel1" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+
+            <!-- Primer fila de imágenes -->
+            <div class="carousel-item active">
+                <div class="row">
+
+
+                    <div class="col-md-3 mt-5 mb-5">
+                        <a href="login.php" class="d-block">
+                            <div class="image-container">
+                            <img src="../imagen/index/Argentina.png" alt="Argentina" class="d-block w-100">
+                                <div class="overlay">
+                                    <div class="overlay-content">
+                                    <h4>Argentina</h4>
+                                    <h6>Glaciar Perito Moreno</h6>
+                                    <button class="btn btn-primary">Tomar viaje</button> <!-- Cambié el <a> a <button> para evitar conflictos -->
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="col-md-3 mt-5 mb-5">
+                        <a href="login.php" class="d-block">
+                            <div class="image-container">
+                            <img src="../imagen/index/brasil.png" alt="Argentina" class="d-block w-100">
+                                <div class="overlay">
+                                    <div class="overlay-content">
+                                    <h4>Brasil</h4>
+                                    <h6>Río de Janeiro</h6>
+                                    <button class="btn btn-primary">Tomar viaje</button> <!-- Cambié el <a> a <button> para evitar conflictos -->
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+
+                    <div class="col-md-3 mt-5 mb-5">
+                        <a href="login.php" class="d-block">
+                            <div class="image-container">
+                            <img src="../imagen/index/ElSalvador.png" alt="Argentina" class="d-block w-100">
+                                <div class="overlay">
+                                    <div class="overlay-content">
+                                    <h4>El Salvador</h4>
+                                    <h6>Playa El Tunco</h6>
+                                    <button class="btn btn-primary">Tomar viaje</button> <!-- Cambié el <a> a <button> para evitar conflictos -->
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+
+                    <div class="col-md-3 mt-5 mb-5">
+                        <a href="login.php" class="d-block">
+                            <div class="image-container">
+                            <img src="../imagen/index/guatemala.png" alt="Argentina" class="d-block w-100">
+                                <div class="overlay">
+                                    <div class="overlay-content">
+                                    <h4>Guatemala</h4>
+                                    <h6>Ciudad de Antigua Guatemala</h6>
+                                    <button class="btn btn-primary">Tomar viaje</button> <!-- Cambié el <a> a <button> para evitar conflictos -->
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+
+                </div>
+            </div>
+            <!-- Segundo fila de imágenes -->
+            <div class="carousel-item">
+                <div class="row">
+
+
+                    <div class="col-md-3 mt-5 mb-5">
+                        <a href="login.php" class="d-block">
+                            <div class="image-container">
+                            <img src="../imagen/index/MX.png" alt="Argentina" class="d-block w-100">
+                                <div class="overlay">
+                                    <div class="overlay-content">
+                                    <h4>México</h4>
+                                    <h6>Chichén Itzá</h6>
+                                    <button class="btn btn-primary">Tomar viaje</button> <!-- Cambié el <a> a <button> para evitar conflictos -->
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="col-md-3 mt-5 mb-5">
+                        <a href="login.php" class="d-block">
+                            <div class="image-container">
+                            <img src="../imagen/index/EEUU.png" alt="Argentina" class="d-block w-100">
+                                <div class="overlay">
+                                    <div class="overlay-content">
+                                    <h4>Estados Unidos</h4>
+                                    <h6>Gran Cañón</h6>
+                                    <button class="btn btn-primary">Tomar viaje</button> <!-- Cambié el <a> a <button> para evitar conflictos -->
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+
+                    <div class="col-md-3 mt-5 mb-5">
+                        <a href="login.php" class="d-block">
+                            <div class="image-container">
+                            <img src="../imagen/index/venezuela.png" alt="Argentina" class="d-block w-100">
+                                <div class="overlay">
+                                    <div class="overlay-content">
+                                    <h4>Venezuela</h4>
+                                    <h6>Roraima</h6>
+                                    <button class="btn btn-primary">Tomar viaje</button> <!-- Cambié el <a> a <button> para evitar conflictos -->
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+
+                    <div class="col-md-3 mt-5 mb-5">
+                        <a href="login.php" class="d-block">
+                            <div class="image-container">
+                            <img src="../imagen/index/peru.png" alt="Argentina" class="d-block w-100">
+                                <div class="overlay">
+                                    <div class="overlay-content">
+                                    <h4>Perú</h4>
+                                    <h6>Machu Picchu</h6>
+                                    <button class="btn btn-primary">Tomar viaje</button> <!-- Cambié el <a> a <button> para evitar conflictos -->
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Tercer fila de imágenes -->
+
+            <div class="carousel-item">
+                <div class="row">
+
+
+                <div class="col-md-3 mt-5 mb-5">
+                        <a href="login.php" class="d-block">
+                            <div class="image-container">
+                            <img src="../imagen/index/paraguay.png" alt="Argentina" class="d-block w-100">
+                                <div class="overlay">
+                                    <div class="overlay-content">
+                                    <h4>Paraguay</h4>
+                                    <h6>Ciudad del Este</h6>
+                                    <button class="btn btn-primary">Tomar viaje</button> <!-- Cambié el <a> a <button> para evitar conflictos -->
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="col-md-3 mt-5 mb-5">
+                        <a href="login.php" class="d-block">
+                            <div class="image-container">
+                            <img src="../imagen/index/repuDominicana.png" alt="Argentina" class="d-block w-100">
+                                <div class="overlay">
+                                    <div class="overlay-content">
+                                    <h4>República Dominicana</h4>
+                                    <h6>Playa Punta Cana</h6>
+                                    <button class="btn btn-primary">Tomar viaje</button> <!-- Cambié el <a> a <button> para evitar conflictos -->
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+
+                    <div class="col-md-3 mt-5 mb-5">
+                        <a href="login.php" class="d-block">
+                            <div class="image-container">
+                            <img src="../imagen/index/cuba.png" alt="Argentina" class="d-block w-100">
+                                <div class="overlay">
+                                    <div class="overlay-content">
+                                    <h4>Cuba</h4>
+                                    <h6>Playa Varadero</h6>
+                                    <button class="btn btn-primary">Tomar viaje</button> <!-- Cambié el <a> a <button> para evitar conflictos -->
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+
+                    <div class="col-md-3 mt-5 mb-5">
+                        <a href="login.php" class="d-block">
+                            <div class="image-container">
+                            <img src="../imagen/index/Jamaica.png" alt="Argentina" class="d-block w-100">
+                                <div class="overlay">
+                                    <div class="overlay-content">
+                                    <h4>Jamaica</h4>
+                                    <h6>Playa Seven Mile</h6>
+                                    <button class="btn btn-primary">Tomar viaje</button> <!-- Cambié el <a> a <button> para evitar conflictos -->
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carrusel1" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon custom-carousel-control" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carrusel1" data-bs-slide="next">
+            <span class="carousel-control-next-icon custom-carousel-control" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+</div>
+
+<!-- Carrusel de Promociones de Viajes 2 -->
+
+
+<div class="container-fluid mt-2 mb-5">
+    <div id="carrusel2" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carrusel2" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carrusel2" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carrusel2" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+
+            <!-- Primer fila de imágenes -->
+            <div class="carousel-item active">
+                <div class="row">
+
+
+                    <div class="col-md-3 mt-5 mb-5">
+                        <a href="login.php" class="d-block">
+                            <div class="image-container">
+                            <img src="../imagen/index/Argentina.png" alt="Argentina" class="d-block w-100">
+                                <div class="overlay">
+                                    <div class="overlay-content">
+                                    <h4>Argentina</h4>
+                                    <h6>Glaciar Perito Moreno</h6>
+                                    <button class="btn btn-primary">Tomar viaje</button> <!-- Cambié el <a> a <button> para evitar conflictos -->
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="col-md-3 mt-5 mb-5">
+                        <a href="login.php" class="d-block">
+                            <div class="image-container">
+                            <img src="../imagen/index/brasil.png" alt="Argentina" class="d-block w-100">
+                                <div class="overlay">
+                                    <div class="overlay-content">
+                                    <h4>Brasil</h4>
+                                    <h6>Río de Janeiro</h6>
+                                    <button class="btn btn-primary">Tomar viaje</button> <!-- Cambié el <a> a <button> para evitar conflictos -->
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+
+                    <div class="col-md-3 mt-5 mb-5">
+                        <a href="login.php" class="d-block">
+                            <div class="image-container">
+                            <img src="../imagen/index/ElSalvador.png" alt="Argentina" class="d-block w-100">
+                                <div class="overlay">
+                                    <div class="overlay-content">
+                                    <h4>El Salvador</h4>
+                                    <h6>Playa El Tunco</h6>
+                                    <button class="btn btn-primary">Tomar viaje</button> <!-- Cambié el <a> a <button> para evitar conflictos -->
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+
+                    <div class="col-md-3 mt-5 mb-5">
+                        <a href="login.php" class="d-block">
+                            <div class="image-container">
+                            <img src="../imagen/index/guatemala.png" alt="Argentina" class="d-block w-100">
+                                <div class="overlay">
+                                    <div class="overlay-content">
+                                    <h4>Guatemala</h4>
+                                    <h6>Ciudad de Antigua Guatemala</h6>
+                                    <button class="btn btn-primary">Tomar viaje</button> <!-- Cambié el <a> a <button> para evitar conflictos -->
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+
+                </div>
+            </div>
+            <!-- Segundo fila de imágenes -->
+            <div class="carousel-item">
+                <div class="row">
+
+
+                    <div class="col-md-3 mt-5 mb-5">
+                        <a href="login.php" class="d-block">
+                            <div class="image-container">
+                            <img src="../imagen/index/MX.png" alt="Argentina" class="d-block w-100">
+                                <div class="overlay">
+                                    <div class="overlay-content">
+                                    <h4>México</h4>
+                                    <h6>Chichén Itzá</h6>
+                                    <button class="btn btn-primary">Tomar viaje</button> <!-- Cambié el <a> a <button> para evitar conflictos -->
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="col-md-3 mt-5 mb-5">
+                        <a href="login.php" class="d-block">
+                            <div class="image-container">
+                            <img src="../imagen/index/EEUU.png" alt="Argentina" class="d-block w-100">
+                                <div class="overlay">
+                                    <div class="overlay-content">
+                                    <h4>Estados Unidos</h4>
+                                    <h6>Gran Cañón</h6>
+                                    <button class="btn btn-primary">Tomar viaje</button> <!-- Cambié el <a> a <button> para evitar conflictos -->
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+
+                    <div class="col-md-3 mt-5 mb-5">
+                        <a href="login.php" class="d-block">
+                            <div class="image-container">
+                            <img src="../imagen/index/venezuela.png" alt="Argentina" class="d-block w-100">
+                                <div class="overlay">
+                                    <div class="overlay-content">
+                                    <h4>Venezuela</h4>
+                                    <h6>Roraima</h6>
+                                    <button class="btn btn-primary">Tomar viaje</button> <!-- Cambié el <a> a <button> para evitar conflictos -->
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+
+                    <div class="col-md-3 mt-5 mb-5">
+                        <a href="login.php" class="d-block">
+                            <div class="image-container">
+                            <img src="../imagen/index/peru.png" alt="Argentina" class="d-block w-100">
+                                <div class="overlay">
+                                    <div class="overlay-content">
+                                    <h4>Perú</h4>
+                                    <h6>Machu Picchu</h6>
+                                    <button class="btn btn-primary">Tomar viaje</button> <!-- Cambié el <a> a <button> para evitar conflictos -->
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Tercer fila de imágenes -->
+
+            <div class="carousel-item">
+                <div class="row">
+
+
+                <div class="col-md-3 mt-5 mb-5">
+                        <a href="login.php" class="d-block">
+                            <div class="image-container">
+                            <img src="../imagen/index/paraguay.png" alt="Argentina" class="d-block w-100">
+                                <div class="overlay">
+                                    <div class="overlay-content">
+                                    <h4>Paraguay</h4>
+                                    <h6>Ciudad del Este</h6>
+                                    <button class="btn btn-primary">Tomar viaje</button> <!-- Cambié el <a> a <button> para evitar conflictos -->
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="col-md-3 mt-5 mb-5">
+                        <a href="login.php" class="d-block">
+                            <div class="image-container">
+                            <img src="../imagen/index/repuDominicana.png" alt="Argentina" class="d-block w-100">
+                                <div class="overlay">
+                                    <div class="overlay-content">
+                                    <h4>República Dominicana</h4>
+                                    <h6>Playa Punta Cana</h6>
+                                    <button class="btn btn-primary">Tomar viaje</button> <!-- Cambié el <a> a <button> para evitar conflictos -->
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+
+                    <div class="col-md-3 mt-5 mb-5">
+                        <a href="login.php" class="d-block">
+                            <div class="image-container">
+                            <img src="../imagen/index/cuba.png" alt="Argentina" class="d-block w-100">
+                                <div class="overlay">
+                                    <div class="overlay-content">
+                                    <h4>Cuba</h4>
+                                    <h6>Playa Varadero</h6>
+                                    <button class="btn btn-primary">Tomar viaje</button> <!-- Cambié el <a> a <button> para evitar conflictos -->
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+
+                    <div class="col-md-3 mt-5 mb-5">
+                        <a href="login.php" class="d-block">
+                            <div class="image-container">
+                            <img src="../imagen/index/Jamaica.png" alt="Argentina" class="d-block w-100">
+                                <div class="overlay">
+                                    <div class="overlay-content">
+                                    <h4>Jamaica</h4>
+                                    <h6>Playa Seven Mile</h6>
+                                    <button class="btn btn-primary">Tomar viaje</button> <!-- Cambié el <a> a <button> para evitar conflictos -->
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carrusel2" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon custom-carousel-control" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carrusel2" data-bs-slide="next">
+            <span class="carousel-control-next-icon custom-carousel-control" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+</div>
+<!-- TERMINAN IMAGENES DE PROMOCION -->
 
   <?php
   include("pie.php")
