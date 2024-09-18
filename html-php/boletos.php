@@ -287,18 +287,31 @@
   clienteK5 = '$id' OR 
   clienteK6 = '$id'");
 
-  function idAsiento($id, $asiento)
-  {
+// asientos normales
+  function idAsiento($id, $asiento){
     include("conex.php");
     $asientoCon = $conexion->query("SELECT * FROM asientos where cliente$asiento = '$id'");
     $filAsiento = mysqli_num_rows($asientoCon);
     if ($filAsiento) {
   ?>
-      <button class="btn btn-primary btn-pequeno"><?php echo $asiento ?></button>
+      <button class="btn btn-primary "><?php echo $asiento ?></button>
     <?php
     }
   }
+// fin asientos normales
 
+// asientos VIP
+function idAsientoVIP($id, $asiento){
+  include("conex.php");
+  $asientoCon = $conexion->query("SELECT * FROM asientosVIP where cliente$asiento = '$id'");
+  $filAsiento = mysqli_num_rows($asientoCon);
+  if ($filAsiento) {
+?>
+    <button class="btn  " style="background-color: #deb500;color: white;"><?php echo $asiento ?></button>
+  <?php
+  }
+}
+// Fin asientos VIP
   // mostrar solo los que esten con el propio
   $fila = mysqli_num_rows($misVuelos);
   if (!($fila)) {
@@ -433,7 +446,74 @@
             echo idAsiento($id, 'K4');
             echo idAsiento($id, 'K5');
             echo idAsiento($id, 'K6');
-
+            // Asientos VIP
+            echo idAsientoVIP($id, 'A1');
+            echo idAsientoVIP($id, 'A2');
+            echo idAsientoVIP($id, 'A3');
+            echo idAsientoVIP($id, 'A4');
+            echo idAsientoVIP($id, 'A5');
+            echo idAsientoVIP($id, 'A6');
+            echo idAsientoVIP($id, 'B1');
+            echo idAsientoVIP($id, 'B2');
+            echo idAsientoVIP($id, 'B3');
+            echo idAsientoVIP($id, 'B4');
+            echo idAsientoVIP($id, 'B5');
+            echo idAsientoVIP($id, 'B6');
+            echo idAsientoVIP($id, 'C1');
+            echo idAsientoVIP($id, 'C2');
+            echo idAsientoVIP($id, 'C3');
+            echo idAsientoVIP($id, 'C4');
+            echo idAsientoVIP($id, 'C5');
+            echo idAsientoVIP($id, 'C6');
+            echo idAsientoVIP($id, 'D1');
+            echo idAsientoVIP($id, 'D2');
+            echo idAsientoVIP($id, 'D3');
+            echo idAsientoVIP($id, 'D4');
+            echo idAsientoVIP($id, 'D5');
+            echo idAsientoVIP($id, 'D6');
+            echo idAsientoVIP($id, 'E1');
+            echo idAsientoVIP($id, 'E2');
+            echo idAsientoVIP($id, 'E3');
+            echo idAsientoVIP($id, 'E4');
+            echo idAsientoVIP($id, 'E5');
+            echo idAsientoVIP($id, 'E6');
+            echo idAsientoVIP($id, 'F1');
+            echo idAsientoVIP($id, 'F2');
+            echo idAsientoVIP($id, 'F3');
+            echo idAsientoVIP($id, 'F4');
+            echo idAsientoVIP($id, 'F5');
+            echo idAsientoVIP($id, 'F6');
+            echo idAsientoVIP($id, 'G1');
+            echo idAsientoVIP($id, 'G2');
+            echo idAsientoVIP($id, 'G3');
+            echo idAsientoVIP($id, 'G4');
+            echo idAsientoVIP($id, 'G5');
+            echo idAsientoVIP($id, 'G6');
+            echo idAsientoVIP($id, 'H1');
+            echo idAsientoVIP($id, 'H2');
+            echo idAsientoVIP($id, 'H3');
+            echo idAsientoVIP($id, 'H4');
+            echo idAsientoVIP($id, 'H5');
+            echo idAsientoVIP($id, 'H6');
+            echo idAsientoVIP($id, 'I1');
+            echo idAsientoVIP($id, 'I2');
+            echo idAsientoVIP($id, 'I3');
+            echo idAsientoVIP($id, 'I4');
+            echo idAsientoVIP($id, 'I5');
+            echo idAsientoVIP($id, 'I6');
+            echo idAsientoVIP($id, 'J1');
+            echo idAsientoVIP($id, 'J2');
+            echo idAsientoVIP($id, 'J3');
+            echo idAsientoVIP($id, 'J4');
+            echo idAsientoVIP($id, 'J5');
+            echo idAsientoVIP($id, 'J6');
+            echo idAsientoVIP($id, 'K1');
+            echo idAsientoVIP($id, 'K2');
+            echo idAsientoVIP($id, 'K3');
+            echo idAsientoVIP($id, 'K4');
+            echo idAsientoVIP($id, 'K5');
+            echo idAsientoVIP($id, 'K6');
+            // fin proceso de asientos
 
             //  verificar si en este vuelo a reservado un asistente
             $sqlAsistente = $conexion->query("SELECT * FROM vueloUsuarioAsistente WHERE idUsuario = '$id' and idVuelo = '$idVuelo2' ");

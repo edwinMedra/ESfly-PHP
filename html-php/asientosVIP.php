@@ -186,7 +186,7 @@ if ($conexion) {
   $cantidad = $_GET['asientos'];
 // proceso para ver los asientos disponibles de este vuelo 
 if ($conexion) {
-  $asientos = "SELECT * FROM asientos where idVuelo='$id'";
+  $asientos = "SELECT * FROM asientosVIP where idVuelo='$id'";
   $resulAsientos = $conexion->query($asientos);
   if ($resulAsientos) {
     while ($rowAsientos = $resulAsientos->fetch_array()) {
@@ -310,7 +310,7 @@ function validar($numAsiento)
         </div>
       </div>
     </div>
-    <form method="post" id="prueba" action="insert-asientos.php?idVuelo=<?php echo $idvuelo?>">
+    <form method="post" id="prueba" action="insert-asientosVIP.php?idVuelo=<?php echo $idvuelo?>">
       <div class="seating" id="seating">
 
         <!-- Asientos del Avion-->
