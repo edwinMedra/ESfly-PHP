@@ -226,7 +226,7 @@
                                     $nomCompleto = $rowCriticaAdmin['nomAdmin'] . " " . $rowCriticaAdmin['apeAdmin'];
                                     echo '
                                           <span>
-                                        <p><b>Critica contestada por</b>:<br> ' . $nomCompleto . '<p>
+                                        <p><b>Critica contestada por</b>:<br>Administrador de ESfly<p>
                                         <p>
                                          <b>Mensaje:</b><br>
                                         '. $msjAdminMio .'</p>
@@ -364,7 +364,7 @@
                                     $nomCompleto = $rowCriticaAdmin['nomAdmin'] . " " . $rowCriticaAdmin['apeAdmin'];
                                     echo '
                                           <span>
-                                        <p><b>Critica contestada por</b>:<br> ' . $nomCompleto . '<p>
+                                        <p><b>Critica contestada por</b>:<br>Administrador de ESfly<p>
                                         <p>
                                          <b>Mensaje:</b><br>
                                         '. $msjAdmin .'</p>
