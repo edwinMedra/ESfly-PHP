@@ -216,8 +216,8 @@ if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET['fecha'], $_GET['origen']
                             <option value="Cuba">Cuba</option>
                             <option value="Dominica">Dominica</option>
                             <option value="Ecuador">Ecuador</option>
-                            <option value="El Salvador">El Salvador</option>
-                            <option value="Estados-Unidos">Estados Unidos</option>
+                            <option value="El Salvador" selected>El Salvador</option>
+                            <option value="Estados Unidos">Estados Unidos</option>
                             <option value="Granada">Granada</option>
                             <option value="Guatemala">Guatemala</option>
                             <option value="Guyana">Guyana</option>
@@ -257,7 +257,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET['fecha'], $_GET['origen']
                             <option value="Dominica">Dominica</option>
                             <option value="Ecuador">Ecuador</option>
                             <option value="El Salvador">El Salvador</option>
-                            <option value="Estados-Unidos">Estados Unidos</option>
+                            <option value="Estados Unidos">Estados Unidos</option>
                             <option value="Granada">Granada</option>
                             <option value="Guatemala">Guatemala</option>
                             <option value="Guyana">Guyana</option>
