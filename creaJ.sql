@@ -606,21 +606,23 @@ select * from mensajes;
 select * from criticas;
 use railway; 
 -- script para truncar las tablas de información
-/*
-truncate table vuelo;
-truncate table vueloUsuarioAsistente;
-truncate table asientos;
-truncate table usuario;
-truncate table criticas;
-truncate table form;
-*/
+
+-- truncate table vuelo; 
+-- truncate table vueloUsuarioAsistente;
+-- truncate table asientos;
+-- truncate table usuario;
+-- truncate table criticas;
+-- truncate table form;
+-- truncate table notiAsistente;
+-- truncate table asistente;
+
 SET FOREIGN_KEY_CHECKS = 1;
 -- tener un usuario ya por defecto
 insert into usuario VALUES 
-("Edwin Gabriel","Medrano Yanes","$2y$10$C1OU5QbxIBKBJN0sRXpTNOrtIVvtnt0BkHEN.52wEKb37AmY8vnCG","edwin@gmail.com","123456789","12345678-9",null,null,null);
+("Diego Alejandro","Campos Hernández","$2y$10$C1OU5QbxIBKBJN0sRXpTNOrtIVvtnt0BkHEN.52wEKb37AmY8vnCG","diego@gmail.com","123456789","12345678-9",null,null,null);
 -- tener un administrador por defecto
 insert into administradores values
 (null,"Edwin Gabriel","Medrano Yanes","$2y$10$VtGH0Tnc92OJ7UTI5XIvc.n0bdpGjEoYIqtWSvYArr8OdGawdrQpO","admin@gmail.com","123456789","12345678-9","Administrador de Operaciones",null,"Hola mundo","admin");
 -- tener un asistente por defecto
 insert into asistente values 
-(null,"Edwin Gabriel","Medrano Yanes","60120538","Completo","De lunes a viernes","Masculino","Hola mundo","armando@gmail.com","$2y$10$rT4hQ3as1Bj8an1Yi/s9H.WnnDbyU5E4QcYtxWtItZSD3C3wZb88y","12345678-9","123456789",null);
+(null,"Jose Armando","Contreras Rosales","60120538","Completo","De lunes a viernes","Masculino","Hola mundo","armando@gmail.com","$2y$10$rT4hQ3as1Bj8an1Yi/s9H.WnnDbyU5E4QcYtxWtItZSD3C3wZb88y","12345678-9","123456789",null);

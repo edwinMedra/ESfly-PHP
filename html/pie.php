@@ -12,8 +12,8 @@
                         <li><a href="../html/contactanos.php" class="link-light link-offset-2 link-underline link-underline-opacity-0 link-underline-opacity-75-hover">Contáctanos</a></li>
                         <li><a href="../html/metodosDePago.php" class="link-light link-offset-2 link-underline link-underline-opacity-0 link-underline-opacity-75-hover">Métodos de pago</a></li>
                         <li><a href="../html/cambios y devoluciones.php" class="link-light link-offset-2 link-underline link-underline-opacity-0 link-underline-opacity-75-hover">Cambios y devoluciones</a></li>
-                        <li><a href="../html/.php" class="link-light link-offset-2 link-underline link-underline-opacity-0 link-underline-opacity-75-hover">Preguntas frecuentes</a></li>
-                        <li><a href="../html/.php" class="link-light link-offset-2 link-underline link-underline-opacity-0 link-underline-opacity-75-hover">Promociones</a></li>
+                        <li><a href="" class="link-light link-offset-2 link-underline link-underline-opacity-0 link-underline-opacity-75-hover">Preguntas frecuentes</a></li>
+                        <li><a href="" class="link-light link-offset-2 link-underline link-underline-opacity-0 link-underline-opacity-75-hover">Promociones</a></li>
                     </ul>
                 </div>
                 <div class="col-12 col-sm-6 col-md-3">
@@ -22,8 +22,8 @@
                         <li>
                             <h6><b>ACERCA DE</b></h6>
                         </li>
-                        <li><a href="../html/.php" class="link-light link-offset-2 link-underline link-underline-opacity-0 link-underline-opacity-75-hover">Ubicación</a></li>
-                        <li><a href="../html/.php" class="link-light link-offset-2 link-underline link-underline-opacity-0 link-underline-opacity-75-hover">Redes</a></li>
+                        <li><a href="" class="link-light link-offset-2 link-underline link-underline-opacity-0 link-underline-opacity-75-hover">Ubicación</a></li>
+                        <li><a href="" class="link-light link-offset-2 link-underline link-underline-opacity-0 link-underline-opacity-75-hover">Redes</a></li>
                 </div>
                 <div class="col-12 col-sm-6 col-md-3">
                     <ul class="">
@@ -31,9 +31,9 @@
                         <li>
                             <h6><b>NOSOTROS</b></h6>
                         </li>
-                        <li><a href="../html/.php" class="link-light link-offset-2 link-underline link-underline-opacity-0 link-underline-opacity-75-hover">Somos ESfly</a></li>
-                        <li><a href="../html/.php" class="link-light link-offset-2 link-underline link-underline-opacity-0 link-underline-opacity-75-hover">Alianzas y Beneficios</a></li>
-                        <li><a href="../html/.php" class="link-light link-offset-2 link-underline link-underline-opacity-0 link-underline-opacity-75-hover">Accecibilidad</a></li>
+                        <li><a href="" class="link-light link-offset-2 link-underline link-underline-opacity-0 link-underline-opacity-75-hover">Somos ESfly</a></li>
+                        <li><a href="" class="link-light link-offset-2 link-underline link-underline-opacity-0 link-underline-opacity-75-hover">Alianzas y Beneficios</a></li>
+                        <li><a href="" class="link-light link-offset-2 link-underline link-underline-opacity-0 link-underline-opacity-75-hover">Accesibilidad</a></li>
                 </div>
                 <div class="col-12 col-sm-6 col-md-3">
                     <ul class="">
