@@ -37,7 +37,7 @@
                 <a href="formComun.php?idVuelo=<?php echo $idVuelo?>" style="text-decoration: none;" ><div class="option-box">Normal</div></a>
             </div>
             <div class="col-md-4">
-                <div class="option-box">VIP</div>
+                <a href="formVIP.php?idVuelo=<?php echo $idVuelo?>" style="text-decoration: none;"><div class="option-box">VIP</div></a>
             </div>
             <div class="col-md-4">
                 <a  style="text-decoration: none;" href="formularioVueloEspecial.php?idVuelo=<?php echo $idVuelo?>"><div class="option-box">Especial</div></a>

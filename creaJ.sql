@@ -192,7 +192,79 @@ CREATE TABLE asientos (
     PRIMARY KEY (idVuelo)
 );
 
-
+-- Asientos VIP
+CREATE TABLE asientosVIP (
+    idVuelo VARCHAR(500),
+    destino VARCHAR(500),
+    A1 VARCHAR(50), clienteA1 VARCHAR(50),
+    A2 VARCHAR(50), clienteA2 VARCHAR(50),
+    A3 VARCHAR(50), clienteA3 VARCHAR(50),
+    A4 VARCHAR(50), clienteA4 VARCHAR(50),
+    A5 VARCHAR(50), clienteA5 VARCHAR(50),
+    A6 VARCHAR(50), clienteA6 VARCHAR(50),
+    B1 VARCHAR(50), clienteB1 VARCHAR(50),
+    B2 VARCHAR(50), clienteB2 VARCHAR(50),
+    B3 VARCHAR(50), clienteB3 VARCHAR(50),
+    B4 VARCHAR(50), clienteB4 VARCHAR(50),
+    B5 VARCHAR(50), clienteB5 VARCHAR(50),
+    B6 VARCHAR(50), clienteB6 VARCHAR(50),
+    C1 VARCHAR(50), clienteC1 VARCHAR(50),
+    C2 VARCHAR(50), clienteC2 VARCHAR(50),
+    C3 VARCHAR(50), clienteC3 VARCHAR(50),
+    C4 VARCHAR(50), clienteC4 VARCHAR(50),
+    C5 VARCHAR(50), clienteC5 VARCHAR(50),
+    C6 VARCHAR(50), clienteC6 VARCHAR(50),
+    D1 VARCHAR(50), clienteD1 VARCHAR(50),
+    D2 VARCHAR(50), clienteD2 VARCHAR(50),
+    D3 VARCHAR(50), clienteD3 VARCHAR(50),
+    D4 VARCHAR(50), clienteD4 VARCHAR(50),
+    D5 VARCHAR(50), clienteD5 VARCHAR(50),
+    D6 VARCHAR(50), clienteD6 VARCHAR(50),
+    E1 VARCHAR(50), clienteE1 VARCHAR(50),
+    E2 VARCHAR(50), clienteE2 VARCHAR(50),
+    E3 VARCHAR(50), clienteE3 VARCHAR(50),
+    E4 VARCHAR(50), clienteE4 VARCHAR(50),
+    E5 VARCHAR(50), clienteE5 VARCHAR(50),
+    E6 VARCHAR(50), clienteE6 VARCHAR(50),
+    F1 VARCHAR(50), clienteF1 VARCHAR(50),
+    F2 VARCHAR(50), clienteF2 VARCHAR(50),
+    F3 VARCHAR(50), clienteF3 VARCHAR(50),
+    F4 VARCHAR(50), clienteF4 VARCHAR(50),
+    F5 VARCHAR(50), clienteF5 VARCHAR(50),
+    F6 VARCHAR(50), clienteF6 VARCHAR(50),
+    G1 VARCHAR(50), clienteG1 VARCHAR(50),
+    G2 VARCHAR(50), clienteG2 VARCHAR(50),
+    G3 VARCHAR(50), clienteG3 VARCHAR(50),
+    G4 VARCHAR(50), clienteG4 VARCHAR(50),
+    G5 VARCHAR(50), clienteG5 VARCHAR(50),
+    G6 VARCHAR(50), clienteG6 VARCHAR(50),
+    H1 VARCHAR(50), clienteH1 VARCHAR(50),
+    H2 VARCHAR(50), clienteH2 VARCHAR(50),
+    H3 VARCHAR(50), clienteH3 VARCHAR(50),
+    H4 VARCHAR(50), clienteH4 VARCHAR(50),
+    H5 VARCHAR(50), clienteH5 VARCHAR(50),
+    H6 VARCHAR(50), clienteH6 VARCHAR(50),
+    I1 VARCHAR(50), clienteI1 VARCHAR(50),
+    I2 VARCHAR(50), clienteI2 VARCHAR(50),
+    I3 VARCHAR(50), clienteI3 VARCHAR(50),
+    I4 VARCHAR(50), clienteI4 VARCHAR(50),
+    I5 VARCHAR(50), clienteI5 VARCHAR(50),
+    I6 VARCHAR(50), clienteI6 VARCHAR(50),
+    J1 VARCHAR(50), clienteJ1 VARCHAR(50),
+    J2 VARCHAR(50), clienteJ2 VARCHAR(50),
+    J3 VARCHAR(50), clienteJ3 VARCHAR(50),
+    J4 VARCHAR(50), clienteJ4 VARCHAR(50),
+    J5 VARCHAR(50), clienteJ5 VARCHAR(50),
+    J6 VARCHAR(50), clienteJ6 VARCHAR(50),
+    K1 VARCHAR(50), clienteK1 VARCHAR(50),
+    K2 VARCHAR(50), clienteK2 VARCHAR(50),
+    K3 VARCHAR(50), clienteK3 VARCHAR(50),
+    K4 VARCHAR(50), clienteK4 VARCHAR(50),
+    K5 VARCHAR(50), clienteK5 VARCHAR(50),
+    K6 VARCHAR(50), clienteK6 VARCHAR(50),
+    PRIMARY KEY (idVuelo)
+);
+--
 
 create table administradores(
 	idAdmin int auto_increment, -- llave primaria
@@ -526,6 +598,7 @@ select * from asistente;
 select * from vueloUsuarioAsistente;
 select * from vuelo;
 select * from asientos;
+select * from asientosVIP;
 select * from administradores;
 select * from form;
 select * from notiAsistente;
@@ -533,21 +606,23 @@ select * from mensajes;
 select * from criticas;
 use railway; 
 -- script para truncar las tablas de información
-/*
-truncate table vuelo;
-truncate table vueloUsuarioAsistente;
-truncate table asientos;
-truncate table usuario;
-truncate table criticas;
-truncate table form;
-*/
+
+-- truncate table vuelo; 
+-- truncate table vueloUsuarioAsistente;
+-- truncate table asientos;
+-- truncate table usuario;
+-- truncate table criticas;
+-- truncate table form;
+-- truncate table notiAsistente;
+-- truncate table asistente;
+
 SET FOREIGN_KEY_CHECKS = 1;
 -- tener un usuario ya por defecto
 insert into usuario VALUES 
-("Edwin Gabriel","Medrano Yanes","$2y$10$C1OU5QbxIBKBJN0sRXpTNOrtIVvtnt0BkHEN.52wEKb37AmY8vnCG","edwin@gmail.com","123456789","12345678-9",null,null,null);
+("Diego Alejandro","Campos Hernández","$2y$10$C1OU5QbxIBKBJN0sRXpTNOrtIVvtnt0BkHEN.52wEKb37AmY8vnCG","diego@gmail.com","123456789","12345678-9",null,null,null);
 -- tener un administrador por defecto
 insert into administradores values
 (null,"Edwin Gabriel","Medrano Yanes","$2y$10$VtGH0Tnc92OJ7UTI5XIvc.n0bdpGjEoYIqtWSvYArr8OdGawdrQpO","admin@gmail.com","123456789","12345678-9","Administrador de Operaciones",null,"Hola mundo","admin");
 -- tener un asistente por defecto
 insert into asistente values 
-(null,"Edwin Gabriel","Medrano Yanes","60120538","Completo","De lunes a viernes","Masculino","Hola mundo","armando@gmail.com","$2y$10$rT4hQ3as1Bj8an1Yi/s9H.WnnDbyU5E4QcYtxWtItZSD3C3wZb88y","12345678-9","123456789",null);
+(null,"Jose Armando","Contreras Rosales","60120538","Completo","De lunes a viernes","Masculino","Hola mundo","armando@gmail.com","$2y$10$rT4hQ3as1Bj8an1Yi/s9H.WnnDbyU5E4QcYtxWtItZSD3C3wZb88y","12345678-9","123456789",null);

@@ -62,17 +62,17 @@ $total = 2 * $precio;
 
 
                 <?php
-                if (!($tipoVuelo == 'Vuelo Común')) {
+                if (!($tipoVuelo == 'Vuelo Común' || $tipoVuelo == 'Vuelo VIP')) {
                     echo '
                      <div class="form-group mb-3">
                     <label for="nombrePasajero">Nombre completo del pasajero <span class="text-danger"></span></label>
-                    <input type="text" class="form-control" id="nombrePasajero" value="<?php echo $nombrePasajero ?>" disabled readonly>
+                    <input type="text" class="form-control" id="nombrePasajero" value="'. $nombrePasajero .'" disabled readonly>
                 </div>
                     
 
                   <div class="form-group mb-3">
                     <label for="dui">DUI del pasajero </label>
-                    <input type="text" class="form-control" id="dui" disabled readonly value="<?php echo $duiPasajero ?>">
+                    <input type="text" class="form-control" id="dui" disabled readonly value="'.$duiPasajero.'">
                 </div>
                     ';
                 }

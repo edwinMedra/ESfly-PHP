@@ -281,22 +281,104 @@
   clienteK4 = '$id' OR 
   clienteK5 = '$id' OR 
   clienteK6 = '$id'");
-
-  function idAsiento($id, $asiento)
-  {
+// asientos VIP
+$misVuelosVIP = $conexion->query("SELECT * FROM asientosVIP WHERE 
+clienteA1 = '$id' OR 
+clienteA2 = '$id' OR 
+clienteA3 = '$id' OR 
+clienteA4 = '$id' OR 
+clienteA5 = '$id' OR 
+clienteA6 = '$id' OR 
+clienteB1 = '$id' OR 
+clienteB2 = '$id' OR 
+clienteB3 = '$id' OR 
+clienteB4 = '$id' OR 
+clienteB5 = '$id' OR 
+clienteB6 = '$id' OR 
+clienteC1 = '$id' OR 
+clienteC2 = '$id' OR 
+clienteC3 = '$id' OR 
+clienteC4 = '$id' OR 
+clienteC5 = '$id' OR 
+clienteC6 = '$id' OR 
+clienteD1 = '$id' OR 
+clienteD2 = '$id' OR 
+clienteD3 = '$id' OR 
+clienteD4 = '$id' OR 
+clienteD5 = '$id' OR 
+clienteD6 = '$id' OR 
+clienteE1 = '$id' OR 
+clienteE2 = '$id' OR 
+clienteE3 = '$id' OR 
+clienteE4 = '$id' OR 
+clienteE5 = '$id' OR 
+clienteE6 = '$id' OR 
+clienteF1 = '$id' OR 
+clienteF2 = '$id' OR 
+clienteF3 = '$id' OR 
+clienteF4 = '$id' OR 
+clienteF5 = '$id' OR 
+clienteF6 = '$id' OR 
+clienteG1 = '$id' OR 
+clienteG2 = '$id' OR 
+clienteG3 = '$id' OR 
+clienteG4 = '$id' OR 
+clienteG5 = '$id' OR 
+clienteG6 = '$id' OR 
+clienteH1 = '$id' OR 
+clienteH2 = '$id' OR 
+clienteH3 = '$id' OR 
+clienteH4 = '$id' OR 
+clienteH5 = '$id' OR 
+clienteH6 = '$id' OR 
+clienteI1 = '$id' OR 
+clienteI2 = '$id' OR 
+clienteI3 = '$id' OR 
+clienteI4 = '$id' OR 
+clienteI5 = '$id' OR 
+clienteI6 = '$id' OR 
+clienteJ1 = '$id' OR 
+clienteJ2 = '$id' OR 
+clienteJ3 = '$id' OR 
+clienteJ4 = '$id' OR 
+clienteJ5 = '$id' OR 
+clienteJ6 = '$id' OR 
+clienteK1 = '$id' OR 
+clienteK2 = '$id' OR 
+clienteK3 = '$id' OR 
+clienteK4 = '$id' OR 
+clienteK5 = '$id' OR 
+clienteK6 = '$id'");
+//
+// asientos normales
+  function idAsiento($id, $asiento){
     include("conex.php");
     $asientoCon = $conexion->query("SELECT * FROM asientos where cliente$asiento = '$id'");
     $filAsiento = mysqli_num_rows($asientoCon);
     if ($filAsiento) {
   ?>
-      <button class="btn btn-primary btn-pequeno"><?php echo $asiento ?></button>
+      <button class="btn btn-primary "><?php echo $asiento ?></button>
     <?php
     }
   }
+// fin asientos normales
 
+// asientos VIP
+function idAsientoVIP($id, $asiento){
+  include("conex.php");
+  $asientoCon = $conexion->query("SELECT * FROM asientosVIP where cliente$asiento = '$id'");
+  $filAsiento = mysqli_num_rows($asientoCon);
+  if ($filAsiento) {
+?>
+    <button class="btn  " style="background-color: #deb500;color: white;"><?php echo $asiento ?></button>
+  <?php
+  }
+}
+// Fin asientos VIP
   // mostrar solo los que esten con el propio
   $fila = mysqli_num_rows($misVuelos);
-  if (!($fila)) {
+  $filaVIP = mysqli_num_rows($misVuelosVIP);
+  if (!($fila || $filaVIP)) {
     echo "<h4 class='text-center'>No hay vuelos reservados</h4>";
   } else {
     echo '  <div class="container-fluid my-5">
@@ -306,7 +388,210 @@
     </div>
   </div>';
     // proceso de los div para mostrar todos los vuelos con su id de vuelo 
-    while ($rowVuelo = $misVuelos->fetch_array()) {
+    // caso de los boletos sean especiales o comunes
+    while ($rowVuelo = $misVuelosVIP->fetch_array() ) {
+      $idVuelo2 = $rowVuelo['idVuelo'];
+      $destino1 = $rowVuelo['destino'];
+      $idVuelo1 = $rowVuelo['idVuelo'];
+      // consulta para tener información de vuelo
+      $conVuelo = $conexion->query("SELECT * FROM vuelo WHERE idVuelo = '$idVuelo1'");
+      // consulta de el origen de el vuelo
+      $rowOrigen = $conVuelo->fetch_assoc();
+      $origen1 = $rowOrigen['origen'];
+      $fechaSalida1 = $rowOrigen['fechaSalida'];
+      $fechaEntrada1 = $rowOrigen['fechaEntrada'];
+      $foto = $rowOrigen['foto'];
+    ?>
+      <!---->
+      <div class="container mt-5">
+        <div class="card">
+
+          <h3 class="titulo-tarjeta text-center mt-5 mb-5">
+            <img src="../imagen/header/favicon.png" class="img-fluid me-3" width="35" alt="Logo"> Información de tu vuelo:
+          </h3>
+
+          <div class="card-body">
+
+            <div class="mb-4">
+
+              <div class="row info-vuelo">
+                <div class="col-md-3 text-center">
+                  <p><strong>Minutos para Aterrizar:</strong></p>
+                  <p id="minutos-para-aterrizar">1h:00:00</p>
+                </div>
+                <div class="col-md-3 text-center">
+                  <p><strong>Hora de Llegada:</strong></p>
+                  <p id="hora-llegada"><?php echo $fechaEntrada1 ?></p>
+                </div>
+                <div class="col-md-3 text-center">
+                  <p><strong>País de Origen:</strong></p>
+                  <p><?php echo $origen1 ?></p>
+                </div>
+                <div class="col-md-3 text-center">
+                  <p><strong>País de Llegada:</strong></p>
+                  <p><?php echo $destino1 ?></p>
+                </div>
+              </div>
+            </div>
+
+            <div class="mb-5">
+              <h6>Tipo de Vuelo:</h6>
+              <select class="custom-select">
+                <option value="normal">Vuelo VIP</option>
+              </select>
+            </div>
+            <div class="mt-5">
+              <h6>Asientos Reservados:</h6>
+            </div>
+            <?php
+
+            // Asientos VIP
+            echo idAsientoVIP($id, 'A1');
+            echo idAsientoVIP($id, 'A2');
+            echo idAsientoVIP($id, 'A3');
+            echo idAsientoVIP($id, 'A4');
+            echo idAsientoVIP($id, 'A5');
+            echo idAsientoVIP($id, 'A6');
+            echo idAsientoVIP($id, 'B1');
+            echo idAsientoVIP($id, 'B2');
+            echo idAsientoVIP($id, 'B3');
+            echo idAsientoVIP($id, 'B4');
+            echo idAsientoVIP($id, 'B5');
+            echo idAsientoVIP($id, 'B6');
+            echo idAsientoVIP($id, 'C1');
+            echo idAsientoVIP($id, 'C2');
+            echo idAsientoVIP($id, 'C3');
+            echo idAsientoVIP($id, 'C4');
+            echo idAsientoVIP($id, 'C5');
+            echo idAsientoVIP($id, 'C6');
+            echo idAsientoVIP($id, 'D1');
+            echo idAsientoVIP($id, 'D2');
+            echo idAsientoVIP($id, 'D3');
+            echo idAsientoVIP($id, 'D4');
+            echo idAsientoVIP($id, 'D5');
+            echo idAsientoVIP($id, 'D6');
+            echo idAsientoVIP($id, 'E1');
+            echo idAsientoVIP($id, 'E2');
+            echo idAsientoVIP($id, 'E3');
+            echo idAsientoVIP($id, 'E4');
+            echo idAsientoVIP($id, 'E5');
+            echo idAsientoVIP($id, 'E6');
+            echo idAsientoVIP($id, 'F1');
+            echo idAsientoVIP($id, 'F2');
+            echo idAsientoVIP($id, 'F3');
+            echo idAsientoVIP($id, 'F4');
+            echo idAsientoVIP($id, 'F5');
+            echo idAsientoVIP($id, 'F6');
+            echo idAsientoVIP($id, 'G1');
+            echo idAsientoVIP($id, 'G2');
+            echo idAsientoVIP($id, 'G3');
+            echo idAsientoVIP($id, 'G4');
+            echo idAsientoVIP($id, 'G5');
+            echo idAsientoVIP($id, 'G6');
+            echo idAsientoVIP($id, 'H1');
+            echo idAsientoVIP($id, 'H2');
+            echo idAsientoVIP($id, 'H3');
+            echo idAsientoVIP($id, 'H4');
+            echo idAsientoVIP($id, 'H5');
+            echo idAsientoVIP($id, 'H6');
+            echo idAsientoVIP($id, 'I1');
+            echo idAsientoVIP($id, 'I2');
+            echo idAsientoVIP($id, 'I3');
+            echo idAsientoVIP($id, 'I4');
+            echo idAsientoVIP($id, 'I5');
+            echo idAsientoVIP($id, 'I6');
+            echo idAsientoVIP($id, 'J1');
+            echo idAsientoVIP($id, 'J2');
+            echo idAsientoVIP($id, 'J3');
+            echo idAsientoVIP($id, 'J4');
+            echo idAsientoVIP($id, 'J5');
+            echo idAsientoVIP($id, 'J6');
+            echo idAsientoVIP($id, 'K1');
+            echo idAsientoVIP($id, 'K2');
+            echo idAsientoVIP($id, 'K3');
+            echo idAsientoVIP($id, 'K4');
+            echo idAsientoVIP($id, 'K5');
+            echo idAsientoVIP($id, 'K6');
+            // fin proceso de asientos
+
+            //  verificar si en este vuelo a reservado un asistente
+            $sqlAsistente = $conexion->query("SELECT * FROM vueloUsuarioAsistente WHERE idUsuario = '$id' and idVuelo = '$idVuelo2' ");
+            $rowAsis = $sqlAsistente->fetch_array();
+            if ($rowAsis['estado'] == 1) {
+              # echo "Usted tiene asistente";
+              $idAsis = $rowAsis['idAsistente'];
+              $takeAsis = $conexion->query("SELECT * FROM asistente WHERE idAsistente = '$idAsis'");
+              $roAsis = $takeAsis->fetch_assoc();
+              $nomAsis = $roAsis['nomAsistente'];
+              $apeAsistente = $roAsis['apeAsistente'];
+              $foto2 = $roAsis['foto'];
+              $nomCompleto = $nomAsis . " " . $apeAsistente;
+
+
+            ?>
+              <!-- Empleados -->
+              <div class="mb-4">
+                <h6>Empleado Especial:</h6>
+                <div class="row">
+                  <div class="col-md-4 mb-5">
+                    <div class="card tarjeta-empleado">
+                      <div class="cuerpo-tarjeta">
+                        <?php
+                        // validar que la foto tenga 
+                        if ($foto2 == null) {
+                          echo '<img src="../imagen/header_ayudante/logo_usuario.png"  alt="Empleado 1" class="imagen-empleado">';
+                        } else {
+                          echo '<img src="data:image/jpg;base64,' . base64_encode($foto2) . '" alt="Empleado 1" class="imagen-empleado">
+';
+                        }
+                        ?>
+                        <h6><?php echo $nomCompleto ?></h6>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            <?php
+            }
+            ?>
+            <div class="mb-4">
+              <h6>Servicio en el Vuelo:</h6>
+              <div class="row">
+                <div class="col-md-4 mb-3">
+                  <div class="card tarjeta-comida">
+                    <img src="data:image/jpg;base64,<?php echo base64_encode($foto) ?>" alt="Comida Aburrido">
+                    <div class="cuerpo-tarjeta">
+                      <h4>¿Estás ansioso?</h4>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                  <div class="card tarjeta-comida">
+                    <img src="data:image/jpg;base64,<?php echo base64_encode($foto) ?>" alt="Comida Ansioso">
+                    <div class="cuerpo-tarjeta">
+                      <h4>¿Estás aburrido?</h4>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                  <div class="card tarjeta-comida">
+                    <img src="data:image/jpg;base64,<?php echo base64_encode($foto) ?>" alt="Comida">
+                    <div class="cuerpo-tarjeta">
+                      <h4>Comida</h4>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+  <?php
+    }
+    //
+    while ($rowVuelo = $misVuelos->fetch_array() ) {
       $idVuelo2 = $rowVuelo['idVuelo'];
       $destino1 = $rowVuelo['destino'];
       $idVuelo1 = $rowVuelo['idVuelo'];
@@ -428,7 +713,9 @@
             echo idAsiento($id, 'K4');
             echo idAsiento($id, 'K5');
             echo idAsiento($id, 'K6');
-
+            // Asientos VIP
+           
+            // fin proceso de asientos
 
             //  verificar si en este vuelo a reservado un asistente
             $sqlAsistente = $conexion->query("SELECT * FROM vueloUsuarioAsistente WHERE idUsuario = '$id' and idVuelo = '$idVuelo2' ");

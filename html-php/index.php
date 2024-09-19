@@ -8,16 +8,14 @@ if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET['fecha'], $_GET['origen']
     $paisOrigen = $_GET['origen'];
     $paisDestino = $_GET['destino'];
 
-    $errores = []; 
+    $errores = [];
 
     if ($paisOrigen == $paisDestino) {
         $errores[] = "El país de origen y destino no pueden ser iguales.";
     }
 
     // Validar que la fecha no sea anterior a la fecha actual
-    if ($fechaVuelo < $fechaActual) {
-        $errores[] = "La fecha de vuelo no puede ser anterior a la fecha actual.";
-    }
+  
 
     // Mostrar errores si existen
     if (!empty($errores)) {
@@ -54,1816 +52,1833 @@ if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET['fecha'], $_GET['origen']
 </head>
 
 <body>
-<style>
+    <style>
+        #espacio {
+            display: none;
+        }
 
-#espacio {
-  display: none;
-}
-@media screen and (max-width:768px) {
-    #espacio {
-  display: flex;
-}
-}
+        @media screen and (max-width:768px) {
+            #espacio {
+                display: flex;
+            }
+        }
 
-/* Estilo del modal */
-.modal {
-  display: none;
-  position: fixed;
-  z-index: 1000;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: rgba(0, 0, 0, 0.5);
-}
+        /* Estilo del modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
 
-/* Contenido del modal */
-.modal-content {
-  background-color: #fefefe;
-  margin: 15% auto;
-  padding: 20px;
-  border: 1px solid #888;
-  width: 80%;
-  max-width: 600px;
-}
+        /* Contenido del modal */
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 600px;
+        }
 
-/* Botón de cierre (X) */
-.close {
-  color: #aaa;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
-}
+        /* Botón de cierre (X) */
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
 
-.close:hover,
-.close:focus {
-  color: black;
-  text-decoration: none;
-  cursor: pointer;
-}
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
 
-.center-button {
-    display: flex;
-    justify-content: center;
-  }
-  .full-width-btn {
-    width: 100%;
-  }
+        .center-button {
+            display: flex;
+            justify-content: center;
+        }
 
-.contenedor {
-    position: relative;
-}
+        .full-width-btn {
+            width: 100%;
+        }
 
-.texto-superpuesto {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: white;
-    font-size: 45px;
-    text-align: center;
-    padding: 10px;
-    border-radius: 10px;
-    z-index: 2;
-    width: 80%;
-}
+        .contenedor {
+            position: relative;
+        }
+
+        .texto-superpuesto {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-size: 45px;
+            text-align: center;
+            padding: 10px;
+            border-radius: 10px;
+            z-index: 2;
+            width: 80%;
+        }
 
 
 
-.center-button {
-    display: flex;
-    justify-content: center;
-  }
-  .full-width-btn {
-    width: 100%;
-  }
+        .center-button {
+            display: flex;
+            justify-content: center;
+        }
 
-</style>
-<?php
-include("header-log.php");
-?>
+        .full-width-btn {
+            width: 100%;
+        }
+    </style>
+    <?php
+    include("header-log.php");
+    ?>
 
-<!-- imagenes de la pagina-->
-<div class="contenedor">
+    <!-- imagenes de la pagina-->
+    <div class="contenedor">
 
-    <div class="texto-superpuesto">
-        <p>"Más que una aerolínea, somos tu <br> puente al mundo."</p>
-    </div>
-
-    <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-inner">
-            <div class="carousel-item active" data-bs-interval="3000">
-                <img src="../imagen/index/fondo1.png" class="d-block w-100 h-200" alt="...">
-            </div>
-            <div class="carousel-item" data-bs-interval="3000">
-                <img src="../imagen/index/fondo2.png" class="d-block w-100 h-200" alt="...">
-            </div>
-            <div class="carousel-item" data-bs-interval="3000">
-                <img src="../imagen/index/fondo4.png" class="d-block w-100 h-200" alt="...">
-            </div>
+        <div class="texto-superpuesto">
+            <p>"Más que una aerolínea, somos tu <br> puente al mundo."</p>
         </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-        </button>
+
+        <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active" data-bs-interval="3000">
+                    <img src="../imagen/index/fondo1.png" class="d-block w-100 h-200" alt="...">
+                </div>
+                <div class="carousel-item" data-bs-interval="3000">
+                    <img src="../imagen/index/fondo2.png" class="d-block w-100 h-200" alt="...">
+                </div>
+                <div class="carousel-item" data-bs-interval="3000">
+                    <img src="../imagen/index/fondo4.png" class="d-block w-100 h-200" alt="...">
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+
+
     </div>
-    
-    
-</div>
 
-<!-- Seccion de vuelos de pagina web -->
-<div class=" texto-titulo container mt-5">
-    <h5 id="search-flight-title">Busca un vuelo ></h5>
-</div>
+    <!-- Seccion de vuelos de pagina web -->
+    <div class=" texto-titulo container mt-5">
+        <h5 id="search-flight-title">Busca un vuelo ></h5>
+    </div>
 
 
 
-<!-- CUADRO DE BUSCAR VUELOS -->
-<div class="centered-card mt-4">
-    <div class=" card-buscar card p-4">
-        <div class="card-body">
-            <h5 id="search-flight" class="card-title text-center text-formu">Busca tu Vuelo:</h5>
-            <form class="form-inline justify-content-center" method="get" action="">
-                <div class="form-group mt-4">
-                    <label id="flight-date" class="text-formu">Fecha de Vuelo:</label>
-                    <?php
-                    $fechaActual = date('Y-m-d'); // Obtiene la fecha actual en formato 'YYYY-MM-DD'
-                    ?>
-<input type="date" class="form-control" id="fechaVuelo" placeholder="Fecha de Vuelo" name="fecha" min="<?php echo $fechaActual; ?>" required>
-                </div>
-                <div class="form-group mt-4">
-                    <label id="origin-country" class="text-formu">País de Origen:</label>
-                    <select class="form-control w-50" id="Origen" name="origen">
-                        <option value="Antigua y Barbuda">Antigua y Barbuda</option>
-                        <option value="Argentina">Argentina</option>
-                        <option value="Bahamas">Bahamas</option>
-                        <option value="Barbados">Barbados</option>
-                        <option value="Belice">Belice</option>
-                        <option value="Bolivia">Bolivia</option>
-                        <option value="Brasil">Brasil</option>
-                        <option value="Canada">Canadá</option>
-                        <option value="Chile">Chile</option>
-                        <option value="Colombia">Colombia</option>
-                        <option value="Costa Rica">Costa Rica</option>
-                        <option value="Cuba">Cuba</option>
-                        <option value="Dominica">Dominica</option>
-                        <option value="Ecuador">Ecuador</option>
-                        <option value="El Salvador">El Salvador</option>
-                        <option value="Estados-Unidos">Estados Unidos</option>
-                        <option value="Granada">Granada</option>
-                        <option value="Guatemala">Guatemala</option>
-                        <option value="Guyana">Guyana</option>
-                        <option value="Haiti">Haití</option>
-                        <option value="Honduras">Honduras</option>
-                        <option value="Jamaica">Jamaica</option>
-                        <option value="Mexico">México</option>
-                        <option value="Nicaragua">Nicaragua</option>
-                        <option value="Panama">Panamá</option>
-                        <option value="Paraguay">Paraguay</option>
-                        <option value="Peru">Perú</option>
-                        <option value="Republica Dominicana">República Dominicana</option>
-                        <option value="San Cristobal y Nieves">San Cristóbal y Nieves</option>
-                        <option value="San Vicente y las Granadinas">San Vicente y las Granadinas</option>
-                        <option value="Santa Lucia">Santa Lucía</option>
-                        <option value="Surinam">Surinam</option>
-                        <option value="Trinidad y Tobago">Trinidad y Tobago</option>
-                        <option value="Uruguay">Uruguay</option>
-                        <option value="Venezuela">Venezuela</option>
-                    </select>
-                </div>
-                <div class="form-group mt-4">
-                    <label id="destination-country" for="Destino" class="text-titulo text-formu">País de Destino:</label>
-                    <select class="form-control w-50" id="Destino" name="destino">
-                        <option value="Antigua y Barbuda">Antigua y Barbuda</option>
-                        <option value="Argentina">Argentina</option>
-                        <option value="Bahamas">Bahamas</option>
-                        <option value="Barbados">Barbados</option>
-                        <option value="Belice">Belice</option>
-                        <option value="Bolivia">Bolivia</option>
-                        <option value="Brasil">Brasil</option>
-                        <option value="Canada">Canadá</option>
-                        <option value="Chile">Chile</option>
-                        <option value="Colombia">Colombia</option>
-                        <option value="Costa Rica">Costa Rica</option>
-                        <option value="Cuba">Cuba</option>
-                        <option value="Dominica">Dominica</option>
-                        <option value="Ecuador">Ecuador</option>
-                        <option value="El Salvador">El Salvador</option>
-                        <option value="Estados-Unidos">Estados Unidos</option>
-                        <option value="Granada">Granada</option>
-                        <option value="Guatemala">Guatemala</option>
-                        <option value="Guyana">Guyana</option>
-                        <option value="Haiti">Haití</option>
-                        <option value="Honduras">Honduras</option>
-                        <option value="Jamaica">Jamaica</option>
-                        <option value="Mexico">México</option>
-                        <option value="Nicaragua">Nicaragua</option>
-                        <option value="Panama">Panamá</option>
-                        <option value="Paraguay">Paraguay</option>
-                        <option value="Peru">Perú</option>
-                        <option value="Republica Dominicana">República Dominicana</option>
-                        <option value="San Cristobal y Nieves">San Cristóbal y Nieves</option>
-                        <option value="San Vicente y las Granadinas">San Vicente y las Granadinas</option>
-                        <option value="Santa Lucia">Santa Lucía</option>
-                        <option value="Surinam">Surinam</option>
-                        <option value="Trinidad y Tobago">Trinidad y Tobago</option>
-                        <option value="Uruguay">Uruguay</option>
-                        <option value="Venezuela">Venezuela</option>
-                    </select>
-                </div>
-            
-                <!--AHI EL BOTON DE ABAJO TIENE Q DIRIGIT A DONDE DECIDA EL USUARIO (PAIS) -->
+    <!-- CUADRO DE BUSCAR VUELOS -->
+    <div class="centered-card mt-4">
+        <div class=" card-buscar card p-4">
+            <div class="card-body">
+                <h5 id="search-flight" class="card-title text-center text-formu">Busca tu Vuelo:</h5>
+                <form class="form-inline justify-content-center" method="get" action="">
+                    <div class="form-group mt-4">
+                        <label id="flight-date" class="text-formu">Fecha de Vuelo:</label>
+                        <?php
+                        $fechaActual = date('Y-m-d'); // Obtiene la fecha actual en formato 'YYYY-MM-DD'
+                        $mesAño =date('Y-m',strtotime($fechaActual));
+                        $dia = date('d',strtotime($fechaActual));
+                         $dia1 = $dia-1;
+                         $min = $mesAño."-".$dia1;
+                        ?>
+                        <input type="date" class="form-control" id="fechaVuelo" placeholder="Fecha de Vuelo" name="fecha" min="<?php echo $min; ?>" required>
+                    </div>
+                    <div class="form-group mt-4">
+                        <label id="origin-country" class="text-formu">País de Origen:</label>
+                        <select class="form-control w-50" id="Origen" name="origen">
+                            <option value="Antigua y Barbuda">Antigua y Barbuda</option>
+                            <option value="Argentina">Argentina</option>
+                            <option value="Bahamas">Bahamas</option>
+                            <option value="Barbados">Barbados</option>
+                            <option value="Belice">Belice</option>
+                            <option value="Bolivia">Bolivia</option>
+                            <option value="Brasil">Brasil</option>
+                            <option value="Canada">Canadá</option>
+                            <option value="Chile">Chile</option>
+                            <option value="Colombia">Colombia</option>
+                            <option value="Costa Rica">Costa Rica</option>
+                            <option value="Cuba">Cuba</option>
+                            <option value="Dominica">Dominica</option>
+                            <option value="Ecuador">Ecuador</option>
+                            <option value="El Salvador" selected>El Salvador</option>
+                            <option value="Estados Unidos">Estados Unidos</option>
+                            <option value="Granada">Granada</option>
+                            <option value="Guatemala">Guatemala</option>
+                            <option value="Guyana">Guyana</option>
+                            <option value="Haiti">Haití</option>
+                            <option value="Honduras">Honduras</option>
+                            <option value="Jamaica">Jamaica</option>
+                            <option value="Mexico">México</option>
+                            <option value="Nicaragua">Nicaragua</option>
+                            <option value="Panama">Panamá</option>
+                            <option value="Paraguay">Paraguay</option>
+                            <option value="Peru">Perú</option>
+                            <option value="Republica Dominicana">República Dominicana</option>
+                            <option value="San Cristobal y Nieves">San Cristóbal y Nieves</option>
+                            <option value="San Vicente y las Granadinas">San Vicente y las Granadinas</option>
+                            <option value="Santa Lucia">Santa Lucía</option>
+                            <option value="Surinam">Surinam</option>
+                            <option value="Trinidad y Tobago">Trinidad y Tobago</option>
+                            <option value="Uruguay">Uruguay</option>
+                            <option value="Venezuela">Venezuela</option>
+                        </select>
+                    </div>
+                    <div class="form-group mt-4">
+                        <label id="destination-country" for="Destino" class="text-titulo text-formu">País de Destino:</label>
+                        <select class="form-control w-50" id="Destino" name="destino">
+                            <option value="Antigua y Barbuda">Antigua y Barbuda</option>
+                            <option value="Argentina">Argentina</option>
+                            <option value="Bahamas">Bahamas</option>
+                            <option value="Barbados">Barbados</option>
+                            <option value="Belice">Belice</option>
+                            <option value="Bolivia">Bolivia</option>
+                            <option value="Brasil">Brasil</option>
+                            <option value="Canada">Canadá</option>
+                            <option value="Chile">Chile</option>
+                            <option value="Colombia">Colombia</option>
+                            <option value="Costa Rica">Costa Rica</option>
+                            <option value="Cuba">Cuba</option>
+                            <option value="Dominica">Dominica</option>
+                            <option value="Ecuador">Ecuador</option>
+                            <option value="El Salvador">El Salvador</option>
+                            <option value="Estados Unidos">Estados Unidos</option>
+                            <option value="Granada">Granada</option>
+                            <option value="Guatemala">Guatemala</option>
+                            <option value="Guyana">Guyana</option>
+                            <option value="Haiti">Haití</option>
+                            <option value="Honduras">Honduras</option>
+                            <option value="Jamaica">Jamaica</option>
+                            <option value="Mexico">México</option>
+                            <option value="Nicaragua">Nicaragua</option>
+                            <option value="Panama">Panamá</option>
+                            <option value="Paraguay">Paraguay</option>
+                            <option value="Peru">Perú</option>
+                            <option value="Republica Dominicana">República Dominicana</option>
+                            <option value="San Cristobal y Nieves">San Cristóbal y Nieves</option>
+                            <option value="San Vicente y las Granadinas">San Vicente y las Granadinas</option>
+                            <option value="Santa Lucia">Santa Lucía</option>
+                            <option value="Surinam">Surinam</option>
+                            <option value="Trinidad y Tobago">Trinidad y Tobago</option>
+                            <option value="Uruguay">Uruguay</option>
+                            <option value="Venezuela">Venezuela</option>
+                        </select>
+                    </div>
+
+                    <!--AHI EL BOTON DE ABAJO TIENE Q DIRIGIT A DONDE DECIDA EL USUARIO (PAIS) -->
                     <div class="center-button">
                         <button id="search-btn" type="submit" class="mt-5 btn btn-primary full-width-btn">Buscar Vuelo</button>
-                    </div>   
-                    
-            </form>
+                    </div>
+
+                </form>
+            </div>
         </div>
     </div>
-</div>
-            </form>
-        </div>
+    </form>
     </div>
-</div>
+    </div>
+    </div>
 
 
 
 
-<div class=" container-fluid texto-titulo  mt-5 ps-5">
+    <div class=" container-fluid texto-titulo  mt-5 ps-5">
         <h5 id="sugerencias-travel">Sugerencias de viajes ></h5>
-</div>
+    </div>
 
 
-<!-- Carrusel de Promociones de Viajes -->
-<div class="container-fluid mt-3 mb-5">
-    <div id="carrusel1" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-indicators">
-            <button type="button" data-bs-target="#carrusel1" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-            <button type="button" data-bs-target="#carrusel1" data-bs-slide-to="1" aria-label="Slide 2"></button>
-            <button type="button" data-bs-target="#carrusel1" data-bs-slide-to="2" aria-label="Slide 3"></button>
-        </div>
-        <div class="carousel-inner">
+    <!-- Carrusel de Promociones de Viajes -->
+    <div class="container-fluid mt-3 mb-5">
+        <div id="carrusel1" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carrusel1" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carrusel1" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carrusel1" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            </div>
+            <div class="carousel-inner">
 
-            <!-- Primer fila de imágenes -->
-            <div class="carousel-item active">
-                <div class="row">
+                <!-- Primer fila de imágenes -->
+                <div class="carousel-item active">
+                    <div class="row">
 
 
-                    <div class="col-md-3 mt-5 mb-5">
+                        <div class="col-md-3 mt-5 mb-5">
                             <div class="image-container">
-                            <img src="../imagen/index/Argentina.png" alt="Argentina" class="d-block w-100">
+                                <img src="../imagen/index/Argentina.png" alt="Argentina" class="d-block w-100">
                                 <div class="overlay">
                                     <div class="overlay-content">
-                                    <h4>Argentina</h4>
-                                    <h6>Glaciar Perito Moreno</h6>
-                                    <button id="openModalBtn" class="btn btn-primary">Tomar viaje</button> <!-- Cambié el <a> a <button> para evitar conflictos -->
-                                        <!-- El Modal --><div id="myModal" class="modal">
+                                        <h4>Argentina</h4>
+                                        <h6>Glaciar Perito Moreno</h6>
+                                        <button id="openModalBtn" class="btn btn-primary">Tomar viaje</button> <!-- Cambié el <a> a <button> para evitar conflictos -->
+                                        <!-- El Modal -->
+                                        <div id="myModal" class="modal">
                                             <div class="modal-content">
                                                 <span class="close">&times;</span>
                                                 <!-- Aquí puedes incluir tu formulario -->
-                                                 <div class="centered-card mt-4">
-                                                 <div class=" card-buscar card p-4">
-                                                 <div class="card-body">
-                                                 <h5 id="search-flight" class="card-title text-center text-formu">Busca tu Vuelo:</h5>
-                
-                                                 <form class="form-inline justify-content-center" method="get" action="">
-                   
-                                                 <div class="form-group mt-4">
-                        
-                                                 <label id="flight-date" class="text-formu">Fecha de Vuelo:</label>
-                        
-                                                 <input type="date" class="form-control" id="fechaVuelo" placeholder="Fecha de Vuelo" name="fecha" min="<?php echo $fechaActual; ?>" required>
-                    
+                                                <div class="centered-card mt-4">
+                                                    <div class=" card-buscar card p-4">
+                                                        <div class="card-body">
+                                                            <h5 id="search-flight" class="card-title text-center text-formu">Busca tu Vuelo:</h5>
+
+                                                            <form class="form-inline justify-content-center" method="get" action="">
+
+                                                                <div class="form-group mt-4">
+
+                                                                    <label id="flight-date" class="text-formu">Fecha de Vuelo:</label>
+
+                                                                    <input type="date" class="form-control" id="fechaVuelo" placeholder="Fecha de Vuelo" name="fecha" min="<?php echo $fechaActual; ?>" required>
+
+                                                                </div>
+
+                                                                <div class="form-group mt-4">
+
+                                                                    <label id="origin-country" class="text-formu">País de Origen:</label>
+
+                                                                    <select class="form-control w-50" id="Origen" name="origen">
+
+                                                                        <option value="Antigua y Barbuda">Antigua y Barbuda</option>
+                                                                        <option value="Argentina">Argentina</option>
+                                                                        <option value="Bahamas">Bahamas</option>
+                                                                        <option value="Barbados">Barbados</option>
+                                                                        <option value="Belice">Belice</option>
+                                                                        <option value="Bolivia">Bolivia</option>
+                                                                        <option value="Brasil">Brasil</option>
+                                                                        <option value="Canada">Canadá</option>
+                                                                        <option value="Chile">Chile</option>
+                                                                        <option value="Colombia">Colombia</option>
+                                                                        <option value="Costa Rica">Costa Rica</option>
+                                                                        <option value="Cuba">Cuba</option>
+                                                                        <option value="Dominica">Dominica</option>
+                                                                        <option value="Ecuador">Ecuador</option>
+                                                                        <option value="El Salvador">El Salvador</option>
+                                                                        <option value="Estados-Unidos">Estados Unidos</option>
+                                                                        <option value="Granada">Granada</option>
+                                                                        <option value="Guatemala">Guatemala</option>
+                                                                        <option value="Guyana">Guyana</option>
+                                                                        <option value="Haiti">Haití</option>
+                                                                        <option value="Honduras">Honduras</option>
+                                                                        <option value="Jamaica">Jamaica</option>
+                                                                        <option value="Mexico">México</option>
+                                                                        <option value="Nicaragua">Nicaragua</option>
+                                                                        <option value="Panama">Panamá</option>
+                                                                        <option value="Paraguay">Paraguay</option>
+                                                                        <option value="Peru">Perú</option>
+                                                                        <option value="Republica Dominicana">República Dominicana</option>
+                                                                        <option value="San Cristobal y Nieves">San Cristóbal y Nieves</option>
+                                                                        <option value="San Vicente y las Granadinas">San Vicente y las Granadinas</option>
+                                                                        <option value="Santa Lucia">Santa Lucía</option>
+                                                                        <option value="Surinam">Surinam</option>
+                                                                        <option value="Trinidad y Tobago">Trinidad y Tobago</option>
+                                                                        <option value="Uruguay">Uruguay</option>
+                                                                        <option value="Venezuela">Venezuela</option>
+
+                                                                    </select>
+                                                                </div>
+                                                                <div class="form-group mt-4">
+                                                                    <label id="destination-country" class="text-titulo text-formu">País de Destino:</label>
+                                                                    <select class="form-control w-50" id="Destino" name="destino">
+                                                                        <option value="Antigua y Barbuda">Antigua y Barbuda</option>
+                                                                        <option value="Argentina">Argentina</option>
+                                                                        <option value="Bahamas">Bahamas</option>
+                                                                        <option value="Barbados">Barbados</option>
+                                                                        <option value="Belice">Belice</option>
+                                                                        <option value="Bolivia">Bolivia</option>
+                                                                        <option value="Brasil">Brasil</option>
+                                                                        <option value="Canada">Canadá</option>
+                                                                        <option value="Chile">Chile</option>
+                                                                        <option value="Colombia">Colombia</option>
+                                                                        <option value="Costa Rica">Costa Rica</option>
+                                                                        <option value="Cuba">Cuba</option>
+                                                                        <option value="Dominica">Dominica</option>
+                                                                        <option value="Ecuador">Ecuador</option>
+                                                                        <option value="El Salvador">El Salvador</option>
+                                                                        <option value="Estados-Unidos">Estados Unidos</option>
+                                                                        <option value="Granada">Granada</option>
+                                                                        <option value="Guatemala">Guatemala</option>
+                                                                        <option value="Guyana">Guyana</option>
+                                                                        <option value="Haiti">Haití</option>
+                                                                        <option value="Honduras">Honduras</option>
+                                                                        <option value="Jamaica">Jamaica</option>
+                                                                        <option value="Mexico">México</option>
+                                                                        <option value="Nicaragua">Nicaragua</option>
+                                                                        <option value="Panama">Panamá</option>
+                                                                        <option value="Paraguay">Paraguay</option>
+                                                                        <option value="Peru">Perú</option>
+                                                                        <option value="Republica Dominicana">República Dominicana</option>
+                                                                        <option value="San Cristobal y Nieves">San Cristóbal y Nieves</option>
+                                                                        <option value="San Vicente y las Granadinas">San Vicente y las Granadinas</option>
+                                                                        <option value="Santa Lucia">Santa Lucía</option>
+                                                                        <option value="Surinam">Surinam</option>
+                                                                        <option value="Trinidad y Tobago">Trinidad y Tobago</option>
+                                                                        <option value="Uruguay">Uruguay</option>
+                                                                        <option value="Venezuela">Venezuela</option>
+                                                                    </select>
+                                                                </div>
+                                                                <div class="center-button">
+                                                                    <button id="search-btn" type="submit" class="mt-5 btn btn-primary full-width-btn">Buscar Vuelo</button>
+                                                                </div>
+                                                            </form>
+                                                        </div>
+                                                    </div>
                                                 </div>
-                   
-                                                <div class="form-group mt-4">
-                        
-                                                <label id="origin-country" class="text-formu">País de Origen:</label>
-                       
-                                                <select class="form-control w-50" id="Origen" name="origen">
-
-                                                <option value="Antigua y Barbuda">Antigua y Barbuda</option>
-                        <option value="Argentina">Argentina</option>
-                        <option value="Bahamas">Bahamas</option>
-                        <option value="Barbados">Barbados</option>
-                        <option value="Belice">Belice</option>
-                        <option value="Bolivia">Bolivia</option>
-                        <option value="Brasil">Brasil</option>
-                        <option value="Canada">Canadá</option>
-                        <option value="Chile">Chile</option>
-                        <option value="Colombia">Colombia</option>
-                        <option value="Costa Rica">Costa Rica</option>
-                        <option value="Cuba">Cuba</option>
-                        <option value="Dominica">Dominica</option>
-                        <option value="Ecuador">Ecuador</option>
-                        <option value="El Salvador">El Salvador</option>
-                        <option value="Estados-Unidos">Estados Unidos</option>
-                        <option value="Granada">Granada</option>
-                        <option value="Guatemala">Guatemala</option>
-                        <option value="Guyana">Guyana</option>
-                        <option value="Haiti">Haití</option>
-                        <option value="Honduras">Honduras</option>
-                        <option value="Jamaica">Jamaica</option>
-                        <option value="Mexico">México</option>
-                        <option value="Nicaragua">Nicaragua</option>
-                        <option value="Panama">Panamá</option>
-                        <option value="Paraguay">Paraguay</option>
-                        <option value="Peru">Perú</option>
-                        <option value="Republica Dominicana">República Dominicana</option>
-                        <option value="San Cristobal y Nieves">San Cristóbal y Nieves</option>
-                        <option value="San Vicente y las Granadinas">San Vicente y las Granadinas</option>
-                        <option value="Santa Lucia">Santa Lucía</option>
-                        <option value="Surinam">Surinam</option>
-                        <option value="Trinidad y Tobago">Trinidad y Tobago</option>
-                        <option value="Uruguay">Uruguay</option>
-                        <option value="Venezuela">Venezuela</option>
-
-                        </select>
-                    </div>
-                    <div class="form-group mt-4">
-                        <label id="destination-country" class="text-titulo text-formu">País de Destino:</label>
-                        <select class="form-control w-50" id="Destino" name="destino">
-                        <option value="Antigua y Barbuda">Antigua y Barbuda</option>
-                        <option value="Argentina">Argentina</option>
-                        <option value="Bahamas">Bahamas</option>
-                        <option value="Barbados">Barbados</option>
-                        <option value="Belice">Belice</option>
-                        <option value="Bolivia">Bolivia</option>
-                        <option value="Brasil">Brasil</option>
-                        <option value="Canada">Canadá</option>
-                        <option value="Chile">Chile</option>
-                        <option value="Colombia">Colombia</option>
-                        <option value="Costa Rica">Costa Rica</option>
-                        <option value="Cuba">Cuba</option>
-                        <option value="Dominica">Dominica</option>
-                        <option value="Ecuador">Ecuador</option>
-                        <option value="El Salvador">El Salvador</option>
-                        <option value="Estados-Unidos">Estados Unidos</option>
-                        <option value="Granada">Granada</option>
-                        <option value="Guatemala">Guatemala</option>
-                        <option value="Guyana">Guyana</option>
-                        <option value="Haiti">Haití</option>
-                        <option value="Honduras">Honduras</option>
-                        <option value="Jamaica">Jamaica</option>
-                        <option value="Mexico">México</option>
-                        <option value="Nicaragua">Nicaragua</option>
-                        <option value="Panama">Panamá</option>
-                        <option value="Paraguay">Paraguay</option>
-                        <option value="Peru">Perú</option>
-                        <option value="Republica Dominicana">República Dominicana</option>
-                        <option value="San Cristobal y Nieves">San Cristóbal y Nieves</option>
-                        <option value="San Vicente y las Granadinas">San Vicente y las Granadinas</option>
-                        <option value="Santa Lucia">Santa Lucía</option>
-                        <option value="Surinam">Surinam</option>
-                        <option value="Trinidad y Tobago">Trinidad y Tobago</option>
-                        <option value="Uruguay">Uruguay</option>
-                        <option value="Venezuela">Venezuela</option>
-                        </select>
-                    </div>
-                    <div class="center-button">
-                        <button id="search-btn" type="submit" class="mt-5 btn btn-primary full-width-btn">Buscar Vuelo</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-  </div>
-</div>                
- </div>
- </div>
- </div>
-</a>
-</div>
-                    <div class="col-md-3 mt-5 mb-5">
-                            <div class="image-container">
-                            <img src="../imagen/index/brasil.png" alt="Argentina" class="d-block w-100">
-                                <div class="overlay">
-                                    <div class="overlay-content">
-                                    <h4>Brasil</h4>
-                                    <h6>Río de Janeiro</h6>
-                                    <button id="openModalBtn" class="btn btn-primary">Tomar viaje</button> <!-- Cambié el <a> a <button> para evitar conflictos -->
-                                        <!-- El Modal --><div id="myModal" class="modal">
-                                            <div class="modal-content">
-                                                <span class="close">&times;</span>
-                                                <!-- Aquí puedes incluir tu formulario -->
-                                                 <div class="centered-card mt-4">
-                                                 <div class=" card-buscar card p-4">
-                                                 <div class="card-body">
-                                                 <h5 id="search-flight" class="card-title text-center text-formu">Busca tu Vuelo:</h5>
-                
-                                                 <form class="form-inline justify-content-center" method="get" action="">
-                   
-                                                 <div class="form-group mt-4">
-                        
-                                                 <label id="flight-date" class="text-formu">Fecha de Vuelo:</label>
-                        
-                                                 <input type="date" class="form-control" id="fechaVuelo" placeholder="Fecha de Vuelo" name="fecha" min="<?php echo $fechaActual; ?>" required>
-                    
-                                                </div>
-                   
-                                                <div class="form-group mt-4">
-                        
-                                                <label id="origin-country" class="text-formu">País de Origen:</label>
-                       
-                                                <select class="form-control w-50" id="Origen" name="origen">
-
-                                                <option value="Antigua y Barbuda">Antigua y Barbuda</option>
-                        <option value="Argentina">Argentina</option>
-                        <option value="Bahamas">Bahamas</option>
-                        <option value="Barbados">Barbados</option>
-                        <option value="Belice">Belice</option>
-                        <option value="Bolivia">Bolivia</option>
-                        <option value="Brasil">Brasil</option>
-                        <option value="Canada">Canadá</option>
-                        <option value="Chile">Chile</option>
-                        <option value="Colombia">Colombia</option>
-                        <option value="Costa Rica">Costa Rica</option>
-                        <option value="Cuba">Cuba</option>
-                        <option value="Dominica">Dominica</option>
-                        <option value="Ecuador">Ecuador</option>
-                        <option value="El Salvador">El Salvador</option>
-                        <option value="Estados-Unidos">Estados Unidos</option>
-                        <option value="Granada">Granada</option>
-                        <option value="Guatemala">Guatemala</option>
-                        <option value="Guyana">Guyana</option>
-                        <option value="Haiti">Haití</option>
-                        <option value="Honduras">Honduras</option>
-                        <option value="Jamaica">Jamaica</option>
-                        <option value="Mexico">México</option>
-                        <option value="Nicaragua">Nicaragua</option>
-                        <option value="Panama">Panamá</option>
-                        <option value="Paraguay">Paraguay</option>
-                        <option value="Peru">Perú</option>
-                        <option value="Republica Dominicana">República Dominicana</option>
-                        <option value="San Cristobal y Nieves">San Cristóbal y Nieves</option>
-                        <option value="San Vicente y las Granadinas">San Vicente y las Granadinas</option>
-                        <option value="Santa Lucia">Santa Lucía</option>
-                        <option value="Surinam">Surinam</option>
-                        <option value="Trinidad y Tobago">Trinidad y Tobago</option>
-                        <option value="Uruguay">Uruguay</option>
-                        <option value="Venezuela">Venezuela</option>
-
-                        </select>
-                    </div>
-                    <div class="form-group mt-4">
-                        <label id="destination-country" class="text-titulo text-formu">País de Destino:</label>
-                        <select class="form-control w-50" id="Destino" name="destino">
-                        <option value="Antigua y Barbuda">Antigua y Barbuda</option>
-                        <option value="Argentina">Argentina</option>
-                        <option value="Bahamas">Bahamas</option>
-                        <option value="Barbados">Barbados</option>
-                        <option value="Belice">Belice</option>
-                        <option value="Bolivia">Bolivia</option>
-                        <option value="Brasil">Brasil</option>
-                        <option value="Canada">Canadá</option>
-                        <option value="Chile">Chile</option>
-                        <option value="Colombia">Colombia</option>
-                        <option value="Costa Rica">Costa Rica</option>
-                        <option value="Cuba">Cuba</option>
-                        <option value="Dominica">Dominica</option>
-                        <option value="Ecuador">Ecuador</option>
-                        <option value="El Salvador">El Salvador</option>
-                        <option value="Estados-Unidos">Estados Unidos</option>
-                        <option value="Granada">Granada</option>
-                        <option value="Guatemala">Guatemala</option>
-                        <option value="Guyana">Guyana</option>
-                        <option value="Haiti">Haití</option>
-                        <option value="Honduras">Honduras</option>
-                        <option value="Jamaica">Jamaica</option>
-                        <option value="Mexico">México</option>
-                        <option value="Nicaragua">Nicaragua</option>
-                        <option value="Panama">Panamá</option>
-                        <option value="Paraguay">Paraguay</option>
-                        <option value="Peru">Perú</option>
-                        <option value="Republica Dominicana">República Dominicana</option>
-                        <option value="San Cristobal y Nieves">San Cristóbal y Nieves</option>
-                        <option value="San Vicente y las Granadinas">San Vicente y las Granadinas</option>
-                        <option value="Santa Lucia">Santa Lucía</option>
-                        <option value="Surinam">Surinam</option>
-                        <option value="Trinidad y Tobago">Trinidad y Tobago</option>
-                        <option value="Uruguay">Uruguay</option>
-                        <option value="Venezuela">Venezuela</option>
-                        </select>
-                    </div>
-                    <div class="center-button">
-                        <button id="search-btn" type="submit" class="mt-5 btn btn-primary full-width-btn">Buscar Vuelo</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-  </div>
-</div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </a>
-                    </div>
-
-
-                    <div class="col-md-3 mt-5 mb-5">
-
+                            </a>
+                        </div>
+                        <div class="col-md-3 mt-5 mb-5">
                             <div class="image-container">
-                            <img src="../imagen/index/ElSalvador.png" alt="Argentina" class="d-block w-100">
+                                <img src="../imagen/index/brasil.png" alt="Argentina" class="d-block w-100">
                                 <div class="overlay">
                                     <div class="overlay-content">
-                                    <h4>El Salvador</h4>
-                                    <h6>Playa El Tunco</h6>
-                                    <button id="openModalBtn" class="btn btn-primary">Tomar viaje</button> <!-- Cambié el <a> a <button> para evitar conflictos -->
-                                        <!-- El Modal --><div id="myModal" class="modal">
+                                        <h4>Brasil</h4>
+                                        <h6>Río de Janeiro</h6>
+                                        <button id="openModalBtn" class="btn btn-primary">Tomar viaje</button> <!-- Cambié el <a> a <button> para evitar conflictos -->
+                                        <!-- El Modal -->
+                                        <div id="myModal" class="modal">
                                             <div class="modal-content">
                                                 <span class="close">&times;</span>
                                                 <!-- Aquí puedes incluir tu formulario -->
-                                                 <div class="centered-card mt-4">
-                                                 <div class=" card-buscar card p-4">
-                                                 <div class="card-body">
-                                                 <h5 id="search-flight" class="card-title text-center text-formu">Busca tu Vuelo:</h5>
-                
-                                                 <form class="form-inline justify-content-center" method="get" action="">
-                   
-                                                 <div class="form-group mt-4">
-                        
-                                                 <label id="flight-date" class="text-formu">Fecha de Vuelo:</label>
-                        
-                                                 <input type="date" class="form-control" id="fechaVuelo" placeholder="Fecha de Vuelo" name="fecha" min="<?php echo $fechaActual; ?>" required>
-                    
+                                                <div class="centered-card mt-4">
+                                                    <div class=" card-buscar card p-4">
+                                                        <div class="card-body">
+                                                            <h5 id="search-flight" class="card-title text-center text-formu">Busca tu Vuelo:</h5>
+
+                                                            <form class="form-inline justify-content-center" method="get" action="">
+
+                                                                <div class="form-group mt-4">
+
+                                                                    <label id="flight-date" class="text-formu">Fecha de Vuelo:</label>
+
+                                                                    <input type="date" class="form-control" id="fechaVuelo" placeholder="Fecha de Vuelo" name="fecha" min="<?php echo $fechaActual; ?>" required>
+
+                                                                </div>
+
+                                                                <div class="form-group mt-4">
+
+                                                                    <label id="origin-country" class="text-formu">País de Origen:</label>
+
+                                                                    <select class="form-control w-50" id="Origen" name="origen">
+
+                                                                        <option value="Antigua y Barbuda">Antigua y Barbuda</option>
+                                                                        <option value="Argentina">Argentina</option>
+                                                                        <option value="Bahamas">Bahamas</option>
+                                                                        <option value="Barbados">Barbados</option>
+                                                                        <option value="Belice">Belice</option>
+                                                                        <option value="Bolivia">Bolivia</option>
+                                                                        <option value="Brasil">Brasil</option>
+                                                                        <option value="Canada">Canadá</option>
+                                                                        <option value="Chile">Chile</option>
+                                                                        <option value="Colombia">Colombia</option>
+                                                                        <option value="Costa Rica">Costa Rica</option>
+                                                                        <option value="Cuba">Cuba</option>
+                                                                        <option value="Dominica">Dominica</option>
+                                                                        <option value="Ecuador">Ecuador</option>
+                                                                        <option value="El Salvador">El Salvador</option>
+                                                                        <option value="Estados-Unidos">Estados Unidos</option>
+                                                                        <option value="Granada">Granada</option>
+                                                                        <option value="Guatemala">Guatemala</option>
+                                                                        <option value="Guyana">Guyana</option>
+                                                                        <option value="Haiti">Haití</option>
+                                                                        <option value="Honduras">Honduras</option>
+                                                                        <option value="Jamaica">Jamaica</option>
+                                                                        <option value="Mexico">México</option>
+                                                                        <option value="Nicaragua">Nicaragua</option>
+                                                                        <option value="Panama">Panamá</option>
+                                                                        <option value="Paraguay">Paraguay</option>
+                                                                        <option value="Peru">Perú</option>
+                                                                        <option value="Republica Dominicana">República Dominicana</option>
+                                                                        <option value="San Cristobal y Nieves">San Cristóbal y Nieves</option>
+                                                                        <option value="San Vicente y las Granadinas">San Vicente y las Granadinas</option>
+                                                                        <option value="Santa Lucia">Santa Lucía</option>
+                                                                        <option value="Surinam">Surinam</option>
+                                                                        <option value="Trinidad y Tobago">Trinidad y Tobago</option>
+                                                                        <option value="Uruguay">Uruguay</option>
+                                                                        <option value="Venezuela">Venezuela</option>
+
+                                                                    </select>
+                                                                </div>
+                                                                <div class="form-group mt-4">
+                                                                    <label id="destination-country" class="text-titulo text-formu">País de Destino:</label>
+                                                                    <select class="form-control w-50" id="Destino" name="destino">
+                                                                        <option value="Antigua y Barbuda">Antigua y Barbuda</option>
+                                                                        <option value="Argentina">Argentina</option>
+                                                                        <option value="Bahamas">Bahamas</option>
+                                                                        <option value="Barbados">Barbados</option>
+                                                                        <option value="Belice">Belice</option>
+                                                                        <option value="Bolivia">Bolivia</option>
+                                                                        <option value="Brasil">Brasil</option>
+                                                                        <option value="Canada">Canadá</option>
+                                                                        <option value="Chile">Chile</option>
+                                                                        <option value="Colombia">Colombia</option>
+                                                                        <option value="Costa Rica">Costa Rica</option>
+                                                                        <option value="Cuba">Cuba</option>
+                                                                        <option value="Dominica">Dominica</option>
+                                                                        <option value="Ecuador">Ecuador</option>
+                                                                        <option value="El Salvador">El Salvador</option>
+                                                                        <option value="Estados-Unidos">Estados Unidos</option>
+                                                                        <option value="Granada">Granada</option>
+                                                                        <option value="Guatemala">Guatemala</option>
+                                                                        <option value="Guyana">Guyana</option>
+                                                                        <option value="Haiti">Haití</option>
+                                                                        <option value="Honduras">Honduras</option>
+                                                                        <option value="Jamaica">Jamaica</option>
+                                                                        <option value="Mexico">México</option>
+                                                                        <option value="Nicaragua">Nicaragua</option>
+                                                                        <option value="Panama">Panamá</option>
+                                                                        <option value="Paraguay">Paraguay</option>
+                                                                        <option value="Peru">Perú</option>
+                                                                        <option value="Republica Dominicana">República Dominicana</option>
+                                                                        <option value="San Cristobal y Nieves">San Cristóbal y Nieves</option>
+                                                                        <option value="San Vicente y las Granadinas">San Vicente y las Granadinas</option>
+                                                                        <option value="Santa Lucia">Santa Lucía</option>
+                                                                        <option value="Surinam">Surinam</option>
+                                                                        <option value="Trinidad y Tobago">Trinidad y Tobago</option>
+                                                                        <option value="Uruguay">Uruguay</option>
+                                                                        <option value="Venezuela">Venezuela</option>
+                                                                    </select>
+                                                                </div>
+                                                                <div class="center-button">
+                                                                    <button id="search-btn" type="submit" class="mt-5 btn btn-primary full-width-btn">Buscar Vuelo</button>
+                                                                </div>
+                                                            </form>
+                                                        </div>
+                                                    </div>
                                                 </div>
-                   
-                                                <div class="form-group mt-4">
-                        
-                                                <label id="origin-country" class="text-formu">País de Origen:</label>
-                       
-                                                <select class="form-control w-50" id="Origen" name="origen">
-
-                                                <option value="Antigua y Barbuda">Antigua y Barbuda</option>
-                        <option value="Argentina">Argentina</option>
-                        <option value="Bahamas">Bahamas</option>
-                        <option value="Barbados">Barbados</option>
-                        <option value="Belice">Belice</option>
-                        <option value="Bolivia">Bolivia</option>
-                        <option value="Brasil">Brasil</option>
-                        <option value="Canada">Canadá</option>
-                        <option value="Chile">Chile</option>
-                        <option value="Colombia">Colombia</option>
-                        <option value="Costa Rica">Costa Rica</option>
-                        <option value="Cuba">Cuba</option>
-                        <option value="Dominica">Dominica</option>
-                        <option value="Ecuador">Ecuador</option>
-                        <option value="El Salvador">El Salvador</option>
-                        <option value="Estados-Unidos">Estados Unidos</option>
-                        <option value="Granada">Granada</option>
-                        <option value="Guatemala">Guatemala</option>
-                        <option value="Guyana">Guyana</option>
-                        <option value="Haiti">Haití</option>
-                        <option value="Honduras">Honduras</option>
-                        <option value="Jamaica">Jamaica</option>
-                        <option value="Mexico">México</option>
-                        <option value="Nicaragua">Nicaragua</option>
-                        <option value="Panama">Panamá</option>
-                        <option value="Paraguay">Paraguay</option>
-                        <option value="Peru">Perú</option>
-                        <option value="Republica Dominicana">República Dominicana</option>
-                        <option value="San Cristobal y Nieves">San Cristóbal y Nieves</option>
-                        <option value="San Vicente y las Granadinas">San Vicente y las Granadinas</option>
-                        <option value="Santa Lucia">Santa Lucía</option>
-                        <option value="Surinam">Surinam</option>
-                        <option value="Trinidad y Tobago">Trinidad y Tobago</option>
-                        <option value="Uruguay">Uruguay</option>
-                        <option value="Venezuela">Venezuela</option>
-
-                        </select>
-                    </div>
-                    <div class="form-group mt-4">
-                        <label id="destination-country" class="text-titulo text-formu">País de Destino:</label>
-                        <select class="form-control w-50" id="Destino" name="destino">
-                        <option value="Antigua y Barbuda">Antigua y Barbuda</option>
-                        <option value="Argentina">Argentina</option>
-                        <option value="Bahamas">Bahamas</option>
-                        <option value="Barbados">Barbados</option>
-                        <option value="Belice">Belice</option>
-                        <option value="Bolivia">Bolivia</option>
-                        <option value="Brasil">Brasil</option>
-                        <option value="Canada">Canadá</option>
-                        <option value="Chile">Chile</option>
-                        <option value="Colombia">Colombia</option>
-                        <option value="Costa Rica">Costa Rica</option>
-                        <option value="Cuba">Cuba</option>
-                        <option value="Dominica">Dominica</option>
-                        <option value="Ecuador">Ecuador</option>
-                        <option value="El Salvador">El Salvador</option>
-                        <option value="Estados-Unidos">Estados Unidos</option>
-                        <option value="Granada">Granada</option>
-                        <option value="Guatemala">Guatemala</option>
-                        <option value="Guyana">Guyana</option>
-                        <option value="Haiti">Haití</option>
-                        <option value="Honduras">Honduras</option>
-                        <option value="Jamaica">Jamaica</option>
-                        <option value="Mexico">México</option>
-                        <option value="Nicaragua">Nicaragua</option>
-                        <option value="Panama">Panamá</option>
-                        <option value="Paraguay">Paraguay</option>
-                        <option value="Peru">Perú</option>
-                        <option value="Republica Dominicana">República Dominicana</option>
-                        <option value="San Cristobal y Nieves">San Cristóbal y Nieves</option>
-                        <option value="San Vicente y las Granadinas">San Vicente y las Granadinas</option>
-                        <option value="Santa Lucia">Santa Lucía</option>
-                        <option value="Surinam">Surinam</option>
-                        <option value="Trinidad y Tobago">Trinidad y Tobago</option>
-                        <option value="Uruguay">Uruguay</option>
-                        <option value="Venezuela">Venezuela</option>
-                        </select>
-                    </div>
-                    <div class="center-button">
-                        <button id="search-btn" type="submit" class="mt-5 btn btn-primary full-width-btn">Buscar Vuelo</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-  </div>
-</div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </a>
-                    </div>
+                            </a>
+                        </div>
 
 
-                    <div class="col-md-3 mt-5 mb-5">
+                        <div class="col-md-3 mt-5 mb-5">
+
                             <div class="image-container">
-                            <img src="../imagen/index/guatemala.png" alt="Argentina" class="d-block w-100">
+                                <img src="../imagen/index/ElSalvador.png" alt="Argentina" class="d-block w-100">
                                 <div class="overlay">
                                     <div class="overlay-content">
-                                    <h4>Guatemala</h4>
-                                    <h6>Ciudad de Antigua Guatemala</h6>
-                                    <button id="openModalBtn" class="btn btn-primary">Tomar viaje</button> <!-- Cambié el <a> a <button> para evitar conflictos -->
-                                        <!-- El Modal --><div id="myModal" class="modal">
+                                        <h4>El Salvador</h4>
+                                        <h6>Playa El Tunco</h6>
+                                        <button id="openModalBtn" class="btn btn-primary">Tomar viaje</button> <!-- Cambié el <a> a <button> para evitar conflictos -->
+                                        <!-- El Modal -->
+                                        <div id="myModal" class="modal">
                                             <div class="modal-content">
                                                 <span class="close">&times;</span>
                                                 <!-- Aquí puedes incluir tu formulario -->
-                                                 <div class="centered-card mt-4">
-                                                 <div class=" card-buscar card p-4">
-                                                 <div class="card-body">
-                                                 <h5 id="search-flight" class="card-title text-center text-formu">Busca tu Vuelo:</h5>
-                
-                                                 <form class="form-inline justify-content-center" method="get" action="">
-                   
-                                                 <div class="form-group mt-4">
-                        
-                                                 <label id="flight-date" class="text-formu">Fecha de Vuelo:</label>
-                        
-                                                 <input type="date" class="form-control" id="fechaVuelo" placeholder="Fecha de Vuelo" name="fecha" min="<?php echo $fechaActual; ?>" required>
-                    
+                                                <div class="centered-card mt-4">
+                                                    <div class=" card-buscar card p-4">
+                                                        <div class="card-body">
+                                                            <h5 id="search-flight" class="card-title text-center text-formu">Busca tu Vuelo:</h5>
+
+                                                            <form class="form-inline justify-content-center" method="get" action="">
+
+                                                                <div class="form-group mt-4">
+
+                                                                    <label id="flight-date" class="text-formu">Fecha de Vuelo:</label>
+
+                                                                    <input type="date" class="form-control" id="fechaVuelo" placeholder="Fecha de Vuelo" name="fecha" min="<?php echo $fechaActual; ?>" required>
+
+                                                                </div>
+
+                                                                <div class="form-group mt-4">
+
+                                                                    <label id="origin-country" class="text-formu">País de Origen:</label>
+
+                                                                    <select class="form-control w-50" id="Origen" name="origen">
+
+                                                                        <option value="Antigua y Barbuda">Antigua y Barbuda</option>
+                                                                        <option value="Argentina">Argentina</option>
+                                                                        <option value="Bahamas">Bahamas</option>
+                                                                        <option value="Barbados">Barbados</option>
+                                                                        <option value="Belice">Belice</option>
+                                                                        <option value="Bolivia">Bolivia</option>
+                                                                        <option value="Brasil">Brasil</option>
+                                                                        <option value="Canada">Canadá</option>
+                                                                        <option value="Chile">Chile</option>
+                                                                        <option value="Colombia">Colombia</option>
+                                                                        <option value="Costa Rica">Costa Rica</option>
+                                                                        <option value="Cuba">Cuba</option>
+                                                                        <option value="Dominica">Dominica</option>
+                                                                        <option value="Ecuador">Ecuador</option>
+                                                                        <option value="El Salvador">El Salvador</option>
+                                                                        <option value="Estados-Unidos">Estados Unidos</option>
+                                                                        <option value="Granada">Granada</option>
+                                                                        <option value="Guatemala">Guatemala</option>
+                                                                        <option value="Guyana">Guyana</option>
+                                                                        <option value="Haiti">Haití</option>
+                                                                        <option value="Honduras">Honduras</option>
+                                                                        <option value="Jamaica">Jamaica</option>
+                                                                        <option value="Mexico">México</option>
+                                                                        <option value="Nicaragua">Nicaragua</option>
+                                                                        <option value="Panama">Panamá</option>
+                                                                        <option value="Paraguay">Paraguay</option>
+                                                                        <option value="Peru">Perú</option>
+                                                                        <option value="Republica Dominicana">República Dominicana</option>
+                                                                        <option value="San Cristobal y Nieves">San Cristóbal y Nieves</option>
+                                                                        <option value="San Vicente y las Granadinas">San Vicente y las Granadinas</option>
+                                                                        <option value="Santa Lucia">Santa Lucía</option>
+                                                                        <option value="Surinam">Surinam</option>
+                                                                        <option value="Trinidad y Tobago">Trinidad y Tobago</option>
+                                                                        <option value="Uruguay">Uruguay</option>
+                                                                        <option value="Venezuela">Venezuela</option>
+
+                                                                    </select>
+                                                                </div>
+                                                                <div class="form-group mt-4">
+                                                                    <label id="destination-country" class="text-titulo text-formu">País de Destino:</label>
+                                                                    <select class="form-control w-50" id="Destino" name="destino">
+                                                                        <option value="Antigua y Barbuda">Antigua y Barbuda</option>
+                                                                        <option value="Argentina">Argentina</option>
+                                                                        <option value="Bahamas">Bahamas</option>
+                                                                        <option value="Barbados">Barbados</option>
+                                                                        <option value="Belice">Belice</option>
+                                                                        <option value="Bolivia">Bolivia</option>
+                                                                        <option value="Brasil">Brasil</option>
+                                                                        <option value="Canada">Canadá</option>
+                                                                        <option value="Chile">Chile</option>
+                                                                        <option value="Colombia">Colombia</option>
+                                                                        <option value="Costa Rica">Costa Rica</option>
+                                                                        <option value="Cuba">Cuba</option>
+                                                                        <option value="Dominica">Dominica</option>
+                                                                        <option value="Ecuador">Ecuador</option>
+                                                                        <option value="El Salvador">El Salvador</option>
+                                                                        <option value="Estados-Unidos">Estados Unidos</option>
+                                                                        <option value="Granada">Granada</option>
+                                                                        <option value="Guatemala">Guatemala</option>
+                                                                        <option value="Guyana">Guyana</option>
+                                                                        <option value="Haiti">Haití</option>
+                                                                        <option value="Honduras">Honduras</option>
+                                                                        <option value="Jamaica">Jamaica</option>
+                                                                        <option value="Mexico">México</option>
+                                                                        <option value="Nicaragua">Nicaragua</option>
+                                                                        <option value="Panama">Panamá</option>
+                                                                        <option value="Paraguay">Paraguay</option>
+                                                                        <option value="Peru">Perú</option>
+                                                                        <option value="Republica Dominicana">República Dominicana</option>
+                                                                        <option value="San Cristobal y Nieves">San Cristóbal y Nieves</option>
+                                                                        <option value="San Vicente y las Granadinas">San Vicente y las Granadinas</option>
+                                                                        <option value="Santa Lucia">Santa Lucía</option>
+                                                                        <option value="Surinam">Surinam</option>
+                                                                        <option value="Trinidad y Tobago">Trinidad y Tobago</option>
+                                                                        <option value="Uruguay">Uruguay</option>
+                                                                        <option value="Venezuela">Venezuela</option>
+                                                                    </select>
+                                                                </div>
+                                                                <div class="center-button">
+                                                                    <button id="search-btn" type="submit" class="mt-5 btn btn-primary full-width-btn">Buscar Vuelo</button>
+                                                                </div>
+                                                            </form>
+                                                        </div>
+                                                    </div>
                                                 </div>
-                   
-                                                <div class="form-group mt-4">
-                        
-                                                <label id="origin-country" class="text-formu">País de Origen:</label>
-                       
-                                                <select class="form-control w-50" id="Origen" name="origen">
-
-                                                <option value="Antigua y Barbuda">Antigua y Barbuda</option>
-                        <option value="Argentina">Argentina</option>
-                        <option value="Bahamas">Bahamas</option>
-                        <option value="Barbados">Barbados</option>
-                        <option value="Belice">Belice</option>
-                        <option value="Bolivia">Bolivia</option>
-                        <option value="Brasil">Brasil</option>
-                        <option value="Canada">Canadá</option>
-                        <option value="Chile">Chile</option>
-                        <option value="Colombia">Colombia</option>
-                        <option value="Costa Rica">Costa Rica</option>
-                        <option value="Cuba">Cuba</option>
-                        <option value="Dominica">Dominica</option>
-                        <option value="Ecuador">Ecuador</option>
-                        <option value="El Salvador">El Salvador</option>
-                        <option value="Estados-Unidos">Estados Unidos</option>
-                        <option value="Granada">Granada</option>
-                        <option value="Guatemala">Guatemala</option>
-                        <option value="Guyana">Guyana</option>
-                        <option value="Haiti">Haití</option>
-                        <option value="Honduras">Honduras</option>
-                        <option value="Jamaica">Jamaica</option>
-                        <option value="Mexico">México</option>
-                        <option value="Nicaragua">Nicaragua</option>
-                        <option value="Panama">Panamá</option>
-                        <option value="Paraguay">Paraguay</option>
-                        <option value="Peru">Perú</option>
-                        <option value="Republica Dominicana">República Dominicana</option>
-                        <option value="San Cristobal y Nieves">San Cristóbal y Nieves</option>
-                        <option value="San Vicente y las Granadinas">San Vicente y las Granadinas</option>
-                        <option value="Santa Lucia">Santa Lucía</option>
-                        <option value="Surinam">Surinam</option>
-                        <option value="Trinidad y Tobago">Trinidad y Tobago</option>
-                        <option value="Uruguay">Uruguay</option>
-                        <option value="Venezuela">Venezuela</option>
-
-                        </select>
-                    </div>
-                    <div class="form-group mt-4">
-                        <label id="destination-country" class="text-titulo text-formu">País de Destino:</label>
-                        <select class="form-control w-50" id="Destino" name="destino">
-                        <option value="Antigua y Barbuda">Antigua y Barbuda</option>
-                        <option value="Argentina">Argentina</option>
-                        <option value="Bahamas">Bahamas</option>
-                        <option value="Barbados">Barbados</option>
-                        <option value="Belice">Belice</option>
-                        <option value="Bolivia">Bolivia</option>
-                        <option value="Brasil">Brasil</option>
-                        <option value="Canada">Canadá</option>
-                        <option value="Chile">Chile</option>
-                        <option value="Colombia">Colombia</option>
-                        <option value="Costa Rica">Costa Rica</option>
-                        <option value="Cuba">Cuba</option>
-                        <option value="Dominica">Dominica</option>
-                        <option value="Ecuador">Ecuador</option>
-                        <option value="El Salvador">El Salvador</option>
-                        <option value="Estados-Unidos">Estados Unidos</option>
-                        <option value="Granada">Granada</option>
-                        <option value="Guatemala">Guatemala</option>
-                        <option value="Guyana">Guyana</option>
-                        <option value="Haiti">Haití</option>
-                        <option value="Honduras">Honduras</option>
-                        <option value="Jamaica">Jamaica</option>
-                        <option value="Mexico">México</option>
-                        <option value="Nicaragua">Nicaragua</option>
-                        <option value="Panama">Panamá</option>
-                        <option value="Paraguay">Paraguay</option>
-                        <option value="Peru">Perú</option>
-                        <option value="Republica Dominicana">República Dominicana</option>
-                        <option value="San Cristobal y Nieves">San Cristóbal y Nieves</option>
-                        <option value="San Vicente y las Granadinas">San Vicente y las Granadinas</option>
-                        <option value="Santa Lucia">Santa Lucía</option>
-                        <option value="Surinam">Surinam</option>
-                        <option value="Trinidad y Tobago">Trinidad y Tobago</option>
-                        <option value="Uruguay">Uruguay</option>
-                        <option value="Venezuela">Venezuela</option>
-                        </select>
-                    </div>
-                    <div class="center-button">
-                        <button id="search-btn" type="submit" class="mt-5 btn btn-primary full-width-btn">Buscar Vuelo</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-  </div>
-</div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </a>
+                            </a>
+                        </div>
+
+
+                        <div class="col-md-3 mt-5 mb-5">
+                            <div class="image-container">
+                                <img src="../imagen/index/guatemala.png" alt="Argentina" class="d-block w-100">
+                                <div class="overlay">
+                                    <div class="overlay-content">
+                                        <h4>Guatemala</h4>
+                                        <h6>Ciudad de Antigua Guatemala</h6>
+                                        <button id="openModalBtn" class="btn btn-primary">Tomar viaje</button> <!-- Cambié el <a> a <button> para evitar conflictos -->
+                                        <!-- El Modal -->
+                                        <div id="myModal" class="modal">
+                                            <div class="modal-content">
+                                                <span class="close">&times;</span>
+                                                <!-- Aquí puedes incluir tu formulario -->
+                                                <div class="centered-card mt-4">
+                                                    <div class=" card-buscar card p-4">
+                                                        <div class="card-body">
+                                                            <h5 id="search-flight" class="card-title text-center text-formu">Busca tu Vuelo:</h5>
+
+                                                            <form class="form-inline justify-content-center" method="get" action="">
+
+                                                                <div class="form-group mt-4">
+
+                                                                    <label id="flight-date" class="text-formu">Fecha de Vuelo:</label>
+
+                                                                    <input type="date" class="form-control" id="fechaVuelo" placeholder="Fecha de Vuelo" name="fecha" min="<?php echo $fechaActual; ?>" required>
+
+                                                                </div>
+
+                                                                <div class="form-group mt-4">
+
+                                                                    <label id="origin-country" class="text-formu">País de Origen:</label>
+
+                                                                    <select class="form-control w-50" id="Origen" name="origen">
+
+                                                                        <option value="Antigua y Barbuda">Antigua y Barbuda</option>
+                                                                        <option value="Argentina">Argentina</option>
+                                                                        <option value="Bahamas">Bahamas</option>
+                                                                        <option value="Barbados">Barbados</option>
+                                                                        <option value="Belice">Belice</option>
+                                                                        <option value="Bolivia">Bolivia</option>
+                                                                        <option value="Brasil">Brasil</option>
+                                                                        <option value="Canada">Canadá</option>
+                                                                        <option value="Chile">Chile</option>
+                                                                        <option value="Colombia">Colombia</option>
+                                                                        <option value="Costa Rica">Costa Rica</option>
+                                                                        <option value="Cuba">Cuba</option>
+                                                                        <option value="Dominica">Dominica</option>
+                                                                        <option value="Ecuador">Ecuador</option>
+                                                                        <option value="El Salvador">El Salvador</option>
+                                                                        <option value="Estados-Unidos">Estados Unidos</option>
+                                                                        <option value="Granada">Granada</option>
+                                                                        <option value="Guatemala">Guatemala</option>
+                                                                        <option value="Guyana">Guyana</option>
+                                                                        <option value="Haiti">Haití</option>
+                                                                        <option value="Honduras">Honduras</option>
+                                                                        <option value="Jamaica">Jamaica</option>
+                                                                        <option value="Mexico">México</option>
+                                                                        <option value="Nicaragua">Nicaragua</option>
+                                                                        <option value="Panama">Panamá</option>
+                                                                        <option value="Paraguay">Paraguay</option>
+                                                                        <option value="Peru">Perú</option>
+                                                                        <option value="Republica Dominicana">República Dominicana</option>
+                                                                        <option value="San Cristobal y Nieves">San Cristóbal y Nieves</option>
+                                                                        <option value="San Vicente y las Granadinas">San Vicente y las Granadinas</option>
+                                                                        <option value="Santa Lucia">Santa Lucía</option>
+                                                                        <option value="Surinam">Surinam</option>
+                                                                        <option value="Trinidad y Tobago">Trinidad y Tobago</option>
+                                                                        <option value="Uruguay">Uruguay</option>
+                                                                        <option value="Venezuela">Venezuela</option>
+
+                                                                    </select>
+                                                                </div>
+                                                                <div class="form-group mt-4">
+                                                                    <label id="destination-country" class="text-titulo text-formu">País de Destino:</label>
+                                                                    <select class="form-control w-50" id="Destino" name="destino">
+                                                                        <option value="Antigua y Barbuda">Antigua y Barbuda</option>
+                                                                        <option value="Argentina">Argentina</option>
+                                                                        <option value="Bahamas">Bahamas</option>
+                                                                        <option value="Barbados">Barbados</option>
+                                                                        <option value="Belice">Belice</option>
+                                                                        <option value="Bolivia">Bolivia</option>
+                                                                        <option value="Brasil">Brasil</option>
+                                                                        <option value="Canada">Canadá</option>
+                                                                        <option value="Chile">Chile</option>
+                                                                        <option value="Colombia">Colombia</option>
+                                                                        <option value="Costa Rica">Costa Rica</option>
+                                                                        <option value="Cuba">Cuba</option>
+                                                                        <option value="Dominica">Dominica</option>
+                                                                        <option value="Ecuador">Ecuador</option>
+                                                                        <option value="El Salvador">El Salvador</option>
+                                                                        <option value="Estados-Unidos">Estados Unidos</option>
+                                                                        <option value="Granada">Granada</option>
+                                                                        <option value="Guatemala">Guatemala</option>
+                                                                        <option value="Guyana">Guyana</option>
+                                                                        <option value="Haiti">Haití</option>
+                                                                        <option value="Honduras">Honduras</option>
+                                                                        <option value="Jamaica">Jamaica</option>
+                                                                        <option value="Mexico">México</option>
+                                                                        <option value="Nicaragua">Nicaragua</option>
+                                                                        <option value="Panama">Panamá</option>
+                                                                        <option value="Paraguay">Paraguay</option>
+                                                                        <option value="Peru">Perú</option>
+                                                                        <option value="Republica Dominicana">República Dominicana</option>
+                                                                        <option value="San Cristobal y Nieves">San Cristóbal y Nieves</option>
+                                                                        <option value="San Vicente y las Granadinas">San Vicente y las Granadinas</option>
+                                                                        <option value="Santa Lucia">Santa Lucía</option>
+                                                                        <option value="Surinam">Surinam</option>
+                                                                        <option value="Trinidad y Tobago">Trinidad y Tobago</option>
+                                                                        <option value="Uruguay">Uruguay</option>
+                                                                        <option value="Venezuela">Venezuela</option>
+                                                                    </select>
+                                                                </div>
+                                                                <div class="center-button">
+                                                                    <button id="search-btn" type="submit" class="mt-5 btn btn-primary full-width-btn">Buscar Vuelo</button>
+                                                                </div>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            </a>
+                        </div>
+
+
                     </div>
+                </div>
+                <!-- Segundo fila de imágenes -->
+                <div class="carousel-item">
+                    <div class="row">
 
 
+                        <div class="col-md-3 mt-5 mb-5">
+                            <div class="image-container">
+                                <img src="../imagen/index/MX.png" alt="Argentina" class="d-block w-100">
+                                <div class="overlay">
+                                    <div class="overlay-content">
+                                        <h4>México</h4>
+                                        <h6>Chichén Itzá</h6>
+                                        <button id="openModalBtn" class="btn btn-primary">Tomar viaje</button> <!-- Cambié el <a> a <button> para evitar conflictos -->
+                                        <!-- El Modal -->
+                                        <div id="myModal" class="modal">
+                                            <div class="modal-content">
+                                                <span class="close">&times;</span>
+                                                <!-- Aquí puedes incluir tu formulario -->
+                                                <div class="centered-card mt-4">
+                                                    <div class=" card-buscar card p-4">
+                                                        <div class="card-body">
+                                                            <h5 id="search-flight" class="card-title text-center text-formu">Busca tu Vuelo:</h5>
+
+                                                            <form class="form-inline justify-content-center" method="get" action="">
+
+                                                                <div class="form-group mt-4">
+
+                                                                    <label id="flight-date" class="text-formu">Fecha de Vuelo:</label>
+
+                                                                    <input type="date" class="form-control" id="fechaVuelo" placeholder="Fecha de Vuelo" name="fecha" min="<?php echo $fechaActual; ?>" required>
+
+                                                                </div>
+
+                                                                <div class="form-group mt-4">
+
+                                                                    <label id="origin-country" class="text-formu">País de Origen:</label>
+
+                                                                    <select class="form-control w-50" id="Origen" name="origen">
+
+                                                                        <option value="Antigua y Barbuda">Antigua y Barbuda</option>
+                                                                        <option value="Argentina">Argentina</option>
+                                                                        <option value="Bahamas">Bahamas</option>
+                                                                        <option value="Barbados">Barbados</option>
+                                                                        <option value="Belice">Belice</option>
+                                                                        <option value="Bolivia">Bolivia</option>
+                                                                        <option value="Brasil">Brasil</option>
+                                                                        <option value="Canada">Canadá</option>
+                                                                        <option value="Chile">Chile</option>
+                                                                        <option value="Colombia">Colombia</option>
+                                                                        <option value="Costa Rica">Costa Rica</option>
+                                                                        <option value="Cuba">Cuba</option>
+                                                                        <option value="Dominica">Dominica</option>
+                                                                        <option value="Ecuador">Ecuador</option>
+                                                                        <option value="El Salvador">El Salvador</option>
+                                                                        <option value="Estados-Unidos">Estados Unidos</option>
+                                                                        <option value="Granada">Granada</option>
+                                                                        <option value="Guatemala">Guatemala</option>
+                                                                        <option value="Guyana">Guyana</option>
+                                                                        <option value="Haiti">Haití</option>
+                                                                        <option value="Honduras">Honduras</option>
+                                                                        <option value="Jamaica">Jamaica</option>
+                                                                        <option value="Mexico">México</option>
+                                                                        <option value="Nicaragua">Nicaragua</option>
+                                                                        <option value="Panama">Panamá</option>
+                                                                        <option value="Paraguay">Paraguay</option>
+                                                                        <option value="Peru">Perú</option>
+                                                                        <option value="Republica Dominicana">República Dominicana</option>
+                                                                        <option value="San Cristobal y Nieves">San Cristóbal y Nieves</option>
+                                                                        <option value="San Vicente y las Granadinas">San Vicente y las Granadinas</option>
+                                                                        <option value="Santa Lucia">Santa Lucía</option>
+                                                                        <option value="Surinam">Surinam</option>
+                                                                        <option value="Trinidad y Tobago">Trinidad y Tobago</option>
+                                                                        <option value="Uruguay">Uruguay</option>
+                                                                        <option value="Venezuela">Venezuela</option>
+
+                                                                    </select>
+                                                                </div>
+                                                                <div class="form-group mt-4">
+                                                                    <label id="destination-country" class="text-titulo text-formu">País de Destino:</label>
+                                                                    <select class="form-control w-50" id="Destino" name="destino">
+                                                                        <option value="Antigua y Barbuda">Antigua y Barbuda</option>
+                                                                        <option value="Argentina">Argentina</option>
+                                                                        <option value="Bahamas">Bahamas</option>
+                                                                        <option value="Barbados">Barbados</option>
+                                                                        <option value="Belice">Belice</option>
+                                                                        <option value="Bolivia">Bolivia</option>
+                                                                        <option value="Brasil">Brasil</option>
+                                                                        <option value="Canada">Canadá</option>
+                                                                        <option value="Chile">Chile</option>
+                                                                        <option value="Colombia">Colombia</option>
+                                                                        <option value="Costa Rica">Costa Rica</option>
+                                                                        <option value="Cuba">Cuba</option>
+                                                                        <option value="Dominica">Dominica</option>
+                                                                        <option value="Ecuador">Ecuador</option>
+                                                                        <option value="El Salvador">El Salvador</option>
+                                                                        <option value="Estados-Unidos">Estados Unidos</option>
+                                                                        <option value="Granada">Granada</option>
+                                                                        <option value="Guatemala">Guatemala</option>
+                                                                        <option value="Guyana">Guyana</option>
+                                                                        <option value="Haiti">Haití</option>
+                                                                        <option value="Honduras">Honduras</option>
+                                                                        <option value="Jamaica">Jamaica</option>
+                                                                        <option value="Mexico">México</option>
+                                                                        <option value="Nicaragua">Nicaragua</option>
+                                                                        <option value="Panama">Panamá</option>
+                                                                        <option value="Paraguay">Paraguay</option>
+                                                                        <option value="Peru">Perú</option>
+                                                                        <option value="Republica Dominicana">República Dominicana</option>
+                                                                        <option value="San Cristobal y Nieves">San Cristóbal y Nieves</option>
+                                                                        <option value="San Vicente y las Granadinas">San Vicente y las Granadinas</option>
+                                                                        <option value="Santa Lucia">Santa Lucía</option>
+                                                                        <option value="Surinam">Surinam</option>
+                                                                        <option value="Trinidad y Tobago">Trinidad y Tobago</option>
+                                                                        <option value="Uruguay">Uruguay</option>
+                                                                        <option value="Venezuela">Venezuela</option>
+                                                                    </select>
+                                                                </div>
+                                                                <div class="center-button">
+                                                                    <button id="search-btn" type="submit" class="mt-5 btn btn-primary full-width-btn">Buscar Vuelo</button>
+                                                                </div>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            </a>
+                        </div>
+
+                        <div class="col-md-3 mt-5 mb-5">
+                            <div class="image-container">
+                                <img src="../imagen/index/EEUU.png" alt="Argentina" class="d-block w-100">
+                                <div class="overlay">
+                                    <div class="overlay-content">
+                                        <h4>Estados Unidos</h4>
+                                        <h6>Gran Cañón</h6>
+                                        <button id="openModalBtn" class="btn btn-primary">Tomar viaje</button> <!-- Cambié el <a> a <button> para evitar conflictos -->
+                                        <!-- El Modal -->
+                                        <div id="myModal" class="modal">
+                                            <div class="modal-content">
+                                                <span class="close">&times;</span>
+                                                <!-- Aquí puedes incluir tu formulario -->
+                                                <div class="centered-card mt-4">
+                                                    <div class=" card-buscar card p-4">
+                                                        <div class="card-body">
+                                                            <h5 id="search-flight" class="card-title text-center text-formu">Busca tu Vuelo:</h5>
+
+                                                            <form class="form-inline justify-content-center" method="get" action="">
+
+                                                                <div class="form-group mt-4">
+
+                                                                    <label id="flight-date" class="text-formu">Fecha de Vuelo:</label>
+
+                                                                    <input type="date" class="form-control" id="fechaVuelo" placeholder="Fecha de Vuelo" name="fecha" min="<?php echo $fechaActual; ?>" required>
+
+                                                                </div>
+
+                                                                <div class="form-group mt-4">
+
+                                                                    <label id="origin-country" class="text-formu">País de Origen:</label>
+
+                                                                    <select class="form-control w-50" id="Origen" name="origen">
+
+                                                                        <option value="Antigua y Barbuda">Antigua y Barbuda</option>
+                                                                        <option value="Argentina">Argentina</option>
+                                                                        <option value="Bahamas">Bahamas</option>
+                                                                        <option value="Barbados">Barbados</option>
+                                                                        <option value="Belice">Belice</option>
+                                                                        <option value="Bolivia">Bolivia</option>
+                                                                        <option value="Brasil">Brasil</option>
+                                                                        <option value="Canada">Canadá</option>
+                                                                        <option value="Chile">Chile</option>
+                                                                        <option value="Colombia">Colombia</option>
+                                                                        <option value="Costa Rica">Costa Rica</option>
+                                                                        <option value="Cuba">Cuba</option>
+                                                                        <option value="Dominica">Dominica</option>
+                                                                        <option value="Ecuador">Ecuador</option>
+                                                                        <option value="El Salvador">El Salvador</option>
+                                                                        <option value="Estados-Unidos">Estados Unidos</option>
+                                                                        <option value="Granada">Granada</option>
+                                                                        <option value="Guatemala">Guatemala</option>
+                                                                        <option value="Guyana">Guyana</option>
+                                                                        <option value="Haiti">Haití</option>
+                                                                        <option value="Honduras">Honduras</option>
+                                                                        <option value="Jamaica">Jamaica</option>
+                                                                        <option value="Mexico">México</option>
+                                                                        <option value="Nicaragua">Nicaragua</option>
+                                                                        <option value="Panama">Panamá</option>
+                                                                        <option value="Paraguay">Paraguay</option>
+                                                                        <option value="Peru">Perú</option>
+                                                                        <option value="Republica Dominicana">República Dominicana</option>
+                                                                        <option value="San Cristobal y Nieves">San Cristóbal y Nieves</option>
+                                                                        <option value="San Vicente y las Granadinas">San Vicente y las Granadinas</option>
+                                                                        <option value="Santa Lucia">Santa Lucía</option>
+                                                                        <option value="Surinam">Surinam</option>
+                                                                        <option value="Trinidad y Tobago">Trinidad y Tobago</option>
+                                                                        <option value="Uruguay">Uruguay</option>
+                                                                        <option value="Venezuela">Venezuela</option>
+
+                                                                    </select>
+                                                                </div>
+                                                                <div class="form-group mt-4">
+                                                                    <label id="destination-country" class="text-titulo text-formu">País de Destino:</label>
+                                                                    <select class="form-control w-50" id="Destino" name="destino">
+                                                                        <option value="Antigua y Barbuda">Antigua y Barbuda</option>
+                                                                        <option value="Argentina">Argentina</option>
+                                                                        <option value="Bahamas">Bahamas</option>
+                                                                        <option value="Barbados">Barbados</option>
+                                                                        <option value="Belice">Belice</option>
+                                                                        <option value="Bolivia">Bolivia</option>
+                                                                        <option value="Brasil">Brasil</option>
+                                                                        <option value="Canada">Canadá</option>
+                                                                        <option value="Chile">Chile</option>
+                                                                        <option value="Colombia">Colombia</option>
+                                                                        <option value="Costa Rica">Costa Rica</option>
+                                                                        <option value="Cuba">Cuba</option>
+                                                                        <option value="Dominica">Dominica</option>
+                                                                        <option value="Ecuador">Ecuador</option>
+                                                                        <option value="El Salvador">El Salvador</option>
+                                                                        <option value="Estados-Unidos">Estados Unidos</option>
+                                                                        <option value="Granada">Granada</option>
+                                                                        <option value="Guatemala">Guatemala</option>
+                                                                        <option value="Guyana">Guyana</option>
+                                                                        <option value="Haiti">Haití</option>
+                                                                        <option value="Honduras">Honduras</option>
+                                                                        <option value="Jamaica">Jamaica</option>
+                                                                        <option value="Mexico">México</option>
+                                                                        <option value="Nicaragua">Nicaragua</option>
+                                                                        <option value="Panama">Panamá</option>
+                                                                        <option value="Paraguay">Paraguay</option>
+                                                                        <option value="Peru">Perú</option>
+                                                                        <option value="Republica Dominicana">República Dominicana</option>
+                                                                        <option value="San Cristobal y Nieves">San Cristóbal y Nieves</option>
+                                                                        <option value="San Vicente y las Granadinas">San Vicente y las Granadinas</option>
+                                                                        <option value="Santa Lucia">Santa Lucía</option>
+                                                                        <option value="Surinam">Surinam</option>
+                                                                        <option value="Trinidad y Tobago">Trinidad y Tobago</option>
+                                                                        <option value="Uruguay">Uruguay</option>
+                                                                        <option value="Venezuela">Venezuela</option>
+                                                                    </select>
+                                                                </div>
+                                                                <div class="center-button">
+                                                                    <button id="search-btn" type="submit" class="mt-5 btn btn-primary full-width-btn">Buscar Vuelo</button>
+                                                                </div>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            </a>
+                        </div>
+
+
+                        <div class="col-md-3 mt-5 mb-5">
+                            <div class="image-container">
+                                <img src="../imagen/index/venezuela.png" alt="Argentina" class="d-block w-100">
+                                <div class="overlay">
+                                    <div class="overlay-content">
+                                        <h4>Venezuela</h4>
+                                        <h6>Roraima</h6>
+                                        <button id="openModalBtn" class="btn btn-primary">Tomar viaje</button> <!-- Cambié el <a> a <button> para evitar conflictos -->
+                                        <!-- El Modal -->
+                                        <div id="myModal" class="modal">
+                                            <div class="modal-content">
+                                                <span class="close">&times;</span>
+                                                <!-- Aquí puedes incluir tu formulario -->
+                                                <div class="centered-card mt-4">
+                                                    <div class=" card-buscar card p-4">
+                                                        <div class="card-body">
+                                                            <h5 id="search-flight" class="card-title text-center text-formu">Busca tu Vuelo:</h5>
+
+                                                            <form class="form-inline justify-content-center" method="get" action="">
+
+                                                                <div class="form-group mt-4">
+
+                                                                    <label id="flight-date" class="text-formu">Fecha de Vuelo:</label>
+
+                                                                    <input type="date" class="form-control" id="fechaVuelo" placeholder="Fecha de Vuelo" name="fecha" min="<?php echo $fechaActual; ?>" required>
+
+                                                                </div>
+
+                                                                <div class="form-group mt-4">
+
+                                                                    <label id="origin-country" class="text-formu">País de Origen:</label>
+
+                                                                    <select class="form-control w-50" id="Origen" name="origen">
+
+                                                                        <option value="Antigua y Barbuda">Antigua y Barbuda</option>
+                                                                        <option value="Argentina">Argentina</option>
+                                                                        <option value="Bahamas">Bahamas</option>
+                                                                        <option value="Barbados">Barbados</option>
+                                                                        <option value="Belice">Belice</option>
+                                                                        <option value="Bolivia">Bolivia</option>
+                                                                        <option value="Brasil">Brasil</option>
+                                                                        <option value="Canada">Canadá</option>
+                                                                        <option value="Chile">Chile</option>
+                                                                        <option value="Colombia">Colombia</option>
+                                                                        <option value="Costa Rica">Costa Rica</option>
+                                                                        <option value="Cuba">Cuba</option>
+                                                                        <option value="Dominica">Dominica</option>
+                                                                        <option value="Ecuador">Ecuador</option>
+                                                                        <option value="El Salvador">El Salvador</option>
+                                                                        <option value="Estados-Unidos">Estados Unidos</option>
+                                                                        <option value="Granada">Granada</option>
+                                                                        <option value="Guatemala">Guatemala</option>
+                                                                        <option value="Guyana">Guyana</option>
+                                                                        <option value="Haiti">Haití</option>
+                                                                        <option value="Honduras">Honduras</option>
+                                                                        <option value="Jamaica">Jamaica</option>
+                                                                        <option value="Mexico">México</option>
+                                                                        <option value="Nicaragua">Nicaragua</option>
+                                                                        <option value="Panama">Panamá</option>
+                                                                        <option value="Paraguay">Paraguay</option>
+                                                                        <option value="Peru">Perú</option>
+                                                                        <option value="Republica Dominicana">República Dominicana</option>
+                                                                        <option value="San Cristobal y Nieves">San Cristóbal y Nieves</option>
+                                                                        <option value="San Vicente y las Granadinas">San Vicente y las Granadinas</option>
+                                                                        <option value="Santa Lucia">Santa Lucía</option>
+                                                                        <option value="Surinam">Surinam</option>
+                                                                        <option value="Trinidad y Tobago">Trinidad y Tobago</option>
+                                                                        <option value="Uruguay">Uruguay</option>
+                                                                        <option value="Venezuela">Venezuela</option>
+
+                                                                    </select>
+                                                                </div>
+                                                                <div class="form-group mt-4">
+                                                                    <label id="destination-country" class="text-titulo text-formu">País de Destino:</label>
+                                                                    <select class="form-control w-50" id="Destino" name="destino">
+                                                                        <option value="Antigua y Barbuda">Antigua y Barbuda</option>
+                                                                        <option value="Argentina">Argentina</option>
+                                                                        <option value="Bahamas">Bahamas</option>
+                                                                        <option value="Barbados">Barbados</option>
+                                                                        <option value="Belice">Belice</option>
+                                                                        <option value="Bolivia">Bolivia</option>
+                                                                        <option value="Brasil">Brasil</option>
+                                                                        <option value="Canada">Canadá</option>
+                                                                        <option value="Chile">Chile</option>
+                                                                        <option value="Colombia">Colombia</option>
+                                                                        <option value="Costa Rica">Costa Rica</option>
+                                                                        <option value="Cuba">Cuba</option>
+                                                                        <option value="Dominica">Dominica</option>
+                                                                        <option value="Ecuador">Ecuador</option>
+                                                                        <option value="El Salvador">El Salvador</option>
+                                                                        <option value="Estados-Unidos">Estados Unidos</option>
+                                                                        <option value="Granada">Granada</option>
+                                                                        <option value="Guatemala">Guatemala</option>
+                                                                        <option value="Guyana">Guyana</option>
+                                                                        <option value="Haiti">Haití</option>
+                                                                        <option value="Honduras">Honduras</option>
+                                                                        <option value="Jamaica">Jamaica</option>
+                                                                        <option value="Mexico">México</option>
+                                                                        <option value="Nicaragua">Nicaragua</option>
+                                                                        <option value="Panama">Panamá</option>
+                                                                        <option value="Paraguay">Paraguay</option>
+                                                                        <option value="Peru">Perú</option>
+                                                                        <option value="Republica Dominicana">República Dominicana</option>
+                                                                        <option value="San Cristobal y Nieves">San Cristóbal y Nieves</option>
+                                                                        <option value="San Vicente y las Granadinas">San Vicente y las Granadinas</option>
+                                                                        <option value="Santa Lucia">Santa Lucía</option>
+                                                                        <option value="Surinam">Surinam</option>
+                                                                        <option value="Trinidad y Tobago">Trinidad y Tobago</option>
+                                                                        <option value="Uruguay">Uruguay</option>
+                                                                        <option value="Venezuela">Venezuela</option>
+                                                                    </select>
+                                                                </div>
+                                                                <div class="center-button">
+                                                                    <button id="search-btn" type="submit" class="mt-5 btn btn-primary full-width-btn">Buscar Vuelo</button>
+                                                                </div>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            </a>
+                        </div>
+
+
+                        <div class="col-md-3 mt-5 mb-5">
+                            <div class="image-container">
+                                <img src="../imagen/index/peru.png" alt="Argentina" class="d-block w-100">
+                                <div class="overlay">
+                                    <div class="overlay-content">
+                                        <h4>Perú</h4>
+                                        <h6>Machu Picchu</h6>
+                                        <button id="openModalBtn" class="btn btn-primary">Tomar viaje</button> <!-- Cambié el <a> a <button> para evitar conflictos -->
+                                        <!-- El Modal -->
+                                        <div id="myModal" class="modal">
+                                            <div class="modal-content">
+                                                <span class="close">&times;</span>
+                                                <!-- Aquí puedes incluir tu formulario -->
+                                                <div class="centered-card mt-4">
+                                                    <div class=" card-buscar card p-4">
+                                                        <div class="card-body">
+                                                            <h5 id="search-flight" class="card-title text-center text-formu">Busca tu Vuelo:</h5>
+
+                                                            <form class="form-inline justify-content-center" method="get" action="">
+
+                                                                <div class="form-group mt-4">
+
+                                                                    <label id="flight-date" class="text-formu">Fecha de Vuelo:</label>
+
+                                                                    <input type="date" class="form-control" id="fechaVuelo" placeholder="Fecha de Vuelo" name="fecha" min="<?php echo $fechaActual; ?>" required>
+
+                                                                </div>
+
+                                                                <div class="form-group mt-4">
+
+                                                                    <label id="origin-country" class="text-formu">País de Origen:</label>
+
+                                                                    <select class="form-control w-50" id="Origen" name="origen">
+
+                                                                        <option value="Antigua y Barbuda">Antigua y Barbuda</option>
+                                                                        <option value="Argentina">Argentina</option>
+                                                                        <option value="Bahamas">Bahamas</option>
+                                                                        <option value="Barbados">Barbados</option>
+                                                                        <option value="Belice">Belice</option>
+                                                                        <option value="Bolivia">Bolivia</option>
+                                                                        <option value="Brasil">Brasil</option>
+                                                                        <option value="Canada">Canadá</option>
+                                                                        <option value="Chile">Chile</option>
+                                                                        <option value="Colombia">Colombia</option>
+                                                                        <option value="Costa Rica">Costa Rica</option>
+                                                                        <option value="Cuba">Cuba</option>
+                                                                        <option value="Dominica">Dominica</option>
+                                                                        <option value="Ecuador">Ecuador</option>
+                                                                        <option value="El Salvador">El Salvador</option>
+                                                                        <option value="Estados-Unidos">Estados Unidos</option>
+                                                                        <option value="Granada">Granada</option>
+                                                                        <option value="Guatemala">Guatemala</option>
+                                                                        <option value="Guyana">Guyana</option>
+                                                                        <option value="Haiti">Haití</option>
+                                                                        <option value="Honduras">Honduras</option>
+                                                                        <option value="Jamaica">Jamaica</option>
+                                                                        <option value="Mexico">México</option>
+                                                                        <option value="Nicaragua">Nicaragua</option>
+                                                                        <option value="Panama">Panamá</option>
+                                                                        <option value="Paraguay">Paraguay</option>
+                                                                        <option value="Peru">Perú</option>
+                                                                        <option value="Republica Dominicana">República Dominicana</option>
+                                                                        <option value="San Cristobal y Nieves">San Cristóbal y Nieves</option>
+                                                                        <option value="San Vicente y las Granadinas">San Vicente y las Granadinas</option>
+                                                                        <option value="Santa Lucia">Santa Lucía</option>
+                                                                        <option value="Surinam">Surinam</option>
+                                                                        <option value="Trinidad y Tobago">Trinidad y Tobago</option>
+                                                                        <option value="Uruguay">Uruguay</option>
+                                                                        <option value="Venezuela">Venezuela</option>
+
+                                                                    </select>
+                                                                </div>
+                                                                <div class="form-group mt-4">
+                                                                    <label id="destination-country" class="text-titulo text-formu">País de Destino:</label>
+                                                                    <select class="form-control w-50" id="Destino" name="destino">
+                                                                        <option value="Antigua y Barbuda">Antigua y Barbuda</option>
+                                                                        <option value="Argentina">Argentina</option>
+                                                                        <option value="Bahamas">Bahamas</option>
+                                                                        <option value="Barbados">Barbados</option>
+                                                                        <option value="Belice">Belice</option>
+                                                                        <option value="Bolivia">Bolivia</option>
+                                                                        <option value="Brasil">Brasil</option>
+                                                                        <option value="Canada">Canadá</option>
+                                                                        <option value="Chile">Chile</option>
+                                                                        <option value="Colombia">Colombia</option>
+                                                                        <option value="Costa Rica">Costa Rica</option>
+                                                                        <option value="Cuba">Cuba</option>
+                                                                        <option value="Dominica">Dominica</option>
+                                                                        <option value="Ecuador">Ecuador</option>
+                                                                        <option value="El Salvador">El Salvador</option>
+                                                                        <option value="Estados-Unidos">Estados Unidos</option>
+                                                                        <option value="Granada">Granada</option>
+                                                                        <option value="Guatemala">Guatemala</option>
+                                                                        <option value="Guyana">Guyana</option>
+                                                                        <option value="Haiti">Haití</option>
+                                                                        <option value="Honduras">Honduras</option>
+                                                                        <option value="Jamaica">Jamaica</option>
+                                                                        <option value="Mexico">México</option>
+                                                                        <option value="Nicaragua">Nicaragua</option>
+                                                                        <option value="Panama">Panamá</option>
+                                                                        <option value="Paraguay">Paraguay</option>
+                                                                        <option value="Peru">Perú</option>
+                                                                        <option value="Republica Dominicana">República Dominicana</option>
+                                                                        <option value="San Cristobal y Nieves">San Cristóbal y Nieves</option>
+                                                                        <option value="San Vicente y las Granadinas">San Vicente y las Granadinas</option>
+                                                                        <option value="Santa Lucia">Santa Lucía</option>
+                                                                        <option value="Surinam">Surinam</option>
+                                                                        <option value="Trinidad y Tobago">Trinidad y Tobago</option>
+                                                                        <option value="Uruguay">Uruguay</option>
+                                                                        <option value="Venezuela">Venezuela</option>
+                                                                    </select>
+                                                                </div>
+                                                                <div class="center-button">
+                                                                    <button id="search-btn" type="submit" class="mt-5 btn btn-primary full-width-btn">Buscar Vuelo</button>
+                                                                </div>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Tercer fila de imágenes -->
+
+                <div class="carousel-item">
+                    <div class="row">
+
+
+                        <div class="col-md-3 mt-5 mb-5">
+                            <div class="image-container">
+                                <img src="../imagen/index/paraguay.png" alt="Argentina" class="d-block w-100">
+                                <div class="overlay">
+                                    <div class="overlay-content">
+                                        <h4>Paraguay</h4>
+                                        <h6>Ciudad del Este</h6>
+                                        <button id="openModalBtn" class="btn btn-primary">Tomar viaje</button> <!-- Cambié el <a> a <button> para evitar conflictos -->
+                                        <!-- El Modal -->
+                                        <div id="myModal" class="modal">
+                                            <div class="modal-content">
+                                                <span class="close">&times;</span>
+                                                <!-- Aquí puedes incluir tu formulario -->
+                                                <div class="centered-card mt-4">
+                                                    <div class=" card-buscar card p-4">
+                                                        <div class="card-body">
+                                                            <h5 id="search-flight" class="card-title text-center text-formu">Busca tu Vuelo:</h5>
+
+                                                            <form class="form-inline justify-content-center" method="get" action="">
+
+                                                                <div class="form-group mt-4">
+
+                                                                    <label id="flight-date" class="text-formu">Fecha de Vuelo:</label>
+
+                                                                    <input type="date" class="form-control" id="fechaVuelo" placeholder="Fecha de Vuelo" name="fecha" min="<?php echo $fechaActual; ?>" required>
+
+                                                                </div>
+
+                                                                <div class="form-group mt-4">
+
+                                                                    <label id="origin-country" class="text-formu">País de Origen:</label>
+
+                                                                    <select class="form-control w-50" id="Origen" name="origen">
+
+                                                                        <option value="Antigua y Barbuda">Antigua y Barbuda</option>
+                                                                        <option value="Argentina">Argentina</option>
+                                                                        <option value="Bahamas">Bahamas</option>
+                                                                        <option value="Barbados">Barbados</option>
+                                                                        <option value="Belice">Belice</option>
+                                                                        <option value="Bolivia">Bolivia</option>
+                                                                        <option value="Brasil">Brasil</option>
+                                                                        <option value="Canada">Canadá</option>
+                                                                        <option value="Chile">Chile</option>
+                                                                        <option value="Colombia">Colombia</option>
+                                                                        <option value="Costa Rica">Costa Rica</option>
+                                                                        <option value="Cuba">Cuba</option>
+                                                                        <option value="Dominica">Dominica</option>
+                                                                        <option value="Ecuador">Ecuador</option>
+                                                                        <option value="El Salvador">El Salvador</option>
+                                                                        <option value="Estados-Unidos">Estados Unidos</option>
+                                                                        <option value="Granada">Granada</option>
+                                                                        <option value="Guatemala">Guatemala</option>
+                                                                        <option value="Guyana">Guyana</option>
+                                                                        <option value="Haiti">Haití</option>
+                                                                        <option value="Honduras">Honduras</option>
+                                                                        <option value="Jamaica">Jamaica</option>
+                                                                        <option value="Mexico">México</option>
+                                                                        <option value="Nicaragua">Nicaragua</option>
+                                                                        <option value="Panama">Panamá</option>
+                                                                        <option value="Paraguay">Paraguay</option>
+                                                                        <option value="Peru">Perú</option>
+                                                                        <option value="Republica Dominicana">República Dominicana</option>
+                                                                        <option value="San Cristobal y Nieves">San Cristóbal y Nieves</option>
+                                                                        <option value="San Vicente y las Granadinas">San Vicente y las Granadinas</option>
+                                                                        <option value="Santa Lucia">Santa Lucía</option>
+                                                                        <option value="Surinam">Surinam</option>
+                                                                        <option value="Trinidad y Tobago">Trinidad y Tobago</option>
+                                                                        <option value="Uruguay">Uruguay</option>
+                                                                        <option value="Venezuela">Venezuela</option>
+
+                                                                    </select>
+                                                                </div>
+                                                                <div class="form-group mt-4">
+                                                                    <label id="destination-country" class="text-titulo text-formu">País de Destino:</label>
+                                                                    <select class="form-control w-50" id="Destino" name="destino">
+                                                                        <option value="Antigua y Barbuda">Antigua y Barbuda</option>
+                                                                        <option value="Argentina">Argentina</option>
+                                                                        <option value="Bahamas">Bahamas</option>
+                                                                        <option value="Barbados">Barbados</option>
+                                                                        <option value="Belice">Belice</option>
+                                                                        <option value="Bolivia">Bolivia</option>
+                                                                        <option value="Brasil">Brasil</option>
+                                                                        <option value="Canada">Canadá</option>
+                                                                        <option value="Chile">Chile</option>
+                                                                        <option value="Colombia">Colombia</option>
+                                                                        <option value="Costa Rica">Costa Rica</option>
+                                                                        <option value="Cuba">Cuba</option>
+                                                                        <option value="Dominica">Dominica</option>
+                                                                        <option value="Ecuador">Ecuador</option>
+                                                                        <option value="El Salvador">El Salvador</option>
+                                                                        <option value="Estados-Unidos">Estados Unidos</option>
+                                                                        <option value="Granada">Granada</option>
+                                                                        <option value="Guatemala">Guatemala</option>
+                                                                        <option value="Guyana">Guyana</option>
+                                                                        <option value="Haiti">Haití</option>
+                                                                        <option value="Honduras">Honduras</option>
+                                                                        <option value="Jamaica">Jamaica</option>
+                                                                        <option value="Mexico">México</option>
+                                                                        <option value="Nicaragua">Nicaragua</option>
+                                                                        <option value="Panama">Panamá</option>
+                                                                        <option value="Paraguay">Paraguay</option>
+                                                                        <option value="Peru">Perú</option>
+                                                                        <option value="Republica Dominicana">República Dominicana</option>
+                                                                        <option value="San Cristobal y Nieves">San Cristóbal y Nieves</option>
+                                                                        <option value="San Vicente y las Granadinas">San Vicente y las Granadinas</option>
+                                                                        <option value="Santa Lucia">Santa Lucía</option>
+                                                                        <option value="Surinam">Surinam</option>
+                                                                        <option value="Trinidad y Tobago">Trinidad y Tobago</option>
+                                                                        <option value="Uruguay">Uruguay</option>
+                                                                        <option value="Venezuela">Venezuela</option>
+                                                                    </select>
+                                                                </div>
+                                                                <div class="center-button">
+                                                                    <button id="search-btn" type="submit" class="mt-5 btn btn-primary full-width-btn">Buscar Vuelo</button>
+                                                                </div>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            </a>
+                        </div>
+
+                        <div class="col-md-3 mt-5 mb-5">
+                            <div class="image-container">
+                                <img src="../imagen/index/repuDominicana.png" alt="Argentina" class="d-block w-100">
+                                <div class="overlay">
+                                    <div class="overlay-content">
+                                        <h4>República Dominicana</h4>
+                                        <h6>Playa Punta Cana</h6>
+                                        <button id="openModalBtn" class="btn btn-primary">Tomar viaje</button> <!-- Cambié el <a> a <button> para evitar conflictos -->
+                                        <!-- El Modal -->
+                                        <div id="myModal" class="modal">
+                                            <div class="modal-content">
+                                                <span class="close">&times;</span>
+                                                <!-- Aquí puedes incluir tu formulario -->
+                                                <div class="centered-card mt-4">
+                                                    <div class=" card-buscar card p-4">
+                                                        <div class="card-body">
+                                                            <h5 id="search-flight" class="card-title text-center text-formu">Busca tu Vuelo:</h5>
+
+                                                            <form class="form-inline justify-content-center" method="get" action="">
+
+                                                                <div class="form-group mt-4">
+
+                                                                    <label id="flight-date" class="text-formu">Fecha de Vuelo:</label>
+
+                                                                    <input type="date" class="form-control" id="fechaVuelo" placeholder="Fecha de Vuelo" name="fecha" min="<?php echo $fechaActual; ?>" required>
+
+                                                                </div>
+
+                                                                <div class="form-group mt-4">
+
+                                                                    <label id="origin-country" class="text-formu">País de Origen:</label>
+
+                                                                    <select class="form-control w-50" id="Origen" name="origen">
+
+                                                                        <option value="Antigua y Barbuda">Antigua y Barbuda</option>
+                                                                        <option value="Argentina">Argentina</option>
+                                                                        <option value="Bahamas">Bahamas</option>
+                                                                        <option value="Barbados">Barbados</option>
+                                                                        <option value="Belice">Belice</option>
+                                                                        <option value="Bolivia">Bolivia</option>
+                                                                        <option value="Brasil">Brasil</option>
+                                                                        <option value="Canada">Canadá</option>
+                                                                        <option value="Chile">Chile</option>
+                                                                        <option value="Colombia">Colombia</option>
+                                                                        <option value="Costa Rica">Costa Rica</option>
+                                                                        <option value="Cuba">Cuba</option>
+                                                                        <option value="Dominica">Dominica</option>
+                                                                        <option value="Ecuador">Ecuador</option>
+                                                                        <option value="El Salvador">El Salvador</option>
+                                                                        <option value="Estados-Unidos">Estados Unidos</option>
+                                                                        <option value="Granada">Granada</option>
+                                                                        <option value="Guatemala">Guatemala</option>
+                                                                        <option value="Guyana">Guyana</option>
+                                                                        <option value="Haiti">Haití</option>
+                                                                        <option value="Honduras">Honduras</option>
+                                                                        <option value="Jamaica">Jamaica</option>
+                                                                        <option value="Mexico">México</option>
+                                                                        <option value="Nicaragua">Nicaragua</option>
+                                                                        <option value="Panama">Panamá</option>
+                                                                        <option value="Paraguay">Paraguay</option>
+                                                                        <option value="Peru">Perú</option>
+                                                                        <option value="Republica Dominicana">República Dominicana</option>
+                                                                        <option value="San Cristobal y Nieves">San Cristóbal y Nieves</option>
+                                                                        <option value="San Vicente y las Granadinas">San Vicente y las Granadinas</option>
+                                                                        <option value="Santa Lucia">Santa Lucía</option>
+                                                                        <option value="Surinam">Surinam</option>
+                                                                        <option value="Trinidad y Tobago">Trinidad y Tobago</option>
+                                                                        <option value="Uruguay">Uruguay</option>
+                                                                        <option value="Venezuela">Venezuela</option>
+
+                                                                    </select>
+                                                                </div>
+                                                                <div class="form-group mt-4">
+                                                                    <label id="destination-country" class="text-titulo text-formu">País de Destino:</label>
+                                                                    <select class="form-control w-50" id="Destino" name="destino">
+                                                                        <option value="Antigua y Barbuda">Antigua y Barbuda</option>
+                                                                        <option value="Argentina">Argentina</option>
+                                                                        <option value="Bahamas">Bahamas</option>
+                                                                        <option value="Barbados">Barbados</option>
+                                                                        <option value="Belice">Belice</option>
+                                                                        <option value="Bolivia">Bolivia</option>
+                                                                        <option value="Brasil">Brasil</option>
+                                                                        <option value="Canada">Canadá</option>
+                                                                        <option value="Chile">Chile</option>
+                                                                        <option value="Colombia">Colombia</option>
+                                                                        <option value="Costa Rica">Costa Rica</option>
+                                                                        <option value="Cuba">Cuba</option>
+                                                                        <option value="Dominica">Dominica</option>
+                                                                        <option value="Ecuador">Ecuador</option>
+                                                                        <option value="El Salvador">El Salvador</option>
+                                                                        <option value="Estados-Unidos">Estados Unidos</option>
+                                                                        <option value="Granada">Granada</option>
+                                                                        <option value="Guatemala">Guatemala</option>
+                                                                        <option value="Guyana">Guyana</option>
+                                                                        <option value="Haiti">Haití</option>
+                                                                        <option value="Honduras">Honduras</option>
+                                                                        <option value="Jamaica">Jamaica</option>
+                                                                        <option value="Mexico">México</option>
+                                                                        <option value="Nicaragua">Nicaragua</option>
+                                                                        <option value="Panama">Panamá</option>
+                                                                        <option value="Paraguay">Paraguay</option>
+                                                                        <option value="Peru">Perú</option>
+                                                                        <option value="Republica Dominicana">República Dominicana</option>
+                                                                        <option value="San Cristobal y Nieves">San Cristóbal y Nieves</option>
+                                                                        <option value="San Vicente y las Granadinas">San Vicente y las Granadinas</option>
+                                                                        <option value="Santa Lucia">Santa Lucía</option>
+                                                                        <option value="Surinam">Surinam</option>
+                                                                        <option value="Trinidad y Tobago">Trinidad y Tobago</option>
+                                                                        <option value="Uruguay">Uruguay</option>
+                                                                        <option value="Venezuela">Venezuela</option>
+                                                                    </select>
+                                                                </div>
+                                                                <div class="center-button">
+                                                                    <button id="search-btn" type="submit" class="mt-5 btn btn-primary full-width-btn">Buscar Vuelo</button>
+                                                                </div>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            </a>
+                        </div>
+
+
+                        <div class="col-md-3 mt-5 mb-5">
+                            <div class="image-container">
+                                <img src="../imagen/index/cuba.png" alt="Argentina" class="d-block w-100">
+                                <div class="overlay">
+                                    <div class="overlay-content">
+                                        <h4>Cuba</h4>
+                                        <h6>Playa Varadero</h6>
+                                        <button id="openModalBtn" class="btn btn-primary">Tomar viaje</button> <!-- Cambié el <a> a <button> para evitar conflictos -->
+                                        <!-- El Modal -->
+                                        <div id="myModal" class="modal">
+                                            <div class="modal-content">
+                                                <span class="close">&times;</span>
+                                                <!-- Aquí puedes incluir tu formulario -->
+                                                <div class="centered-card mt-4">
+                                                    <div class=" card-buscar card p-4">
+                                                        <div class="card-body">
+                                                            <h5 id="search-flight" class="card-title text-center text-formu">Busca tu Vuelo:</h5>
+
+                                                            <form class="form-inline justify-content-center" method="get" action="">
+
+                                                                <div class="form-group mt-4">
+
+                                                                    <label id="flight-date" class="text-formu">Fecha de Vuelo:</label>
+
+                                                                    <input type="date" class="form-control" id="fechaVuelo" placeholder="Fecha de Vuelo" name="fecha" min="<?php echo $fechaActual; ?>" required>
+
+                                                                </div>
+
+                                                                <div class="form-group mt-4">
+
+                                                                    <label id="origin-country" class="text-formu">País de Origen:</label>
+
+                                                                    <select class="form-control w-50" id="Origen" name="origen">
+
+                                                                        <option value="Antigua y Barbuda">Antigua y Barbuda</option>
+                                                                        <option value="Argentina">Argentina</option>
+                                                                        <option value="Bahamas">Bahamas</option>
+                                                                        <option value="Barbados">Barbados</option>
+                                                                        <option value="Belice">Belice</option>
+                                                                        <option value="Bolivia">Bolivia</option>
+                                                                        <option value="Brasil">Brasil</option>
+                                                                        <option value="Canada">Canadá</option>
+                                                                        <option value="Chile">Chile</option>
+                                                                        <option value="Colombia">Colombia</option>
+                                                                        <option value="Costa Rica">Costa Rica</option>
+                                                                        <option value="Cuba">Cuba</option>
+                                                                        <option value="Dominica">Dominica</option>
+                                                                        <option value="Ecuador">Ecuador</option>
+                                                                        <option value="El Salvador">El Salvador</option>
+                                                                        <option value="Estados-Unidos">Estados Unidos</option>
+                                                                        <option value="Granada">Granada</option>
+                                                                        <option value="Guatemala">Guatemala</option>
+                                                                        <option value="Guyana">Guyana</option>
+                                                                        <option value="Haiti">Haití</option>
+                                                                        <option value="Honduras">Honduras</option>
+                                                                        <option value="Jamaica">Jamaica</option>
+                                                                        <option value="Mexico">México</option>
+                                                                        <option value="Nicaragua">Nicaragua</option>
+                                                                        <option value="Panama">Panamá</option>
+                                                                        <option value="Paraguay">Paraguay</option>
+                                                                        <option value="Peru">Perú</option>
+                                                                        <option value="Republica Dominicana">República Dominicana</option>
+                                                                        <option value="San Cristobal y Nieves">San Cristóbal y Nieves</option>
+                                                                        <option value="San Vicente y las Granadinas">San Vicente y las Granadinas</option>
+                                                                        <option value="Santa Lucia">Santa Lucía</option>
+                                                                        <option value="Surinam">Surinam</option>
+                                                                        <option value="Trinidad y Tobago">Trinidad y Tobago</option>
+                                                                        <option value="Uruguay">Uruguay</option>
+                                                                        <option value="Venezuela">Venezuela</option>
+
+                                                                    </select>
+                                                                </div>
+                                                                <div class="form-group mt-4">
+                                                                    <label id="destination-country" class="text-titulo text-formu">País de Destino:</label>
+                                                                    <select class="form-control w-50" id="Destino" name="destino">
+                                                                        <option value="Antigua y Barbuda">Antigua y Barbuda</option>
+                                                                        <option value="Argentina">Argentina</option>
+                                                                        <option value="Bahamas">Bahamas</option>
+                                                                        <option value="Barbados">Barbados</option>
+                                                                        <option value="Belice">Belice</option>
+                                                                        <option value="Bolivia">Bolivia</option>
+                                                                        <option value="Brasil">Brasil</option>
+                                                                        <option value="Canada">Canadá</option>
+                                                                        <option value="Chile">Chile</option>
+                                                                        <option value="Colombia">Colombia</option>
+                                                                        <option value="Costa Rica">Costa Rica</option>
+                                                                        <option value="Cuba">Cuba</option>
+                                                                        <option value="Dominica">Dominica</option>
+                                                                        <option value="Ecuador">Ecuador</option>
+                                                                        <option value="El Salvador">El Salvador</option>
+                                                                        <option value="Estados-Unidos">Estados Unidos</option>
+                                                                        <option value="Granada">Granada</option>
+                                                                        <option value="Guatemala">Guatemala</option>
+                                                                        <option value="Guyana">Guyana</option>
+                                                                        <option value="Haiti">Haití</option>
+                                                                        <option value="Honduras">Honduras</option>
+                                                                        <option value="Jamaica">Jamaica</option>
+                                                                        <option value="Mexico">México</option>
+                                                                        <option value="Nicaragua">Nicaragua</option>
+                                                                        <option value="Panama">Panamá</option>
+                                                                        <option value="Paraguay">Paraguay</option>
+                                                                        <option value="Peru">Perú</option>
+                                                                        <option value="Republica Dominicana">República Dominicana</option>
+                                                                        <option value="San Cristobal y Nieves">San Cristóbal y Nieves</option>
+                                                                        <option value="San Vicente y las Granadinas">San Vicente y las Granadinas</option>
+                                                                        <option value="Santa Lucia">Santa Lucía</option>
+                                                                        <option value="Surinam">Surinam</option>
+                                                                        <option value="Trinidad y Tobago">Trinidad y Tobago</option>
+                                                                        <option value="Uruguay">Uruguay</option>
+                                                                        <option value="Venezuela">Venezuela</option>
+                                                                    </select>
+                                                                </div>
+                                                                <div class="center-button">
+                                                                    <button id="search-btn" type="submit" class="mt-5 btn btn-primary full-width-btn">Buscar Vuelo</button>
+                                                                </div>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            </a>
+                        </div>
+
+
+                        <div class="col-md-3 mt-5 mb-5">
+                            <div class="image-container">
+                                <img src="../imagen/index/Jamaica.png" alt="Argentina" class="d-block w-100">
+                                <div class="overlay">
+                                    <div class="overlay-content">
+                                        <h4>Jamaica</h4>
+                                        <h6>Playa Seven Mile</h6>
+                                        <button id="openModalBtn" class="btn btn-primary">Tomar viaje</button> <!-- Cambié el <a> a <button> para evitar conflictos -->
+                                        <!-- El Modal -->
+                                        <div id="myModal" class="modal">
+                                            <div class="modal-content">
+                                                <span class="close">&times;</span>
+                                                <!-- Aquí puedes incluir tu formulario -->
+                                                <div class="centered-card mt-4">
+                                                    <div class=" card-buscar card p-4">
+                                                        <div class="card-body">
+                                                            <h5 id="search-flight" class="card-title text-center text-formu">Busca tu Vuelo:</h5>
+
+                                                            <form class="form-inline justify-content-center" method="get" action="">
+
+                                                                <div class="form-group mt-4">
+
+                                                                    <label id="flight-date" class="text-formu">Fecha de Vuelo:</label>
+
+                                                                    <input type="date" class="form-control" id="fechaVuelo" placeholder="Fecha de Vuelo" name="fecha" min="<?php echo $fechaActual; ?>" required>
+
+                                                                </div>
+
+                                                                <div class="form-group mt-4">
+
+                                                                    <label id="origin-country" class="text-formu">País de Origen:</label>
+
+                                                                    <select class="form-control w-50" id="Origen" name="origen">
+
+                                                                        <option value="Antigua y Barbuda">Antigua y Barbuda</option>
+                                                                        <option value="Argentina">Argentina</option>
+                                                                        <option value="Bahamas">Bahamas</option>
+                                                                        <option value="Barbados">Barbados</option>
+                                                                        <option value="Belice">Belice</option>
+                                                                        <option value="Bolivia">Bolivia</option>
+                                                                        <option value="Brasil">Brasil</option>
+                                                                        <option value="Canada">Canadá</option>
+                                                                        <option value="Chile">Chile</option>
+                                                                        <option value="Colombia">Colombia</option>
+                                                                        <option value="Costa Rica">Costa Rica</option>
+                                                                        <option value="Cuba">Cuba</option>
+                                                                        <option value="Dominica">Dominica</option>
+                                                                        <option value="Ecuador">Ecuador</option>
+                                                                        <option value="El Salvador">El Salvador</option>
+                                                                        <option value="Estados-Unidos">Estados Unidos</option>
+                                                                        <option value="Granada">Granada</option>
+                                                                        <option value="Guatemala">Guatemala</option>
+                                                                        <option value="Guyana">Guyana</option>
+                                                                        <option value="Haiti">Haití</option>
+                                                                        <option value="Honduras">Honduras</option>
+                                                                        <option value="Jamaica">Jamaica</option>
+                                                                        <option value="Mexico">México</option>
+                                                                        <option value="Nicaragua">Nicaragua</option>
+                                                                        <option value="Panama">Panamá</option>
+                                                                        <option value="Paraguay">Paraguay</option>
+                                                                        <option value="Peru">Perú</option>
+                                                                        <option value="Republica Dominicana">República Dominicana</option>
+                                                                        <option value="San Cristobal y Nieves">San Cristóbal y Nieves</option>
+                                                                        <option value="San Vicente y las Granadinas">San Vicente y las Granadinas</option>
+                                                                        <option value="Santa Lucia">Santa Lucía</option>
+                                                                        <option value="Surinam">Surinam</option>
+                                                                        <option value="Trinidad y Tobago">Trinidad y Tobago</option>
+                                                                        <option value="Uruguay">Uruguay</option>
+                                                                        <option value="Venezuela">Venezuela</option>
+
+                                                                    </select>
+                                                                </div>
+                                                                <div class="form-group mt-4">
+                                                                    <label id="destination-country" class="text-titulo text-formu">País de Destino:</label>
+                                                                    <select class="form-control w-50" id="Destino" name="destino">
+                                                                        <option value="Antigua y Barbuda">Antigua y Barbuda</option>
+                                                                        <option value="Argentina">Argentina</option>
+                                                                        <option value="Bahamas">Bahamas</option>
+                                                                        <option value="Barbados">Barbados</option>
+                                                                        <option value="Belice">Belice</option>
+                                                                        <option value="Bolivia">Bolivia</option>
+                                                                        <option value="Brasil">Brasil</option>
+                                                                        <option value="Canada">Canadá</option>
+                                                                        <option value="Chile">Chile</option>
+                                                                        <option value="Colombia">Colombia</option>
+                                                                        <option value="Costa Rica">Costa Rica</option>
+                                                                        <option value="Cuba">Cuba</option>
+                                                                        <option value="Dominica">Dominica</option>
+                                                                        <option value="Ecuador">Ecuador</option>
+                                                                        <option value="El Salvador">El Salvador</option>
+                                                                        <option value="Estados-Unidos">Estados Unidos</option>
+                                                                        <option value="Granada">Granada</option>
+                                                                        <option value="Guatemala">Guatemala</option>
+                                                                        <option value="Guyana">Guyana</option>
+                                                                        <option value="Haiti">Haití</option>
+                                                                        <option value="Honduras">Honduras</option>
+                                                                        <option value="Jamaica">Jamaica</option>
+                                                                        <option value="Mexico">México</option>
+                                                                        <option value="Nicaragua">Nicaragua</option>
+                                                                        <option value="Panama">Panamá</option>
+                                                                        <option value="Paraguay">Paraguay</option>
+                                                                        <option value="Peru">Perú</option>
+                                                                        <option value="Republica Dominicana">República Dominicana</option>
+                                                                        <option value="San Cristobal y Nieves">San Cristóbal y Nieves</option>
+                                                                        <option value="San Vicente y las Granadinas">San Vicente y las Granadinas</option>
+                                                                        <option value="Santa Lucia">Santa Lucía</option>
+                                                                        <option value="Surinam">Surinam</option>
+                                                                        <option value="Trinidad y Tobago">Trinidad y Tobago</option>
+                                                                        <option value="Uruguay">Uruguay</option>
+                                                                        <option value="Venezuela">Venezuela</option>
+                                                                    </select>
+                                                                </div>
+                                                                <div class="center-button">
+                                                                    <button id="search-btn" type="submit" class="mt-5 btn btn-primary full-width-btn">Buscar Vuelo</button>
+                                                                </div>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            </a>
+                        </div>
+
+
+                    </div>
                 </div>
             </div>
-            <!-- Segundo fila de imágenes -->
-            <div class="carousel-item">
-                <div class="row">
-
-
-                    <div class="col-md-3 mt-5 mb-5">
-                            <div class="image-container">
-                            <img src="../imagen/index/MX.png" alt="Argentina" class="d-block w-100">
-                                <div class="overlay">
-                                    <div class="overlay-content">
-                                    <h4>México</h4>
-                                    <h6>Chichén Itzá</h6>
-                                    <button id="openModalBtn" class="btn btn-primary">Tomar viaje</button> <!-- Cambié el <a> a <button> para evitar conflictos -->
-                                        <!-- El Modal --><div id="myModal" class="modal">
-                                            <div class="modal-content">
-                                                <span class="close">&times;</span>
-                                                <!-- Aquí puedes incluir tu formulario -->
-                                                 <div class="centered-card mt-4">
-                                                 <div class=" card-buscar card p-4">
-                                                 <div class="card-body">
-                                                 <h5 id="search-flight" class="card-title text-center text-formu">Busca tu Vuelo:</h5>
-                
-                                                 <form class="form-inline justify-content-center" method="get" action="">
-                   
-                                                 <div class="form-group mt-4">
-                        
-                                                 <label id="flight-date" class="text-formu">Fecha de Vuelo:</label>
-                        
-                                                 <input type="date" class="form-control" id="fechaVuelo" placeholder="Fecha de Vuelo" name="fecha" min="<?php echo $fechaActual; ?>" required>
-                    
-                                                </div>
-                   
-                                                <div class="form-group mt-4">
-                        
-                                                <label id="origin-country" class="text-formu">País de Origen:</label>
-                       
-                                                <select class="form-control w-50" id="Origen" name="origen">
-
-                                                <option value="Antigua y Barbuda">Antigua y Barbuda</option>
-                        <option value="Argentina">Argentina</option>
-                        <option value="Bahamas">Bahamas</option>
-                        <option value="Barbados">Barbados</option>
-                        <option value="Belice">Belice</option>
-                        <option value="Bolivia">Bolivia</option>
-                        <option value="Brasil">Brasil</option>
-                        <option value="Canada">Canadá</option>
-                        <option value="Chile">Chile</option>
-                        <option value="Colombia">Colombia</option>
-                        <option value="Costa Rica">Costa Rica</option>
-                        <option value="Cuba">Cuba</option>
-                        <option value="Dominica">Dominica</option>
-                        <option value="Ecuador">Ecuador</option>
-                        <option value="El Salvador">El Salvador</option>
-                        <option value="Estados-Unidos">Estados Unidos</option>
-                        <option value="Granada">Granada</option>
-                        <option value="Guatemala">Guatemala</option>
-                        <option value="Guyana">Guyana</option>
-                        <option value="Haiti">Haití</option>
-                        <option value="Honduras">Honduras</option>
-                        <option value="Jamaica">Jamaica</option>
-                        <option value="Mexico">México</option>
-                        <option value="Nicaragua">Nicaragua</option>
-                        <option value="Panama">Panamá</option>
-                        <option value="Paraguay">Paraguay</option>
-                        <option value="Peru">Perú</option>
-                        <option value="Republica Dominicana">República Dominicana</option>
-                        <option value="San Cristobal y Nieves">San Cristóbal y Nieves</option>
-                        <option value="San Vicente y las Granadinas">San Vicente y las Granadinas</option>
-                        <option value="Santa Lucia">Santa Lucía</option>
-                        <option value="Surinam">Surinam</option>
-                        <option value="Trinidad y Tobago">Trinidad y Tobago</option>
-                        <option value="Uruguay">Uruguay</option>
-                        <option value="Venezuela">Venezuela</option>
-
-                        </select>
-                    </div>
-                    <div class="form-group mt-4">
-                        <label id="destination-country" class="text-titulo text-formu">País de Destino:</label>
-                        <select class="form-control w-50" id="Destino" name="destino">
-                        <option value="Antigua y Barbuda">Antigua y Barbuda</option>
-                        <option value="Argentina">Argentina</option>
-                        <option value="Bahamas">Bahamas</option>
-                        <option value="Barbados">Barbados</option>
-                        <option value="Belice">Belice</option>
-                        <option value="Bolivia">Bolivia</option>
-                        <option value="Brasil">Brasil</option>
-                        <option value="Canada">Canadá</option>
-                        <option value="Chile">Chile</option>
-                        <option value="Colombia">Colombia</option>
-                        <option value="Costa Rica">Costa Rica</option>
-                        <option value="Cuba">Cuba</option>
-                        <option value="Dominica">Dominica</option>
-                        <option value="Ecuador">Ecuador</option>
-                        <option value="El Salvador">El Salvador</option>
-                        <option value="Estados-Unidos">Estados Unidos</option>
-                        <option value="Granada">Granada</option>
-                        <option value="Guatemala">Guatemala</option>
-                        <option value="Guyana">Guyana</option>
-                        <option value="Haiti">Haití</option>
-                        <option value="Honduras">Honduras</option>
-                        <option value="Jamaica">Jamaica</option>
-                        <option value="Mexico">México</option>
-                        <option value="Nicaragua">Nicaragua</option>
-                        <option value="Panama">Panamá</option>
-                        <option value="Paraguay">Paraguay</option>
-                        <option value="Peru">Perú</option>
-                        <option value="Republica Dominicana">República Dominicana</option>
-                        <option value="San Cristobal y Nieves">San Cristóbal y Nieves</option>
-                        <option value="San Vicente y las Granadinas">San Vicente y las Granadinas</option>
-                        <option value="Santa Lucia">Santa Lucía</option>
-                        <option value="Surinam">Surinam</option>
-                        <option value="Trinidad y Tobago">Trinidad y Tobago</option>
-                        <option value="Uruguay">Uruguay</option>
-                        <option value="Venezuela">Venezuela</option>
-                        </select>
-                    </div>
-                    <div class="center-button">
-                        <button id="search-btn" type="submit" class="mt-5 btn btn-primary full-width-btn">Buscar Vuelo</button>
-                    </div>
-                </form>
-            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carrusel1" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon custom-carousel-control" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carrusel1" data-bs-slide="next">
+                <span class="carousel-control-next-icon custom-carousel-control" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
         </div>
     </div>
-  </div>
-</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-
-                    <div class="col-md-3 mt-5 mb-5">
-                            <div class="image-container">
-                            <img src="../imagen/index/EEUU.png" alt="Argentina" class="d-block w-100">
-                                <div class="overlay">
-                                    <div class="overlay-content">
-                                    <h4>Estados Unidos</h4>
-                                    <h6>Gran Cañón</h6>
-                                    <button id="openModalBtn" class="btn btn-primary">Tomar viaje</button> <!-- Cambié el <a> a <button> para evitar conflictos -->
-                                        <!-- El Modal --><div id="myModal" class="modal">
-                                            <div class="modal-content">
-                                                <span class="close">&times;</span>
-                                                <!-- Aquí puedes incluir tu formulario -->
-                                                 <div class="centered-card mt-4">
-                                                 <div class=" card-buscar card p-4">
-                                                 <div class="card-body">
-                                                 <h5 id="search-flight" class="card-title text-center text-formu">Busca tu Vuelo:</h5>
-                
-                                                 <form class="form-inline justify-content-center" method="get" action="">
-                   
-                                                 <div class="form-group mt-4">
-                        
-                                                 <label id="flight-date" class="text-formu">Fecha de Vuelo:</label>
-                        
-                                                 <input type="date" class="form-control" id="fechaVuelo" placeholder="Fecha de Vuelo" name="fecha" min="<?php echo $fechaActual; ?>" required>
-                    
-                                                </div>
-                   
-                                                <div class="form-group mt-4">
-                        
-                                                <label id="origin-country" class="text-formu">País de Origen:</label>
-                       
-                                                <select class="form-control w-50" id="Origen" name="origen">
-
-                                                <option value="Antigua y Barbuda">Antigua y Barbuda</option>
-                        <option value="Argentina">Argentina</option>
-                        <option value="Bahamas">Bahamas</option>
-                        <option value="Barbados">Barbados</option>
-                        <option value="Belice">Belice</option>
-                        <option value="Bolivia">Bolivia</option>
-                        <option value="Brasil">Brasil</option>
-                        <option value="Canada">Canadá</option>
-                        <option value="Chile">Chile</option>
-                        <option value="Colombia">Colombia</option>
-                        <option value="Costa Rica">Costa Rica</option>
-                        <option value="Cuba">Cuba</option>
-                        <option value="Dominica">Dominica</option>
-                        <option value="Ecuador">Ecuador</option>
-                        <option value="El Salvador">El Salvador</option>
-                        <option value="Estados-Unidos">Estados Unidos</option>
-                        <option value="Granada">Granada</option>
-                        <option value="Guatemala">Guatemala</option>
-                        <option value="Guyana">Guyana</option>
-                        <option value="Haiti">Haití</option>
-                        <option value="Honduras">Honduras</option>
-                        <option value="Jamaica">Jamaica</option>
-                        <option value="Mexico">México</option>
-                        <option value="Nicaragua">Nicaragua</option>
-                        <option value="Panama">Panamá</option>
-                        <option value="Paraguay">Paraguay</option>
-                        <option value="Peru">Perú</option>
-                        <option value="Republica Dominicana">República Dominicana</option>
-                        <option value="San Cristobal y Nieves">San Cristóbal y Nieves</option>
-                        <option value="San Vicente y las Granadinas">San Vicente y las Granadinas</option>
-                        <option value="Santa Lucia">Santa Lucía</option>
-                        <option value="Surinam">Surinam</option>
-                        <option value="Trinidad y Tobago">Trinidad y Tobago</option>
-                        <option value="Uruguay">Uruguay</option>
-                        <option value="Venezuela">Venezuela</option>
-
-                        </select>
-                    </div>
-                    <div class="form-group mt-4">
-                        <label id="destination-country" class="text-titulo text-formu">País de Destino:</label>
-                        <select class="form-control w-50" id="Destino" name="destino">
-                        <option value="Antigua y Barbuda">Antigua y Barbuda</option>
-                        <option value="Argentina">Argentina</option>
-                        <option value="Bahamas">Bahamas</option>
-                        <option value="Barbados">Barbados</option>
-                        <option value="Belice">Belice</option>
-                        <option value="Bolivia">Bolivia</option>
-                        <option value="Brasil">Brasil</option>
-                        <option value="Canada">Canadá</option>
-                        <option value="Chile">Chile</option>
-                        <option value="Colombia">Colombia</option>
-                        <option value="Costa Rica">Costa Rica</option>
-                        <option value="Cuba">Cuba</option>
-                        <option value="Dominica">Dominica</option>
-                        <option value="Ecuador">Ecuador</option>
-                        <option value="El Salvador">El Salvador</option>
-                        <option value="Estados-Unidos">Estados Unidos</option>
-                        <option value="Granada">Granada</option>
-                        <option value="Guatemala">Guatemala</option>
-                        <option value="Guyana">Guyana</option>
-                        <option value="Haiti">Haití</option>
-                        <option value="Honduras">Honduras</option>
-                        <option value="Jamaica">Jamaica</option>
-                        <option value="Mexico">México</option>
-                        <option value="Nicaragua">Nicaragua</option>
-                        <option value="Panama">Panamá</option>
-                        <option value="Paraguay">Paraguay</option>
-                        <option value="Peru">Perú</option>
-                        <option value="Republica Dominicana">República Dominicana</option>
-                        <option value="San Cristobal y Nieves">San Cristóbal y Nieves</option>
-                        <option value="San Vicente y las Granadinas">San Vicente y las Granadinas</option>
-                        <option value="Santa Lucia">Santa Lucía</option>
-                        <option value="Surinam">Surinam</option>
-                        <option value="Trinidad y Tobago">Trinidad y Tobago</option>
-                        <option value="Uruguay">Uruguay</option>
-                        <option value="Venezuela">Venezuela</option>
-                        </select>
-                    </div>
-                    <div class="center-button">
-                        <button id="search-btn" type="submit" class="mt-5 btn btn-primary full-width-btn">Buscar Vuelo</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-  </div>
-</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-
-
-                    <div class="col-md-3 mt-5 mb-5">
-                            <div class="image-container">
-                            <img src="../imagen/index/venezuela.png" alt="Argentina" class="d-block w-100">
-                                <div class="overlay">
-                                    <div class="overlay-content">
-                                    <h4>Venezuela</h4>
-                                    <h6>Roraima</h6>
-                                    <button id="openModalBtn" class="btn btn-primary">Tomar viaje</button> <!-- Cambié el <a> a <button> para evitar conflictos -->
-                                        <!-- El Modal --><div id="myModal" class="modal">
-                                            <div class="modal-content">
-                                                <span class="close">&times;</span>
-                                                <!-- Aquí puedes incluir tu formulario -->
-                                                 <div class="centered-card mt-4">
-                                                 <div class=" card-buscar card p-4">
-                                                 <div class="card-body">
-                                                 <h5 id="search-flight" class="card-title text-center text-formu">Busca tu Vuelo:</h5>
-                
-                                                 <form class="form-inline justify-content-center" method="get" action="">
-                   
-                                                 <div class="form-group mt-4">
-                        
-                                                 <label id="flight-date" class="text-formu">Fecha de Vuelo:</label>
-                        
-                                                 <input type="date" class="form-control" id="fechaVuelo" placeholder="Fecha de Vuelo" name="fecha" min="<?php echo $fechaActual; ?>" required>
-                    
-                                                </div>
-                   
-                                                <div class="form-group mt-4">
-                        
-                                                <label id="origin-country" class="text-formu">País de Origen:</label>
-                       
-                                                <select class="form-control w-50" id="Origen" name="origen">
-
-                                                <option value="Antigua y Barbuda">Antigua y Barbuda</option>
-                        <option value="Argentina">Argentina</option>
-                        <option value="Bahamas">Bahamas</option>
-                        <option value="Barbados">Barbados</option>
-                        <option value="Belice">Belice</option>
-                        <option value="Bolivia">Bolivia</option>
-                        <option value="Brasil">Brasil</option>
-                        <option value="Canada">Canadá</option>
-                        <option value="Chile">Chile</option>
-                        <option value="Colombia">Colombia</option>
-                        <option value="Costa Rica">Costa Rica</option>
-                        <option value="Cuba">Cuba</option>
-                        <option value="Dominica">Dominica</option>
-                        <option value="Ecuador">Ecuador</option>
-                        <option value="El Salvador">El Salvador</option>
-                        <option value="Estados-Unidos">Estados Unidos</option>
-                        <option value="Granada">Granada</option>
-                        <option value="Guatemala">Guatemala</option>
-                        <option value="Guyana">Guyana</option>
-                        <option value="Haiti">Haití</option>
-                        <option value="Honduras">Honduras</option>
-                        <option value="Jamaica">Jamaica</option>
-                        <option value="Mexico">México</option>
-                        <option value="Nicaragua">Nicaragua</option>
-                        <option value="Panama">Panamá</option>
-                        <option value="Paraguay">Paraguay</option>
-                        <option value="Peru">Perú</option>
-                        <option value="Republica Dominicana">República Dominicana</option>
-                        <option value="San Cristobal y Nieves">San Cristóbal y Nieves</option>
-                        <option value="San Vicente y las Granadinas">San Vicente y las Granadinas</option>
-                        <option value="Santa Lucia">Santa Lucía</option>
-                        <option value="Surinam">Surinam</option>
-                        <option value="Trinidad y Tobago">Trinidad y Tobago</option>
-                        <option value="Uruguay">Uruguay</option>
-                        <option value="Venezuela">Venezuela</option>
-
-                        </select>
-                    </div>
-                    <div class="form-group mt-4">
-                        <label id="destination-country" class="text-titulo text-formu">País de Destino:</label>
-                        <select class="form-control w-50" id="Destino" name="destino">
-                        <option value="Antigua y Barbuda">Antigua y Barbuda</option>
-                        <option value="Argentina">Argentina</option>
-                        <option value="Bahamas">Bahamas</option>
-                        <option value="Barbados">Barbados</option>
-                        <option value="Belice">Belice</option>
-                        <option value="Bolivia">Bolivia</option>
-                        <option value="Brasil">Brasil</option>
-                        <option value="Canada">Canadá</option>
-                        <option value="Chile">Chile</option>
-                        <option value="Colombia">Colombia</option>
-                        <option value="Costa Rica">Costa Rica</option>
-                        <option value="Cuba">Cuba</option>
-                        <option value="Dominica">Dominica</option>
-                        <option value="Ecuador">Ecuador</option>
-                        <option value="El Salvador">El Salvador</option>
-                        <option value="Estados-Unidos">Estados Unidos</option>
-                        <option value="Granada">Granada</option>
-                        <option value="Guatemala">Guatemala</option>
-                        <option value="Guyana">Guyana</option>
-                        <option value="Haiti">Haití</option>
-                        <option value="Honduras">Honduras</option>
-                        <option value="Jamaica">Jamaica</option>
-                        <option value="Mexico">México</option>
-                        <option value="Nicaragua">Nicaragua</option>
-                        <option value="Panama">Panamá</option>
-                        <option value="Paraguay">Paraguay</option>
-                        <option value="Peru">Perú</option>
-                        <option value="Republica Dominicana">República Dominicana</option>
-                        <option value="San Cristobal y Nieves">San Cristóbal y Nieves</option>
-                        <option value="San Vicente y las Granadinas">San Vicente y las Granadinas</option>
-                        <option value="Santa Lucia">Santa Lucía</option>
-                        <option value="Surinam">Surinam</option>
-                        <option value="Trinidad y Tobago">Trinidad y Tobago</option>
-                        <option value="Uruguay">Uruguay</option>
-                        <option value="Venezuela">Venezuela</option>
-                        </select>
-                    </div>
-                    <div class="center-button">
-                        <button id="search-btn" type="submit" class="mt-5 btn btn-primary full-width-btn">Buscar Vuelo</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-  </div>
-</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-
-
-                    <div class="col-md-3 mt-5 mb-5">
-                            <div class="image-container">
-                            <img src="../imagen/index/peru.png" alt="Argentina" class="d-block w-100">
-                                <div class="overlay">
-                                    <div class="overlay-content">
-                                    <h4>Perú</h4>
-                                    <h6>Machu Picchu</h6>
-                                    <button id="openModalBtn" class="btn btn-primary">Tomar viaje</button> <!-- Cambié el <a> a <button> para evitar conflictos -->
-                                        <!-- El Modal --><div id="myModal" class="modal">
-                                            <div class="modal-content">
-                                                <span class="close">&times;</span>
-                                                <!-- Aquí puedes incluir tu formulario -->
-                                                 <div class="centered-card mt-4">
-                                                 <div class=" card-buscar card p-4">
-                                                 <div class="card-body">
-                                                 <h5 id="search-flight" class="card-title text-center text-formu">Busca tu Vuelo:</h5>
-                
-                                                 <form class="form-inline justify-content-center" method="get" action="">
-                   
-                                                 <div class="form-group mt-4">
-                        
-                                                 <label id="flight-date" class="text-formu">Fecha de Vuelo:</label>
-                        
-                                                 <input type="date" class="form-control" id="fechaVuelo" placeholder="Fecha de Vuelo" name="fecha" min="<?php echo $fechaActual; ?>" required>
-                    
-                                                </div>
-                   
-                                                <div class="form-group mt-4">
-                        
-                                                <label id="origin-country" class="text-formu">País de Origen:</label>
-                       
-                                                <select class="form-control w-50" id="Origen" name="origen">
-
-                                                <option value="Antigua y Barbuda">Antigua y Barbuda</option>
-                        <option value="Argentina">Argentina</option>
-                        <option value="Bahamas">Bahamas</option>
-                        <option value="Barbados">Barbados</option>
-                        <option value="Belice">Belice</option>
-                        <option value="Bolivia">Bolivia</option>
-                        <option value="Brasil">Brasil</option>
-                        <option value="Canada">Canadá</option>
-                        <option value="Chile">Chile</option>
-                        <option value="Colombia">Colombia</option>
-                        <option value="Costa Rica">Costa Rica</option>
-                        <option value="Cuba">Cuba</option>
-                        <option value="Dominica">Dominica</option>
-                        <option value="Ecuador">Ecuador</option>
-                        <option value="El Salvador">El Salvador</option>
-                        <option value="Estados-Unidos">Estados Unidos</option>
-                        <option value="Granada">Granada</option>
-                        <option value="Guatemala">Guatemala</option>
-                        <option value="Guyana">Guyana</option>
-                        <option value="Haiti">Haití</option>
-                        <option value="Honduras">Honduras</option>
-                        <option value="Jamaica">Jamaica</option>
-                        <option value="Mexico">México</option>
-                        <option value="Nicaragua">Nicaragua</option>
-                        <option value="Panama">Panamá</option>
-                        <option value="Paraguay">Paraguay</option>
-                        <option value="Peru">Perú</option>
-                        <option value="Republica Dominicana">República Dominicana</option>
-                        <option value="San Cristobal y Nieves">San Cristóbal y Nieves</option>
-                        <option value="San Vicente y las Granadinas">San Vicente y las Granadinas</option>
-                        <option value="Santa Lucia">Santa Lucía</option>
-                        <option value="Surinam">Surinam</option>
-                        <option value="Trinidad y Tobago">Trinidad y Tobago</option>
-                        <option value="Uruguay">Uruguay</option>
-                        <option value="Venezuela">Venezuela</option>
-
-                        </select>
-                    </div>
-                    <div class="form-group mt-4">
-                        <label id="destination-country" class="text-titulo text-formu">País de Destino:</label>
-                        <select class="form-control w-50" id="Destino" name="destino">
-                        <option value="Antigua y Barbuda">Antigua y Barbuda</option>
-                        <option value="Argentina">Argentina</option>
-                        <option value="Bahamas">Bahamas</option>
-                        <option value="Barbados">Barbados</option>
-                        <option value="Belice">Belice</option>
-                        <option value="Bolivia">Bolivia</option>
-                        <option value="Brasil">Brasil</option>
-                        <option value="Canada">Canadá</option>
-                        <option value="Chile">Chile</option>
-                        <option value="Colombia">Colombia</option>
-                        <option value="Costa Rica">Costa Rica</option>
-                        <option value="Cuba">Cuba</option>
-                        <option value="Dominica">Dominica</option>
-                        <option value="Ecuador">Ecuador</option>
-                        <option value="El Salvador">El Salvador</option>
-                        <option value="Estados-Unidos">Estados Unidos</option>
-                        <option value="Granada">Granada</option>
-                        <option value="Guatemala">Guatemala</option>
-                        <option value="Guyana">Guyana</option>
-                        <option value="Haiti">Haití</option>
-                        <option value="Honduras">Honduras</option>
-                        <option value="Jamaica">Jamaica</option>
-                        <option value="Mexico">México</option>
-                        <option value="Nicaragua">Nicaragua</option>
-                        <option value="Panama">Panamá</option>
-                        <option value="Paraguay">Paraguay</option>
-                        <option value="Peru">Perú</option>
-                        <option value="Republica Dominicana">República Dominicana</option>
-                        <option value="San Cristobal y Nieves">San Cristóbal y Nieves</option>
-                        <option value="San Vicente y las Granadinas">San Vicente y las Granadinas</option>
-                        <option value="Santa Lucia">Santa Lucía</option>
-                        <option value="Surinam">Surinam</option>
-                        <option value="Trinidad y Tobago">Trinidad y Tobago</option>
-                        <option value="Uruguay">Uruguay</option>
-                        <option value="Venezuela">Venezuela</option>
-                        </select>
-                    </div>
-                    <div class="center-button">
-                        <button id="search-btn" type="submit" class="mt-5 btn btn-primary full-width-btn">Buscar Vuelo</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-  </div>
-</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-
-                </div>
-            </div>
-
-            <!-- Tercer fila de imágenes -->
-
-            <div class="carousel-item">
-                <div class="row">
-
-
-                <div class="col-md-3 mt-5 mb-5">
-                            <div class="image-container">
-                            <img src="../imagen/index/paraguay.png" alt="Argentina" class="d-block w-100">
-                                <div class="overlay">
-                                    <div class="overlay-content">
-                                    <h4>Paraguay</h4>
-                                    <h6>Ciudad del Este</h6>
-                                    <button id="openModalBtn" class="btn btn-primary">Tomar viaje</button> <!-- Cambié el <a> a <button> para evitar conflictos -->
-                                        <!-- El Modal --><div id="myModal" class="modal">
-                                            <div class="modal-content">
-                                                <span class="close">&times;</span>
-                                                <!-- Aquí puedes incluir tu formulario -->
-                                                 <div class="centered-card mt-4">
-                                                 <div class=" card-buscar card p-4">
-                                                 <div class="card-body">
-                                                 <h5 id="search-flight" class="card-title text-center text-formu">Busca tu Vuelo:</h5>
-                
-                                                 <form class="form-inline justify-content-center" method="get" action="">
-                   
-                                                 <div class="form-group mt-4">
-                        
-                                                 <label id="flight-date" class="text-formu">Fecha de Vuelo:</label>
-                        
-                                                 <input type="date" class="form-control" id="fechaVuelo" placeholder="Fecha de Vuelo" name="fecha" min="<?php echo $fechaActual; ?>" required>
-                    
-                                                </div>
-                   
-                                                <div class="form-group mt-4">
-                        
-                                                <label id="origin-country" class="text-formu">País de Origen:</label>
-                       
-                                                <select class="form-control w-50" id="Origen" name="origen">
-
-                                                <option value="Antigua y Barbuda">Antigua y Barbuda</option>
-                        <option value="Argentina">Argentina</option>
-                        <option value="Bahamas">Bahamas</option>
-                        <option value="Barbados">Barbados</option>
-                        <option value="Belice">Belice</option>
-                        <option value="Bolivia">Bolivia</option>
-                        <option value="Brasil">Brasil</option>
-                        <option value="Canada">Canadá</option>
-                        <option value="Chile">Chile</option>
-                        <option value="Colombia">Colombia</option>
-                        <option value="Costa Rica">Costa Rica</option>
-                        <option value="Cuba">Cuba</option>
-                        <option value="Dominica">Dominica</option>
-                        <option value="Ecuador">Ecuador</option>
-                        <option value="El Salvador">El Salvador</option>
-                        <option value="Estados-Unidos">Estados Unidos</option>
-                        <option value="Granada">Granada</option>
-                        <option value="Guatemala">Guatemala</option>
-                        <option value="Guyana">Guyana</option>
-                        <option value="Haiti">Haití</option>
-                        <option value="Honduras">Honduras</option>
-                        <option value="Jamaica">Jamaica</option>
-                        <option value="Mexico">México</option>
-                        <option value="Nicaragua">Nicaragua</option>
-                        <option value="Panama">Panamá</option>
-                        <option value="Paraguay">Paraguay</option>
-                        <option value="Peru">Perú</option>
-                        <option value="Republica Dominicana">República Dominicana</option>
-                        <option value="San Cristobal y Nieves">San Cristóbal y Nieves</option>
-                        <option value="San Vicente y las Granadinas">San Vicente y las Granadinas</option>
-                        <option value="Santa Lucia">Santa Lucía</option>
-                        <option value="Surinam">Surinam</option>
-                        <option value="Trinidad y Tobago">Trinidad y Tobago</option>
-                        <option value="Uruguay">Uruguay</option>
-                        <option value="Venezuela">Venezuela</option>
-
-                        </select>
-                    </div>
-                    <div class="form-group mt-4">
-                        <label id="destination-country" class="text-titulo text-formu">País de Destino:</label>
-                        <select class="form-control w-50" id="Destino" name="destino">
-                        <option value="Antigua y Barbuda">Antigua y Barbuda</option>
-                        <option value="Argentina">Argentina</option>
-                        <option value="Bahamas">Bahamas</option>
-                        <option value="Barbados">Barbados</option>
-                        <option value="Belice">Belice</option>
-                        <option value="Bolivia">Bolivia</option>
-                        <option value="Brasil">Brasil</option>
-                        <option value="Canada">Canadá</option>
-                        <option value="Chile">Chile</option>
-                        <option value="Colombia">Colombia</option>
-                        <option value="Costa Rica">Costa Rica</option>
-                        <option value="Cuba">Cuba</option>
-                        <option value="Dominica">Dominica</option>
-                        <option value="Ecuador">Ecuador</option>
-                        <option value="El Salvador">El Salvador</option>
-                        <option value="Estados-Unidos">Estados Unidos</option>
-                        <option value="Granada">Granada</option>
-                        <option value="Guatemala">Guatemala</option>
-                        <option value="Guyana">Guyana</option>
-                        <option value="Haiti">Haití</option>
-                        <option value="Honduras">Honduras</option>
-                        <option value="Jamaica">Jamaica</option>
-                        <option value="Mexico">México</option>
-                        <option value="Nicaragua">Nicaragua</option>
-                        <option value="Panama">Panamá</option>
-                        <option value="Paraguay">Paraguay</option>
-                        <option value="Peru">Perú</option>
-                        <option value="Republica Dominicana">República Dominicana</option>
-                        <option value="San Cristobal y Nieves">San Cristóbal y Nieves</option>
-                        <option value="San Vicente y las Granadinas">San Vicente y las Granadinas</option>
-                        <option value="Santa Lucia">Santa Lucía</option>
-                        <option value="Surinam">Surinam</option>
-                        <option value="Trinidad y Tobago">Trinidad y Tobago</option>
-                        <option value="Uruguay">Uruguay</option>
-                        <option value="Venezuela">Venezuela</option>
-                        </select>
-                    </div>
-                    <div class="center-button">
-                        <button id="search-btn" type="submit" class="mt-5 btn btn-primary full-width-btn">Buscar Vuelo</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-  </div>
-</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-
-                    <div class="col-md-3 mt-5 mb-5">
-                            <div class="image-container">
-                            <img src="../imagen/index/repuDominicana.png" alt="Argentina" class="d-block w-100">
-                                <div class="overlay">
-                                    <div class="overlay-content">
-                                    <h4>República Dominicana</h4>
-                                    <h6>Playa Punta Cana</h6>
-                                    <button id="openModalBtn" class="btn btn-primary">Tomar viaje</button> <!-- Cambié el <a> a <button> para evitar conflictos -->
-                                        <!-- El Modal --><div id="myModal" class="modal">
-                                            <div class="modal-content">
-                                                <span class="close">&times;</span>
-                                                <!-- Aquí puedes incluir tu formulario -->
-                                                 <div class="centered-card mt-4">
-                                                 <div class=" card-buscar card p-4">
-                                                 <div class="card-body">
-                                                 <h5 id="search-flight" class="card-title text-center text-formu">Busca tu Vuelo:</h5>
-                
-                                                 <form class="form-inline justify-content-center" method="get" action="">
-                   
-                                                 <div class="form-group mt-4">
-                        
-                                                 <label id="flight-date" class="text-formu">Fecha de Vuelo:</label>
-                        
-                                                 <input type="date" class="form-control" id="fechaVuelo" placeholder="Fecha de Vuelo" name="fecha" min="<?php echo $fechaActual; ?>" required>
-                    
-                                                </div>
-                   
-                                                <div class="form-group mt-4">
-                        
-                                                <label id="origin-country" class="text-formu">País de Origen:</label>
-                       
-                                                <select class="form-control w-50" id="Origen" name="origen">
-
-                                                <option value="Antigua y Barbuda">Antigua y Barbuda</option>
-                        <option value="Argentina">Argentina</option>
-                        <option value="Bahamas">Bahamas</option>
-                        <option value="Barbados">Barbados</option>
-                        <option value="Belice">Belice</option>
-                        <option value="Bolivia">Bolivia</option>
-                        <option value="Brasil">Brasil</option>
-                        <option value="Canada">Canadá</option>
-                        <option value="Chile">Chile</option>
-                        <option value="Colombia">Colombia</option>
-                        <option value="Costa Rica">Costa Rica</option>
-                        <option value="Cuba">Cuba</option>
-                        <option value="Dominica">Dominica</option>
-                        <option value="Ecuador">Ecuador</option>
-                        <option value="El Salvador">El Salvador</option>
-                        <option value="Estados-Unidos">Estados Unidos</option>
-                        <option value="Granada">Granada</option>
-                        <option value="Guatemala">Guatemala</option>
-                        <option value="Guyana">Guyana</option>
-                        <option value="Haiti">Haití</option>
-                        <option value="Honduras">Honduras</option>
-                        <option value="Jamaica">Jamaica</option>
-                        <option value="Mexico">México</option>
-                        <option value="Nicaragua">Nicaragua</option>
-                        <option value="Panama">Panamá</option>
-                        <option value="Paraguay">Paraguay</option>
-                        <option value="Peru">Perú</option>
-                        <option value="Republica Dominicana">República Dominicana</option>
-                        <option value="San Cristobal y Nieves">San Cristóbal y Nieves</option>
-                        <option value="San Vicente y las Granadinas">San Vicente y las Granadinas</option>
-                        <option value="Santa Lucia">Santa Lucía</option>
-                        <option value="Surinam">Surinam</option>
-                        <option value="Trinidad y Tobago">Trinidad y Tobago</option>
-                        <option value="Uruguay">Uruguay</option>
-                        <option value="Venezuela">Venezuela</option>
-
-                        </select>
-                    </div>
-                    <div class="form-group mt-4">
-                        <label id="destination-country" class="text-titulo text-formu">País de Destino:</label>
-                        <select class="form-control w-50" id="Destino" name="destino">
-                        <option value="Antigua y Barbuda">Antigua y Barbuda</option>
-                        <option value="Argentina">Argentina</option>
-                        <option value="Bahamas">Bahamas</option>
-                        <option value="Barbados">Barbados</option>
-                        <option value="Belice">Belice</option>
-                        <option value="Bolivia">Bolivia</option>
-                        <option value="Brasil">Brasil</option>
-                        <option value="Canada">Canadá</option>
-                        <option value="Chile">Chile</option>
-                        <option value="Colombia">Colombia</option>
-                        <option value="Costa Rica">Costa Rica</option>
-                        <option value="Cuba">Cuba</option>
-                        <option value="Dominica">Dominica</option>
-                        <option value="Ecuador">Ecuador</option>
-                        <option value="El Salvador">El Salvador</option>
-                        <option value="Estados-Unidos">Estados Unidos</option>
-                        <option value="Granada">Granada</option>
-                        <option value="Guatemala">Guatemala</option>
-                        <option value="Guyana">Guyana</option>
-                        <option value="Haiti">Haití</option>
-                        <option value="Honduras">Honduras</option>
-                        <option value="Jamaica">Jamaica</option>
-                        <option value="Mexico">México</option>
-                        <option value="Nicaragua">Nicaragua</option>
-                        <option value="Panama">Panamá</option>
-                        <option value="Paraguay">Paraguay</option>
-                        <option value="Peru">Perú</option>
-                        <option value="Republica Dominicana">República Dominicana</option>
-                        <option value="San Cristobal y Nieves">San Cristóbal y Nieves</option>
-                        <option value="San Vicente y las Granadinas">San Vicente y las Granadinas</option>
-                        <option value="Santa Lucia">Santa Lucía</option>
-                        <option value="Surinam">Surinam</option>
-                        <option value="Trinidad y Tobago">Trinidad y Tobago</option>
-                        <option value="Uruguay">Uruguay</option>
-                        <option value="Venezuela">Venezuela</option>
-                        </select>
-                    </div>
-                    <div class="center-button">
-                        <button id="search-btn" type="submit" class="mt-5 btn btn-primary full-width-btn">Buscar Vuelo</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-  </div>
-</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-
-
-                    <div class="col-md-3 mt-5 mb-5">
-                            <div class="image-container">
-                            <img src="../imagen/index/cuba.png" alt="Argentina" class="d-block w-100">
-                                <div class="overlay">
-                                    <div class="overlay-content">
-                                    <h4>Cuba</h4>
-                                    <h6>Playa Varadero</h6>
-                                    <button id="openModalBtn" class="btn btn-primary">Tomar viaje</button> <!-- Cambié el <a> a <button> para evitar conflictos -->
-                                        <!-- El Modal --><div id="myModal" class="modal">
-                                            <div class="modal-content">
-                                                <span class="close">&times;</span>
-                                                <!-- Aquí puedes incluir tu formulario -->
-                                                 <div class="centered-card mt-4">
-                                                 <div class=" card-buscar card p-4">
-                                                 <div class="card-body">
-                                                 <h5 id="search-flight" class="card-title text-center text-formu">Busca tu Vuelo:</h5>
-                
-                                                 <form class="form-inline justify-content-center" method="get" action="">
-                   
-                                                 <div class="form-group mt-4">
-                        
-                                                 <label id="flight-date" class="text-formu">Fecha de Vuelo:</label>
-                        
-                                                 <input type="date" class="form-control" id="fechaVuelo" placeholder="Fecha de Vuelo" name="fecha" min="<?php echo $fechaActual; ?>" required>
-                    
-                                                </div>
-                   
-                                                <div class="form-group mt-4">
-                        
-                                                <label id="origin-country" class="text-formu">País de Origen:</label>
-                       
-                                                <select class="form-control w-50" id="Origen" name="origen">
-
-                                                <option value="Antigua y Barbuda">Antigua y Barbuda</option>
-                        <option value="Argentina">Argentina</option>
-                        <option value="Bahamas">Bahamas</option>
-                        <option value="Barbados">Barbados</option>
-                        <option value="Belice">Belice</option>
-                        <option value="Bolivia">Bolivia</option>
-                        <option value="Brasil">Brasil</option>
-                        <option value="Canada">Canadá</option>
-                        <option value="Chile">Chile</option>
-                        <option value="Colombia">Colombia</option>
-                        <option value="Costa Rica">Costa Rica</option>
-                        <option value="Cuba">Cuba</option>
-                        <option value="Dominica">Dominica</option>
-                        <option value="Ecuador">Ecuador</option>
-                        <option value="El Salvador">El Salvador</option>
-                        <option value="Estados-Unidos">Estados Unidos</option>
-                        <option value="Granada">Granada</option>
-                        <option value="Guatemala">Guatemala</option>
-                        <option value="Guyana">Guyana</option>
-                        <option value="Haiti">Haití</option>
-                        <option value="Honduras">Honduras</option>
-                        <option value="Jamaica">Jamaica</option>
-                        <option value="Mexico">México</option>
-                        <option value="Nicaragua">Nicaragua</option>
-                        <option value="Panama">Panamá</option>
-                        <option value="Paraguay">Paraguay</option>
-                        <option value="Peru">Perú</option>
-                        <option value="Republica Dominicana">República Dominicana</option>
-                        <option value="San Cristobal y Nieves">San Cristóbal y Nieves</option>
-                        <option value="San Vicente y las Granadinas">San Vicente y las Granadinas</option>
-                        <option value="Santa Lucia">Santa Lucía</option>
-                        <option value="Surinam">Surinam</option>
-                        <option value="Trinidad y Tobago">Trinidad y Tobago</option>
-                        <option value="Uruguay">Uruguay</option>
-                        <option value="Venezuela">Venezuela</option>
-
-                        </select>
-                    </div>
-                    <div class="form-group mt-4">
-                        <label id="destination-country" class="text-titulo text-formu">País de Destino:</label>
-                        <select class="form-control w-50" id="Destino" name="destino">
-                        <option value="Antigua y Barbuda">Antigua y Barbuda</option>
-                        <option value="Argentina">Argentina</option>
-                        <option value="Bahamas">Bahamas</option>
-                        <option value="Barbados">Barbados</option>
-                        <option value="Belice">Belice</option>
-                        <option value="Bolivia">Bolivia</option>
-                        <option value="Brasil">Brasil</option>
-                        <option value="Canada">Canadá</option>
-                        <option value="Chile">Chile</option>
-                        <option value="Colombia">Colombia</option>
-                        <option value="Costa Rica">Costa Rica</option>
-                        <option value="Cuba">Cuba</option>
-                        <option value="Dominica">Dominica</option>
-                        <option value="Ecuador">Ecuador</option>
-                        <option value="El Salvador">El Salvador</option>
-                        <option value="Estados-Unidos">Estados Unidos</option>
-                        <option value="Granada">Granada</option>
-                        <option value="Guatemala">Guatemala</option>
-                        <option value="Guyana">Guyana</option>
-                        <option value="Haiti">Haití</option>
-                        <option value="Honduras">Honduras</option>
-                        <option value="Jamaica">Jamaica</option>
-                        <option value="Mexico">México</option>
-                        <option value="Nicaragua">Nicaragua</option>
-                        <option value="Panama">Panamá</option>
-                        <option value="Paraguay">Paraguay</option>
-                        <option value="Peru">Perú</option>
-                        <option value="Republica Dominicana">República Dominicana</option>
-                        <option value="San Cristobal y Nieves">San Cristóbal y Nieves</option>
-                        <option value="San Vicente y las Granadinas">San Vicente y las Granadinas</option>
-                        <option value="Santa Lucia">Santa Lucía</option>
-                        <option value="Surinam">Surinam</option>
-                        <option value="Trinidad y Tobago">Trinidad y Tobago</option>
-                        <option value="Uruguay">Uruguay</option>
-                        <option value="Venezuela">Venezuela</option>
-                        </select>
-                    </div>
-                    <div class="center-button">
-                        <button id="search-btn" type="submit" class="mt-5 btn btn-primary full-width-btn">Buscar Vuelo</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-  </div>
-</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-
-
-                    <div class="col-md-3 mt-5 mb-5">
-                            <div class="image-container">
-                            <img src="../imagen/index/Jamaica.png" alt="Argentina" class="d-block w-100">
-                                <div class="overlay">
-                                    <div class="overlay-content">
-                                    <h4>Jamaica</h4>
-                                    <h6>Playa Seven Mile</h6>
-                                    <button id="openModalBtn" class="btn btn-primary">Tomar viaje</button> <!-- Cambié el <a> a <button> para evitar conflictos -->
-                                        <!-- El Modal --><div id="myModal" class="modal">
-                                            <div class="modal-content">
-                                                <span class="close">&times;</span>
-                                                <!-- Aquí puedes incluir tu formulario -->
-                                                 <div class="centered-card mt-4">
-                                                 <div class=" card-buscar card p-4">
-                                                 <div class="card-body">
-                                                 <h5 id="search-flight" class="card-title text-center text-formu">Busca tu Vuelo:</h5>
-                
-                                                 <form class="form-inline justify-content-center" method="get" action="">
-                   
-                                                 <div class="form-group mt-4">
-                        
-                                                 <label id="flight-date" class="text-formu">Fecha de Vuelo:</label>
-                        
-                                                 <input type="date" class="form-control" id="fechaVuelo" placeholder="Fecha de Vuelo" name="fecha" min="<?php echo $fechaActual; ?>" required>
-                    
-                                                </div>
-                   
-                                                <div class="form-group mt-4">
-                        
-                                                <label id="origin-country" class="text-formu">País de Origen:</label>
-                       
-                                                <select class="form-control w-50" id="Origen" name="origen">
-
-                                                <option value="Antigua y Barbuda">Antigua y Barbuda</option>
-                        <option value="Argentina">Argentina</option>
-                        <option value="Bahamas">Bahamas</option>
-                        <option value="Barbados">Barbados</option>
-                        <option value="Belice">Belice</option>
-                        <option value="Bolivia">Bolivia</option>
-                        <option value="Brasil">Brasil</option>
-                        <option value="Canada">Canadá</option>
-                        <option value="Chile">Chile</option>
-                        <option value="Colombia">Colombia</option>
-                        <option value="Costa Rica">Costa Rica</option>
-                        <option value="Cuba">Cuba</option>
-                        <option value="Dominica">Dominica</option>
-                        <option value="Ecuador">Ecuador</option>
-                        <option value="El Salvador">El Salvador</option>
-                        <option value="Estados-Unidos">Estados Unidos</option>
-                        <option value="Granada">Granada</option>
-                        <option value="Guatemala">Guatemala</option>
-                        <option value="Guyana">Guyana</option>
-                        <option value="Haiti">Haití</option>
-                        <option value="Honduras">Honduras</option>
-                        <option value="Jamaica">Jamaica</option>
-                        <option value="Mexico">México</option>
-                        <option value="Nicaragua">Nicaragua</option>
-                        <option value="Panama">Panamá</option>
-                        <option value="Paraguay">Paraguay</option>
-                        <option value="Peru">Perú</option>
-                        <option value="Republica Dominicana">República Dominicana</option>
-                        <option value="San Cristobal y Nieves">San Cristóbal y Nieves</option>
-                        <option value="San Vicente y las Granadinas">San Vicente y las Granadinas</option>
-                        <option value="Santa Lucia">Santa Lucía</option>
-                        <option value="Surinam">Surinam</option>
-                        <option value="Trinidad y Tobago">Trinidad y Tobago</option>
-                        <option value="Uruguay">Uruguay</option>
-                        <option value="Venezuela">Venezuela</option>
-
-                        </select>
-                    </div>
-                    <div class="form-group mt-4">
-                        <label id="destination-country" class="text-titulo text-formu">País de Destino:</label>
-                        <select class="form-control w-50" id="Destino" name="destino">
-                        <option value="Antigua y Barbuda">Antigua y Barbuda</option>
-                        <option value="Argentina">Argentina</option>
-                        <option value="Bahamas">Bahamas</option>
-                        <option value="Barbados">Barbados</option>
-                        <option value="Belice">Belice</option>
-                        <option value="Bolivia">Bolivia</option>
-                        <option value="Brasil">Brasil</option>
-                        <option value="Canada">Canadá</option>
-                        <option value="Chile">Chile</option>
-                        <option value="Colombia">Colombia</option>
-                        <option value="Costa Rica">Costa Rica</option>
-                        <option value="Cuba">Cuba</option>
-                        <option value="Dominica">Dominica</option>
-                        <option value="Ecuador">Ecuador</option>
-                        <option value="El Salvador">El Salvador</option>
-                        <option value="Estados-Unidos">Estados Unidos</option>
-                        <option value="Granada">Granada</option>
-                        <option value="Guatemala">Guatemala</option>
-                        <option value="Guyana">Guyana</option>
-                        <option value="Haiti">Haití</option>
-                        <option value="Honduras">Honduras</option>
-                        <option value="Jamaica">Jamaica</option>
-                        <option value="Mexico">México</option>
-                        <option value="Nicaragua">Nicaragua</option>
-                        <option value="Panama">Panamá</option>
-                        <option value="Paraguay">Paraguay</option>
-                        <option value="Peru">Perú</option>
-                        <option value="Republica Dominicana">República Dominicana</option>
-                        <option value="San Cristobal y Nieves">San Cristóbal y Nieves</option>
-                        <option value="San Vicente y las Granadinas">San Vicente y las Granadinas</option>
-                        <option value="Santa Lucia">Santa Lucía</option>
-                        <option value="Surinam">Surinam</option>
-                        <option value="Trinidad y Tobago">Trinidad y Tobago</option>
-                        <option value="Uruguay">Uruguay</option>
-                        <option value="Venezuela">Venezuela</option>
-                        </select>
-                    </div>
-                    <div class="center-button">
-                        <button id="search-btn" type="submit" class="mt-5 btn btn-primary full-width-btn">Buscar Vuelo</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-  </div>
-</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-
-
-                </div>
-            </div>
-        </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carrusel1" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon custom-carousel-control" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carrusel1" data-bs-slide="next">
-            <span class="carousel-control-next-icon custom-carousel-control" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-        </button>
-    </div>
-</div>
-<!-- TERMINAN IMAGENES DE PROMOCION -->
+    <!-- TERMINAN IMAGENES DE PROMOCION -->
 
 
 
@@ -1915,7 +1930,7 @@ include("header-log.php");
                 <div class="col-md-5">
                     <div class="card-body" stylesheet="min-height:20px">
                         <h5 class="card-title">Experiencia ESfly</h5>
-                        <p class="card-text">Descubre los servicios a bordo que te ofrecemos al volar con nosotros,
+                        <p class="card-text">Descubre los servicios abordo que te ofrecemos al volar con nosotros,
                             escribe reseñas.</p>
                         <a href="criticasSugerencias.php" class=" b-info d-flex flex-column align-items-center btn btn-primary">Ver información</a>
                     </div>
@@ -1952,7 +1967,7 @@ include("header-log.php");
             </a>
 
             <a class="card-prep card card-hover-effect text-center mb-3 " style="width: 22rem;" href="check-in.php">
-            <div>
+                <div>
                     <div class="card-body">
                         <h5 class="card-title mt-5">Check-in online </h5>
                         <p class="card-text">Obtén tu pase de abordar y ahorra tiempo en el aeropuerto.</p>
@@ -1963,56 +1978,54 @@ include("header-log.php");
     </div>
 
     <!--FIN DE PREPARAR PARA VIAJAR (CLIENTE)-->
-<!-- Final pagina web -->
+    <!-- Final pagina web -->
 
 
-<!-- Links JS -->
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"></script>
-<script src="https://code.jquery.com/jquery-3.7.1.slim.min.js"></script>
+    <!-- Links JS -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js"></script>
 
 
-<!--Pie de pagina-->
-<?php
-include("pie.php");
-?>
-<!--Final Pie-->
+    <!--Pie de pagina-->
+    <?php
+    include("pie.php");
+    ?>
+    <!--Final Pie-->
 
 
 </body>
+
 </html>
 
 <script>
+    // Obtener todos los botones que abren el modal
+    var buttons = document.querySelectorAll("#openModalBtn");
 
-// Obtener todos los botones que abren el modal
-var buttons = document.querySelectorAll("#openModalBtn");
+    // Obtener el modal
+    var modal = document.getElementById("myModal");
 
-// Obtener el modal
-var modal = document.getElementById("myModal");
+    // Obtener todos los elementos <span> con clase "close"
+    var spans = document.querySelectorAll(".close");
 
-// Obtener todos los elementos <span> con clase "close"
-var spans = document.querySelectorAll(".close");
+    // Cuando el usuario hace clic en cualquier botón, abre el modal
+    buttons.forEach(function(button) {
+        button.onclick = function() {
+            modal.style.display = "block";
+        }
+    });
 
-// Cuando el usuario hace clic en cualquier botón, abre el modal
-buttons.forEach(function(button) {
-    button.onclick = function() {
-        modal.style.display = "block";
+    // Cuando el usuario hace clic en <span> (x), cierra el modal
+    spans.forEach(function(span) {
+        span.onclick = function() {
+            modal.style.display = "none";
+        }
+    });
+
+    // Cuando el usuario hace clic fuera del modal, lo cierra
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
     }
-});
-
-// Cuando el usuario hace clic en <span> (x), cierra el modal
-spans.forEach(function(span) {
-    span.onclick = function() {
-        modal.style.display = "none";
-    }
-});
-
-// Cuando el usuario hace clic fuera del modal, lo cierra
-window.onclick = function(event) {
-    if (event.target == modal) {
-        modal.style.display = "none";
-    }
-}
-
-
 </script>
