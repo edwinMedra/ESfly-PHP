@@ -16,7 +16,7 @@
   <link rel="stylesheet" href="../css/reservarVuelos1.css" />
   <link rel="stylesheet" href="../css/headerr.css" />
   <link rel="stylesheet" href="../css/pie.css" />
-  <title>ESFLY</title>
+  <title>Boletos</title>
 
   <style>
     body {
@@ -104,10 +104,7 @@
 
   <?php
   include("header-log.php");
-  // se inicia proceso para poder llamar a los vuelos el cual ese usuario ha reservad
-
   ?>
-  <!--Fin header-->
 
 
   <!-- Estructura principal de pagina principal -->
@@ -145,9 +142,7 @@
   include("conex.php");
   error_reporting(0);
   ?>
-  <div class=" texto-titulo container mt-5">
-    <h5 id="search-flight-title">Vuelos que he reservado ></h5>
-  </div>
+
 
   <div class="container-fluid">
     <?php
@@ -476,35 +471,36 @@
             <?php
             }
             ?>
-            <div class="mb-4">
-              <h6>Servicio en el Vuelo:</h6>
+           <div class="container mt-5">
+           <h6>¿Cómo te encuentras? :</h6>
               <div class="row">
-                <div class="col-md-4 mb-3">
-                  <div class="card tarjeta-comida">
-                    <img src="data:image/jpg;base64,<?php echo base64_encode($foto) ?>" alt="Comida Aburrido">
-                    <div class="cuerpo-tarjeta">
-                      <h4>¿Estás ansioso?</h4>
-                    </div>
+                  <div class="col-md-6 mb-3">
+                      <!-- Envolvemos el div de la tarjeta dentro de un <a> -->
+                      <a href="aburrido.php" class="text-decoration-none">
+                          <div class="card tarjeta-comida">
+                              <img src="../imagen/estasAburrido/back.png" alt="Comida Aburrido" class="card-img-top tarjeta-imagen">
+                              <div class="cuerpo-tarjeta">
+                                  <h4>¿Estás aburrido?</h4>
+                              </div>
+                          </div>
+                      </a>
                   </div>
-                </div>
-                <div class="col-md-4 mb-3">
-                  <div class="card tarjeta-comida">
-                    <img src="data:image/jpg;base64,<?php echo base64_encode($foto) ?>" alt="Comida Ansioso">
-                    <div class="cuerpo-tarjeta">
-                      <h4>¿Estás aburrido?</h4>
-                    </div>
+
+                  <div class="col-md-6 mb-3">
+                      <!-- Envolvemos el div de la tarjeta dentro de un <a> -->
+                      <a href="ansioso.php" class="text-decoration-none">
+                          <div class="card tarjeta-comida">
+                              <img src="../imagen/estoyAnsioso/back.png" alt="Comida Aburrido" class="card-img-top tarjeta-imagen">
+                              <div class="cuerpo-tarjeta">
+                                  <h4>¿Estás ansioso?</h4>
+                              </div>
+                          </div>
+                      </a>
                   </div>
-                </div>
-                <div class="col-md-4 mb-3">
-                  <div class="card tarjeta-comida">
-                    <img src="data:image/jpg;base64,<?php echo base64_encode($foto) ?>" alt="Comida">
-                    <div class="cuerpo-tarjeta">
-                      <h4>Comida</h4>
-                    </div>
-                  </div>
-                </div>
               </div>
-            </div>
+          </div>
+
+
 
           </div>
         </div>

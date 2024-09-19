@@ -83,39 +83,38 @@ footer .logo{
     include("header.php");
     ?>
 
-  <div class="container mt-5 ">
+<div class="container mt-5 ">
 
-    <div class="texto-titulo container mt-5 mb-5"></div>
-    <div class="row g-4">
+<div class="texto-titulo container mt-5 mb-5"></div>
+<div class="row g-4">
 
-    <div class="col-12 col-md-4 mt-5 mb-5">
-        <div class="card h-100">
-          <img src="../imagen/check-in/check.png" class="card-img-top" alt="Check-in Rápido">
-          <div class="card-body text-center">
-            <h5 class="card-title mb-5"><b>Realiza tu Check-in</b></h5>
-            <p class="card-text">Haz tu check-in de manera rápida y sencilla en línea. Evita largas filas en el aeropuerto y obtén tu pase de abordar con anticipación.</p>
-            <p class="card-text">El check-in en línea te permite seleccionar tu asiento con mayor comodidad y asegurarte de que todo esté en orden antes de llegar al aeropuerto.</p>
-            <p class="card-text mb-5">No olvides tener a la mano tu código de reserva y documento de identidad para completar el proceso. ¡Tu viaje comienza aquí!</p>
-            <a href="#" class="btn btn-primary px-4 py-2">CHECK-IN</a>
-          </div>
-        </div>
-      </div>
- 
-      <div class="col-12 col-md-8 mt-5 mb-5">
-        <div class="card h-100">
-          <div class="card-body text-center">
-            <h5 class="card-title mb-3 mt-5"><b>¿Qué es el Check-in?</b></h5>
-            <p class="card-text">El check-in es el proceso que confirma tu abordaje en un vuelo. Te permite obtener tu pase de abordar y te asigna un asiento en cabina. Este procedimiento asegura que tu asiento esté reservado y preparado para tu llegada. Además, es tu garantía de que toda la documentación requerida ha sido revisada.</p>
-            <p class="card-text mb-5">Realiza el check-in en línea con la mayor anticipación posible para evitar contratiempos en el aeropuerto.</p>
-
-            <h5 class="card-title mt-4 mb-3"><b>Consejos para tu Viaje</b></h5>
-            <p class="card-text ">Prepara tu viaje con estos consejos útiles: revisa las restricciones de equipaje, llega temprano al aeropuerto y lleva una copia de tus documentos importantes. Lleva una batería portátil para tus dispositivos electrónicos, un pequeño kit de emergencia y mantente al tanto de cualquier cambio en tu vuelo.</p>
-            <p class="card-text">Sigue estos consejos para una experiencia de viaje más fluida y sin estrés, asegurando que todo esté bajo control antes y durante tu vuelo.</p>
-          </div>
-        </div>
+<div class="col-12 col-md-4 mt-5 mb-5">
+    <div class="card h-100">
+      <img src="../imagen/check-in/check.png" class="card-img-top" alt="Check-in Rápido">
+      <div class="card-body text-center">
+        <h5 class="card-title mb-5"><b>Realiza tu Check-in</b></h5>
+        <p class="card-text">Haz tu check-in de manera rápida y sencilla en línea. Evita largas filas en el aeropuerto y obtén tu pase de abordar con anticipación.</p>
+        <p class="card-text">El check-in en línea te permite seleccionar tu asiento con mayor comodidad y asegurarte de que todo esté en orden antes de llegar al aeropuerto.</p>
+        <p class="card-text mb-5">No olvides tener a la mano tu código de reserva y documento de identidad para completar el proceso. ¡Tu viaje comienza aquí!</p>
       </div>
     </div>
   </div>
+
+  <div class="col-12 col-md-8 mt-5 mb-5">
+    <div class="card h-100">
+      <div class="card-body text-center">
+        <h5 class="card-title mb-3 mt-5"><b>¿Qué es el Check-in?</b></h5>
+        <p class="card-text">El check-in es el proceso que confirma tu abordaje en un vuelo. Te permite obtener tu pase de abordar y te asigna un asiento en cabina. Este procedimiento asegura que tu asiento esté reservado y preparado para tu llegada. Además, es tu garantía de que toda la documentación requerida ha sido revisada.</p>
+        <p class="card-text mb-5">Realiza el check-in en línea con la mayor anticipación posible para evitar contratiempos en el aeropuerto.</p>
+
+        <h5 class="card-title mt-4 mb-3"><b>Consejos para tu Viaje</b></h5>
+        <p class="card-text ">Prepara tu viaje con estos consejos útiles: revisa las restricciones de equipaje, llega temprano al aeropuerto y lleva una copia de tus documentos importantes. Lleva una batería portátil para tus dispositivos electrónicos, un pequeño kit de emergencia y mantente al tanto de cualquier cambio en tu vuelo.</p>
+        <p class="card-text">Sigue estos consejos para una experiencia de viaje más fluida y sin estrés, asegurando que todo esté bajo control antes y durante tu vuelo.</p>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
 
   <?php include("pie.php"); ?>
 
