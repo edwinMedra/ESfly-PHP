@@ -1,6 +1,6 @@
 <?php 
 // eliminar foto de la cuenta que ha iniciado sesión segun el rol tambien
-include ("../asistente-php/conex.php");
+include("../conex.php");
 // tomar el valor de la cuenta 
 $rol = $_GET['rol'];
 //  echo $rol;
