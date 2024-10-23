@@ -205,7 +205,7 @@
                 </thead>
                 <tbody>
                     <?php
-                    $inc = include("conex.php");
+                    $inc = include("../conex.php");
                     if ($inc){
                         $select = "SELECT * FROM usuario";
                         $query = mysqli_query($conexion,$select);

@@ -1,6 +1,6 @@
 <?php
 $id = $_GET['idVuelo'];
-include("conex.php");
+include("../conex.php");
 $eliminar = "DELETE FROM vuelo WHERE idVuelo='$id'";
 $eliminarAsiento = "DELETE FROM asientos where idVuelo='$id'";
 $resul = $conexion->query($eliminarAsiento); // eliminar asiento

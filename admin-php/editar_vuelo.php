@@ -165,7 +165,7 @@
                 </thead>
                 <tbody>
                     <?php
-                    $inc = include("conex.php");
+                    $inc = include("../conex.php");
                     if ($inc){
                         $select = "SELECT * FROM vuelo";
                         $query = mysqli_query($conexion,$select);

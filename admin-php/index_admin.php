@@ -226,7 +226,7 @@
                 </thead>
                 <tbody>
                     <?php
-                    $inc = include("conex.php");
+                    $inc = include("../conex.php");;
                     if ($inc) {
                         $select = "SELECT * FROM usuario";
                         $query = mysqli_query($conexion, $select);
@@ -280,7 +280,7 @@
                 </thead>
                 <tbody>
                     <?php
-                    $inc = include("conex.php");
+                    $inc = include("../conex.php");;
                     if ($inc) {
                         $select = "SELECT * FROM administradores";
                         $query = mysqli_query($conexion, $select);
@@ -332,7 +332,7 @@
                 </thead>
                 <tbody>
                     <?php
-                    $inc = include("conex.php");
+                    $inc = include("../conex.php");;
                     if ($inc) {
                         $select = "SELECT * FROM asistente";
                         $query = mysqli_query($conexion, $select);
@@ -392,7 +392,7 @@
                 </thead>
                 <tbody>
                     <?php
-                    $inc = include("conex.php");
+                    $inc = include("../conex.php");;
                     if ($inc) {
                         $select = "SELECT * FROM vuelo";
                         $query = mysqli_query($conexion, $select);

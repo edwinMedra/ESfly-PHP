@@ -1,6 +1,6 @@
    <?php
     // proceso para hacer el backend para tener los datos de el usuario
-    include("conex.php");
+    include("../conex.php");
     session_start();
     $sesion = $_SESSION['$id'];
     if ($sesion == null || $sesion == '') {

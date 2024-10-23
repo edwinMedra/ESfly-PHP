@@ -1,6 +1,6 @@
 <?php
 session_start();
-include("conex.php");
+include("../conex.php");
 $sesion = $_SESSION['$id'];
 if ($sesion == null || $sesion == '') {
    header("Location:../html/index.php");

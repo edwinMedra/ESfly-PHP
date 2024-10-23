@@ -1,5 +1,5 @@
 <?php
-include("conex.php");
+include("../conex.php");
 session_start();
 $id = $_SESSION['$id'];
 
@@ -17,7 +17,7 @@ window.location.href = '../html/index.php';
 }
 
 // Proceso para mostrar el nombre de usuario en lugar del correo
-include("conex.php");
+include("../conex.php");
 if ($conexion) {
     $consul = "SELECT * FROM usuario where idCliente='$id'";
     $resul = mysqli_query($conexion, $consul);

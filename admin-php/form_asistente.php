@@ -21,7 +21,7 @@
     ?>
     <?php
     $idAsistente1 = $_GET['idAsistente'];
-    include("conex.php");
+    include("../conex.php");
     if ($conexion) {
         $select = "SELECT * FROM asistente WHERE idAsistente='$idAsistente1'";
         $resul = $conexion->query($select);
@@ -136,7 +136,6 @@
 
 </html>
 <?php
-include("conex.php");
 if (isset($_POST['crear'])) {
     // variables tomadas de el formulario
     $name =  trim($_POST['name']); 

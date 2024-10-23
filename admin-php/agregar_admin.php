@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 <?php
-include("conex.php");
+include("../conex.php");
 if (isset($_POST['crear'])) {
     // variables tomadas de el formulario
     $name =  trim($_POST['name']);

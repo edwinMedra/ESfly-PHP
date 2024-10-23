@@ -24,7 +24,7 @@ if (isset($_POST['agregar'])) {
     if ($foto) {
         echo '<script>alert("Es obligatorio el ingreso de una fotografía")</script>';
     } else {
-        include("conex.php");
+        include("../conex.php");
         $foto = addslashes(file_get_contents($_FILES['foto']['tmp_name']));
         $insert = "INSERT INTO vuelo(origen,destino,fechaSalida,fechaEntrada,precio,foto) VALUES('$origen','$destino','$fechaSalida', '$fechaEntrada','$precio_float','$foto')";
         $resul = $conexion->query($insert);

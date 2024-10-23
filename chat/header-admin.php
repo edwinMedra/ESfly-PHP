@@ -1,6 +1,6 @@
 <?php
 session_start();
-include("conex.php");
+include("../conex.php");
 date_default_timezone_set('America/El_Salvador');
 
 $sesion = $_SESSION['$id'];

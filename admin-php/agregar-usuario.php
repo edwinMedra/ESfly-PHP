@@ -38,11 +38,11 @@
           <div class="row">
             <div class="col-md-6 mb-3">
               <label for="name" class="form-label">Nombre</label>
-              <input type="text" class="form-control" id="name" name="name" value="<?php echo isset($_POST['name']) ? htmlspecialchars($_POST['name']) : ''; ?>" name="name">
+              <input type="text" class="form-control" placeholder="Ingresar nombres" id="name" name="name" value="<?php echo isset($_POST['name']) ? htmlspecialchars($_POST['name']) : ''; ?>" name="name">
             </div>
             <div class="col-md-6 mb-3">
               <label for="lastname" class="form-label">Apellido</label>
-              <input type="text" class="form-control" id="lastname" name="lastname" value="<?php echo isset($_POST['lastname']) ? htmlspecialchars($_POST['lastname']) : ''; ?>">
+              <input type="text" class="form-control" placeholder="Ingresar apellidos" id="lastname" name="lastname" value="<?php echo isset($_POST['lastname']) ? htmlspecialchars($_POST['lastname']) : ''; ?>">
 
             </div>
             <div class="col-md-6 mb-3">
@@ -56,7 +56,7 @@
 
             <div class="col-md-6 mb-3">
               <label for="email" class="form-label">Correo</label>
-              <input type="email" class="form-control" id="email" name="email" value="<?php echo isset($_POST['email']) ? $_POST['email'] : ""; ?>">
+              <input type="email" class="form-control" placeholder="Ingresar correo" id="email" name="email" value="<?php echo isset($_POST['email']) ? $_POST['email'] : ""; ?>">
             </div>
             <div class="col-md-6 mb-3">
               <label for="pasaporte" class="form-label">Pasaporte</label>
@@ -64,7 +64,7 @@
             </div>
             <div class="col-md-6 mb-3">
               <label for="dui" class="form-label">DUI</label>
-              <input type="text" class="form-control" id="dui" name="dui" value="<?php echo isset($_POST['dui']) ? $_POST['dui'] : ""; ?>">
+              <input type="text" class="form-control" placeholder="Ingrese DUI" id="dui" name="dui" value="<?php echo isset($_POST['dui']) ? $_POST['dui'] : ""; ?>">
             </div>
 
             <div class="mb-4 w-75 text-center">
@@ -72,7 +72,7 @@
                 <a class="btn btn-primary">Subir foto de perfil</a>
               </label>
               <input type="file" id="fotito" class="d-none" name="foto" accept="image/*">
-              <input class="btn btn-primary my-3" type="submit" value="Crear Administrador" name="crear">
+              <input class="btn btn-primary my-3" type="submit" value="Agregar usuario" name="crear">
             </div>
 
 
@@ -89,7 +89,7 @@
 
 </html>
 <?php
-include("conex.php");
+include("../conex.php");
 if (isset($_POST['crear'])) {
 
   $nombre = trim($_POST['name']);

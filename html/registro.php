@@ -207,7 +207,7 @@ function googleTranslateElementInit() {
 </html>
 
 <?php
-include("conex.php");
+include("../conex.php");
 
 if (isset($_POST['registro'])) {
   $nombre = trim($_POST['nombre']);

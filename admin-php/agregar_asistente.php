@@ -103,8 +103,8 @@
 </html>
 
 <?php
-error_reporting(0);
-include("conex.php");
+
+include("../conex.php");
 
 if (isset($_POST['crear'])) {
     // Variables del formulario

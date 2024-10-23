@@ -1,6 +1,6 @@
 <?php
 $id = $_GET['idCliente'];
-include("conex.php");
+include("../conex.php");
 $eliminar1 = "DELETE FROM criticas WHERE idUsuario='$id'";
 $eliminar = "DELETE FROM usuario WHERE idCliente='$id'";
 $resultado1 = $conexion->query($eliminar1);

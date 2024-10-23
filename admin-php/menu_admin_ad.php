@@ -110,14 +110,8 @@
 
         .card-hover-effect:hover {
             transform: translateY(-10px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-            
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);   
         }
-
-        .card-title{
-            
-        }
-
         /* EL RESPONSIVE DE LAS TALBAS*/
         @media (max-width: 768px) {
             .titulo {
@@ -213,7 +207,7 @@
                 </thead>
                 <tbody>
                     <?php
-                    $inc = include("conex.php");
+                    $inc = include("../conex.php");
                     if ($inc){
                         $select = "SELECT * FROM administradores";
                         $query = mysqli_query($conexion,$select);

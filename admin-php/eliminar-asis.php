@@ -1,6 +1,6 @@
 <?php
 $id = $_GET['idAsistente'];
-include("conex.php");
+include("../conex.php");
 $eliminar = "DELETE FROM asistente WHERE idAsistente='$id'";
 $resultado = $conexion->query($eliminar);
 if ($resultado) {

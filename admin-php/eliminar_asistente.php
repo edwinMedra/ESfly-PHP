@@ -156,7 +156,7 @@
                 </thead>
                 <tbody>
                     <?php
-                    $inc = include("conex.php");
+                    $inc = include("../conex.php");
                     if ($inc) {
                         $select = "SELECT * FROM asistente";
                         $query = mysqli_query($conexion, $select);

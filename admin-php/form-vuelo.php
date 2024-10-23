@@ -21,7 +21,7 @@
     <?php
     // proceso para llamar los datos
     $idVuelo = $_GET['idVuelo'];
-    include("conex.php");
+
     if ($conexion) {
         $select = "SELECT * FROM vuelo where idVuelo='$idVuelo'";
         $query = mysqli_query($conexion, $select);
@@ -430,7 +430,7 @@ if (isset($_POST['editar'])) {
         }
     }else{
         $foto = addslashes(file_get_contents($_FILES['foto']['tmp_name']));
-        include("conex.php");
+        include("../conex.php");
         $update = "UPDATE vuelo set origen='$origen', destino='$destino', fechaEntrada='$fechaEntrada', fechaSalida='$fechaSalida', precio='$precio', foto='$foto' where idVuelo='$idVuelo'";
         $resul = $conexion->query($update);
         if ($resul) {

@@ -114,9 +114,7 @@
             
         }
 
-        .card-title{
-            
-        }
+
 
         /* EL RESPONSIVE DE LAS TALBAS*/
         @media (max-width: 768px) {
@@ -199,7 +197,7 @@
                 </thead>
                 <tbody>
                     <?php
-                    $inc = include("conex.php");
+                    $inc = include("../conex.php");
                     if ($inc){
                         $select = "SELECT * FROM asistente";
                         $query = mysqli_query($conexion,$select);

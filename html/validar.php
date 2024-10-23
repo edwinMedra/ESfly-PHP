@@ -2,8 +2,7 @@
 $correo = $_POST['correo'];
 $pass = $_POST['pass'];
 //conectar a la base de datos 
-include("conex.php");
-// comprobar primero el rol que imparte la persona que va a iniciar sesión
+include("../conex.php");// comprobar primero el rol que imparte la persona que va a iniciar sesión
 $consulta = "SELECT * FROM usuario WHERE correo='$correo'";
 $resul = $conexion->query($consulta);
 $filas = mysqli_num_rows($resul);

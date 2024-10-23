@@ -139,7 +139,7 @@
   </div>
 
   <?php
-  include("conex.php");
+include("../conex.php");
   error_reporting(0);
   ?>
 
@@ -153,7 +153,7 @@
     // funcion para llamar a los datos de vuelo para poder colocarlos en la pagina web
     if ($fechaEntrada == null or $origen == null or $destino == null) {
     } else {
-      include("conex.php");
+    include("../conex.php");
       if ($conexion) {
         $consul = "SELECT * FROM vuelo where origen='$origen' or destino='$destino' or fechaEntrada='$fechaEntrada%'";
         $resul = mysqli_query($conexion, $consul);
@@ -352,7 +352,7 @@ clienteK6 = '$id'");
 //
 // asientos normales
   function idAsiento($id, $asiento){
-    include("conex.php");
+  include("../conex.php");
     $asientoCon = $conexion->query("SELECT * FROM asientos where cliente$asiento = '$id'");
     $filAsiento = mysqli_num_rows($asientoCon);
     if ($filAsiento) {
@@ -365,7 +365,7 @@ clienteK6 = '$id'");
 
 // asientos VIP
 function idAsientoVIP($id, $asiento){
-  include("conex.php");
+include("../conex.php");
   $asientoCon = $conexion->query("SELECT * FROM asientosVIP where cliente$asiento = '$id'");
   $filAsiento = mysqli_num_rows($asientoCon);
   if ($filAsiento) {

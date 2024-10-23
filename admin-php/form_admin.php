@@ -16,7 +16,7 @@
 <?php
     include("header-admin.php");
     $idAdmin1 = $_GET['idAdmin'];
-    include("conex.php");
+    include("../conex.php");
     if ($conexion) {
         $select = "SELECT * FROM administradores WHERE idAdmin='$idAdmin1'";
         $resul = $conexion->query($select);
@@ -88,7 +88,7 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 <?php
-include("conex.php");
+
 if (isset($_POST['actualizar'])) {
     // variables tomadas del formulario
     $name = trim($_POST['name']);
