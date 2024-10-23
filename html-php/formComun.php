@@ -218,7 +218,7 @@
 
 </html>
 <?php
-include("conex.php");
+
 $boton = isset($_POST['siguiente']);
 if ($boton) {
     # estos datos son del propio usuario que ha iniciado sesión

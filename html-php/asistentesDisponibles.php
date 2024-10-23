@@ -58,7 +58,7 @@
         <h5>Seleciona asistente ></h5>
     </div>
     <?php
-    include("conex.php");
+ 
     // llamar datos de la base de datos 
     $idVuelo = $_GET['idVuelo'];
     $resul = $conexion->query("SELECT * FROM asistente");
