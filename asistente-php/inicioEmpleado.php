@@ -36,7 +36,7 @@
         left: 0;
         width: 100%;
         height: 100%;
-        background-color: rgba(0, 0, 0, 0.5); /* Filtro oscuro solo sobre la imagen */
+        background-color: rgba(0, 0, 0, 0.5); 
     }
 
     .titulo {
@@ -87,13 +87,13 @@
         }
 
         .section-card a {
-            text-decoration: none; /* Quitar subrayado */
+            text-decoration: none; 
             color: inherit;
-            display: block; /* Asegura que toda el área del cuadro sea clicable */
+            display: block; 
         }
 
         .section-card:hover a {
-            text-decoration: none; /* Evita que aparezca subrayado en hover */
+            text-decoration: none; 
             color: white;
         }
 
@@ -102,11 +102,11 @@
             color: white;
         }
 
-        /* Estilos responsivos */
+       
         @media (max-width: 767px) {
             .profile-card,
             .section-card {
-                width: 100%; /* Ocupan todo el ancho en pantallas pequeñas */
+                width: 100%; 
             }
         }
     </style>
