@@ -38,16 +38,79 @@ if ($resul){
 </head>
 
 <style>
- 
-    #perfil {
-    min-height: 180px;
-    max-height: 180px;
-    min-width:  180px;
-    max-width:  180px;
-    object-fit: cover;
-  }
-</style>
+    .profile-card {
+    background-color: transparent;
+    border: 1px solid #999999;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    margin-bottom: 20px;
+}
 
+
+    .profile-card img {
+        border-radius: 50%;
+        width: 150px;
+        height: 150px;
+    }
+
+    .profile-info {
+        margin-top: 10px;
+    }
+
+    .profile-info h5 {
+        margin: 10px 0;
+    }
+
+    .btn-edit {
+        background-color: #0d6efd;
+        color: white;
+        border-radius: 20px;
+        padding: 5px 20px;
+        border: none;
+    }
+
+    .section-card {
+        background-color: #4a6f91;
+        color: white;
+        padding: 20px;
+        border-radius: 10px;
+        text-align: center;
+        margin-bottom: 20px;
+        transition: all 0.3s ease;
+    }
+
+    .section-card:hover {
+        background-color: #6f7f91;
+        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+        transform: scale(1.05);
+    }
+
+    .section-card:nth-child(2):hover {
+        background-color: #8a99a9;
+    }
+
+    .section-card h5 {
+        margin-bottom: 10px;
+    }
+
+    .section-card img {
+        width: 100px;
+        height: 100px;
+    }
+
+    .col-profile {
+        flex: 0 0 60%; 
+    }
+
+    .col-sections {
+        flex: 0 0 40%; 
+    }
+
+    .section-card + .section-card {
+        margin-top: 15px; 
+    }
+</style>
 
 
 <body>
@@ -61,54 +124,45 @@ if ($resul){
 
 
     <div class="container mt-5">
-
-        <div class=" texto-titulo container-fluid  mt-5 mb-5 ps-5">
-            <h5>Algunas ofertas ></h5>
-        </div>
-
-        <div class="perfil-ayudante">
-            <?php
-            if ($foto == null) {
-                ?>
-                <img src="../imagen/datosCuenta/foto_usuario.png" alt="" class="rounded-circle border border-1 border-black mx-5" id="perfil">
-                <?php
-            }else{
-                ?>
-                <img src="data:image/jpg;base64,<?php echo base64_encode($foto)?>" alt="" id="perfil" class="rounded-circle border border-1 border-black mx-5"  height="35px" width="35px">
-                <?php
-            }
-            ?>
-            <div>
-                <h5><?php echo $nombre ?></h5>
-                <p>Horas de servicio</p>
-                <?php echo $horario ?>
-                <a class="btn btn-primary" href="datos de cuenta.php">Editar perfil</a>
-            </div>
-        </div>
-
-
-        <div class=" texto-titulo container-fluid  mt-5 mb-5 ps-5">
-            <h5>Datos y chats</h5>
-        </div>
-
-
-        <div class="seccion-datos row mt-4">
-            <div class="col-md-6">
-                <div class=" chat-boton card p-4 mt-2 mb-5">
-                    <div class="  card-body">
-                        <h5 class="text-white">Chat</h5>
-                        <img src="../imagen/inicioAsistente/mensajes.png" alt="" />
+        <div class="row">
+            <!-- Perfil de Usuario -->
+            <div class="col-lg-6 col-md-12 col-profile">
+                <div class="profile-card shadow">
+                    <a href="#" class="d-block mb-2 text-muted">Mi perfil ></a>
+                    <?php
+                    if ($foto == null) {
+                        ?>
+                            <img src="../imagen/datosCuenta/foto_usuario.png" alt="" class="rounded-circle border border-1 border-black mx-5" id="perfil">
+                        <?php
+                    }else{
+                    ?>
+                    <img src="data:image/jpg;base64,<?php echo base64_encode($foto)?>" alt="" id="perfil" class="rounded-circle border border-1 border-black mx-5"  height="55px" width="55px">
+                    <?php
+                    }
+                    ?>
+                    <div class="profile-info">
+                    <h5><?php echo $nombre ?></h5>
+                    <p><b>Horario de servicio:</b> <?php echo $horario ?></p>
                     </div>
+                    <a class="btn btn-primary mt-3" href="datos de cuenta.php">Editar perfil</a>
                 </div>
             </div>
-            <div class="col-md-6">
-               <a href="usuNoti.php" style="text-decoration: none;"> <div class="citas-boton <?php echo $ban?> card p-4  mt-2 mb-5">
-                    <div class="card-body">
-                        <h5 class="text-white">Citas</h5>
-                        <img src="../imagen/inicioAsistente/citas.png" alt="" />
-                        <h5 class="text-white"><?php echo $texto?></h5>
-                    </div>
-                </div></a>
+
+            <!-- Secciones de Citas y Asistente -->
+            <div class="col-lg-4 col-md-12 col-sections">
+            <a href="citas_empleados.php">
+                <div class="section-card shadow">
+                    <h5>Citas</h5>
+                    <img src="../imagen/inicioAsistente/citas.png" alt="Icono de Citas">
+                </div>
+                </a>
+
+                <a href="informacion.php">
+                <div class="section-card shadow" style="background-color: #6f7f91;">    
+                    <h5>¿Qué debe hacer un asistente?</h5>
+                    <img src="../imagen/inicioAsistente/mensajes.png" alt="Icono de Asistente">
+                </div>
+                </a>
             </div>
         </div>
     </div>
