@@ -24,7 +24,7 @@
 
     <div class="card-formu container d-flex justify-content-center align-items-center mt-5 mb-5">
         <div class="card p-4 custom-card mt-5">
-            <h3 class="card-title text-center mt-5">Reservar vuelo normal</h3>
+            <h3 class="card-title text-center mt-5">Reservar VIP</h3>
             <form method="post" enctype="multipart/form-data">
 
 
