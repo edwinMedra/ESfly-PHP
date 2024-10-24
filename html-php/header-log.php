@@ -1,4 +1,5 @@
 <?php
+error_reporting(0);
 include("../conex.php");
 session_start();
 $id = $_SESSION['$id'];
