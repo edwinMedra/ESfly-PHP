@@ -212,8 +212,6 @@ if (isset($_POST['pagar'])) {
         echo "<script>alert('Nombre de propietario no valido')</script>";
     } else if (preg_match("/[a-zA-Z]/", $cvv) || !(strlen($cvv) == 3)) {
         echo "<script>alert('CVV no valido')</script>";
-    } else if ($mes1 < $mes || $año < $year || empty($mes1) || empty($year)) {
-        echo "<script>alert('Fecha de vencimiento de tarjeta no valida')</script>";
     } else if (preg_match("/[a-zA-Z]/", $numTelefono) || !(strlen($numTelefono) == 8)) {
         echo "<script>alert('Número de telefono no valido')</script>";
     } else {

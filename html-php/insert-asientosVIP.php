@@ -1,5 +1,5 @@
 <?php
-include("conex.php");
+include("../conex.php");
 error_reporting(0);
 session_start();
 $sesion = $_SESSION['$id'];
@@ -141,10 +141,10 @@ $K6 = $_POST['K6'];
 // insertar el valor de los asientos segun su numero de usuario asi como el estado 
 
 // update 
-include("conex.php");
+
 
 function insert($asiento,$num, $sesion, $idVuelo){
-    include("conex.php");
+    include("../conex.php");
     if (!($asiento == null or $asiento == "")) {
         $resul = $conexion->query("UPDATE asientosVIP set $num='ocupado', cliente$num='$sesion' where idVuelo='$idVuelo'");
         if ($resul) {
