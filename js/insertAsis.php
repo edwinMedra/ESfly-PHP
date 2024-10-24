@@ -6,7 +6,7 @@ $idAsis = $_GET['idAsis'];
 session_start();
 $id = $_SESSION['$id'];
 // insertar datos en el query
-include ("conex.php");
+include("../conex.php");
 $query = $conexion->query("INSERT INTO vueloUsuarioAsistente () VALUES (null,'$id','$idVuelo','$idAsis',1)");
 ?>
 <script>

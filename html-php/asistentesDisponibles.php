@@ -22,8 +22,8 @@
 </head>
 
 <body>
-<?php 
-    include ("header-log.php");
+    <?php
+    include("header-log.php");
     ?>
     <!-- imagenes de la pagina-->
     <div class="contenedor">
@@ -58,12 +58,12 @@
         <h5>Seleciona asistente ></h5>
     </div>
     <?php
- 
+
     // llamar datos de la base de datos 
     $idVuelo = $_GET['idVuelo'];
     $resul = $conexion->query("SELECT * FROM asistente");
     while ($row = $resul->fetch_assoc()) {
-        $idAsis = $row['idAsistente'];        
+        $idAsis = $row['idAsistente'];
         $nomAsistente = $row['nomAsistente'];
         $apeAsistente = $row['apeAsistente'];
         $numTelefono = $row['numTelefono'];
@@ -99,7 +99,7 @@
                             </ul>
                             </p>
                             <div class="text-center mt-4">
-                                <button class=" btn btn-primary" onclick={alerta()}>Seleccionar Asistente</button>
+                                <button class=" btn btn-primary" onclick="reservar('<?php echo $nomAsistente?>', '<?php echo $idAsis?>') ">Seleccionar Asistente</button>
                             </div>
                         </div>
                     </div>
@@ -112,19 +112,12 @@
     </footer>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-<?php
-error_reporting(0);
-echo
-'
 <script>
-// proceso a realizar para la selección de el asistente
-function alerta(){
-    var res = confirm("Ha seleccionado a ' . $nomAsistente . ' como asistente, esta seguro que desea este asistente ");
-    if (res){
-    window.location.href = "../js/insertAsis.php?idVuelo='.$idVuelo.'&idAsis='.$idAsis.'"
-    }
+    function reservar(nombre,idAsis){
+        let x = confirm("Ha seleccionado a " + nombre +  " como asistente, ¿Estas seguro de tomar este asistente?");
+        if (x){
+            window.location.href = "../js/insertAsis.php?idVuelo=<?php echo $idVuelo?>&idAsis="+ idAsis;
+        }
     }
 </script>
-';
-?>
 </html>
