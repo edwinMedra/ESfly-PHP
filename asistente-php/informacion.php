@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Asistencia Aerolínea para Personas Discapacitadas</title>
+    <title>Información</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body {
-            background-color: rgba(255, 255, 255, 0.1); /* Fondo del cuerpo transparente */
+            background-color: rgba(255, 255, 255, 0.1); 
         }
         .hero {
             background: url('../imagen/AsistentesDisponibles/asistentes3.png') no-repeat center center;
@@ -20,9 +20,9 @@
             padding: 60px 0;
         }
         .card {
-            background-color: transparent; /* Sin fondo */
-            border: 1px solid rgba(128, 128, 128, 0.5); /* Bordes grises suaves */
-            margin-bottom: 20px; /* Espaciado entre tarjetas */
+            background-color: transparent; 
+            border: 1px solid rgba(128, 128, 128, 0.5); /
+            margin-bottom: 20px; 
         }
     </style>
 </head>
@@ -49,7 +49,7 @@
 
     <!-- Encabezado -->
     <div class="hero">
-        <h1>Bienvenidos a Asistencia Aerolínea</h1>
+        <h1>¿Qué debe hacer un asistente?</h1>
         <p>Comprometidos a hacer que tu viaje sea accesible y cómodo.</p>
     </div>
 
@@ -79,17 +79,17 @@
                     <div class="card">
                         <div class="card-body">
                             <ul class="list-group">
-                                <li class="list-group-item">Asistencia en el aeropuerto: Ayuda desde el momento de la llegada hasta la salida.</li>
-                                <li class="list-group-item">Embarque y desembarque prioritario: Procedimientos especiales para evitar esperas.</li>
-                                <li class="list-group-item">Transporte en silla de ruedas: Servicios disponibles para traslado dentro del aeropuerto.</li>
-                                <li class="list-group-item">Ayuda durante el vuelo: Asistencia del personal de vuelo según sea necesario.</li>
-                                <li class="list-group-item">Información sobre accesibilidad: Detalles sobre instalaciones y servicios disponibles en cada destino.</li>
-                                <li class="list-group-item">Capacitación del personal: Todo nuestro equipo está entrenado para ofrecer la mejor atención.</li>
-                                <li class="list-group-item">Apoyo emocional: Disponibilidad de asistencia para garantizar el bienestar del pasajero.</li>
-                                <li class="list-group-item">Guías de accesibilidad: Proporcionamos información detallada sobre las instalaciones en los aeropuertos y aviones.</li>
-                                <li class="list-group-item">Servicios de acompañamiento: Ofrecemos asistencia personal durante todo el proceso de viaje.</li>
-                                <li class="list-group-item">Atención a necesidades dietéticas: Garantizamos opciones de comida adecuadas y accesibles durante el vuelo.</li>
-                                <li class="list-group-item">Facilidades de comunicación: Proporcionamos información en formatos accesibles y asistencia para la comunicación.</li>
+                                <li class="list-group-item"><b>Asistencia en el aeropuerto:</b> Ayuda desde el momento de la llegada hasta la salida.</li>
+                                <li class="list-group-item"><b>Embarque y desembarque prioritario:</b> Procedimientos especiales para evitar esperas.</li>
+                                <li class="list-group-item"><b>Transporte en silla de ruedas:</b> Servicios disponibles para traslado dentro del aeropuerto.</li>
+                                <li class="list-group-item"><b>Ayuda durante el vuelo:</b> Asistencia del personal de vuelo según sea necesario.</li>
+                                <li class="list-group-item"><b>Información sobre accesibilidad:</b> Detalles sobre instalaciones y servicios disponibles en cada destino.</li>
+                                <li class="list-group-item"><b>Capacitación del personal:</b> Todo nuestro equipo está entrenado para ofrecer la mejor atención.</li>
+                                <li class="list-group-item"><b>Apoyo emocional:</b> Disponibilidad de asistencia para garantizar el bienestar del pasajero.</li>
+                                <li class="list-group-item"><b>Guías de accesibilidad:</b> Proporcionamos información detallada sobre las instalaciones en los aeropuertos y aviones.</li>
+                                <li class="list-group-item"><b>Servicios de acompañamiento:</b> Ofrecemos asistencia personal durante todo el proceso de viaje.</li>
+                                <li class="list-group-item"><b>Atención a necesidades dietéticas:</b> Garantizamos opciones de comida adecuadas y accesibles durante el vuelo.</li>
+                                <li class="list-group-item"><b>Facilidades de comunicación:</b> Proporcionamos información en formatos accesibles y asistencia para la comunicación.</li>
                             </ul>
                         </div>
                     </div>

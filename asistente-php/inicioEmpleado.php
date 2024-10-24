@@ -48,6 +48,22 @@ if ($resul){
 }
 
 
+.profile-card a {
+    text-decoration: none;
+}
+
+.profile-card a:hover {
+    text-decoration: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
     .profile-card img {
         border-radius: 50%;
         width: 150px;

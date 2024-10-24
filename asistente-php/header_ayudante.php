@@ -170,7 +170,10 @@
                         <a class="nav-link" aria-current="page" href="datos de cuenta.php">Mi perfil</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="ofertasYDestinos.php">Citas</a>
+                        <a class="nav-link" href="citas_empleados.php">Citas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="informacion.php">Información</a>
                     </li>
 
                 </ul>
