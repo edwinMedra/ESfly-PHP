@@ -154,7 +154,7 @@ $sesion = $_SESSION['$id'];
 if ($sesion == null || $sesion == ''){
   header("Location:../html-php/index.php");
 }
-$inc1 = include("../conex.php");
+$inc1 = include("conex.php");
 if ($inc1) {
   $consul = "SELECT * FROM usuario where idCliente='$sesion'";
   $resul = mysqli_query($conexion, $consul);
@@ -166,7 +166,7 @@ if ($inc1) {
 }
 // proceso para llamar a el vuelo en cuestion
 $id = $_GET['idVuelo'];
-include("../conex.php");
+include("conex.php");
 if ($conexion) {
   $consul = "SELECT * FROM vuelo where idVuelo='$id' ";
   $resul = mysqli_query($conexion, $consul);
