@@ -20,6 +20,14 @@
 include("header-log.php");
 // llamar datos de el formulario anterior
 $idVuelo = $_GET['idVuelo'];
+// llamar los datos de la factura 
+
+
+$factura = $conexion->query("SELECT * FROM facturaVueloNormal where idUsuario = '$id' and idVuelo = '$idVuelo'");
+$rowId = $factura->fetch_array();
+$cantidadDeAsientos = $rowId['cantidadAsientos'] ;
+
+
 $sql = $conexion->query("SELECT * FROM form where idVuelo='$idVuelo' and idUsuario='$id'");
 $row = $sql->fetch_array();
 $nombrePasajero = $row['nombrePasajero'];
@@ -38,7 +46,7 @@ $dia = date("Y-m-d", $fecha);
 
 $hora = date("h:i", $fecha);
 $nombreCompleto = $nomCliente . " " . $apeCliente;
-$total = 2 * $precio;
+$total = $cantidadDeAsientos * $precio;
 ?>
 
 <body>
@@ -103,7 +111,7 @@ $total = 2 * $precio;
 
                 <div class="form-group mb-3">
                     <label for="pasaporte">Cantidad de boletos</label>
-                    <input type="text" class="form-control" id="pasaporte" disabled selected value="2" readonly>
+                    <input type="text" class="form-control" id="pasaporte" disabled selected value="<?php echo $cantidadDeAsientos?>" readonly>
                 </div>
 
                 <div class="form-group mb-3">
@@ -215,6 +223,7 @@ if (isset($_POST['pagar'])) {
     } else if (preg_match("/[a-zA-Z]/", $numTelefono) || !(strlen($numTelefono) == 8)) {
         echo "<script>alert('Número de telefono no valido')</script>";
     } else {
+        $precioTotal = $conexion->query("UPDATE facturaVueloNormal set precio='$total'");
         # header("");
         echo "<script>
        alert('Pago realizado con exito')
