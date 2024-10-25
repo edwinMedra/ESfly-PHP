@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="../css/formularioVueloEspecial.css">
     <link rel="stylesheet" href="../css/headerr.css">
     <link rel="stylesheet" href="../css/pie.css">
-    <title>Formulario Especial</title>
+    <title>Formulario Vuelo Normal</title>
 </head>
 
 <body>

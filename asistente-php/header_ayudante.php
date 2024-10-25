@@ -105,10 +105,40 @@
 
         }
 
-        /*Quitar la flechita de el men]u */
-        .nav-link.dropdown-toggle::after {
-            display: none;
-        }
+        .d-flex .dropdown-menu {
+        position: absolute; 
+        left: 1150px; 
+        top: 55px; 
+        width: 150px; 
+        z-index: 1000;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+        font-size: 14px; 
+    }
+
+    .d-flex .dropdown-menu .dropdown-item.fijo {
+        background-color: #b3e5fc; 
+        color: #000; 
+        font-weight: bold;
+    }
+
+    
+    .d-flex .dropdown-menu .dropdown-item {
+        padding: 10px;
+    }
+
+    
+    .d-flex .dropdown-menu .dropdown-item:hover {
+        background-color:  #b3e5fc; 
+    }
+
+
+  /* Quitar la flecha en el dropdown */
+.nav-link.dropdown-toggle::after {
+    display: none;
+}
+
+
       /*PARA CAMBIAR EL COLOR DE LA LETRA DE EL NAV SEGUN LOS TEMAS DE OSCURO Y CLARO */
       body[data-bs-theme='dark'] .nav-link {
             color: #fff; 
@@ -116,13 +146,6 @@
     
         body[data-bs-theme='light'] .nav-link {
             color: #000; 
-        }
-
-        /* Ajusta el posicionamiento del menú desplegable */
-        .dropdown-menu {
-            position: absolute; 
-            left: -50%; 
-            transform: translateX(-50%); 
         }
 
         /* TRADUCTOR */

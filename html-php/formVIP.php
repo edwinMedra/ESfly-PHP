@@ -27,6 +27,11 @@
             <h3 class="card-title text-center mt-5">Reservar VIP</h3>
             <form method="post" enctype="multipart/form-data">
 
+            <div class="form-group mb-3">
+                <label for="cantidadAsientos">Cantidad de asientos</label>
+                <input type="number" class="form-control" id="cantidadAsientos" name="cantidadAsientos" min="1" max="5" oninput="this.value = Math.abs(this.value)">
+            </div>
+    
 
                 <h5 class="card-title text-center mt-5">Equipaje:</h5>
                 <div id="tablaEquipajeSection" class="mb-3">
@@ -44,7 +49,6 @@
                                 <td><input type="checkbox" class="check" name="articuloPersonal"></td>
                                 <td>
                                     <select class="form-control" name="cantidadArticuloPersonal">
-                                        <option value="0">0</option>
                                         <option value="1">1</option>
                                         <option value="2">2</option>
                                         <option value="3">3</option>
@@ -57,7 +61,6 @@
                                 <td><input type="checkbox" class="check" name="equipajeMano"></td>
                                 <td>
                                     <select class="form-control" name="cantidadEquipajeMano">
-                                        <option value="0">0</option>
                                         <option value="1">1</option>
                                         <option value="2">2</option>
                                         <option value="3">3</option>
@@ -70,7 +73,6 @@
                                 <td><input type="checkbox" class="check" name="equipajeBodega"></td>
                                 <td>
                                     <select class="form-control" name="cantidadEquipajeBodega">
-                                        <option value="0">0</option>
                                         <option value="1">1</option>
                                         <option value="2">2</option>
                                         <option value="3">3</option>
