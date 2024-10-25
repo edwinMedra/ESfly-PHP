@@ -255,6 +255,125 @@ insert($K4,$K4N,$sesion,$idVuelo);
 insert($K5,$K5N,$sesion,$idVuelo);
 insert($K6,$K6N,$sesion,$idVuelo);
 
+$insertFactura = $conexion->query("INSERT INTO facturaAsientos (idUsuario, idVuelo) values ($sesion,$idVuelo)");
+
+function factura($asiento,$num, $sesion, $idVuelo)
+{
+    include("../conex.php");
+    if (!($asiento == null or $asiento == "")) {
+        $resul = $conexion->query("UPDATE facturaAsientos set $num='ocupado', cliente$num='$sesion' where idVuelo='$idVuelo' and idUsuario = '$sesion'");
+        if ($resul) {
+            echo "";
+        }
+    }
+}
+
+factura($A1,$A1N,$sesion,$idVuelo);
+factura($A2,$A2N,$sesion,$idVuelo);
+factura($A3,$A3N,$sesion,$idVuelo);
+factura($A4,$A4N,$sesion,$idVuelo);
+factura($A5,$A5N,$sesion,$idVuelo);
+factura($A6,$A6N,$sesion,$idVuelo);
+
+// tomar el valor de la fila B
+
+factura($B1,$B1N,$sesion,$idVuelo);
+factura($B2,$B2N,$sesion,$idVuelo);
+factura($B3,$B3N,$sesion,$idVuelo);
+factura($B4,$B4N,$sesion,$idVuelo);
+factura($B5,$B5N,$sesion,$idVuelo);
+factura($B6,$B6N,$sesion,$idVuelo);
+
+
+// tomar el valor de la fila c 
+
+factura($C1,$C1N,$sesion,$idVuelo);
+factura($C2,$C2N,$sesion,$idVuelo);
+factura($C3,$C3N,$sesion,$idVuelo);
+factura($C4,$C4N,$sesion,$idVuelo);
+factura($C5,$C5N,$sesion,$idVuelo);
+factura($C6,$C6N,$sesion,$idVuelo);
+
+// tomar el valor de la fila d
+
+factura($D1,$D1N,$sesion,$idVuelo);
+factura($D2,$D2N,$sesion,$idVuelo);
+factura($D3,$D3N,$sesion,$idVuelo);
+factura($D4,$D4N,$sesion,$idVuelo);
+factura($D5,$D5N,$sesion,$idVuelo);
+factura($D6,$D6N,$sesion,$idVuelo);
+
+// tomar el valor de la fila E
+
+factura($E1,$E1N,$sesion,$idVuelo);
+factura($E2,$E2N,$sesion,$idVuelo);
+factura($E3,$E3N,$sesion,$idVuelo);
+factura($E4,$E4N,$sesion,$idVuelo);
+factura($E5,$E5N,$sesion,$idVuelo);
+factura($E6,$E6N,$sesion,$idVuelo);
+
+// tomar el valor de la fila F
+
+factura($F1,$F1N,$sesion,$idVuelo);
+factura($F2,$F2N,$sesion,$idVuelo);
+factura($F3,$F3N,$sesion,$idVuelo);
+factura($F4,$F4N,$sesion,$idVuelo);
+factura($F5,$F5N,$sesion,$idVuelo);
+factura($F6,$F6N,$sesion,$idVuelo);
+
+// Tomar el valor de la fila G
+
+factura($F1,$F1N,$sesion,$idVuelo);
+factura($F2,$F2N,$sesion,$idVuelo);
+factura($F3,$F3N,$sesion,$idVuelo);
+factura($F4,$F4N,$sesion,$idVuelo);
+factura($F5,$F5N,$sesion,$idVuelo);
+factura($F6,$F6N,$sesion,$idVuelo);
+
+
+// tomar el valor de la Fila H
+
+factura($H1,$F1N,$sesion,$idVuelo);
+factura($H2,$F2N,$sesion,$idVuelo);
+factura($H3,$F3N,$sesion,$idVuelo);
+factura($H4,$F4N,$sesion,$idVuelo);
+factura($H5,$F5N,$sesion,$idVuelo);
+factura($H6,$F6N,$sesion,$idVuelo);
+
+// tomar el valor de la Fila I
+
+factura($G1,$G1N,$sesion,$idVuelo);
+factura($G2,$G2N,$sesion,$idVuelo);
+factura($G3,$G3N,$sesion,$idVuelo);
+factura($G4,$G4N,$sesion,$idVuelo);
+factura($G5,$G5N,$sesion,$idVuelo);
+factura($G6,$G6N,$sesion,$idVuelo);
+
+// tomar el valor de la Fila J
+
+factura($J1,$J1N,$sesion,$idVuelo);
+factura($J2,$J2N,$sesion,$idVuelo);
+factura($J3,$J3N,$sesion,$idVuelo);
+factura($J4,$J4N,$sesion,$idVuelo);
+factura($J5,$J5N,$sesion,$idVuelo);
+factura($J6,$J6N,$sesion,$idVuelo);
+
+// tomar el valor de la Fila K
+
+factura($K1,$K1N,$sesion,$idVuelo);
+factura($K2,$K2N,$sesion,$idVuelo);
+factura($K3,$K3N,$sesion,$idVuelo);
+factura($K4,$K4N,$sesion,$idVuelo);
+factura($K5,$K5N,$sesion,$idVuelo);
+factura($K6,$K6N,$sesion,$idVuelo);
+
+// ingresar el id de asientos 
+$idAsientos = $conexion->query("SELECT * FROM facturaAsientos where idUsuario = '$sesion' and idVuelo='$idVuelo'");
+$idFactura = $idAsientos->fetch_array();
+$idFacID = $idFactura['id'];
+$asientoUpdate = $conexion->query("UPDATE facturaVueloNormal set idAsientos = '$idFacID' where idVuelo = '$idVuelo'");
+
+
 
 echo "<script>
 window.location.href = 'formularioPago.php?idVuelo=" . $idVuelo . "'

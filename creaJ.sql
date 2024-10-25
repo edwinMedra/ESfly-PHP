@@ -418,7 +418,7 @@ select * from criticas;
 select * from facturaVueloNormal;
 select * from facturaAsientos;
 use railway; 
-select * from facturaVueloNormal inner join facturaAsientos on facturaVueloNormal.idAsientos = facturaAsientos.id;
+select * from facturaVueloNormal inner join facturaAsientos on facturaVueloNormal.idAsientos = facturaAsientos.id where facturaVueloNormal.idUsuario = 4;
 -- script para truncar las tablas de información
 -- truncate table vuelo; 
 -- truncate table vueloUsuarioAsistente;

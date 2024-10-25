@@ -372,7 +372,11 @@ factura($K6,$K6N,$sesion,$idVuelo);
 $idAsientos = $conexion->query("SELECT * FROM facturaAsientos where idUsuario = '$sesion' and idVuelo='$idVuelo'");
 $idFactura = $idAsientos->fetch_array();
 $idFacID = $idFactura['id'];
-$asientoUpdate = $conexion->query("UPDATE facturaVueloNormal set idAsientos = '$idFacID'");
+$asientoUpdate = $conexion->query("UPDATE facturaVueloNormal set idAsientos = '$idFacID' where idVuelo = '$idVuelo'");
+
+
+
+
 echo "<script>
 window.location.href = 'formularioPago.php?idVuelo=" . $idVuelo . "'
 </script>";

@@ -83,7 +83,6 @@
                                 <td><input type="checkbox" class="check" name="equipajeBodega"></td>
                                 <td>
                                     <select class="form-control" name="cantidadAsientos">
-                                        <option value="0">0</option>
                                         <option value="1">1</option>
                                         <option value="2">2</option>
                                         <option value="3">3</option>
@@ -239,7 +238,11 @@ if ($boton) {
     $cantEquiBodega = trim($_POST['cantidadEquipajeBodega']);
     $asientos = $_POST['cantidadAsientos'];
     $articulos = $conexion->query("UPDATE form SET tipoVuelo='Vuelo VIP', artiPersona='$cantArticPerso', equiMano='$cantEquiMano', equiBodega='$cantEquiBodega' where idVuelo='$idVuelo' and idUsuario='$id' and idForm ='$idForm'");
-    
+
+    # Insertar datos para la factura
+    $insertFactura = $conexion->query("INSERT INTO facturaVueloNormal VALUES (null, null, '$idVuelo' , '$id' ,'$cantArticPerso','$cantEquiMano','$cantEquiBodega','$asientos', null,2)");
+
+
     echo "<script>
       window.location.href = 'asientosVIP.php?idVuelo=" .  $idVuelo . "&asientos=" . $asientos . "'; </script>";
 }
