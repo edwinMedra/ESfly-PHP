@@ -23,14 +23,14 @@
     .back {
         position: relative;
         width: 100%;
-        height: 400px; 
+        height: 400px;
         overflow: hidden;
     }
 
     .img-fondo {
         width: 100%;
         height: 400px;
-        object-fit: cover; 
+        object-fit: cover;
     }
 
     .overlay {
@@ -39,7 +39,8 @@
         left: 0;
         width: 100%;
         height: 100%;
-        background-color: rgba(0, 0, 0, 0.5); /* Filtro oscuro solo sobre la imagen */
+        background-color: rgba(0, 0, 0, 0.5);
+        /* Filtro oscuro solo sobre la imagen */
     }
 
     .titulo {
@@ -64,7 +65,8 @@
         width: 100%;
     }
 
-    .table th, .table td {
+    .table th,
+    .table td {
         border: 1px solid #dee2e6;
         padding: 8px;
         text-align: center;
@@ -102,7 +104,8 @@
             font-size: 1.75rem;
         }
 
-        .table th, .table td {
+        .table th,
+        .table td {
             padding: 6px;
         }
     }
@@ -130,6 +133,7 @@
     </div>
 
     <!-- TABLA DE PASAJEROS -->
+
     <div class="container table-container">
         <div class="title-border text-center">
             <h5>CITAS DISPONIBLES </h5>
@@ -141,34 +145,55 @@
                         <th>Id</th>
                         <th>Nombre Pasajero</th>
                         <th>Vuelo</th>
-                        <th>Hora</th>
-                        <th>Fecha</th>
-                        <th>Género</th>
+                        <th>Hora y fecha</th>
+                  
                         <th>Discapacidad</th>
-                        <th>Número de teléfono</th>
+                        <th>Correo</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>Juan Pérez</td>
-                        <td>El Salvador - Colombia</td>
-                        <td>14:00</td>
-                        <td>23/10/2024</td>
-                        <td>Masculino</td>
-                        <td>Motora</td>
-                        <td>76234634</td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>Ana Gómez</td>
-                        <td>El Salvador - Estados Unidos</td>
-                        <td>15:30</td>
-                        <td>24/10/2024</td>
-                        <td>Femenino</td>
-                        <td>Visual</td>
-                        <td>72143547</td>
-                    </tr>
+
+                    <?php
+                    // consulta de las notificaciones para este asistente
+                    $noti = $conexion->query("SELECT * FROM vueloUsuarioAsistente WHERE idAsistente = '$sesion'");
+                    $resul = mysqli_num_rows($noti);
+                    // datos de la base de datos 
+                    while ($row = $noti->fetch_array()) {
+                        // se toma los datos de la base de datos
+                        $idUsuario = $row['idUsuario'];
+                        $idVuelo = $row['idVuelo'];
+                        // fin base de datos
+                        $usuario = $conexion->query("SELECT * FROM usuario where idCliente = '$idUsuario'");
+                        $row1 = $usuario->fetch_array();
+                        // consulta para la info de vuelo
+                        $vuelo = $conexion->query("SELECT * FROM vuelo where idVuelo='$idVuelo'");
+                        $rowV = $vuelo->fetch_array();
+                        $fotoUsu = $row1['foto'];
+                        // consulta para la incapacidad de este usuario
+                        $form = $conexion->query("SELECT * FROM form where idVuelo='$idVuelo' and idUsuario='$idUsuario'");
+                        $rowF = $form->fetch_array();
+
+
+
+                    ?>
+
+
+                        <tr>
+                            <td><?php echo $idUsuario?></td>
+                            <td><?php echo $row1['nomCliente'] ." ". $row1['apeCliente']?></td>
+                            <td><?php echo $rowV['origen']?> - <?php echo $rowV['destino']?></td>
+                            <td><?php echo $rowV['fechaEntrada']  ?></td>
+                            <td><?php echo $rowF['tipoIncapacidad']?></td>
+                            <td><?php echo $row1['correo']?></td>
+                        </tr>
+
+
+
+                    <?php
+
+                    }
+
+                    ?>
                 </tbody>
             </table>
         </div>

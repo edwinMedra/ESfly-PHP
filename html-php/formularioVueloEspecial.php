@@ -440,6 +440,13 @@ if ($boton) {
     $cantEquiBodega = trim($_POST['cantidadEquipajeBodega']);
     $asientos = $_POST['cantidadAsientos'];
     $articulos = $conexion->query("UPDATE form SET tipoIncapacidad='$tipoIncapacidad', artiPersona='$cantArticPerso', equiMano='$cantEquiMano', equiBodega='$cantEquiBodega' where idVuelo='$idVuelo' and idUsuario='$id'");
+    
+
+     # Insertar datos para la factura
+     $insertFactura = $conexion->query("INSERT INTO facturaVueloNormal VALUES (null, null, '$idVuelo' , '$id' ,'$cantArticPerso','$cantEquiMano','$cantEquiBodega','$asientos', null,3)");
+
+
+    
     echo "<script>
       window.location.href = 'seleccionDeAsientosVIP.php?idVuelo=" .  $idVuelo . "&asientos=".$asientos."'; </script>";
 }

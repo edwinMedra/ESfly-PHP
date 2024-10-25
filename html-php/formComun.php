@@ -27,10 +27,7 @@
             <h3 class="card-title text-center mt-5">Reservar vuelo normal</h3>
             <form method="post" enctype="multipart/form-data">
 
-            <div class="form-group mb-3">
-                <label for="cantidadAsientos">Cantidad de asientos</label>
-                <input type="number" class="form-control" id="cantidadAsientos" name="cantidadAsientos" min="1" max="5" oninput="this.value = Math.abs(this.value)">
-            </div>
+   
 
 
 
