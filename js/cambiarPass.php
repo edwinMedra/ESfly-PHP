@@ -35,7 +35,7 @@ if ($rol == "usuario") {
     }
 </style>
 <?php
-include("conex.php");
+include("../conex.php");
 session_start();
 $id = $_SESSION['$id'];
 if ($id == null || $id == ''){

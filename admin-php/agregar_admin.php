@@ -53,7 +53,7 @@ if (isset($_POST['crear'])) {
             echo '<script>alert("Dui ' . $dui . ' ya existente, intente nuevamente")</script>';
         } else 
         if ($foto) {
-            include("conex.php");
+         
             $incriptada = password_hash($pass, PASSWORD_DEFAULT);
             $sql = "INSERT INTO administradores(nomAdmin,apeAdmin,pass,email,pasaporte,dui,cargo,descri,rol) VALUES('$name','$lastname','$incriptada','$email','$pasporte','$dui','$cargo','$descri','admin')";
             $resul = $conexion->query($sql);
@@ -65,7 +65,7 @@ if (isset($_POST['crear'])) {
                 echo '<script>alert("Error al ingresar datos del administrador")</script>';
             }
         } else {
-            include("conex.php");
+          
             $incriptada = password_hash($pass, PASSWORD_DEFAULT);
             $foto = addslashes(file_get_contents($_FILES['foto']['tmp_name']));
             $sql = "INSERT INTO administradores(nomAdmin,apeAdmin,pass,email,dui,cargo,descri,foto,rol,pasaporte) VALUES('$name','$lastname','$incriptada','$email','$dui','$cargo','$descri','$foto','admin','$pasporte')";
