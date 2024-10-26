@@ -95,7 +95,7 @@
                                 <li class="datos-emple mt-4"><b>Número de teléfono:</b> <?php echo $numTelefono ?></li>
                                 <li class="datos-emple mt-4"><b>Servicios:</b> <?php echo $servicios ?></li>
                                 <li class="datos-emple mt-4"><b>Horario de trabajo:</b> <?php echo $horarioTrabajo ?></li>
-                                <li class="datos-emple mt-4"><b>Género:</b> Femenino</li>
+                                <li class="datos-emple mt-4"><b>Género:</b> <?php echo $genero?></li>
                             </ul>
                             </p>
                             <div class="text-center mt-4">

@@ -226,7 +226,7 @@
     </div>
   </div>
   ';
-    while (    $rowFactura = $infoFactura->fetch_array()) {
+    while ($rowFactura = $infoFactura->fetch_array()) {
       $idVueloFactura = $rowFactura['idVuelo'];
       $cantidadAsientos = $rowFactura['cantidadAsientos']; // cantidad de asientos que selecciono el usuario
       $precio = $rowFactura['precio']; // precio del vuelo
@@ -591,7 +591,7 @@
               ?>
                 <h6>Empleado Especial:</h6>
                 <div class="row">
-                  <div class="col-md-4 mb-5">
+                  <div class="col-md-4 mb-3">
                     <div class="card tarjeta-empleado">
                       <div class="cuerpo-tarjeta">
                         <img src="data:image/jpg;base64,<?php echo base64_encode($fotoAsistente) ?>" alt="" class="imagen-empleado">
@@ -604,6 +604,19 @@
               }
               ?>
 
+              <a href="factura.php?idVuelo=<?php echo $idVueloFactura ?>" class="text-decoration-none text-black">
+                <div class="row">
+                  <h6>Factura:</h6>
+                  <div class="col-md-4 mb-5">
+                    <div class="card tarjeta-empleado">
+                      <div class="cuerpo-tarjeta">
+                        <img src="data:image/jpg;base64,<?php echo base64_encode($fotoPais) ?>" alt="" class="imagen-empleado">
+                        <h6>Ver Factura completa</h6>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </a>
 
               <div class="mb-4">
                 <h6>Servicio en el Vuelo:</h6>
